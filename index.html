@@ -419,32 +419,86 @@
 
 
         .info-card {
-            padding: 25px;
+            padding: 28px;
 
             background:
-                var(--card);
+                linear-gradient(
+                    145deg,
+                    rgba(20, 22, 32, 0.9),
+                    rgba(15, 17, 25, 0.75)
+                );
 
             border:
                 1px solid var(--border);
 
-            border-radius: 15px;
+            border-radius: 16px;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .info-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(124, 92, 255, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(27, 29, 42, 0.95),
+                    rgba(17, 19, 28, 0.85)
+                );
         }
 
 
         .info-card .icon {
-            font-size: 1.7rem;
 
-            margin-bottom: 12px;
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(124, 92, 255, 0.1);
+
+            border:
+                1px solid
+                rgba(124, 92, 255, 0.15);
+
+            border-radius: 12px;
+
+            font-size: 1.5rem;
+
+            margin-bottom: 18px;
         }
 
 
         .info-card h3 {
-            margin-bottom: 5px;
+
+            margin-bottom: 8px;
+
+            font-size: 1.15rem;
         }
 
 
         .info-card p {
+
             color: var(--muted);
+
+            font-size: 0.95rem;
+
+            line-height: 1.7;
         }
 
 
@@ -737,82 +791,161 @@
 
     <!-- SERVER INFORMATION -->
 
-    <section
-        class="section"
-        id="info"
-    >
+<!-- =========================
+     WHAT CAN YOU DO?
+========================= -->
+
+<section
+    class="section"
+    id="info"
+>
+
+    <h2 class="section-title">
+        What Can You Do?
+    </h2>
+
+    <p class="section-description">
+
+        NukeRoleplay is more than just building and
+        exploring. Create your own story and decide
+        how you want to live.
+
+    </p>
 
 
-        <h2 class="section-title">
-            Server Information
-        </h2>
+    <div class="info-grid">
 
 
-        <p class="section-description">
+        <!-- PROPERTY -->
 
-            Everything you need to know about
-            NukeRoleplay.
+        <div class="info-card">
 
-        </p>
-
-
-        <div class="info-grid">
-
-
-            <div class="info-card">
-
-                <div class="icon">
-                    ⛏️
-                </div>
-
-                <h3>
-                    Minecraft
-                </h3>
-
-                <p>
-                    Minecraft Java Edition
-                </p>
-
+            <div class="icon">
+                🏠
             </div>
 
+            <h3>
+                Buy & Own Properties
+            </h3>
 
-            <div class="info-card">
-
-                <div class="icon">
-                    🌐
-                </div>
-
-                <h3>
-                    Version
-                </h3>
-
-                <p>
-                    1.21.x
-                </p>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <div class="icon">
-                    🎭
-                </div>
-
-                <h3>
-                    Gamemode
-                </h3>
-
-                <p>
-                    Roleplay
-                </p>
-
-            </div>
-
+            <p>
+                Buy your own house, apartment or
+                other properties. Build your home,
+                customize it and give trusted players
+                access to your property.
+            </p>
 
         </div>
 
-    </section>
+
+        <!-- JOBS -->
+
+        <div class="info-card">
+
+            <div class="icon">
+                💼
+            </div>
+
+            <h3>
+                Jobs & Careers
+            </h3>
+
+            <p>
+                Choose your career and earn money
+                through different jobs. Work your way
+                up and build your own financial future.
+            </p>
+
+        </div>
+
+
+        <!-- ECONOMY -->
+
+        <div class="info-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>
+                Legal & Illegal Economy
+            </h3>
+
+            <p>
+                Make money legally through jobs and
+                businesses — or take the risky path
+                and earn money through illegal activities.
+            </p>
+
+        </div>
+
+
+        <!-- VEHICLES -->
+
+        <div class="info-card">
+
+            <div class="icon">
+                🚗
+            </div>
+
+            <h3>
+                Vehicles & Transportation
+            </h3>
+
+            <p>
+                Travel across the world using cars,
+                public transportation and other ways
+                to get around the cities.
+            </p>
+
+        </div>
+
+
+        <!-- POLICE -->
+
+        <div class="info-card">
+
+            <div class="icon">
+                👮
+            </div>
+
+            <h3>
+                Police & Law
+            </h3>
+
+            <p>
+                Follow the law, become a police officer,
+                investigate crimes or live life on the
+                other side of the law.
+            </p>
+
+        </div>
+
+
+        <!-- WORLD -->
+
+        <div class="info-card">
+
+            <div class="icon">
+                🌎
+            </div>
+
+            <h3>
+                A Growing World
+            </h3>
+
+            <p>
+                Explore cities, mountains, beaches and
+                unique locations in a constantly expanding
+                world filled with new places to discover.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
     <!-- =========================
