@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Changelogs | NukeRoleplay</title>
+
+    <meta
+        name="description"
+        content="All NukeRoleplay updates and changelogs."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #08090d;
+            --card: rgba(20, 22, 32, 0.8);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #f5f5f7;
+            --muted: #9b9daa;
+            --accent: #7c5cff;
+            --accent-hover: #9278ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% -20%,
+                    rgba(124, 92, 255, 0.22),
+                    transparent 45%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid var(--border);
+
+            background: rgba(8, 9, 13, 0.7);
+
+            backdrop-filter: blur(12px);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+
+            color: var(--muted);
+
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .page {
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 100px 25px;
+        }
+
+        .header {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: clamp(3rem, 7vw, 5rem);
+
+            letter-spacing: -3px;
+
+            margin-bottom: 20px;
+        }
+
+        .header h1 span {
+            color: var(--accent);
+        }
+
+        .header p {
+            color: var(--muted);
+
+            max-width: 600px;
+
+            margin: auto;
+
+            font-size: 1.05rem;
+        }
+
+        .changelog-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .changelog-card {
+            padding: 30px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            transition: 0.25s;
+        }
+
+        .changelog-card:hover {
+            transform: translateY(-3px);
+
+            border-color:
+                rgba(124, 92, 255, 0.4);
+
+            background:
+                rgba(25, 27, 39, 0.9);
+        }
+
+        .top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .version {
+            color: var(--accent);
+
+            font-size: 1.3rem;
+
+            font-weight: 800;
+        }
+
+        .date {
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+        .changelog-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: var(--muted);
+
+            margin-bottom: 22px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
+            background: var(--accent);
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: var(--accent-hover);
+
+            transform: translateY(-1px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .page {
+                padding-top: 70px;
+            }
+
+            .top {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <a href="index.html" class="logo">
+        Nuke<span>Roleplay</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="changelogs.html">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/YOUR-DISCORD-LINK"
+            target="_blank"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="page">
+
+    <header class="header">
+
+        <h1>
+            Change<span>logs</span>
+        </h1>
+
+        <p>
+            Explore every major update, feature,
+            improvement and bug fix released
+            for NukeRoleplay.
+        </p>
+
+    </header>
+
+
+    <div class="changelog-list">
+
+
+        <!-- VERSION 0.5.1 -->
+
+        <article class="changelog-card">
+
+            <div class="top">
+
+                <span class="version">
+                    v0.5.1
+                </span>
+
+                <span class="date">
+                    August 8, 2026
+                </span>
+
+            </div>
+
+            <h2>
+                World Expansion & New Systems
+            </h2>
+
+            <p class="description">
+                Major world expansions, new buildings,
+                housing improvements, new telephone cells
+                and the first version of IceGP.
+            </p>
+
+            <a
+                href="changelogs/0.5.1.html"
+                class="button"
+            >
+                View Changelog →
+            </a>
+
+        </article>
+
+
+        <!-- VERSION 0.5 -->
+
+        <article class="changelog-card">
+
+            <div class="top">
+
+                <span class="version">
+                    v0.5
+                </span>
+
+                <span class="date">
+                    July 9, 2026
+                </span>
+
+            </div>
+
+            <h2>
+                Jobs, Economy & Roleplay
+            </h2>
+
+            <p class="description">
+                New buildings, jobs, shops, housing,
+                economy features and major gameplay
+                improvements.
+            </p>
+
+            <a
+                href="changelogs/0.5.html"
+                class="button"
+            >
+                View Changelog →
+            </a>
+
+        </article>
+
+
+        <!-- VERSION 0.4.7 -->
+
+        <article class="changelog-card">
+
+            <div class="top">
+
+                <span class="version">
+                    v0.4.7
+                </span>
+
+                <span class="date">
+                    June 30, 2026
+                </span>
+
+            </div>
+
+            <h2>
+                World Expansion & Housing
+            </h2>
+
+            <p class="description">
+                Major terraforming, new towns,
+                the White House, new shops,
+                passive spawners and a reworked
+                housing system.
+            </p>
+
+            <a
+                href="changelogs/0.4.7.html"
+                class="button"
+            >
+                View Changelog →
+            </a>
+
+        </article>
+
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    © 2026
+    <strong>NukeRoleplay</strong>.
+    All rights reserved.
+
+</footer>
+
+</body>
+</html>

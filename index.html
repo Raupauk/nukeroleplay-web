@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NukeRoleplay | Minecraft Roleplay</title>
 
-    <meta name="description" content="NukeRoleplay – A unique Minecraft Roleplay experience.">
+    <meta
+        name="description"
+        content="NukeRoleplay – A unique Minecraft Roleplay experience."
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -32,8 +37,14 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
 
             background:
                 radial-gradient(
@@ -44,7 +55,9 @@
                 var(--bg);
 
             color: var(--text);
+
             min-height: 100vh;
+
             line-height: 1.6;
         }
 
@@ -53,73 +66,105 @@
             text-decoration: none;
         }
 
-        /* NAVIGATION */
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             width: 100%;
+
             padding: 20px 6%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
-            background: rgba(8, 9, 13, 0.7);
+            background:
+                rgba(8, 9, 13, 0.7);
+
             backdrop-filter: blur(12px);
 
             position: sticky;
+
             top: 0;
+
             z-index: 100;
         }
 
+
         .logo {
             font-size: 1.3rem;
+
             font-weight: 800;
+
             letter-spacing: -0.5px;
         }
+
 
         .logo span {
             color: var(--accent);
         }
 
+
         .nav-links {
             display: flex;
+
             gap: 28px;
 
             color: var(--muted);
+
             font-size: 0.95rem;
         }
+
 
         .nav-links a {
             transition: 0.2s;
         }
 
+
         .nav-links a:hover {
             color: white;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             max-width: 1100px;
+
             margin: auto;
 
-            padding: 110px 25px 80px;
+            padding:
+                110px 25px 80px;
 
             text-align: center;
         }
 
+
         .badge {
             display: inline-flex;
+
             align-items: center;
+
             gap: 8px;
 
-            padding: 7px 13px;
+            padding:
+                7px 13px;
 
-            border: 1px solid rgba(72, 213, 151, 0.25);
+            border:
+                1px solid
+                rgba(72, 213, 151, 0.25);
 
-            background: rgba(72, 213, 151, 0.08);
+            background:
+                rgba(72, 213, 151, 0.08);
 
             border-radius: 999px;
 
@@ -130,19 +175,26 @@
             margin-bottom: 25px;
         }
 
+
         .status-dot {
             width: 8px;
+
             height: 8px;
 
-            background: var(--success);
+            background:
+                var(--success);
 
             border-radius: 50%;
 
-            box-shadow: 0 0 12px rgba(72, 213, 151, 0.8);
+            box-shadow:
+                0 0 12px
+                rgba(72, 213, 151, 0.8);
         }
 
+
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size:
+                clamp(3rem, 8vw, 6rem);
 
             line-height: 0.95;
 
@@ -153,9 +205,11 @@
             margin-bottom: 25px;
         }
 
+
         .hero h1 span {
             color: var(--accent);
         }
+
 
         .hero p {
             max-width: 650px;
@@ -167,7 +221,10 @@
             font-size: 1.1rem;
         }
 
-        /* BUTTONS */
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .buttons {
             display: flex;
@@ -181,8 +238,12 @@
             flex-wrap: wrap;
         }
 
+
         .button {
-            padding: 13px 22px;
+            display: inline-block;
+
+            padding:
+                13px 22px;
 
             border-radius: 10px;
 
@@ -191,47 +252,66 @@
             transition: 0.2s;
         }
 
+
         .button-primary {
-            background: var(--accent);
+            background:
+                var(--accent);
         }
+
 
         .button-primary:hover {
-            background: var(--accent-hover);
+            background:
+                var(--accent-hover);
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
         }
+
 
         .button-secondary {
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-            background: rgba(255, 255, 255, 0.03);
+            background:
+                rgba(255, 255, 255, 0.03);
         }
+
 
         .button-secondary:hover {
-            background: rgba(255, 255, 255, 0.07);
+            background:
+                rgba(255, 255, 255, 0.07);
         }
 
-        /* SERVER CARD */
+
+        /* =========================
+           SERVER CARD
+        ========================= */
 
         .server-box {
             max-width: 850px;
 
-            margin: 20px auto 80px;
+            margin:
+                20px auto 80px;
 
             padding: 30px;
 
-            background: var(--card);
+            background:
+                var(--card);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 18px;
 
-            backdrop-filter: blur(15px);
+            backdrop-filter:
+                blur(15px);
         }
+
 
         .server-box h2 {
             margin-bottom: 20px;
         }
+
 
         .ip-box {
             display: flex;
@@ -240,16 +320,20 @@
 
             justify-content: space-between;
 
-            background: #090a0f;
+            background:
+                #090a0f;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
-            padding: 15px 18px;
+            padding:
+                15px 18px;
 
             border-radius: 10px;
 
             gap: 15px;
         }
+
 
         .ip {
             font-family: monospace;
@@ -259,14 +343,17 @@
             color: #ddd;
         }
 
+
         .copy-button {
             border: none;
 
-            background: var(--accent);
+            background:
+                var(--accent);
 
             color: white;
 
-            padding: 9px 15px;
+            padding:
+                9px 15px;
 
             border-radius: 7px;
 
@@ -275,23 +362,31 @@
             font-weight: 700;
         }
 
+
         .copy-button:hover {
-            background: var(--accent-hover);
+            background:
+                var(--accent-hover);
         }
 
-        /* CONTENT */
+
+        /* =========================
+           CONTENT
+        ========================= */
 
         .container {
             max-width: 1100px;
 
             margin: auto;
 
-            padding: 0 25px 100px;
+            padding:
+                0 25px 100px;
         }
+
 
         .section {
             margin-bottom: 70px;
         }
+
 
         .section-title {
             font-size: 2rem;
@@ -301,31 +396,40 @@
             letter-spacing: -1px;
         }
 
+
         .section-description {
             color: var(--muted);
 
             margin-bottom: 25px;
         }
 
-        /* INFO GRID */
+
+        /* =========================
+           SERVER INFORMATION
+        ========================= */
 
         .info-grid {
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 18px;
         }
 
+
         .info-card {
             padding: 25px;
 
-            background: var(--card);
+            background:
+                var(--card);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 15px;
         }
+
 
         .info-card .icon {
             font-size: 1.7rem;
@@ -333,15 +437,20 @@
             margin-bottom: 12px;
         }
 
+
         .info-card h3 {
             margin-bottom: 5px;
         }
+
 
         .info-card p {
             color: var(--muted);
         }
 
-        /* CHANGELOG */
+
+        /* =========================
+           CHANGELOG
+        ========================= */
 
         .changelog {
             display: flex;
@@ -351,15 +460,19 @@
             gap: 18px;
         }
 
+
         .update {
             padding: 25px;
 
-            background: var(--card);
+            background:
+                var(--card);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 15px;
         }
+
 
         .update-header {
             display: flex;
@@ -371,11 +484,13 @@
             margin-bottom: 15px;
         }
 
+
         .version {
             font-weight: 800;
 
             color: var(--accent);
         }
+
 
         .date {
             color: var(--muted);
@@ -383,18 +498,27 @@
             font-size: 0.9rem;
         }
 
-        .update ul {
-            padding-left: 20px;
 
+        .update h3 {
+            margin-bottom: 8px;
+        }
+
+
+        .update p {
             color: var(--muted);
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
 
-            padding: 30px 20px;
+            padding:
+                30px 20px;
 
             text-align: center;
 
@@ -403,11 +527,15 @@
             font-size: 0.9rem;
         }
 
+
         footer strong {
             color: white;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 700px) {
 
@@ -415,17 +543,21 @@
                 display: none;
             }
 
+
             .hero {
                 padding-top: 80px;
             }
+
 
             .hero h1 {
                 letter-spacing: -2px;
             }
 
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .ip-box {
                 flex-direction: column;
@@ -433,22 +565,43 @@
                 align-items: stretch;
             }
 
+
             .copy-button {
                 width: 100%;
             }
+
+
+            .update-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 5px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- NAVIGATION -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
-    <div class="logo">
+    <a
+        href="index.html"
+        class="logo"
+    >
         Nuke<span>Roleplay</span>
-    </div>
+    </a>
+
 
     <div class="nav-links">
 
@@ -456,16 +609,19 @@
             Server
         </a>
 
+
         <a href="#info">
             Information
         </a>
 
-        <a href="#changelog">
-            Changelog
+
+        <a href="changelogs.html">
+            Changelogs
         </a>
 
+
         <a
-            href="https://discord.gg/YOUR-DISCORD-LINK"
+            href="https://discord.gg/zdH3rhXzdu"
             target="_blank"
         >
             Discord
@@ -476,9 +632,12 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
+
 
     <div class="badge">
 
@@ -507,6 +666,7 @@
 
     <div class="buttons">
 
+
         <a
             class="button button-primary"
             href="https://discord.gg/zdH3rhXzdu"
@@ -518,22 +678,26 @@
 
         <a
             class="button button-secondary"
-            href="#changelog"
+            href="changelogs.html"
         >
-            📋 View Changelog
+            📋 View Changelogs
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- SERVER -->
+<!-- =========================
+     SERVER
+========================= -->
 
 <div
     class="server-box"
     id="server"
 >
+
 
     <h2>
         🎮 Join the Server
@@ -542,11 +706,12 @@
 
     <div class="ip-box">
 
+
         <span
             class="ip"
-            id="nukerp.ggwp.cc"
+            id="serverIP"
         >
-            play.nukeroleplay.de
+            nukerp.ggwp.cc
         </span>
 
 
@@ -557,12 +722,15 @@
             Copy IP
         </button>
 
+
     </div>
 
 </div>
 
 
-<!-- MAIN CONTENT -->
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 
 <main class="container">
 
@@ -573,6 +741,7 @@
         class="section"
         id="info"
     >
+
 
         <h2 class="section-title">
             Server Information
@@ -640,27 +809,31 @@
 
             </div>
 
+
         </div>
 
     </section>
 
 
-    <!-- CHANGELOG -->
+    <!-- =========================
+         LATEST UPDATES
+    ========================= -->
 
     <section
         class="section"
         id="changelog"
     >
 
+
         <h2 class="section-title">
-            Changelog
+            Latest Updates
         </h2>
 
 
         <p class="section-description">
 
-            Keep up with the latest updates,
-            changes and improvements to NukeRoleplay.
+            Check out the latest changes and improvements
+            to NukeRoleplay.
 
         </p>
 
@@ -668,119 +841,179 @@
         <div class="changelog">
 
 
-            <!-- VERSION 1.0.0 -->
+            <!-- v0.5.1 -->
 
             <article class="update">
 
+
                 <div class="update-header">
 
+
                     <span class="version">
-                        v1.0.0
+                        v0.5.1
                     </span>
 
+
                     <span class="date">
-                        August 13, 2026
+                        August 8, 2026
                     </span>
+
 
                 </div>
 
 
-                <ul>
+                <h3>
+                    World Expansion & New Systems
+                </h3>
 
-                    <li>
-                        NukeRoleplay officially launched
-                    </li>
 
-                    <li>
-                        New spawn area
-                    </li>
+                <p>
 
-                    <li>
-                        New roleplay systems
-                    </li>
+                    Major world expansions, new buildings,
+                    housing improvements and new systems.
 
-                    <li>
-                        First quests added
-                    </li>
+                </p>
 
-                </ul>
+
+                <br>
+
+
+                <a
+                    href="changelogs/0.5.1.html"
+                    class="button button-primary"
+                >
+                    View Changelog →
+                </a>
+
 
             </article>
 
 
-            <!-- VERSION 0.9.0 -->
+            <!-- v0.5 -->
 
             <article class="update">
 
+
                 <div class="update-header">
 
+
                     <span class="version">
-                        v0.9.0
+                        v0.5
                     </span>
 
+
                     <span class="date">
-                        August 1, 2026
+                        July 9, 2026
                     </span>
+
 
                 </div>
 
 
-                <ul>
+                <h3>
+                    Jobs, Economy & Roleplay
+                </h3>
 
-                    <li>
-                        Internal testing phase started
-                    </li>
 
-                    <li>
-                        Spawn system developed
-                    </li>
+                <p>
 
-                    <li>
-                        First roleplay mechanics implemented
-                    </li>
+                    New jobs, buildings, shops, housing,
+                    economy features and major gameplay
+                    improvements.
 
-                </ul>
+                </p>
+
+
+                <br>
+
+
+                <a
+                    href="changelogs/0.5.html"
+                    class="button button-primary"
+                >
+                    View Changelog →
+                </a>
+
 
             </article>
 
 
         </div>
 
+
+        <!-- ALL CHANGELOGS -->
+
+        <div
+            style="
+                text-align: center;
+                margin-top: 30px;
+            "
+        >
+
+
+            <a
+                href="changelogs.html"
+                class="button button-secondary"
+            >
+                View All Changelogs →
+            </a>
+
+
+        </div>
+
+
     </section>
+
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
+
 
     <p>
 
         © 2026
-        <strong>NukeRoleplay</strong>.
+
+        <strong>
+            NukeRoleplay
+        </strong>.
+
         All rights reserved.
 
     </p>
 
+
 </footer>
 
 
-<!-- JAVASCRIPT -->
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
     function copyIP() {
 
         const ip =
-            document.getElementById("serverIP").innerText;
+            document
+                .getElementById("serverIP")
+                .innerText;
 
 
-        navigator.clipboard.writeText(ip);
+        navigator
+            .clipboard
+            .writeText(ip);
 
 
         const button =
-            document.querySelector(".copy-button");
+            document.querySelector(
+                ".copy-button"
+            );
 
 
         button.innerText =
@@ -797,6 +1030,7 @@
     }
 
 </script>
+
 
 </body>
 </html>

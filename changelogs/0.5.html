@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>v0.5 | NukeRoleplay</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #08090d;
+    --card: rgba(20,22,32,.8);
+    --border: rgba(255,255,255,.08);
+    --text: #f5f5f7;
+    --muted: #9b9daa;
+    --accent: #7c5cff;
+    --accent-hover: #9278ff;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(124,92,255,.22),
+            transparent 45%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav {
+    padding: 20px 6%;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(8,9,13,.7);
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+
+    color: var(--muted);
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.page {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 90px 25px 120px;
+}
+
+.back {
+    color: var(--muted);
+
+    display: inline-block;
+
+    margin-bottom: 35px;
+}
+
+.back:hover {
+    color: white;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+.version {
+    color: var(--accent);
+
+    font-weight: 800;
+}
+
+.header h1 {
+    font-size: clamp(3rem,7vw,5rem);
+
+    letter-spacing: -3px;
+
+    margin: 5px 0 15px;
+}
+
+.date {
+    color: var(--muted);
+}
+
+.category {
+    margin-bottom: 40px;
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+}
+
+.category h2 {
+    margin-bottom: 20px;
+
+    color: var(--accent);
+}
+
+.category ul {
+    padding-left: 22px;
+
+    color: var(--muted);
+}
+
+.category li {
+    margin-bottom: 10px;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+@media(max-width:700px) {
+
+    .nav-links {
+        display: none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="../index.html" class="logo">
+Nuke<span>Roleplay</span>
+</a>
+
+<div class="nav-links">
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="../changelogs.html">
+Changelogs
+</a>
+
+<a
+href="https://discord.gg/YOUR-DISCORD-LINK"
+target="_blank"
+>
+Discord
+</a>
+
+</div>
+
+</nav>
+
+
+<main class="page">
+
+<a href="../changelogs.html" class="back">
+← Back to Changelogs
+</a>
+
+
+<header class="header">
+
+<div class="version">
+VERSION 0.5
+</div>
+
+<h1>
+Jobs & Economy
+</h1>
+
+<div class="date">
+July 9, 2026
+</div>
+
+</header>
+
+
+<section class="category">
+
+<h2>🌍 World & Building</h2>
+
+<ul>
+
+<li>Finished the F1 Racing Track.</li>
+
+<li>Added a new Spawn Area.</li>
+
+<li>Added the White House Garden.</li>
+
+<li>Added new buildings in Sintra.</li>
+
+<li>Finished decorating most buildings in Sintra.</li>
+
+<li>Updated BlueMap.</li>
+
+<li>Added Björn the Castle Keeper.</li>
+
+<li>Added Zandor's Magic Show in Grimwater.</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>💼 Jobs & Economy</h2>
+
+<ul>
+
+<li>Remade the Miner Job.</li>
+
+<li>
+The new mines are located at the Master City Quarry
+instead of Dry Valley.
+</li>
+
+<li>
+Mines now consist of two levels instead of three.
+</li>
+
+<li>
+Mines are significantly larger and contain
+more ores and mineable blocks.
+</li>
+
+<li>Fixed money checks not working correctly.</li>
+
+<li>
+Fixed Lumberjack and Miner tools not losing durability.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>🛍️ Shops & NPCs</h2>
+
+<ul>
+
+<li>Added Helena's Spawner Shop.</li>
+
+<li>
+Added the Industrial Shop selling Ore Crushers,
+Industrial Crafters and more.
+</li>
+
+<li>
+Added firework rockets with different designs
+to Travolios Stage Shop.
+</li>
+
+<li>Redefined multiple NPC regions.</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>⚙️ Systems & Mechanics</h2>
+
+<ul>
+
+<li>Updated multiple plugins and outdated scripts.</li>
+
+<li>
+Added XP caps to passive spawners,
+which increase with level.
+</li>
+
+<li>
+Fixed passive spawners only using half
+of their storage at Storage Level 3.
+</li>
+
+<li>
+Added the /loginstreak command,
+giving players a daily reward for staying active.
+</li>
+
+<li>Remade the passport system.</li>
+
+<li>
+Players can now set their hometown
+at the passport official of their preferred town.
+</li>
+
+<li>
+Added the /house menu and /house trust commands.
+</li>
+
+<li>
+Players can now trust others and give them
+permissions inside their houses.
+</li>
+
+<li>Fixed several bugs within the new housing system.</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>📱 Mobile & Crafting</h2>
+
+<ul>
+
+<li>
+Changed Junk Phone functions by removing apps
+that are now limited to better phones.
+</li>
+
+<li>Added Tweeter to the Mobile Phone.</li>
+
+<li>Set up telephone cells.</li>
+
+<li>Remade recipe menus for the Wood Bench Saw
+and Carpenter's Table.
+</li>
+
+<li>Added the Ore Crusher.</li>
+
+<li>
+Added blasting recipes for gold, iron and copper.
+</li>
+
+<li>Added the Industrial Crafter.</li>
+
+<li>
+Fixed material formatting in the Bench Saw
+and Carpenter's Table.
+</li>
+
+<li>
+Fixed the Bench Saw and Carpenter's Table accepting
+Custom Items as materials.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>👮 Police & Law</h2>
+
+<ul>
+
+<li>
+Added Grimwater Police Station as a spawn point
+for police teams.
+</li>
+
+<li>
+Fixed a bug where fighting in the Fightclub
+activated a police call.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>🎮 Gameplay & Events</h2>
+
+<ul>
+
+<li>
+Fixed a bug causing players in the Fightclub menu
+not to be displayed.
+</li>
+
+<li>
+Fixed a bug where players could trust themselves
+as show hosts in the Trivolio Theater.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="category">
+
+<h2>🐛 Bug Fixes</h2>
+
+<ul>
+
+<li>
+Fixed players being unable to select items
+from their inventory in the Auction House.
+</li>
+
+<li>
+Changed iBuy History to show the Seller
+instead of the Buyer.
+</li>
+
+<li>
+Fixed players being unable to add fuel to Oil Pumps.
+</li>
+
+<li>Fixed mushroom pickup.</li>
+
+<li>
+Fixed players being able to interact with
+armor stands without permission.
+</li>
+
+</ul>
+
+</section>
+
+</main>
+
+
+<footer>
+
+© 2026
+<strong>NukeRoleplay</strong>.
+All rights reserved.
+
+</footer>
+
+</body>
+</html>
