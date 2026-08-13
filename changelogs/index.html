@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Changelogs | NukeRoleplay</title>
 
@@ -52,7 +58,9 @@
                 var(--bg);
 
             color: var(--text);
+
             min-height: 100vh;
+
             line-height: 1.6;
         }
 
@@ -63,19 +71,26 @@
 
         nav {
             width: 100%;
+
             padding: 20px 6%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
-            border-bottom: 1px solid var(--border);
+            border-bottom:
+                1px solid var(--border);
 
-            background: rgba(8, 9, 13, 0.7);
+            background:
+                rgba(8, 9, 13, 0.7);
 
-            backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
 
             position: sticky;
+
             top: 0;
 
             z-index: 100;
@@ -83,7 +98,10 @@
 
         .logo {
             font-size: 1.3rem;
+
             font-weight: 800;
+
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -92,6 +110,7 @@
 
         .nav-links {
             display: flex;
+
             gap: 28px;
 
             color: var(--muted);
@@ -122,7 +141,10 @@
         }
 
         .header h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
+            font-size:
+                clamp(3rem, 7vw, 5rem);
+
+            line-height: 1;
 
             letter-spacing: -3px;
 
@@ -154,17 +176,21 @@
         .changelog-card {
             padding: 30px;
 
-            background: var(--card);
+            background:
+                var(--card);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 18px;
 
-            transition: 0.25s;
+            transition:
+                0.25s;
         }
 
         .changelog-card:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
 
             border-color:
                 rgba(124, 92, 255, 0.4);
@@ -176,7 +202,8 @@
         .top {
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             align-items: center;
 
@@ -212,27 +239,34 @@
         .button {
             display: inline-block;
 
-            padding: 10px 16px;
+            padding:
+                10px 16px;
 
             border-radius: 9px;
 
-            background: var(--accent);
+            background:
+                var(--accent);
 
             font-weight: 700;
 
-            transition: 0.2s;
+            transition:
+                0.2s;
         }
 
         .button:hover {
-            background: var(--accent-hover);
+            background:
+                var(--accent-hover);
 
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
 
         footer {
-            border-top: 1px solid var(--border);
+            border-top:
+                1px solid var(--border);
 
-            padding: 30px;
+            padding:
+                30px;
 
             text-align: center;
 
@@ -252,7 +286,8 @@
             }
 
             .page {
-                padding-top: 70px;
+                padding:
+                    70px 25px;
             }
 
             .top {
@@ -260,36 +295,45 @@
 
                 align-items: flex-start;
             }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
+
 <nav>
 
-    <a href="index.html" class="logo">
+    <a
+        href="../"
+        class="logo"
+    >
         Nuke<span>Roleplay</span>
     </a>
 
+
     <div class="nav-links">
 
-        <a href="index.html">
+        <a href="../index.html">
             Home
         </a>
 
-        <a href="world.html">
+        <a href="../world/index.html">
             World
         </a>
 
-        <a href="changelogs.html">
+        <a href="./index.html">
             Changelogs
         </a>
 
         <a
             href="https://discord.gg/zdH3rhXzdu"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Discord
         </a>
@@ -298,7 +342,9 @@
 
 </nav>
 
+
 <main class="page">
+
 
     <header class="header">
 
@@ -314,7 +360,11 @@
 
     </header>
 
+
     <div class="changelog-list">
+
+
+        <!-- v0.5.1 -->
 
         <article class="changelog-card">
 
@@ -330,9 +380,11 @@
 
             </div>
 
+
             <h2>
                 World Expansion & New Systems
             </h2>
+
 
             <p class="description">
                 Major world expansions, new buildings,
@@ -340,14 +392,18 @@
                 and the first version of IceGP.
             </p>
 
+
             <a
-                href="changelogs/0.5.1.html"
+                href="0.5.1/index.html"
                 class="button"
             >
                 View Changelog →
             </a>
 
         </article>
+
+
+        <!-- v0.5 -->
 
         <article class="changelog-card">
 
@@ -363,9 +419,11 @@
 
             </div>
 
+
             <h2>
                 Jobs, Economy & Roleplay
             </h2>
+
 
             <p class="description">
                 New buildings, jobs, shops, housing,
@@ -373,14 +431,18 @@
                 improvements.
             </p>
 
+
             <a
-                href="changelogs/0.5.html"
+                href="0.5/index.html"
                 class="button"
             >
                 View Changelog →
             </a>
 
         </article>
+
+
+        <!-- v0.4.7 -->
 
         <article class="changelog-card">
 
@@ -396,9 +458,11 @@
 
             </div>
 
+
             <h2>
                 World Expansion & Housing
             </h2>
+
 
             <p class="description">
                 Major terraforming, new towns,
@@ -407,8 +471,9 @@
                 housing system.
             </p>
 
+
             <a
-                href="changelogs/0.4.7.html"
+                href="0.4.7/index.html"
                 class="button"
             >
                 View Changelog →
@@ -416,9 +481,12 @@
 
         </article>
 
+
     </div>
 
+
 </main>
+
 
 <footer>
 
@@ -428,5 +496,7 @@
 
 </footer>
 
+
 </body>
+
 </html>
