@@ -66,11 +66,6 @@
             text-decoration: none;
         }
 
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
         nav {
             width: 100%;
 
@@ -97,7 +92,6 @@
             z-index: 100;
         }
 
-
         .logo {
             font-size: 1.3rem;
 
@@ -106,11 +100,9 @@
             letter-spacing: -0.5px;
         }
 
-
         .logo span {
             color: var(--accent);
         }
-
 
         .nav-links {
             display: flex;
@@ -122,20 +114,13 @@
             font-size: 0.95rem;
         }
 
-
         .nav-links a {
             transition: 0.2s;
         }
 
-
         .nav-links a:hover {
             color: white;
         }
-
-
-        /* =========================
-        HERO
-        ========================= */
 
         .hero {
             min-height: 75vh;
@@ -170,7 +155,6 @@
             background-repeat: no-repeat;
         }
 
-
         .hero::before {
             content: "";
 
@@ -189,13 +173,11 @@
             pointer-events: none;
         }
 
-
         .hero > * {
             position: relative;
 
             z-index: 2;
         }
-
 
         .hero h1 {
             font-size:
@@ -212,11 +194,9 @@
                 rgba(0, 0, 0, 0.6);
         }
 
-
         .hero h1 span {
             color: var(--accent);
         }
-
 
         .badge {
             display: inline-flex;
@@ -244,7 +224,6 @@
             margin-bottom: 25px;
         }
 
-
         .status-dot {
             width: 8px;
 
@@ -260,7 +239,6 @@
                 rgba(72, 213, 151, 0.8);
         }
 
-
         .hero h1 {
             font-size:
                 clamp(3rem, 8vw, 6rem);
@@ -274,11 +252,9 @@
             margin-bottom: 25px;
         }
 
-
         .hero h1 span {
             color: var(--accent);
         }
-
 
         .hero p {
             max-width: 650px;
@@ -290,10 +266,6 @@
             font-size: 1.1rem;
         }
 
-        /* =========================
-        SERVER HEADER
-        ========================= */
-
         .server-header {
             display: flex;
 
@@ -304,11 +276,9 @@
             margin-bottom: 20px;
         }
 
-
         .server-header h2 {
             margin-bottom: 5px;
         }
-
 
         .server-status {
             display: flex;
@@ -323,7 +293,6 @@
 
             font-weight: 600;
         }
-
 
         .server-status .status-dot {
             width: 8px;
@@ -340,19 +309,11 @@
                 rgba(72, 213, 151, 0.8);
         }
 
-
-        /* BUTTONS UNDER SERVER */
-
         .server-buttons {
             margin-top: 22px;
 
             margin-bottom: 0;
         }
-
-
-        /* =========================
-           BUTTONS
-        ========================= */
 
         .buttons {
             display: flex;
@@ -365,7 +326,6 @@
 
             flex-wrap: wrap;
         }
-
 
         .button {
             display: inline-block;
@@ -380,12 +340,10 @@
             transition: 0.2s;
         }
 
-
         .button-primary {
             background:
                 var(--accent);
         }
-
 
         .button-primary:hover {
             background:
@@ -395,7 +353,6 @@
                 translateY(-2px);
         }
 
-
         .button-secondary {
             border:
                 1px solid var(--border);
@@ -404,16 +361,10 @@
                 rgba(255, 255, 255, 0.03);
         }
 
-
         .button-secondary:hover {
             background:
                 rgba(255, 255, 255, 0.07);
         }
-
-
-        /* =========================
-           SERVER CARD
-        ========================= */
 
         .server-box {
             max-width: 850px;
@@ -435,11 +386,9 @@
                 blur(15px);
         }
 
-
         .server-box h2 {
             margin-bottom: 20px;
         }
-
 
         .ip-box {
             display: flex;
@@ -462,7 +411,6 @@
             gap: 15px;
         }
 
-
         .ip {
             font-family: monospace;
 
@@ -470,7 +418,6 @@
 
             color: #ddd;
         }
-
 
         .copy-button {
             border: none;
@@ -490,16 +437,10 @@
             font-weight: 700;
         }
 
-
         .copy-button:hover {
             background:
                 var(--accent-hover);
         }
-
-
-        /* =========================
-           CONTENT
-        ========================= */
 
         .container {
             max-width: 1100px;
@@ -510,11 +451,9 @@
                 0 25px 100px;
         }
 
-
         .section {
             margin-bottom: 70px;
         }
-
 
         .section-title {
             font-size: 2rem;
@@ -524,17 +463,11 @@
             letter-spacing: -1px;
         }
 
-
         .section-description {
             color: var(--muted);
 
             margin-bottom: 25px;
         }
-
-
-        /* =========================
-           SERVER INFORMATION
-        ========================= */
 
         .info-grid {
             display: grid;
@@ -544,7 +477,6 @@
 
             gap: 18px;
         }
-
 
         .info-card {
             padding: 28px;
@@ -567,9 +499,7 @@
                 background 0.25s ease;
         }
 
-
         .info-card:hover {
-
             transform:
                 translateY(-5px);
 
@@ -584,9 +514,7 @@
                 );
         }
 
-
         .info-card .icon {
-
             width: 48px;
 
             height: 48px;
@@ -611,26 +539,19 @@
             margin-bottom: 18px;
         }
 
-
         .info-card h3 {
-
             margin-bottom: 8px;
 
             font-size: 1.15rem;
         }
 
-
         .info-card p {
-
             color: var(--muted);
 
             font-size: 0.95rem;
 
             line-height: 1.7;
         }
-
-
-        /* WORLD SECTION */
 
         .world-section {
             position: relative;
@@ -726,9 +647,6 @@
                 translateY(-2px);
         }
 
-
-        /* POSTCARD */
-
         .world-postcard {
             position: absolute;
 
@@ -770,7 +688,6 @@
         }
 
         .world-postcard:hover {
-
             transform:
                 translateY(-50%)
                 rotate(2deg)
@@ -779,13 +696,7 @@
             box-shadow:
                 0 35px 80px
                 rgba(0, 0, 0, 0.6);
-
         }
-
-
-        /* =========================
-           CHANGELOG
-        ========================= */
 
         .changelog {
             display: flex;
@@ -794,7 +705,6 @@
 
             gap: 18px;
         }
-
 
         .update {
             padding: 25px;
@@ -808,7 +718,6 @@
             border-radius: 15px;
         }
 
-
         .update-header {
             display: flex;
 
@@ -819,13 +728,11 @@
             margin-bottom: 15px;
         }
 
-
         .version {
             font-weight: 800;
 
             color: var(--accent);
         }
-
 
         .date {
             color: var(--muted);
@@ -833,20 +740,13 @@
             font-size: 0.9rem;
         }
 
-
         .update h3 {
             margin-bottom: 8px;
         }
 
-
         .update p {
             color: var(--muted);
         }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
 
         footer {
             border-top:
@@ -862,15 +762,9 @@
             font-size: 0.9rem;
         }
 
-
         footer strong {
             color: white;
         }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
 
         @media (max-width: 700px) {
 
@@ -878,21 +772,17 @@
                 display: none;
             }
 
-
             .hero {
                 padding-top: 80px;
             }
-
 
             .hero h1 {
                 letter-spacing: -2px;
             }
 
-
             .info-grid {
                 grid-template-columns: 1fr;
             }
-
 
             .ip-box {
                 flex-direction: column;
@@ -900,11 +790,9 @@
                 align-items: stretch;
             }
 
-
             .copy-button {
                 width: 100%;
             }
-
 
             .update-header {
                 flex-direction: column;
@@ -956,11 +844,6 @@
 
 <body>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
 
     <div class="logo">
@@ -997,10 +880,6 @@
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
     <h1>
@@ -1009,10 +888,6 @@
 
 </section>
 
-
-<!-- =========================
-     SERVER
-========================= -->
 
 <div
     class="server-box"
@@ -1060,8 +935,6 @@
     </div>
 
 
-    <!-- HERO BUTTONS -->
-
     <div class="buttons server-buttons">
 
         <a
@@ -1085,18 +958,8 @@
 </div>
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
-
 <main class="container">
 
-
-    <!-- SERVER INFORMATION -->
-
-<!-- =========================
-     WHAT CAN YOU DO?
-========================= -->
 
 <section
     class="section"
@@ -1119,8 +982,6 @@
     <div class="info-grid">
 
 
-        <!-- PROPERTY -->
-
         <div class="info-card">
 
             <div class="icon">
@@ -1141,8 +1002,6 @@
         </div>
 
 
-        <!-- JOBS -->
-
         <div class="info-card">
 
             <div class="icon">
@@ -1161,8 +1020,6 @@
 
         </div>
 
-
-        <!-- ECONOMY -->
 
         <div class="info-card">
 
@@ -1183,8 +1040,6 @@
         </div>
 
 
-        <!-- VEHICLES -->
-
         <div class="info-card">
 
             <div class="icon">
@@ -1204,8 +1059,6 @@
         </div>
 
 
-        <!-- POLICE -->
-
         <div class="info-card">
 
             <div class="icon">
@@ -1224,8 +1077,6 @@
 
         </div>
 
-
-        <!-- WORLD -->
 
         <div class="info-card">
 
@@ -1250,8 +1101,6 @@
 
 </section>
 
-
-<!-- WORLD -->
 
 <section class="section">
 
@@ -1282,8 +1131,6 @@
         </div>
 
 
-        <!-- MASTER CITY POSTCARD -->
-
         <a
             href="world.html"
             class="world-postcard"
@@ -1302,162 +1149,147 @@
 </section>
 
 
-    <!-- =========================
-         LATEST UPDATES
-    ========================= -->
+<section
+    class="section"
+    id="changelog"
+>
 
-    <section
-        class="section"
-        id="changelog"
-    >
-
-
-        <h2 class="section-title">
-            Latest Updates
-        </h2>
+    <h2 class="section-title">
+        Latest Updates
+    </h2>
 
 
-        <p class="section-description">
+    <p class="section-description">
 
-            Check out the latest changes and improvements
-            to NukeRoleplay.
+        Check out the latest changes and improvements
+        to NukeRoleplay.
 
-        </p>
-
-
-        <div class="changelog">
+    </p>
 
 
-            <!-- v0.5.1 -->
-
-            <article class="update">
+    <div class="changelog">
 
 
-                <div class="update-header">
+        <article class="update">
 
 
-                    <span class="version">
-                        v0.5.1
-                    </span>
+            <div class="update-header">
 
 
-                    <span class="date">
-                        August 8, 2026
-                    </span>
+                <span class="version">
+                    v0.5.1
+                </span>
 
 
-                </div>
+                <span class="date">
+                    August 8, 2026
+                </span>
 
 
-                <h3>
-                    World Expansion & New Systems
-                </h3>
+            </div>
 
 
-                <p>
-
-                    Major world expansions, new buildings,
-                    housing improvements and new systems.
-
-                </p>
+            <h3>
+                World Expansion & New Systems
+            </h3>
 
 
-                <br>
+            <p>
+
+                Major world expansions, new buildings,
+                housing improvements and new systems.
+
+            </p>
 
 
-                <a
-                    href="changelogs/0.5.1.html"
-                    class="button button-primary"
-                >
-                    View Changelog →
-                </a>
-
-
-            </article>
-
-
-            <!-- v0.5 -->
-
-            <article class="update">
-
-
-                <div class="update-header">
-
-
-                    <span class="version">
-                        v0.5
-                    </span>
-
-
-                    <span class="date">
-                        July 9, 2026
-                    </span>
-
-
-                </div>
-
-
-                <h3>
-                    Jobs, Economy & Roleplay
-                </h3>
-
-
-                <p>
-
-                    New jobs, buildings, shops, housing,
-                    economy features and major gameplay
-                    improvements.
-
-                </p>
-
-
-                <br>
-
-
-                <a
-                    href="changelogs/0.5.html"
-                    class="button button-primary"
-                >
-                    View Changelog →
-                </a>
-
-
-            </article>
-
-
-        </div>
-
-
-        <!-- ALL CHANGELOGS -->
-
-        <div
-            style="
-                text-align: center;
-                margin-top: 30px;
-            "
-        >
+            <br>
 
 
             <a
-                href="changelogs.html"
-                class="button button-secondary"
+                href="changelogs/0.5.1.html"
+                class="button button-primary"
             >
-                View All Changelogs →
+                View Changelog →
             </a>
 
 
-        </div>
+        </article>
 
 
-    </section>
+        <article class="update">
+
+
+            <div class="update-header">
+
+
+                <span class="version">
+                    v0.5
+                </span>
+
+
+                <span class="date">
+                    July 9, 2026
+                </span>
+
+
+            </div>
+
+
+            <h3>
+                Jobs, Economy & Roleplay
+            </h3>
+
+
+            <p>
+
+                New jobs, buildings, shops, housing,
+                economy features and major gameplay
+                improvements.
+
+            </p>
+
+
+            <br>
+
+
+            <a
+                href="changelogs/0.5.html"
+                class="button button-primary"
+            >
+                View Changelog →
+            </a>
+
+
+        </article>
+
+
+    </div>
+
+
+    <div
+        style="
+            text-align: center;
+            margin-top: 30px;
+        "
+    >
+
+
+        <a
+            href="changelogs.html"
+            class="button button-secondary"
+        >
+            View All Changelogs →
+        </a>
+
+
+    </div>
+
+
+</section>
 
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -1477,10 +1309,6 @@
 
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
