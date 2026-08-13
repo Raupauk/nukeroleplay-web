@@ -1500,7 +1500,7 @@
 
             if (data.online) {
                 statusEl.textContent =
-                    `Server Online · ${data.players.online}/${data.players.max} Spieler`;
+                    `Server Online · ${data.players.online}/${data.players.max} Player`;
                 dotEl.style.background = "var(--success)";
             } else {
                 statusEl.textContent = "Server Offline";
@@ -1508,7 +1508,7 @@
             }
 
         } catch (e) {
-            console.error("Serverstatus konnte nicht geladen werden:", e);
+            console.error("Status could not load:", e);
         }
 
     }
@@ -1535,7 +1535,7 @@
             el.textContent = `💬 ${data.presence_count} online on Discord`;
 
         } catch (e) {
-            console.error("Discord-Status couldnt load:", e);
+            console.error("Discord-Status could not load:", e);
         }
 
     }
