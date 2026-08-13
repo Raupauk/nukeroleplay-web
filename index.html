@@ -1,2383 +1,941 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
     <title>NukeRoleplay | Minecraft Roleplay</title>
-
+ 
     <meta
         name="description"
         content="NukeRoleplay — Minecraft roleplay, cities, jobs, properties and a world built by the community."
     >
-
+ 
     <style>
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
+ 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+ 
         :root {
             --black: #090a0a;
             --dark: #101211;
             --panel: #151817;
             --panel-light: #1b1e1c;
-
+ 
             --white: #f1f0eb;
             --text: #d8d8d2;
             --muted: #8d918c;
-
+ 
             --green: #91b83f;
             --green-light: #b1d65b;
             --green-dark: #617e27;
-
+ 
             --red: #b34a43;
-
+ 
             --line: rgba(255,255,255,.09);
         }
-
-
-        /* =========================================================
-           BASE
-        ========================================================= */
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+ 
+        html { scroll-behavior: smooth; }
+ 
         body {
-            font-family:
-                "Helvetica Neue",
-                Helvetica,
-                Arial,
-                sans-serif;
-
-            background:
-                var(--black);
-
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: var(--black);
             color: var(--text);
-
             min-height: 100vh;
-
             line-height: 1.65;
-
             overflow-x: hidden;
         }
-
+ 
+        /* fine grain + scanline so the surface doesn't read as flat vector */
         body::before {
             content: "";
-
             position: fixed;
-
             inset: 0;
-
             pointer-events: none;
-
-            opacity: .035;
-
+            opacity: .05;
             background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(255,255,255,.8) 0,
-                    rgba(255,255,255,.8) 1px,
-                    transparent 1px,
-                    transparent 4px
-                );
-
+                repeating-linear-gradient(0deg, rgba(255,255,255,.8) 0, rgba(255,255,255,.8) 1px, transparent 1px, transparent 4px),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
             z-index: 999;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
+ 
+        a { color: inherit; text-decoration: none; }
+ 
+        svg.icon {
+            width: 26px;
+            height: 26px;
+            stroke: var(--green-light);
+            fill: none;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
-
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
+ 
         nav {
             height: 72px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            padding:
-                0 5vw;
-
-            background:
-                rgba(9,10,10,.94);
-
-            border-bottom:
-                1px solid var(--line);
-
+            padding: 0 5vw;
+            background: rgba(9,10,10,.94);
+            border-bottom: 1px solid var(--line);
             position: sticky;
-
             top: 0;
-
             z-index: 100;
-
             backdrop-filter: blur(10px);
         }
-
+ 
         .logo {
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
+            font-family: Impact, "Arial Narrow", sans-serif;
             font-size: 1.45rem;
-
             letter-spacing: .5px;
-
             text-transform: uppercase;
         }
-
-        .logo span {
-            color: var(--green);
-        }
-
+ 
+        .logo span { color: var(--green); }
+ 
         .nav-links {
             display: flex;
-
             align-items: center;
-
             gap: 30px;
-
             font-size: .82rem;
-
             text-transform: uppercase;
-
             letter-spacing: .12em;
-
             color: var(--muted);
         }
-
-        .nav-links a {
-            position: relative;
-
-            transition:
-                color .2s ease;
-        }
-
+ 
+        .nav-links a { position: relative; transition: color .2s ease; }
+ 
         .nav-links a::after {
             content: "";
-
             position: absolute;
-
             left: 0;
-
             bottom: -7px;
-
             width: 0;
-
             height: 1px;
-
-            background:
-                var(--green);
-
-            transition:
-                width .2s ease;
+            background: var(--green);
+            transition: width .2s ease;
         }
-
-        .nav-links a:hover {
-            color: var(--white);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
+ 
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+ 
         .hero {
             position: relative;
-
             min-height: 680px;
-
             display: flex;
-
             align-items: flex-end;
-
-            padding:
-                0 7vw 90px;
-
+            padding: 0 7vw 90px;
             overflow: hidden;
-
             background:
-                linear-gradient(
-                    to bottom,
-                    rgba(9,10,10,.05) 0%,
-                    rgba(9,10,10,.18) 40%,
-                    rgba(9,10,10,.95) 100%
-                ),
+                linear-gradient(to bottom, rgba(9,10,10,.05) 0%, rgba(9,10,10,.18) 40%, rgba(9,10,10,.95) 100%),
                 url("images/hero.jpg");
-
             background-size: cover;
-
             background-position: center;
         }
-
+ 
         .hero::after {
             content: "";
-
             position: absolute;
-
             left: 7vw;
-
             bottom: 46px;
-
             width: 90px;
-
             height: 3px;
-
-            background:
-                var(--green);
-
-            transform:
-                skewX(-35deg);
+            background: var(--green);
+            transform: skewX(-35deg);
         }
-
-        .hero-content {
-            position: relative;
-
-            z-index: 2;
-
-            max-width: 900px;
-        }
-
+ 
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+ 
         .hero-kicker {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
             margin-bottom: 18px;
-
             font-size: .75rem;
-
             font-weight: 700;
-
             text-transform: uppercase;
-
             letter-spacing: .2em;
-
             color: var(--green-light);
         }
-
-        .hero-kicker::before {
-            content: "";
-
-            width: 30px;
-
-            height: 1px;
-
-            background:
-                var(--green);
-        }
-
+ 
+        .hero-kicker::before { content: ""; width: 30px; height: 1px; background: var(--green); }
+ 
         .hero h1 {
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
-            font-size:
-                clamp(4rem, 11vw, 9.5rem);
-
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(4rem, 11vw, 9.5rem);
             line-height: .82;
-
             text-transform: uppercase;
-
             letter-spacing: -.025em;
-
             color: var(--white);
-
             max-width: 1000px;
-
-            text-shadow:
-                4px 5px 0 rgba(0,0,0,.35);
+            text-shadow: 4px 5px 0 rgba(0,0,0,.35);
         }
-
-        .hero h1 span {
-            display: block;
-
-            color: var(--green);
-
-            margin-left: 9vw;
-        }
-
+ 
+        .hero h1 span { display: block; color: var(--green); margin-left: 9vw; }
+ 
         .hero-copy {
             max-width: 520px;
-
             margin-top: 32px;
-
             margin-left: 11vw;
-
             color: #c0c2bb;
-
             font-size: 1rem;
         }
-
-
-        /* =========================================================
-           SERVER STRIP
-        ========================================================= */
-
-        .server-wrap {
-            position: relative;
-
-            z-index: 5;
-
-            margin:
-                -45px 7vw 100px;
-        }
-
+ 
+        .server-wrap { position: relative; z-index: 5; margin: -45px 7vw 100px; }
+ 
         .server-box {
             max-width: 980px;
-
             margin-left: auto;
-
             margin-right: 5vw;
-
             padding: 28px 30px;
-
-            background:
-                var(--panel);
-
-            border:
-                1px solid var(--line);
-
-            border-left:
-                4px solid var(--green);
-
-            box-shadow:
-                18px 18px 0 rgba(0,0,0,.28);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--green);
+            box-shadow: 18px 18px 0 rgba(0,0,0,.28);
         }
-
+ 
         .server-header {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-start;
-
             gap: 30px;
-
             margin-bottom: 24px;
         }
-
+ 
         .server-header h2 {
-            font-family:
-                "Arial Narrow",
-                "Helvetica Neue",
-                sans-serif;
-
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
             font-size: 1.65rem;
-
             text-transform: uppercase;
-
             letter-spacing: .02em;
-
             color: var(--white);
         }
-
-        .server-subtitle {
-            margin-top: 3px;
-
-            color: var(--muted);
-
-            font-size: .82rem;
-        }
-
+ 
+        .server-subtitle { margin-top: 3px; color: var(--muted); font-size: .82rem; }
+ 
         .server-status {
             display: flex;
-
             align-items: center;
-
             gap: 8px;
-
             white-space: nowrap;
-
             color: var(--green-light);
-
             font-size: .78rem;
-
             text-transform: uppercase;
-
             letter-spacing: .08em;
         }
-
+ 
         .status-dot {
             width: 8px;
-
             height: 8px;
-
             border-radius: 50%;
-
-            background:
-                var(--green);
-
-            box-shadow:
-                0 0 0 4px rgba(145,184,63,.1);
+            background: var(--green);
+            box-shadow: 0 0 0 4px rgba(145,184,63,.1);
         }
-
+ 
         .ip-box {
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 15px;
-
             padding: 13px 14px;
-
-            background:
-                #0b0d0c;
-
-            border:
-                1px solid var(--line);
+            background: #0b0d0c;
+            border: 1px solid var(--line);
         }
-
+ 
         .ip {
-            font-family:
-                "SFMono-Regular",
-                Consolas,
-                monospace;
-
+            font-family: "SFMono-Regular", Consolas, monospace;
             color: #cfd2cb;
-
             font-size: .92rem;
         }
-
+ 
         .copy-button {
             border: 0;
-
-            padding:
-                9px 15px;
-
-            background:
-                var(--green);
-
-            color:
-                #10120d;
-
+            padding: 9px 15px;
+            background: var(--green);
+            color: #10120d;
             cursor: pointer;
-
             font-weight: 800;
-
             font-size: .75rem;
-
             text-transform: uppercase;
-
             letter-spacing: .08em;
-
-            transition:
-                background .2s ease,
-                transform .2s ease;
+            transition: background .2s ease, transform .2s ease;
         }
-
-        .copy-button:hover {
-            background:
-                var(--green-light);
-
-            transform:
-                translateY(-1px);
-        }
-
-        .buttons {
-            display: flex;
-
-            gap: 10px;
-
-            flex-wrap: wrap;
-
-            margin-top: 18px;
-        }
-
+ 
+        .copy-button:hover { background: var(--green-light); transform: translateY(-1px); }
+ 
+        .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+ 
         .button {
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
-
             min-height: 42px;
-
-            padding:
-                0 17px;
-
-            border:
-                1px solid var(--line);
-
-            background:
-                transparent;
-
+            padding: 0 17px;
+            border: 1px solid var(--line);
+            background: transparent;
             font-size: .76rem;
-
             font-weight: 800;
-
             text-transform: uppercase;
-
             letter-spacing: .07em;
-
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
-
-        .button-primary {
-            background:
-                var(--green);
-
-            border-color:
-                var(--green);
-
-            color:
-                #11130e;
-        }
-
-        .button-primary:hover {
-            background:
-                var(--green-light);
-
-            border-color:
-                var(--green-light);
-        }
-
-        .button-secondary:hover {
-            border-color:
-                rgba(145,184,63,.6);
-
-            color:
-                var(--green-light);
-
-            background:
-                rgba(145,184,63,.06);
-        }
-
-        .stats-row {
-            margin-top: 13px;
-
-            color:
-                var(--muted);
-
-            font-size: .75rem;
-
-            text-align: right;
-        }
-
-
-        /* =========================================================
-           GENERAL LAYOUT
-        ========================================================= */
-
-        .container {
-            max-width: 1180px;
-
-            margin: auto;
-
-            padding:
-                0 5vw 100px;
-        }
-
-        .section {
-            margin-bottom: 120px;
-        }
-
-        .section-heading {
-            position: relative;
-
-            margin-bottom: 42px;
-
-            padding-left: 34px;
-        }
-
+ 
+        .button-primary { background: var(--green); border-color: var(--green); color: #11130e; }
+        .button-primary:hover { background: var(--green-light); border-color: var(--green-light); }
+        .button-secondary:hover { border-color: rgba(145,184,63,.6); color: var(--green-light); background: rgba(145,184,63,.06); }
+ 
+        .stats-row { margin-top: 13px; color: var(--muted); font-size: .75rem; text-align: right; }
+ 
+        .container { max-width: 1180px; margin: auto; padding: 0 5vw 100px; }
+ 
+        .section { margin-bottom: 120px; }
+ 
+        .section-heading { position: relative; margin-bottom: 42px; padding-left: 34px; }
+ 
         .section-heading::before {
             content: "";
-
             position: absolute;
-
             left: 0;
-
             top: 7px;
-
             width: 4px;
-
             height: 42px;
-
-            background:
-                var(--green);
-
-            transform:
-                skewY(-18deg);
+            background: var(--green);
+            transform: skewY(-18deg);
         }
-
+ 
         .section-label {
-            color:
-                var(--green-light);
-
+            color: var(--green-light);
             font-size: .7rem;
-
             font-weight: 800;
-
             text-transform: uppercase;
-
             letter-spacing: .2em;
-
             margin-bottom: 6px;
         }
-
+ 
         .section-title {
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
-            font-size:
-                clamp(2.4rem, 5vw, 4.2rem);
-
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
             line-height: .95;
-
             text-transform: uppercase;
-
             letter-spacing: -.01em;
-
-            color:
-                var(--white);
+            color: var(--white);
         }
-
-        .section-description {
-            max-width: 650px;
-
-            color:
-                var(--muted);
-
-            font-size: .95rem;
-        }
-
-
-        /* =========================================================
-           FEATURES
-        ========================================================= */
-
+ 
+        .section-description { max-width: 650px; color: var(--muted); font-size: .95rem; }
+ 
         .features-intro {
             display: grid;
-
-            grid-template-columns:
-                1fr 1.8fr;
-
+            grid-template-columns: 1fr 1.8fr;
             gap: 70px;
-
             align-items: start;
-
             margin-bottom: 45px;
         }
-
-        .features-intro .section-heading {
-            margin-bottom: 0;
-        }
-
+ 
+        .features-intro .section-heading { margin-bottom: 0; }
+ 
         .info-grid {
             display: grid;
-
-            grid-template-columns:
-                1.15fr .85fr 1fr;
-
-            gap: 1px;
-
-            background:
-                var(--line);
-
-            border:
-                1px solid var(--line);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            background: transparent;
         }
-
+ 
         .info-card {
-            min-height: 225px;
-
             padding: 28px;
-
-            background:
-                var(--panel);
-
+            background: var(--panel);
+            border: 1px solid var(--line);
             position: relative;
-
-            transition:
-                background .2s ease;
+            transition: background .2s ease, transform .2s ease, border-color .2s ease;
         }
-
-        .info-card:nth-child(2),
-        .info-card:nth-child(5) {
-            transform: none;
-        }
-
+ 
         .info-card:hover {
-            background:
-                var(--panel-light);
+            background: var(--panel-light);
+            border-color: rgba(145,184,63,.35);
+            transform: translateY(-3px);
         }
-
+ 
         .info-card::before {
             content: "";
-
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             width: 0;
-
             height: 3px;
-
-            background:
-                var(--green);
-
-            transition:
-                width .25s ease;
+            background: var(--green);
+            transition: width .25s ease;
         }
-
-        .info-card:hover::before {
-            width: 55px;
+ 
+        .info-card:hover::before { width: 55px; }
+ 
+        .info-tag {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            font-family: monospace;
+            font-size: .65rem;
+            letter-spacing: .1em;
+            color: var(--muted);
         }
-
-        .info-card .icon {
-            font-size: 1.35rem;
-
-            margin-bottom: 22px;
-
-            filter:
-                grayscale(.2);
-        }
-
+ 
+        .info-card .icon-wrap { margin-bottom: 22px; }
+ 
         .info-card h3 {
-            font-family:
-                "Arial Narrow",
-                "Helvetica Neue",
-                sans-serif;
-
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
             font-size: 1.1rem;
-
             text-transform: uppercase;
-
             letter-spacing: .025em;
-
             margin-bottom: 10px;
-
-            color:
-                var(--white);
+            color: var(--white);
         }
-
-        .info-card p {
-            color:
-                var(--muted);
-
-            font-size: .87rem;
-
-            line-height: 1.7;
-        }
-
-
-        /* =========================================================
-           WORLD
-        ========================================================= */
-
+ 
+        .info-card p { color: var(--muted); font-size: .87rem; line-height: 1.7; max-width: 40ch; }
+ 
         .world-section {
             position: relative;
-
             min-height: 480px;
-
-            padding:
-                70px 55% 65px 55px;
-
-            background:
-                #121513;
-
-            border:
-                1px solid var(--line);
-
+            padding: 70px 55% 65px 55px;
+            background: #121513;
+            border: 1px solid var(--line);
             overflow: hidden;
         }
-
+ 
         .world-section::before {
             content: "";
-
             position: absolute;
-
             left: 0;
-
             bottom: 0;
-
             width: 45%;
-
             height: 5px;
-
-            background:
-                var(--green);
-
-            transform:
-                skewX(-35deg);
-
-            transform-origin:
-                left;
+            background: var(--green);
+            transform: skewX(-35deg);
+            transform-origin: left;
         }
-
+ 
         .world-section::after {
             content: "";
-
             position: absolute;
-
             right: 0;
-
             top: 0;
-
             width: 42%;
-
             height: 100%;
-
-            background:
-                rgba(145,184,63,.035);
-
-            clip-path:
-                polygon(
-                    20% 0,
-                    100% 0,
-                    100% 100%,
-                    0 100%
-                );
+            background: rgba(145,184,63,.035);
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
         }
-
-        .world-section-content {
-            position: relative;
-
-            z-index: 3;
-        }
-
+ 
+        .world-section-content { position: relative; z-index: 3; }
+ 
         .world-section h2 {
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
-            font-size:
-                clamp(2.7rem, 5vw, 4.6rem);
-
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(2.7rem, 5vw, 4.6rem);
             line-height: .9;
-
             text-transform: uppercase;
-
-            color:
-                var(--white);
-
+            color: var(--white);
             margin-bottom: 20px;
         }
-
-        .world-section p {
-            color:
-                var(--muted);
-
-            font-size: .92rem;
-
-            margin-bottom: 28px;
-        }
-
+ 
+        .world-section p { color: var(--muted); font-size: .92rem; margin-bottom: 28px; }
+ 
         .world-button {
             display: inline-flex;
-
-            padding:
-                12px 18px;
-
-            background:
-                var(--green);
-
-            color:
-                #11130e;
-
+            padding: 12px 18px;
+            background: var(--green);
+            color: #11130e;
             font-weight: 800;
-
             text-transform: uppercase;
-
             font-size: .75rem;
-
             letter-spacing: .08em;
-
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
-
-        .world-button:hover {
-            background:
-                var(--green-light);
-
-            transform:
-                translateX(4px);
-        }
-
+ 
+        .world-button:hover { background: var(--green-light); transform: translateX(4px); }
+ 
         .world-postcard {
             position: absolute;
-
             z-index: 2;
-
             width: 480px;
-
             right: 2%;
-
             top: 50%;
-
-            transform:
-                translateY(-50%)
-                rotate(3deg);
-
-            background:
-                #d8d5ca;
-
+            transform: translateY(-50%) rotate(3deg);
+            background: #d8d5ca;
             padding: 9px;
-
-            box-shadow:
-                14px 18px 0 rgba(0,0,0,.35);
-
-            transition:
-                transform .35s ease;
+            box-shadow: 14px 18px 0 rgba(0,0,0,.35);
+            transition: transform .35s ease;
         }
-
+ 
         .world-postcard img {
             display: block;
-
             width: 100%;
-
             height: 320px;
-
             object-fit: cover;
-
-            filter:
-                saturate(.85)
-                contrast(1.05);
+            filter: saturate(.85) contrast(1.05);
         }
-
+ 
         .world-postcard::after {
-            content:
-                "NUKEROLEPLAY // WORLD";
-
+            content: "NUKEROLEPLAY // WORLD";
             display: block;
-
-            padding:
-                7px 5px 2px;
-
-            color:
-                #242620;
-
-            font-family:
-                monospace;
-
+            padding: 7px 5px 2px;
+            color: #242620;
+            font-family: monospace;
             font-size: .62rem;
-
             letter-spacing: .12em;
         }
-
-        .world-postcard:hover {
-            transform:
-                translateY(-50%)
-                rotate(-1deg)
-                translateX(-7px);
-        }
-
-
-        /* =========================================================
-           CHANGELOG
-        ========================================================= */
-
-        .changelog-layout {
-            display: grid;
-
-            grid-template-columns:
-                1.4fr .8fr;
-
-            gap: 70px;
-
-            align-items: start;
-        }
-
-        .changelog {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 1px;
-
-            background:
-                var(--line);
-
-            border:
-                1px solid var(--line);
-        }
-
-        .update {
-            padding:
-                28px 30px;
-
-            background:
-                var(--panel);
-
-            transition:
-                background .2s ease,
-                padding .2s ease;
-        }
-
-        .update:hover {
-            background:
-                var(--panel-light);
-
-            padding-left:
-                36px;
-        }
-
-        .update-header {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-bottom: 14px;
-        }
-
-        .version {
-            color:
-                var(--green-light);
-
-            font-family:
-                monospace;
-
-            font-size: .75rem;
-
-            font-weight: 700;
-
-            letter-spacing: .1em;
-        }
-
-        .date {
-            color:
-                var(--muted);
-
-            font-size: .72rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: .06em;
-        }
-
+ 
+        .world-postcard:hover { transform: translateY(-50%) rotate(-1deg) translateX(-7px); }
+ 
+        .changelog-layout { display: grid; grid-template-columns: 1.4fr .8fr; gap: 70px; align-items: start; }
+ 
+        .changelog { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+ 
+        .update { padding: 28px 30px; background: var(--panel); transition: background .2s ease, padding .2s ease; }
+        .update:hover { background: var(--panel-light); padding-left: 36px; }
+ 
+        .update-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+ 
+        .version { color: var(--green-light); font-family: monospace; font-size: .75rem; font-weight: 700; letter-spacing: .1em; }
+        .date { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; }
+ 
         .update h3 {
-            font-family:
-                "Arial Narrow",
-                "Helvetica Neue",
-                sans-serif;
-
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
             font-size: 1.25rem;
-
             text-transform: uppercase;
-
             margin-bottom: 8px;
-
-            color:
-                var(--white);
+            color: var(--white);
         }
-
-        .update p {
-            color:
-                var(--muted);
-
-            font-size: .88rem;
-
-            max-width: 650px;
-        }
-
-        .changelog-side {
-            padding-top: 20px;
-
-            color:
-                var(--muted);
-
-            font-size: .9rem;
-        }
-
+ 
+        .update p { color: var(--muted); font-size: .88rem; max-width: 650px; }
+ 
+        .changelog-side { padding-top: 20px; color: var(--muted); font-size: .9rem; }
+ 
         .changelog-side strong {
             display: block;
-
-            color:
-                var(--white);
-
-            font-family:
-                "Arial Narrow",
-                sans-serif;
-
+            color: var(--white);
+            font-family: "Arial Narrow", sans-serif;
             font-size: 1.2rem;
-
             text-transform: uppercase;
-
             margin-bottom: 10px;
         }
-
-        .all-changelog {
-            margin-top: 22px;
-        }
-
-
-        /* =========================================================
-           FOLLOW
-        ========================================================= */
-
+ 
+        .all-changelog { margin-top: 22px; }
+ 
         .follow-section {
             max-width: 1050px;
-
-            margin:
-                0 auto 110px;
-
-            padding:
-                55px 7vw;
-
-            border-top:
-                1px solid var(--line);
-
-            border-bottom:
-                1px solid var(--line);
-
+            margin: 0 auto 110px;
+            padding: 55px 7vw;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
             position: relative;
         }
-
+ 
         .follow-section::before {
             content: "";
-
             position: absolute;
-
             left: -1px;
-
             top: -2px;
-
             width: 65px;
-
             height: 3px;
-
-            background:
-                var(--green);
-
-            transform:
-                skewX(-35deg);
+            background: var(--green);
+            transform: skewX(-35deg);
         }
-
-        .follow-heading {
-            max-width: 520px;
-
-            margin-bottom: 28px;
-        }
-
+ 
+        .follow-heading { max-width: 520px; margin-bottom: 28px; }
+ 
         .follow-heading h2 {
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
-            font-size:
-                clamp(2.5rem, 6vw, 4.5rem);
-
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             text-transform: uppercase;
-
             line-height: .9;
-
-            color:
-                var(--white);
-
+            color: var(--white);
             margin-bottom: 14px;
         }
-
-        .follow-heading p {
-            color:
-                var(--muted);
-
-            font-size: .9rem;
-
-            text-align: left;
-        }
-
-        .follow-links {
-            display: flex;
-
-            gap: 10px;
-
-            flex-wrap: wrap;
-        }
-
+ 
+        .follow-heading p { color: var(--muted); font-size: .9rem; text-align: left; }
+ 
+        .follow-links { display: flex; gap: 10px; flex-wrap: wrap; }
+ 
         .follow-link {
             display: inline-flex;
-
             align-items: center;
-
             gap: 10px;
-
             min-height: 44px;
-
-            padding:
-                0 17px;
-
-            border:
-                1px solid var(--line);
-
-            background:
-                rgba(255,255,255,.015);
-
+            padding: 0 17px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.015);
             font-size: .75rem;
-
             font-weight: 800;
-
             text-transform: uppercase;
-
             letter-spacing: .08em;
-
-            transition:
-                .2s ease;
+            transition: .2s ease;
         }
-
-        .follow-link:hover {
-            color:
-                var(--green-light);
-
-            border-color:
-                rgba(145,184,63,.55);
-
-            transform:
-                translateY(-2px);
-        }
-
-        .follow-link svg {
-            width: 18px;
-
-            height: 18px;
-
-            flex-shrink: 0;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
+ 
+        .follow-link:hover { color: var(--green-light); border-color: rgba(145,184,63,.55); transform: translateY(-2px); }
+        .follow-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+ 
         footer {
-            padding:
-                35px 20px 45px;
-
+            padding: 35px 20px 45px;
             text-align: center;
-
-            color:
-                var(--muted);
-
+            color: var(--muted);
             font-size: .72rem;
-
             text-transform: uppercase;
-
             letter-spacing: .08em;
         }
-
-        footer strong {
-            color:
-                var(--white);
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
+ 
+        footer strong { color: var(--white); }
+ 
         @media (max-width: 850px) {
-
-            .nav-links {
-                gap: 16px;
-            }
-
-            .hero {
-                min-height: 570px;
-
-                padding:
-                    0 25px 70px;
-            }
-
-            .hero h1 {
-                font-size:
-                    clamp(3.7rem, 17vw, 7rem);
-            }
-
-            .hero h1 span {
-                margin-left: 7vw;
-            }
-
-            .hero-copy {
-                margin-left: 7vw;
-            }
-
-            .server-wrap {
-                margin:
-                    -30px 20px 80px;
-            }
-
-            .server-box {
-                margin: 0;
-
-                box-shadow:
-                    10px 10px 0 rgba(0,0,0,.25);
-            }
-
-            .features-intro {
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-            }
-
-            .info-grid {
-                grid-template-columns:
-                    1fr 1fr;
-            }
-
-            .info-card:nth-child(2),
-            .info-card:nth-child(5) {
-                transform: none;
-            }
-
-            .world-section {
-                padding:
-                    45px 30px 30px;
-            }
-
-            .world-section-content {
-                max-width: 100%;
-            }
-
-            .world-postcard {
-                position: relative;
-
-                right: auto;
-
-                top: auto;
-
-                width: 90%;
-
-                margin:
-                    45px auto 10px;
-
-                transform:
-                    rotate(2deg);
-            }
-
-            .world-postcard img {
-                height: 250px;
-            }
-
-            .world-section::after {
-                display: none;
-            }
-
-            .changelog-layout {
-                grid-template-columns: 1fr;
-
-                gap: 25px;
-            }
-
+            .nav-links { gap: 16px; }
+            .hero { min-height: 570px; padding: 0 25px 70px; }
+            .hero h1 { font-size: clamp(3.7rem, 17vw, 7rem); }
+            .hero h1 span { margin-left: 7vw; }
+            .hero-copy { margin-left: 7vw; }
+            .server-wrap { margin: -30px 20px 80px; }
+            .server-box { margin: 0; box-shadow: 10px 10px 0 rgba(0,0,0,.25); }
+            .features-intro { grid-template-columns: 1fr; gap: 20px; }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+            .world-section { padding: 45px 30px 30px; }
+            .world-section-content { max-width: 100%; }
+            .world-postcard { position: relative; right: auto; top: auto; width: 90%; margin: 45px auto 10px; transform: rotate(2deg); }
+            .world-postcard img { height: 250px; }
+            .world-section::after { display: none; }
+            .changelog-layout { grid-template-columns: 1fr; gap: 25px; }
         }
-
-
+ 
         @media (max-width: 600px) {
-
-            nav {
-                padding:
-                    0 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: 520px;
-
-                background-position:
-                    58% center;
-            }
-
-            .hero::after {
-                left: 25px;
-            }
-
-            .hero h1 {
-                font-size:
-                    4.1rem;
-
-                letter-spacing:
-                    -.02em;
-            }
-
-            .hero h1 span {
-                margin-left:
-                    22px;
-            }
-
-            .hero-copy {
-                margin-left:
-                    22px;
-
-                margin-top:
-                    25px;
-
-                font-size:
-                    .88rem;
-            }
-
-            .server-header {
-                flex-direction:
-                    column;
-
-                gap:
-                    10px;
-            }
-
-            .server-status {
-                align-self:
-                    flex-start;
-            }
-
-            .ip-box {
-                flex-direction:
-                    column;
-
-                align-items:
-                    stretch;
-            }
-
-            .copy-button {
-                width:
-                    100%;
-            }
-
-            .buttons {
-                flex-direction:
-                    column;
-            }
-
-            .button {
-                width:
-                    100%;
-            }
-
-            .container {
-                padding:
-                    0 20px 70px;
-            }
-
-            .section {
-                margin-bottom:
-                    85px;
-            }
-
-            .info-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .info-card {
-                min-height:
-                    auto;
-            }
-
-            .world-section h2 {
-                font-size:
-                    3.2rem;
-            }
-
-            .world-postcard {
-                width:
-                    100%;
-            }
-
-            .world-postcard img {
-                height:
-                    210px;
-            }
-
-            .update-header {
-                flex-direction:
-                    column;
-
-                align-items:
-                    flex-start;
-
-                gap:
-                    4px;
-            }
-
-            .follow-section {
-                margin:
-                    0 20px 80px;
-
-                padding:
-                    45px 0;
-            }
-
-            .follow-heading p {
-                text-align:
-                    left;
-            }
-
-            .follow-links {
-                flex-direction:
-                    column;
-            }
-
-            .follow-link {
-                width:
-                    100%;
-
-                justify-content:
-                    flex-start;
-            }
-
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .hero { min-height: 520px; background-position: 58% center; }
+            .hero::after { left: 25px; }
+            .hero h1 { font-size: 4.1rem; letter-spacing: -.02em; }
+            .hero h1 span { margin-left: 22px; }
+            .hero-copy { margin-left: 22px; margin-top: 25px; font-size: .88rem; }
+            .server-header { flex-direction: column; gap: 10px; }
+            .server-status { align-self: flex-start; }
+            .ip-box { flex-direction: column; align-items: stretch; }
+            .copy-button { width: 100%; }
+            .buttons { flex-direction: column; }
+            .button { width: 100%; }
+            .container { padding: 0 20px 70px; }
+            .section { margin-bottom: 85px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .world-section h2 { font-size: 3.2rem; }
+            .world-postcard { width: 100%; }
+            .world-postcard img { height: 210px; }
+            .update-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .follow-section { margin: 0 20px 80px; padding: 45px 0; }
+            .follow-heading p { text-align: left; }
+            .follow-links { flex-direction: column; }
+            .follow-link { width: 100%; justify-content: flex-start; }
         }
-
+ 
     </style>
-
+ 
 </head>
-
-
+ 
+ 
 <body>
-
-
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
-
+ 
 <nav>
-
-    <div class="logo">
-        Nuke<span>Roleplay</span>
-    </div>
-
+    <div class="logo">Nuke<span>Roleplay</span></div>
     <div class="nav-links">
-
-        <a href="#server">
-            Server
-        </a>
-
-        <a href="#info">
-            Information
-        </a>
-
-        <a href="world/">
-            World
-        </a>
-
-        <a href="changelogs/">
-            Changelogs
-        </a>
-
-        <a
-            href="https://discord.gg/zdH3rhXzdu"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Discord
-        </a>
-
+        <a href="#server">Server</a>
+        <a href="#info">Information</a>
+        <a href="world/">World</a>
+        <a href="changelogs/">Changelogs</a>
+        <a href="https://discord.gg/zdH3rhXzdu" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
-
 </nav>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
+ 
 <section class="hero">
-
     <div class="hero-content">
-
-        <div class="hero-kicker">
-            Minecraft Roleplay · Community Server
-        </div>
-
-        <h1>
-            Nuke
-            <span>Roleplay</span>
-        </h1>
-
+        <div class="hero-kicker">Minecraft Roleplay · Community Server</div>
+        <h1>Nuke<span>Roleplay</span></h1>
         <p class="hero-copy">
-            A Minecraft world built around cities,
-            jobs, properties and the people who live in them.
-            Build your life, make money, get a job or make
-            your own way through the city.
+            Rent an apartment. Clock into a job. Run a business, or run
+            from the police. Oblivion City keeps going whether you log
+            in or not, what you do in it is up to you.
         </p>
-
     </div>
-
 </section>
-
-
-<!-- =========================================================
-     SERVER
-========================================================= -->
-
+ 
 <div class="server-wrap">
-
-    <div
-        class="server-box"
-        id="server"
-    >
-
+    <div class="server-box" id="server">
         <div class="server-header">
-
             <div>
-
-                <h2>
-                    Join NukeRoleplay
-                </h2>
-
-                <div class="server-subtitle">
-                    Your next character starts here.
-                </div>
-
+                <h2>Join NukeRoleplay</h2>
+                <div class="server-subtitle">Your next character starts here.</div>
             </div>
-
             <div class="server-status">
-
-                <span
-                    class="status-dot"
-                    id="statusDot"
-                ></span>
-
-                <span id="mcStatus">
-                    Checking server...
-                </span>
-
+                <span class="status-dot" id="statusDot"></span>
+                <span id="mcStatus">Checking server...</span>
             </div>
-
         </div>
-
-
+ 
         <div class="ip-box">
-
-            <span
-                class="ip"
-                id="serverIP"
-            >
-                nukeroleplay.net
-            </span>
-
-            <button
-                class="copy-button"
-                onclick="copyIP()"
-            >
-                Copy IP
-            </button>
-
+            <span class="ip" id="serverIP">nukeroleplay.net</span>
+            <button class="copy-button" onclick="copyIP()">Copy IP</button>
         </div>
-
-
+ 
         <div class="buttons">
-
-            <a
-                class="button button-primary"
-                href="https://discord.gg/zdH3rhXzdu"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Join Discord
-            </a>
-
-            <a
-                class="button button-secondary"
-                href="changelogs/"
-            >
-                Changelogs
-            </a>
-
-            <a
-                class="button button-secondary"
-                href="http://nukerp.ggwp.cc:17240/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Live Map
-            </a>
-
+            <a class="button button-primary" href="https://discord.gg/zdH3rhXzdu" target="_blank" rel="noopener noreferrer">Join Discord</a>
+            <a class="button button-secondary" href="changelogs/">Changelogs</a>
+            <a class="button button-secondary" href="http://nukerp.ggwp.cc:17240/" target="_blank" rel="noopener noreferrer">Live Map</a>
         </div>
-
-
-        <div
-            class="stats-row"
-            id="discordStatus"
-        ></div>
-
+ 
+        <div class="stats-row" id="discordStatus"></div>
     </div>
-
 </div>
-
-
+ 
 <main class="container">
-
-
-<!-- =========================================================
-     INFORMATION
-========================================================= -->
-
-<section
-    class="section"
-    id="info"
->
-
+ 
+<section class="section" id="info">
+ 
     <div class="features-intro">
-
         <div class="section-heading">
-
-            <div class="section-label">
-                The server
-            </div>
-
-            <h2 class="section-title">
-                Make your own life.
-            </h2>
-
+            <div class="section-label">The server</div>
+            <h2 class="section-title">Make your own life.</h2>
         </div>
-
         <p class="section-description">
-
-            NukeRoleplay isn't built around one way to play.
-            Buy a place to live, find a job, start a business,
-            join the police or simply explore the world.
-
-            <br><br>
-
-            What happens next is mostly up to you.
-
+            Every player in Oblivion City picks a lane. A landlord,
+            a mechanic, a beat cop, a name the police keep a file on.
+            Nobody hands you a story here. You build it on your own.
         </p>
-
     </div>
-
-
+ 
     <div class="info-grid">
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                🏠
+            <span class="info-tag">DISTRICT · 01</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M3 11l9-7 9 7"/>
+                    <path d="M5 10v10h14V10"/>
+                    <path d="M9 20v-6h6v6"/>
+                </svg>
             </div>
-
-            <h3>
-                Properties
-            </h3>
-
-            <p>
-                Buy houses, apartments and other properties.
-                Build your home and give people you trust
-                access to it.
-            </p>
-
+            <h3>Properties</h3>
+            <p>Buy a house, an apartment, or a storefront downtown. Furnish it, lock it, hand out keys to people you actually trust.</p>
         </div>
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                💼
+            <span class="info-tag">FILE · 02</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <rect x="3" y="7" width="18" height="13" rx="1"/>
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    <path d="M3 12h18"/>
+                </svg>
             </div>
-
-            <h3>
-                Jobs
-            </h3>
-
-            <p>
-                Work different jobs, earn money and slowly
-                build up your character's life.
-            </p>
-
+            <h3>Jobs</h3>
+            <p>Clock into a real shift and get paid for it. Grind long enough and it stops being pocket money.</p>
         </div>
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                💰
+            <span class="info-tag">FILE · 03</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M9 15s1 1.5 3 1.5 3-1 3-2-1-1.5-3-2-3-1-3-2 1-2 3-2 3 1.5 3 1.5"/>
+                </svg>
             </div>
-
-            <h3>
-                Economy
-            </h3>
-
-            <p>
-                Make money legally through work and
-                businesses — or take the less respectable
-                route.
-            </p>
-
+            <h3>Economy</h3>
+            <p>Earn it clean through work, or earn it fast the other way. Both routes leave a paper trail eventually.</p>
         </div>
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                🚗
+            <span class="info-tag">DISTRICT · 04</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M3 13l2-6h14l2 6"/>
+                    <rect x="2" y="13" width="20" height="6" rx="1"/>
+                    <circle cx="7" cy="19" r="1.5"/>
+                    <circle cx="17" cy="19" r="1.5"/>
+                </svg>
             </div>
-
-            <h3>
-                Vehicles
-            </h3>
-
-            <p>
-                Get around the cities with cars,
-                public transport and other vehicles.
-            </p>
-
+            <h3>Vehicles</h3>
+            <p>Cars, transit, the works. The city's built to actually cross, not just look good from a hilltop.</p>
         </div>
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                👮
+            <span class="info-tag">FILE · 05</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>
+                </svg>
             </div>
-
-            <h3>
-                Police
-            </h3>
-
-            <p>
-                Join the police, enforce the law,
-                investigate crimes or find yourself
-                on the other side of it.
-            </p>
-
+            <h3>Police & Law</h3>
+            <p>Wear the badge and enforce it, or spend your career dodging the ones who do.</p>
         </div>
-
-
+ 
         <div class="info-card">
-
-            <div class="icon">
-                🌎
+            <span class="info-tag">DISTRICT · 06</span>
+            <div class="icon-wrap">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9z"/>
+                </svg>
             </div>
-
-            <h3>
-                The World
-            </h3>
-
-            <p>
-                Cities, beaches, mountains and plenty
-                of places to discover as the map continues
-                to grow.
-            </p>
-
+            <h3>The World</h3>
+            <p>Cities, coastline, backroads out past the last streetlight. It's still being built.</p>
         </div>
-
-
+ 
     </div>
-
+ 
 </section>
-
-
-<!-- =========================================================
-     WORLD
-========================================================= -->
-
+ 
 <section class="section">
-
     <div class="world-section">
-
-
         <div class="world-section-content">
-
-            <div class="section-label">
-                NukeRoleplay World
-            </div>
-
-            <h2>
-                See where<br>
-                your story happens.
-            </h2>
-
+            <div class="section-label">NukeRoleplay World</div>
+            <h2>See where<br>your story happens.</h2>
             <p>
-                Explore the cities, towns, mountains and
-                landmarks that make up the NukeRoleplay world.
-                There's always another place to find.
+                Master City is the start of it, not all of it. Explore
+                the districts, coastline and backroads that make up
+                Oblivion City so far.
             </p>
-
-            <a
-                href="world/"
-                class="world-button"
-            >
-                Explore the World →
-            </a>
-
+            <a href="world/" class="world-button">Explore the World →</a>
         </div>
-
-
-        <a
-            href="world/"
-            class="world-postcard"
-        >
-
-            <img
-                src="images/world/postcard_mastercity.png"
-                alt="Master City in NukeRoleplay"
-            >
-
+ 
+        <a href="world/" class="world-postcard">
+            <img src="images/world/postcard_mastercity.png" alt="Master City in NukeRoleplay">
         </a>
-
-
     </div>
-
 </section>
-
-
-<!-- =========================================================
-     CHANGELOG
-========================================================= -->
-
-<section
-    class="section"
-    id="changelog"
->
-
+ 
+<section class="section" id="changelog">
     <div class="changelog-layout">
-
-
         <div>
-
             <div class="section-heading">
-
-                <div class="section-label">
-                    What's new
-                </div>
-
-                <h2 class="section-title">
-                    Latest Updates
-                </h2>
-
+                <div class="section-label">What's new</div>
+                <h2 class="section-title">Latest Updates</h2>
             </div>
-
-
+ 
             <div class="changelog">
-
-
                 <article class="update">
-
                     <div class="update-header">
-
-                        <span class="version">
-                            v0.5.1
-                        </span>
-
-                        <span class="date">
-                            August 8, 2026
-                        </span>
-
+                        <span class="version">v0.5.1</span>
+                        <span class="date">August 8, 2026</span>
                     </div>
-
-                    <h3>
-                        World Expansion & New Systems
-                    </h3>
-
-                    <p>
-                        Major world expansions, new buildings,
-                        housing improvements and new systems.
-                    </p>
-
+                    <h3>World Expansion & New Systems</h3>
+                    <p>Major world expansions, new buildings, housing improvements and new systems.</p>
                     <br>
-
-                    <a
-                        href="changelogs/0.5.1/"
-                        class="button button-primary"
-                    >
-                        Read Update →
-                    </a>
-
+                    <a href="changelogs/0.5.1/" class="button button-primary">Read Update →</a>
                 </article>
-
-
+ 
                 <article class="update">
-
                     <div class="update-header">
-
-                        <span class="version">
-                            v0.5
-                        </span>
-
-                        <span class="date">
-                            July 9, 2026
-                        </span>
-
+                        <span class="version">v0.5</span>
+                        <span class="date">July 9, 2026</span>
                     </div>
-
-                    <h3>
-                        Jobs, Economy & Roleplay
-                    </h3>
-
-                    <p>
-                        New jobs, buildings, shops, housing,
-                        economy features and gameplay improvements.
-                    </p>
-
+                    <h3>Jobs, Economy & Roleplay</h3>
+                    <p>New jobs, buildings, shops, housing, economy features and gameplay improvements.</p>
                     <br>
-
-                    <a
-                        href="changelogs/0.5/"
-                        class="button button-primary"
-                    >
-                        Read Update →
-                    </a>
-
+                    <a href="changelogs/0.5/" class="button button-primary">Read Update →</a>
                 </article>
-
-
             </div>
-
-
+ 
             <div class="all-changelog">
-
-                <a
-                    href="changelogs/"
-                    class="button button-secondary"
-                >
-                    View All Changelogs →
-                </a>
-
+                <a href="changelogs/" class="button button-secondary">View All Changelogs →</a>
             </div>
-
         </div>
-
-
+ 
         <aside class="changelog-side">
-
-            <strong>
-                Keeping track
-            </strong>
-
+            <strong>Keeping track</strong>
             The server is still growing.
-
             New places, systems and changes are
             added over time. Check the changelog
             when you come back to see what's changed.
-
         </aside>
-
-
     </div>
-
 </section>
-
-
+ 
 </main>
-
-
-<!-- =========================================================
-     FOLLOW
-========================================================= -->
-
+ 
 <section class="follow-section">
-
     <div class="follow-heading">
-
-        <div class="section-label">
-            Stay around
-        </div>
-
-        <h2>
-            Follow Nuke Studios
-        </h2>
-
-        <p>
-            Updates, builds, world projects and other
-            things we're working on.
-        </p>
-
+        <div class="section-label">Stay around</div>
+        <h2>Follow Nuke Studios</h2>
+        <p>Updates, builds, world projects and other things we're working on.</p>
     </div>
-
-
+ 
     <div class="follow-links">
-
-
-        <a
-            href="https://www.youtube.com/@nukestudios15"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="follow-link"
-        >
-
-            <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-            >
-
-                <path
-                    fill="currentColor"
-                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.5 3.9-6.5 3.9Z"
-                />
-
+        <a href="https://www.youtube.com/@nukestudios15" target="_blank" rel="noopener noreferrer" class="follow-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.5 3.9-6.5 3.9Z"/>
             </svg>
-
             YouTube
-
         </a>
-
-
-        <a
-            href="https://www.instagram.com/nuke_builds/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="follow-link"
-        >
-
-            <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-            >
-
-                <path
-                    fill="currentColor"
-                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.8 6.2a1 1 0 1 1-1 1 1 0 0 1 17.8 6.2Z"
-                />
-
+ 
+        <a href="https://www.instagram.com/nuke_builds/" target="_blank" rel="noopener noreferrer" class="follow-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.8 6.2a1 1 0 1 1-1 1 1 0 0 1 17.8 6.2Z"/>
             </svg>
-
             Instagram
-
         </a>
-
-
     </div>
-
 </section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
+ 
 <footer>
-
-    © 2026
-
-    <strong>
-        Nuke Studios
-    </strong>.
-
-    All rights reserved.
-
+    © 2026 <strong>Nuke Studios</strong>. All rights reserved.
 </footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
+ 
 <script>
-
-
-    /* =========================================================
-       COPY SERVER IP
-    ========================================================= */
-
+ 
     function copyIP() {
-
-        const ip =
-            document
-                .getElementById("serverIP")
-                .innerText;
-
-
+        const ip = document.getElementById("serverIP").innerText;
         navigator.clipboard.writeText(ip);
-
-
-        const button =
-            document.querySelector(".copy-button");
-
-
-        button.innerText =
-            "Copied";
-
-
-        setTimeout(() => {
-
-            button.innerText =
-                "Copy IP";
-
-        }, 2000);
-
+        const button = document.querySelector(".copy-button");
+        button.innerText = "Copied";
+        setTimeout(() => { button.innerText = "Copy IP"; }, 2000);
     }
-
-
-    /* =========================================================
-       MINECRAFT SERVER STATUS
-    ========================================================= */
-
+ 
     async function updateServerStatus() {
-
-        const statusEl =
-            document.getElementById("mcStatus");
-
-        const dotEl =
-            document.getElementById("statusDot");
-
-
+        const statusEl = document.getElementById("mcStatus");
+        const dotEl = document.getElementById("statusDot");
         try {
-
-            const res =
-                await fetch(
-                    "https://api.mcsrvstat.us/3/nukerp.ggwp.cc"
-                );
-
-
-            const data =
-                await res.json();
-
-
+            const res = await fetch("https://api.mcsrvstat.us/3/nukerp.ggwp.cc");
+            const data = await res.json();
             if (data.online) {
-
-                statusEl.textContent =
-                    `Online · ${data.players.online}/${data.players.max} players`;
-
-                dotEl.style.background =
-                    "var(--green)";
-
+                statusEl.textContent = `Online · ${data.players.online}/${data.players.max} players`;
+                dotEl.style.background = "var(--green)";
             } else {
-
-                statusEl.textContent =
-                    "Server Offline";
-
-                dotEl.style.background =
-                    "var(--red)";
-
+                statusEl.textContent = "Server Offline";
+                dotEl.style.background = "var(--red)";
             }
-
-
         } catch (error) {
-
-            statusEl.textContent =
-                "Status unavailable";
-
-            dotEl.style.background =
-                "var(--muted)";
-
-            console.error(
-                "Minecraft status could not load:",
-                error
-            );
-
+            statusEl.textContent = "Status unavailable";
+            dotEl.style.background = "var(--muted)";
+            console.error("Minecraft status could not load:", error);
         }
-
     }
-
-
-    /* =========================================================
-       DISCORD STATUS
-    ========================================================= */
-
-    const DISCORD_GUILD_ID =
-        "1412280196417196148";
-
-
+ 
+    const DISCORD_GUILD_ID = "1412280196417196148";
+ 
     async function updateDiscordStatus() {
-
-        const el =
-            document.getElementById(
-                "discordStatus"
-            );
-
-
+        const el = document.getElementById("discordStatus");
         try {
-
-            const res =
-                await fetch(
-                    `https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`
-                );
-
-
-            if (!res.ok) {
-                throw new Error(
-                    "Discord widget unavailable"
-                );
-            }
-
-
-            const data =
-                await res.json();
-
-
-            if (
-                typeof data.presence_count ===
-                "number"
-            ) {
-
-                el.textContent =
-                    `Discord · ${data.presence_count} online`;
-
+            const res = await fetch(`https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`);
+            if (!res.ok) throw new Error("Discord widget unavailable");
+            const data = await res.json();
+            if (typeof data.presence_count === "number") {
+                el.textContent = `Discord · ${data.presence_count} online`;
             } else {
-
-                el.textContent =
-                    "Discord · Online";
-
+                el.textContent = "Discord · Online";
             }
-
-
         } catch (error) {
-
-            el.textContent =
-                "Discord · Join the community";
-
-            console.error(
-                "Discord status could not load:",
-                error
-            );
-
+            el.textContent = "Discord · Join the community";
+            console.error("Discord status could not load:", error);
         }
-
     }
-
-
-    /* =========================================================
-       INITIAL LOAD
-    ========================================================= */
-
+ 
     updateServerStatus();
-
     updateDiscordStatus();
-
-
-    /* =========================================================
-       REFRESH
-    ========================================================= */
-
-    setInterval(
-        updateServerStatus,
-        60000
-    );
-
-
-    setInterval(
-        updateDiscordStatus,
-        60000
-    );
-
-
+    setInterval(updateServerStatus, 60000);
+    setInterval(updateDiscordStatus, 60000);
+ 
 </script>
-
-
+ 
 </body>
 </html>
