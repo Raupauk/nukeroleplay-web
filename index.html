@@ -748,6 +748,64 @@
             color: var(--muted);
         }
 
+        .follow-section {
+            text-align: center;
+        }
+
+        .follow-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .follow-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 12px 18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.03);
+
+            color: var(--text);
+
+            font-weight: 700;
+
+            transition:
+                0.2s ease;
+        }
+
+        .follow-link:hover {
+            background:
+                rgba(124, 92, 255, 0.12);
+
+            border-color:
+                rgba(124, 92, 255, 0.35);
+
+            transform:
+                translateY(-2px);
+        }
+
+        .follow-link svg {
+            width: 20px;
+
+            height: 20px;
+
+            flex-shrink: 0;
+        }
+
         footer {
             border-top:
                 1px solid var(--border);
@@ -1293,8 +1351,68 @@
 </main>
 
 
-<footer>
+<section class="section follow-section">
 
+    <h2 class="section-title">
+        Follow Us
+    </h2>
+
+    <p class="section-description">
+        Follow NukeRoleplay and Nuke Studios for updates,
+        builds and more.
+    </p>
+
+    <div class="follow-links">
+
+        <a
+            href="https://www.youtube.com/@nukestudios15"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="follow-link"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path
+                    fill="currentColor"
+                    d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.5 3.9-6.5 3.9Z"
+                />
+            </svg>
+
+            YouTube
+
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/nuke_builds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="follow-link"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path
+                    fill="currentColor"
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.8 6.2a1 1 0 1 1-1 1 1 0 0 1 17.8 6.2Z"
+                />
+            </svg>
+
+            Instagram
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
 
     <p>
 
@@ -1307,7 +1425,6 @@
         All rights reserved.
 
     </p>
-
 
 </footer>
 
