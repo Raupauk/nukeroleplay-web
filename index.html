@@ -315,6 +315,16 @@
             margin-bottom: 0;
         }
 
+        .stats-row {
+            margin-top: 16px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 0.85rem;
+        }
+
         .buttons {
             display: flex;
 
@@ -963,9 +973,9 @@
 
             <div class="server-status">
 
-                <span class="status-dot"></span>
+                <span class="status-dot" id="statusDot"></span>
 
-                Server Online
+                <span id="mcStatus">Server Online</span>
 
             </div>
 
@@ -1013,7 +1023,20 @@
             📋 View Changelogs
         </a>
 
+
+        <a
+            class="button button-secondary"
+            href="http://nukerp.ggwp.cc:17240/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            🗺️ Live Map
+        </a>
+
     </div>
+
+
+    <div class="stats-row" id="discordStatus"></div>
 
 </div>
 
@@ -1462,6 +1485,67 @@
         }, 2000);
 
     }
+
+
+    // --- Minecraft-Serverstatus (mcsrvstat.us) ---
+    async function updateServerStatus() {
+
+        const statusEl = document.getElementById("mcStatus");
+        const dotEl = document.getElementById("statusDot");
+
+        try {
+
+            const res = await fetch("https://api.mcsrvstat.us/3/nukerp.ggwp.cc");
+            const data = await res.json();
+
+            if (data.online) {
+                statusEl.textContent =
+                    `Server Online · ${data.players.online}/${data.players.max} Spieler`;
+                dotEl.style.background = "var(--success)";
+            } else {
+                statusEl.textContent = "Server Offline";
+                dotEl.style.background = "#e05d5d";
+            }
+
+        } catch (e) {
+            console.error("Serverstatus konnte nicht geladen werden:", e);
+        }
+
+    }
+
+
+    // --- Discord-Online-Anzeige (Discord Widget API) ---
+    const DISCORD_GUILD_ID = "1412280196417196148";
+
+    async function updateDiscordStatus() {
+
+        const el = document.getElementById("discordStatus");
+
+        if (DISCORD_GUILD_ID === "DEINE_SERVER_ID_HIER") {
+            return; // noch nicht konfiguriert
+        }
+
+        try {
+
+            const res = await fetch(
+                `https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`
+            );
+            const data = await res.json();
+
+            el.textContent = `💬 ${data.presence_count} online on Discord`;
+
+        } catch (e) {
+            console.error("Discord-Status couldnt load:", e);
+        }
+
+    }
+
+
+    updateServerStatus();
+    updateDiscordStatus();
+
+    setInterval(updateServerStatus, 60000);
+    setInterval(updateDiscordStatus, 60000);
 
 </script>
 
