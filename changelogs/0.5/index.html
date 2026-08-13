@@ -9,166 +9,677 @@
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
-    --bg: #08090d;
-    --card: rgba(20,22,32,.8);
-    --border: rgba(255,255,255,.08);
-    --text: #f5f5f7;
-    --muted: #9b9daa;
-    --accent: #7c5cff;
-    --accent-hover: #9278ff;
+
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+
+    --red: #b34a43;
+
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+
     font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
+        "Helvetica Neue",
+        Helvetica,
         Arial,
         sans-serif;
 
     background:
-        radial-gradient(
-            circle at 50% -20%,
-            rgba(124,92,255,.22),
-            transparent 45%
-        ),
-        var(--bg);
+        var(--black);
 
-    color: var(--text);
+    color:
+        var(--text);
 
-    line-height: 1.7;
+    min-height:
+        100vh;
+
+    line-height:
+        1.7;
+
+    overflow-x:
+        hidden;
 }
+
+
+/* subtle scanline texture */
+
+body::before {
+
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:
+        999;
+}
+
 
 a {
-    color: inherit;
-    text-decoration: none;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
 }
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 nav {
-    padding: 20px 6%;
 
-    display: flex;
-    justify-content: space-between;
+    height:
+        72px;
 
-    border-bottom: 1px solid var(--border);
+    padding:
+        0 5vw;
 
-    background: rgba(8,9,13,.7);
+    display:
+        flex;
 
-    backdrop-filter: blur(12px);
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
 }
+
 
 .logo {
-    font-size: 1.3rem;
-    font-weight: 800;
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
 }
+
 
 .logo span {
-    color: var(--accent);
+
+    color:
+        var(--green);
 }
+
 
 .nav-links {
-    display: flex;
-    gap: 28px;
 
-    color: var(--muted);
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
 }
+
+
+.nav-links a {
+
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
 
 .nav-links a:hover {
-    color: white;
+
+    color:
+        var(--white);
 }
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
 
 .page {
-    max-width: 950px;
 
-    margin: auto;
+    max-width:
+        950px;
 
-    padding: 90px 25px 120px;
+    margin:
+        auto;
+
+    padding:
+        85px 25px 120px;
 }
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
 
 .back {
-    color: var(--muted);
 
-    display: inline-block;
+    display:
+        inline-flex;
 
-    margin-bottom: 35px;
+    align-items:
+        center;
+
+    margin-bottom:
+        38px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    transition:
+        .2s ease;
 }
+
 
 .back:hover {
-    color: white;
+
+    color:
+        var(--green-light);
+
+    transform:
+        translateX(-3px);
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
-    margin-bottom: 50px;
+
+    position:
+        relative;
+
+    margin-bottom:
+        55px;
+
+    padding-left:
+        32px;
 }
+
+
+.header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        5px;
+
+    width:
+        4px;
+
+    height:
+        110px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
 
 .version {
-    color: var(--accent);
 
-    font-weight: 800;
+    color:
+        var(--green-light);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
 }
+
 
 .header h1 {
-    font-size: clamp(3rem,7vw,5rem);
 
-    letter-spacing: -3px;
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
 
-    margin: 5px 0 15px;
+    font-size:
+        clamp(3.5rem, 8vw, 6rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.02em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin:
+        8px 0 18px;
 }
+
 
 .date {
-    color: var(--muted);
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
 }
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
 
 .category {
-    margin-bottom: 40px;
 
-    padding: 30px;
+    position:
+        relative;
 
-    background: var(--card);
+    margin-bottom:
+        28px;
 
-    border: 1px solid var(--border);
+    padding:
+        30px 32px;
 
-    border-radius: 18px;
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    box-shadow:
+        12px 12px 0 rgba(0,0,0,.18);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
 }
+
+
+.category:hover {
+
+    background:
+        var(--panel-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* green top line */
+
+.category::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+
+.category:hover::before {
+
+    width:
+        65px;
+}
+
 
 .category h2 {
-    margin-bottom: 20px;
 
-    color: var(--accent);
+    margin-bottom:
+        22px;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.25rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
 }
+
 
 .category ul {
-    padding-left: 22px;
 
-    color: var(--muted);
+    padding-left:
+        22px;
+
+    color:
+        var(--muted);
 }
+
 
 .category li {
-    margin-bottom: 10px;
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        .9rem;
 }
+
+
+.category li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+/* custom bullet */
+
+.category li::marker {
+
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
-    border-top: 1px solid var(--border);
 
-    padding: 30px;
+    padding:
+        35px 20px 45px;
 
-    text-align: center;
+    text-align:
+        center;
 
-    color: var(--muted);
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
 }
 
-@media(max-width:700px) {
+
+footer strong {
+
+    color:
+        var(--white);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding:
+            0 20px;
+    }
+
 
     .nav-links {
-        display: none;
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            65px 20px 85px;
+    }
+
+
+    .header {
+
+        padding-left:
+            25px;
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .header::before {
+
+        height:
+            90px;
+    }
+
+
+    .header h1 {
+
+        font-size:
+            3.8rem;
+    }
+
+
+    .category {
+
+        padding:
+            25px 22px;
+
+        box-shadow:
+            8px 8px 0 rgba(0,0,0,.18);
+    }
+
+
+    .category h2 {
+
+        font-size:
+            1.1rem;
+    }
+
+
+    .category li {
+
+        font-size:
+            .86rem;
     }
 
 }
@@ -177,322 +688,442 @@ footer {
 
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav>
 
-<a href="../../" class="logo">
-Nuke<span>Roleplay</span>
-</a>
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
 
-<div class="nav-links">
 
-<a href="../../">
-Home
-</a>
+    <div class="nav-links">
 
-<a href="../">
-Changelogs
-</a>
+        <a href="../../">
+            Home
+        </a>
 
-<a href="../../world/">
-World
-</a>
+        <a href="../">
+            Changelogs
+        </a>
 
-<a
-href="https://discord.gg/zdH3rhXzdu"
-target="_blank"
-rel="noopener noreferrer"
->
-Discord
-</a>
+        <a href="../../world/">
+            World
+        </a>
 
-</div>
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
 
 </nav>
 
 
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
 <main class="page">
 
-<a href="../" class="back">
-← Back to Changelogs
-</a>
 
+    <a
+        href="../"
+        class="back"
+    >
+        ← Back to Changelogs
+    </a>
 
-<header class="header">
 
-<div class="version">
-VERSION 0.5
-</div>
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-<h1>
-Jobs & Economy
-</h1>
+    <header class="header">
 
-<div class="date">
-July 9, 2026
-</div>
+        <div class="version">
+            VERSION 0.5
+        </div>
 
-</header>
+        <h1>
+            Jobs &amp; Economy
+        </h1>
 
+        <div class="date">
+            July 9, 2026
+        </div>
 
-<section class="category">
+    </header>
 
-<h2>🌍 World & Building</h2>
 
-<ul>
+    <!-- =====================================================
+         WORLD & BUILDING
+    ===================================================== -->
 
-<li>Finished the F1 Racing Track.</li>
+    <section class="category">
 
-<li>Added a new Spawn Area.</li>
+        <h2>
+            🌍 World &amp; Building
+        </h2>
 
-<li>Added the White House Garden.</li>
+        <ul>
 
-<li>Added new buildings in Sintra.</li>
+            <li>
+                Finished the F1 Racing Track.
+            </li>
 
-<li>Finished decorating most buildings in Sintra.</li>
+            <li>
+                Added a new Spawn Area.
+            </li>
 
-<li>Updated BlueMap.</li>
+            <li>
+                Added the White House Garden.
+            </li>
 
-<li>Added Björn the Castle Keeper.</li>
+            <li>
+                Added new buildings in Sintra.
+            </li>
 
-<li>Added Zandor's Magic Show in Grimwater.</li>
+            <li>
+                Finished decorating most buildings in Sintra.
+            </li>
 
-</ul>
+            <li>
+                Updated BlueMap.
+            </li>
 
-</section>
+            <li>
+                Added Björn the Castle Keeper.
+            </li>
 
+            <li>
+                Added Zandor's Magic Show in Grimwater.
+            </li>
 
-<section class="category">
+        </ul>
 
-<h2>💼 Jobs & Economy</h2>
+    </section>
 
-<ul>
 
-<li>Remade the Miner Job.</li>
+    <!-- =====================================================
+         JOBS & ECONOMY
+    ===================================================== -->
 
-<li>
-The new mines are located at the Master City Quarry
-instead of Dry Valley.
-</li>
+    <section class="category">
 
-<li>
-Mines now consist of two levels instead of three.
-</li>
+        <h2>
+            💼 Jobs &amp; Economy
+        </h2>
 
-<li>
-Mines are significantly larger and contain
-more ores and mineable blocks.
-</li>
+        <ul>
 
-<li>Fixed money checks not working correctly.</li>
+            <li>
+                Remade the Miner Job.
+            </li>
 
-<li>
-Fixed Lumberjack and Miner tools not losing durability.
-</li>
+            <li>
+                The new mines are located at the
+                Master City Quarry instead of Dry Valley.
+            </li>
 
-</ul>
+            <li>
+                Mines now consist of two levels instead of three.
+            </li>
 
-</section>
+            <li>
+                Mines are significantly larger and contain
+                more ores and mineable blocks.
+            </li>
 
+            <li>
+                Fixed money checks not working correctly.
+            </li>
 
-<section class="category">
+            <li>
+                Fixed Lumberjack and Miner tools not losing durability.
+            </li>
 
-<h2>🛍️ Shops & NPCs</h2>
+        </ul>
 
-<ul>
+    </section>
 
-<li>Added Helena's Spawner Shop.</li>
 
-<li>
-Added the Industrial Shop selling Ore Crushers,
-Industrial Crafters and more.
-</li>
+    <!-- =====================================================
+         SHOPS & NPCS
+    ===================================================== -->
 
-<li>
-Added firework rockets with different designs
-to Travolios Stage Shop.
-</li>
+    <section class="category">
 
-<li>Redefined multiple NPC regions.</li>
+        <h2>
+            🛍️ Shops &amp; NPCs
+        </h2>
 
-</ul>
+        <ul>
 
-</section>
+            <li>
+                Added Helena's Spawner Shop.
+            </li>
 
+            <li>
+                Added the Industrial Shop selling Ore Crushers,
+                Industrial Crafters and more.
+            </li>
 
-<section class="category">
+            <li>
+                Added firework rockets with different designs
+                to Travolios Stage Shop.
+            </li>
 
-<h2>⚙️ Systems & Mechanics</h2>
+            <li>
+                Redefined multiple NPC regions.
+            </li>
 
-<ul>
+        </ul>
 
-<li>Updated multiple plugins and outdated scripts.</li>
+    </section>
 
-<li>
-Added XP caps to passive spawners,
-which increase with level.
-</li>
 
-<li>
-Fixed passive spawners only using half
-of their storage at Storage Level 3.
-</li>
+    <!-- =====================================================
+         SYSTEMS & MECHANICS
+    ===================================================== -->
 
-<li>
-Added the /loginstreak command,
-giving players a daily reward for staying active.
-</li>
+    <section class="category">
 
-<li>Remade the passport system.</li>
+        <h2>
+            ⚙️ Systems &amp; Mechanics
+        </h2>
 
-<li>
-Players can now set their hometown
-at the passport official of their preferred town.
-</li>
+        <ul>
 
-<li>
-Added the /house menu and /house trust commands.
-</li>
+            <li>
+                Updated multiple plugins and outdated scripts.
+            </li>
 
-<li>
-Players can now trust others and give them
-permissions inside their houses.
-</li>
+            <li>
+                Added XP caps to passive spawners,
+                which increase with level.
+            </li>
 
-<li>Fixed several bugs within the new housing system.</li>
+            <li>
+                Fixed passive spawners only using half
+                of their storage at Storage Level 3.
+            </li>
 
-</ul>
+            <li>
+                Added the /loginstreak command,
+                giving players a daily reward for staying active.
+            </li>
 
-</section>
+            <li>
+                Remade the passport system.
+            </li>
 
+            <li>
+                Players can now set their hometown
+                at the passport official of their preferred town.
+            </li>
 
-<section class="category">
+            <li>
+                Added the /house menu and /house trust commands.
+            </li>
 
-<h2>📱 Mobile & Crafting</h2>
+            <li>
+                Players can now trust others and give them
+                permissions inside their houses.
+            </li>
 
-<ul>
+            <li>
+                Fixed several bugs within the new housing system.
+            </li>
 
-<li>
-Changed Junk Phone functions by removing apps
-that are now limited to better phones.
-</li>
+        </ul>
 
-<li>Added Tweeter to the Mobile Phone.</li>
+    </section>
 
-<li>Set up telephone cells.</li>
 
-<li>
-Remade recipe menus for the Wood Bench Saw
-and Carpenter's Table.
-</li>
+    <!-- =====================================================
+         MOBILE & CRAFTING
+    ===================================================== -->
 
-<li>Added the Ore Crusher.</li>
+    <section class="category">
 
-<li>
-Added blasting recipes for gold, iron and copper.
-</li>
+        <h2>
+            📱 Mobile &amp; Crafting
+        </h2>
 
-<li>Added the Industrial Crafter.</li>
+        <ul>
 
-<li>
-Fixed material formatting in the Bench Saw
-and Carpenter's Table.
-</li>
+            <li>
+                Changed Junk Phone functions by removing apps
+                that are now limited to better phones.
+            </li>
 
-<li>
-Fixed the Bench Saw and Carpenter's Table accepting
-Custom Items as materials.
-</li>
+            <li>
+                Added Tweeter to the Mobile Phone.
+            </li>
 
-</ul>
+            <li>
+                Set up telephone cells.
+            </li>
 
-</section>
+            <li>
+                Remade recipe menus for the Wood Bench Saw
+                and Carpenter's Table.
+            </li>
 
+            <li>
+                Added the Ore Crusher.
+            </li>
 
-<section class="category">
+            <li>
+                Added blasting recipes for gold, iron and copper.
+            </li>
 
-<h2>👮 Police & Law</h2>
+            <li>
+                Added the Industrial Crafter.
+            </li>
 
-<ul>
+            <li>
+                Fixed material formatting in the Bench Saw
+                and Carpenter's Table.
+            </li>
 
-<li>
-Added Grimwater Police Station as a spawn point
-for police teams.
-</li>
+            <li>
+                Fixed the Bench Saw and Carpenter's Table accepting
+                Custom Items as materials.
+            </li>
 
-<li>
-Fixed a bug where fighting in the Fightclub
-activated a police call.
-</li>
+        </ul>
 
-</ul>
+    </section>
 
-</section>
 
+    <!-- =====================================================
+         POLICE & LAW
+    ===================================================== -->
 
-<section class="category">
+    <section class="category">
 
-<h2>🎮 Gameplay & Events</h2>
+        <h2>
+            👮 Police &amp; Law
+        </h2>
 
-<ul>
+        <ul>
 
-<li>
-Fixed a bug causing players in the Fightclub menu
-not to be displayed.
-</li>
+            <li>
+                Added Grimwater Police Station as a spawn point
+                for police teams.
+            </li>
 
-<li>
-Fixed a bug where players could trust themselves
-as show hosts in the Trivolio Theater.
-</li>
+            <li>
+                Fixed a bug where fighting in the Fightclub
+                activated a police call.
+            </li>
 
-</ul>
+        </ul>
 
-</section>
+    </section>
 
 
-<section class="category">
+    <!-- =====================================================
+         GAMEPLAY & EVENTS
+    ===================================================== -->
 
-<h2>🐛 Bug Fixes</h2>
+    <section class="category">
 
-<ul>
+        <h2>
+            🎮 Gameplay &amp; Events
+        </h2>
 
-<li>
-Fixed players being unable to select items
-from their inventory in the Auction House.
-</li>
+        <ul>
 
-<li>
-Changed iBuy History to show the Seller
-instead of the Buyer.
-</li>
+            <li>
+                Fixed a bug causing players in the Fightclub menu
+                not to be displayed.
+            </li>
 
-<li>
-Fixed players being unable to add fuel to Oil Pumps.
-</li>
+            <li>
+                Fixed a bug where players could trust themselves
+                as show hosts in the Trivolio Theater.
+            </li>
 
-<li>Fixed mushroom pickup.</li>
+        </ul>
 
-<li>
-Fixed players being able to interact with
-armor stands without permission.
-</li>
+    </section>
 
-</ul>
 
-</section>
+    <!-- =====================================================
+         BUG FIXES
+    ===================================================== -->
+
+    <section class="category">
+
+        <h2>
+            🐛 Bug Fixes
+        </h2>
+
+        <ul>
+
+            <li>
+                Fixed players being unable to select items
+                from their inventory in the Auction House.
+            </li>
+
+            <li>
+                Changed iBuy History to show the Seller
+                instead of the Buyer.
+            </li>
+
+            <li>
+                Fixed players being unable to add fuel to Oil Pumps.
+            </li>
+
+            <li>
+                Fixed mushroom pickup.
+            </li>
+
+            <li>
+                Fixed players being able to interact with
+                armor stands without permission.
+            </li>
+
+        </ul>
+
+    </section>
+
 
 </main>
 
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-© 2026
-<strong>NukeRoleplay</strong>.
-All rights reserved.
+    © 2026
+
+    <strong>
+        NukeRoleplay
+    </strong>.
+
+    All rights reserved.
 
 </footer>
+
 
 </body>
 </html>

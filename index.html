@@ -9,10 +9,14 @@
 
     <meta
         name="description"
-        content="NukeRoleplay – A unique Minecraft Roleplay experience."
+        content="NukeRoleplay — Minecraft roleplay, cities, jobs, properties and a world built by the community."
     >
 
     <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
@@ -21,16 +25,28 @@
         }
 
         :root {
-            --bg: #08090d;
-            --bg-secondary: #10121a;
-            --card: rgba(20, 22, 32, 0.8);
-            --border: rgba(255, 255, 255, 0.08);
-            --text: #f5f5f7;
-            --muted: #9b9daa;
-            --accent: #7c5cff;
-            --accent-hover: #9278ff;
-            --success: #48d597;
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+
+            --line: rgba(255,255,255,.09);
         }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
 
         html {
             scroll-behavior: smooth;
@@ -38,27 +54,44 @@
 
         body {
             font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
+                "Helvetica Neue",
                 Helvetica,
                 Arial,
                 sans-serif;
 
             background:
-                radial-gradient(
-                    circle at 50% -20%,
-                    rgba(124, 92, 255, 0.22),
-                    transparent 45%
-                ),
-                var(--bg);
+                var(--black);
 
             color: var(--text);
 
             min-height: 100vh;
 
-            line-height: 1.6;
+            line-height: 1.65;
+
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .035;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+            z-index: 999;
         }
 
         a {
@@ -66,204 +99,275 @@
             text-decoration: none;
         }
 
-        nav {
-            width: 100%;
 
-            padding: 20px 6%;
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            height: 72px;
 
             display: flex;
 
-            justify-content: space-between;
-
             align-items: center;
 
-            border-bottom:
-                1px solid var(--border);
+            justify-content: space-between;
+
+            padding:
+                0 5vw;
 
             background:
-                rgba(8, 9, 13, 0.7);
+                rgba(9,10,10,.94);
 
-            backdrop-filter: blur(12px);
+            border-bottom:
+                1px solid var(--line);
 
             position: sticky;
 
             top: 0;
 
             z-index: 100;
+
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.3rem;
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
 
-            font-weight: 800;
+            font-size: 1.45rem;
 
-            letter-spacing: -0.5px;
+            letter-spacing: .5px;
+
+            text-transform: uppercase;
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--green);
         }
 
         .nav-links {
             display: flex;
 
-            gap: 28px;
+            align-items: center;
+
+            gap: 30px;
+
+            font-size: .82rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .12em;
 
             color: var(--muted);
-
-            font-size: 0.95rem;
         }
 
         .nav-links a {
-            transition: 0.2s;
+            position: relative;
+
+            transition:
+                color .2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -7px;
+
+            width: 0;
+
+            height: 1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
         }
 
         .nav-links a:hover {
-            color: white;
+            color: var(--white);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
         .hero {
-            min-height: 75vh;
+            position: relative;
+
+            min-height: 680px;
 
             display: flex;
 
-            align-items: center;
+            align-items: flex-end;
 
-            justify-content: center;
-
-            position: relative;
+            padding:
+                0 7vw 90px;
 
             overflow: hidden;
 
-            text-align: center;
-
-            padding: 100px 25px;
-
-            background-image:
+            background:
                 linear-gradient(
                     to bottom,
-                    rgba(8, 9, 13, 0.05) 0%,
-                    rgba(8, 9, 13, 0.15) 45%,
-                    rgba(8, 9, 13, 1) 100%
+                    rgba(9,10,10,.05) 0%,
+                    rgba(9,10,10,.18) 40%,
+                    rgba(9,10,10,.95) 100%
                 ),
                 url("images/hero.jpg");
 
             background-size: cover;
 
             background-position: center;
-
-            background-repeat: no-repeat;
         }
 
-        .hero::before {
+        .hero::after {
             content: "";
 
             position: absolute;
 
-            inset: 0;
+            left: 7vw;
+
+            bottom: 46px;
+
+            width: 90px;
+
+            height: 3px;
 
             background:
-                linear-gradient(
-                    90deg,
-                    rgba(8, 9, 13, 0.25),
-                    transparent 50%,
-                    rgba(8, 9, 13, 0.25)
-                );
+                var(--green);
 
-            pointer-events: none;
+            transform:
+                skewX(-35deg);
         }
 
-        .hero > * {
+        .hero-content {
             position: relative;
 
             z-index: 2;
+
+            max-width: 900px;
         }
 
-        .hero h1 {
-            font-size:
-                clamp(4rem, 10vw, 8rem);
-
-            line-height: 0.95;
-
-            letter-spacing: -5px;
-
-            font-weight: 900;
-
-            text-shadow:
-                0 10px 40px
-                rgba(0, 0, 0, 0.6);
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .badge {
-            display: inline-flex;
+        .hero-kicker {
+            display: flex;
 
             align-items: center;
 
-            gap: 8px;
+            gap: 12px;
 
-            padding:
-                7px 13px;
+            margin-bottom: 18px;
 
-            border:
-                1px solid
-                rgba(72, 213, 151, 0.25);
+            font-size: .75rem;
 
-            background:
-                rgba(72, 213, 151, 0.08);
+            font-weight: 700;
 
-            border-radius: 999px;
+            text-transform: uppercase;
 
-            color: var(--success);
+            letter-spacing: .2em;
 
-            font-size: 0.85rem;
-
-            margin-bottom: 25px;
+            color: var(--green-light);
         }
 
-        .status-dot {
-            width: 8px;
+        .hero-kicker::before {
+            content: "";
 
-            height: 8px;
+            width: 30px;
+
+            height: 1px;
 
             background:
-                var(--success);
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 12px
-                rgba(72, 213, 151, 0.8);
+                var(--green);
         }
 
         .hero h1 {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
             font-size:
-                clamp(3rem, 8vw, 6rem);
+                clamp(4rem, 11vw, 9.5rem);
 
-            line-height: 0.95;
+            line-height: .82;
 
-            letter-spacing: -4px;
+            text-transform: uppercase;
 
-            font-weight: 900;
+            letter-spacing: -.025em;
 
-            margin-bottom: 25px;
+            color: var(--white);
+
+            max-width: 1000px;
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
         }
 
         .hero h1 span {
-            color: var(--accent);
+            display: block;
+
+            color: var(--green);
+
+            margin-left: 9vw;
         }
 
-        .hero p {
-            max-width: 650px;
+        .hero-copy {
+            max-width: 520px;
 
-            margin: auto;
+            margin-top: 32px;
 
-            color: var(--muted);
+            margin-left: 11vw;
 
-            font-size: 1.1rem;
+            color: #c0c2bb;
+
+            font-size: 1rem;
+        }
+
+
+        /* =========================================================
+           SERVER STRIP
+        ========================================================= */
+
+        .server-wrap {
+            position: relative;
+
+            z-index: 5;
+
+            margin:
+                -45px 7vw 100px;
+        }
+
+        .server-box {
+            max-width: 980px;
+
+            margin-left: auto;
+
+            margin-right: 5vw;
+
+            padding: 28px 30px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            border-left:
+                4px solid var(--green);
+
+            box-shadow:
+                18px 18px 0 rgba(0,0,0,.28);
         }
 
         .server-header {
@@ -271,13 +375,34 @@
 
             justify-content: space-between;
 
-            align-items: center;
+            align-items: flex-start;
 
-            margin-bottom: 20px;
+            gap: 30px;
+
+            margin-bottom: 24px;
         }
 
         .server-header h2 {
-            margin-bottom: 5px;
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.65rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .02em;
+
+            color: var(--white);
+        }
+
+        .server-subtitle {
+            margin-top: 3px;
+
+            color: var(--muted);
+
+            font-size: .82rem;
         }
 
         .server-status {
@@ -287,117 +412,29 @@
 
             gap: 8px;
 
-            color: var(--success);
+            white-space: nowrap;
 
-            font-size: 0.9rem;
+            color: var(--green-light);
 
-            font-weight: 600;
+            font-size: .78rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
         }
 
-        .server-status .status-dot {
+        .status-dot {
             width: 8px;
 
             height: 8px;
 
-            background:
-                var(--success);
-
             border-radius: 50%;
 
+            background:
+                var(--green);
+
             box-shadow:
-                0 0 12px
-                rgba(72, 213, 151, 0.8);
-        }
-
-        .server-buttons {
-            margin-top: 22px;
-
-            margin-bottom: 0;
-        }
-
-        .stats-row {
-            margin-top: 16px;
-
-            text-align: center;
-
-            color: var(--muted);
-
-            font-size: 0.85rem;
-        }
-
-        .buttons {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 14px;
-
-            margin-top: 35px;
-
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-
-            padding:
-                13px 22px;
-
-            border-radius: 10px;
-
-            font-weight: 700;
-
-            transition: 0.2s;
-        }
-
-        .button-primary {
-            background:
-                var(--accent);
-        }
-
-        .button-primary:hover {
-            background:
-                var(--accent-hover);
-
-            transform:
-                translateY(-2px);
-        }
-
-        .button-secondary {
-            border:
-                1px solid var(--border);
-
-            background:
-                rgba(255, 255, 255, 0.03);
-        }
-
-        .button-secondary:hover {
-            background:
-                rgba(255, 255, 255, 0.07);
-        }
-
-        .server-box {
-            max-width: 850px;
-
-            margin:
-                20px auto 80px;
-
-            padding: 30px;
-
-            background:
-                var(--card);
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 18px;
-
-            backdrop-filter:
-                blur(15px);
-        }
-
-        .server-box h2 {
-            margin-bottom: 20px;
+                0 0 0 4px rgba(145,184,63,.1);
         }
 
         .ip-box {
@@ -407,179 +444,377 @@
 
             justify-content: space-between;
 
+            gap: 15px;
+
+            padding: 13px 14px;
+
             background:
-                #090a0f;
+                #0b0d0c;
 
             border:
-                1px solid var(--border);
-
-            padding:
-                15px 18px;
-
-            border-radius: 10px;
-
-            gap: 15px;
+                1px solid var(--line);
         }
 
         .ip {
-            font-family: monospace;
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                monospace;
 
-            font-size: 1rem;
+            color: #cfd2cb;
 
-            color: #ddd;
+            font-size: .92rem;
         }
 
         .copy-button {
-            border: none;
-
-            background:
-                var(--accent);
-
-            color: white;
+            border: 0;
 
             padding:
                 9px 15px;
 
-            border-radius: 7px;
+            background:
+                var(--green);
+
+            color:
+                #10120d;
 
             cursor: pointer;
 
-            font-weight: 700;
+            font-weight: 800;
+
+            font-size: .75rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
+
+            transition:
+                background .2s ease,
+                transform .2s ease;
         }
 
         .copy-button:hover {
             background:
-                var(--accent-hover);
+                var(--green-light);
+
+            transform:
+                translateY(-1px);
         }
 
+        .buttons {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 18px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 42px;
+
+            padding:
+                0 17px;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                transparent;
+
+            font-size: .76rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .07em;
+
+            transition:
+                .2s ease;
+        }
+
+        .button-primary {
+            background:
+                var(--green);
+
+            border-color:
+                var(--green);
+
+            color:
+                #11130e;
+        }
+
+        .button-primary:hover {
+            background:
+                var(--green-light);
+
+            border-color:
+                var(--green-light);
+        }
+
+        .button-secondary:hover {
+            border-color:
+                rgba(145,184,63,.6);
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.06);
+        }
+
+        .stats-row {
+            margin-top: 13px;
+
+            color:
+                var(--muted);
+
+            font-size: .75rem;
+
+            text-align: right;
+        }
+
+
+        /* =========================================================
+           GENERAL LAYOUT
+        ========================================================= */
+
         .container {
-            max-width: 1100px;
+            max-width: 1180px;
 
             margin: auto;
 
             padding:
-                0 25px 100px;
+                0 5vw 100px;
         }
 
         .section {
-            margin-bottom: 70px;
+            margin-bottom: 120px;
+        }
+
+        .section-heading {
+            position: relative;
+
+            margin-bottom: 42px;
+
+            padding-left: 34px;
+        }
+
+        .section-heading::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 7px;
+
+            width: 4px;
+
+            height: 42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+        }
+
+        .section-label {
+            color:
+                var(--green-light);
+
+            font-size: .7rem;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .2em;
+
+            margin-bottom: 6px;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
 
-            margin-bottom: 25px;
+            font-size:
+                clamp(2.4rem, 5vw, 4.2rem);
 
-            letter-spacing: -1px;
+            line-height: .95;
+
+            text-transform: uppercase;
+
+            letter-spacing: -.01em;
+
+            color:
+                var(--white);
         }
 
         .section-description {
-            color: var(--muted);
+            max-width: 650px;
 
-            margin-bottom: 25px;
+            color:
+                var(--muted);
+
+            font-size: .95rem;
+        }
+
+
+        /* =========================================================
+           FEATURES
+        ========================================================= */
+
+        .features-intro {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.8fr;
+
+            gap: 70px;
+
+            align-items: start;
+
+            margin-bottom: 45px;
+        }
+
+        .features-intro .section-heading {
+            margin-bottom: 0;
         }
 
         .info-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                1.15fr .85fr 1fr;
 
-            gap: 18px;
+            gap: 1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
         }
 
         .info-card {
+            min-height: 225px;
+
             padding: 28px;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(20, 22, 32, 0.9),
-                    rgba(15, 17, 25, 0.75)
-                );
+                var(--panel);
 
-            border:
-                1px solid var(--border);
-
-            border-radius: 16px;
+            position: relative;
 
             transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease;
+                background .2s ease;
+        }
+
+        .info-card:nth-child(2) {
+            transform:
+                translateY(28px);
+        }
+
+        .info-card:nth-child(5) {
+            transform:
+                translateY(-18px);
         }
 
         .info-card:hover {
-            transform:
-                translateY(-5px);
+            background:
+                var(--panel-light);
+        }
 
-            border-color:
-                rgba(124, 92, 255, 0.35);
+        .info-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 3px;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(27, 29, 42, 0.95),
-                    rgba(17, 19, 28, 0.85)
-                );
+                var(--green);
+
+            transition:
+                width .25s ease;
+        }
+
+        .info-card:hover::before {
+            width: 55px;
         }
 
         .info-card .icon {
-            width: 48px;
+            font-size: 1.35rem;
 
-            height: 48px;
+            margin-bottom: 22px;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            background:
-                rgba(124, 92, 255, 0.1);
-
-            border:
-                1px solid
-                rgba(124, 92, 255, 0.15);
-
-            border-radius: 12px;
-
-            font-size: 1.5rem;
-
-            margin-bottom: 18px;
+            filter:
+                grayscale(.2);
         }
 
         .info-card h3 {
-            margin-bottom: 8px;
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
 
-            font-size: 1.15rem;
+            font-size: 1.1rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .025em;
+
+            margin-bottom: 10px;
+
+            color:
+                var(--white);
         }
 
         .info-card p {
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            font-size: 0.95rem;
+            font-size: .87rem;
 
             line-height: 1.7;
         }
 
+
+        /* =========================================================
+           WORLD
+        ========================================================= */
+
         .world-section {
             position: relative;
 
-            min-height: 330px;
+            min-height: 480px;
 
-            padding: 50px;
+            padding:
+                70px 55% 65px 55px;
 
             background:
-                linear-gradient(
-                    135deg,
-                    rgba(124, 92, 255, 0.12),
-                    rgba(255, 255, 255, 0.025)
-                );
+                #121513;
 
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
+            border:
+                1px solid var(--line);
 
             overflow: hidden;
         }
@@ -589,102 +824,140 @@
 
             position: absolute;
 
-            width: 350px;
-            height: 350px;
+            left: 0;
 
-            top: -180px;
-            right: 180px;
+            bottom: 0;
+
+            width: 45%;
+
+            height: 5px;
 
             background:
-                rgba(124, 92, 255, 0.14);
+                var(--green);
 
-            filter: blur(90px);
+            transform:
+                skewX(-35deg);
 
-            pointer-events: none;
+            transform-origin:
+                left;
+        }
+
+        .world-section::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+
+            top: 0;
+
+            width: 42%;
+
+            height: 100%;
+
+            background:
+                rgba(145,184,63,.035);
+
+            clip-path:
+                polygon(
+                    20% 0,
+                    100% 0,
+                    100% 100%,
+                    0 100%
+                );
         }
 
         .world-section-content {
             position: relative;
 
-            z-index: 2;
-
-            max-width: 570px;
-
-            padding-top: 20px;
+            z-index: 3;
         }
 
         .world-section h2 {
-            font-size: 2.2rem;
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
 
-            margin-bottom: 10px;
+            font-size:
+                clamp(2.7rem, 5vw, 4.6rem);
 
-            letter-spacing: -1px;
+            line-height: .9;
+
+            text-transform: uppercase;
+
+            color:
+                var(--white);
+
+            margin-bottom: 20px;
         }
 
         .world-section p {
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            margin-bottom: 25px;
+            font-size: .92rem;
 
-            font-size: 1rem;
+            margin-bottom: 28px;
         }
 
         .world-button {
             display: inline-flex;
 
-            align-items: center;
+            padding:
+                12px 18px;
 
-            gap: 8px;
+            background:
+                var(--green);
 
-            padding: 13px 22px;
+            color:
+                #11130e;
 
-            border-radius: 10px;
+            font-weight: 800;
 
-            background: var(--accent);
+            text-transform: uppercase;
 
-            color: white;
+            font-size: .75rem;
 
-            font-weight: 700;
+            letter-spacing: .08em;
 
             transition:
-                0.25s ease;
+                .2s ease;
         }
 
         .world-button:hover {
-            background: var(--accent-hover);
+            background:
+                var(--green-light);
 
             transform:
-                translateY(-2px);
+                translateX(4px);
         }
 
         .world-postcard {
             position: absolute;
 
-            z-index: 1;
+            z-index: 2;
 
-            width: 330px;
+            width: 480px;
 
-            right: 45px;
+            right: 4%;
 
             top: 50%;
 
             transform:
                 translateY(-50%)
-                rotate(6deg);
+                rotate(3deg);
 
-            padding: 10px;
+            background:
+                #d8d5ca;
 
-            background: #f1eee7;
+            padding: 9px;
 
             box-shadow:
-                0 25px 60px
-                rgba(0, 0, 0, 0.45);
+                14px 18px 0 rgba(0,0,0,.35);
 
             transition:
-                transform 0.35s ease,
-                box-shadow 0.35s ease;
-
-            cursor: pointer;
+                transform .35s ease;
         }
 
         .world-postcard img {
@@ -692,20 +965,56 @@
 
             width: 100%;
 
-            height: 230px;
+            height: 320px;
 
             object-fit: cover;
+
+            filter:
+                saturate(.85)
+                contrast(1.05);
+        }
+
+        .world-postcard::after {
+            content:
+                "NUKEROLEPLAY // WORLD";
+
+            display: block;
+
+            padding:
+                7px 5px 2px;
+
+            color:
+                #242620;
+
+            font-family:
+                monospace;
+
+            font-size: .62rem;
+
+            letter-spacing: .12em;
         }
 
         .world-postcard:hover {
             transform:
                 translateY(-50%)
-                rotate(2deg)
-                scale(1.04);
+                rotate(-1deg)
+                translateX(-7px);
+        }
 
-            box-shadow:
-                0 35px 80px
-                rgba(0, 0, 0, 0.6);
+
+        /* =========================================================
+           CHANGELOG
+        ========================================================= */
+
+        .changelog-layout {
+            display: grid;
+
+            grid-template-columns:
+                1.4fr .8fr;
+
+            gap: 70px;
+
+            align-items: start;
         }
 
         .changelog {
@@ -713,19 +1022,33 @@
 
             flex-direction: column;
 
-            gap: 18px;
+            gap: 1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
         }
 
         .update {
-            padding: 25px;
+            padding:
+                28px 30px;
 
             background:
-                var(--card);
+                var(--panel);
 
-            border:
-                1px solid var(--border);
+            transition:
+                background .2s ease,
+                padding .2s ease;
+        }
 
-            border-radius: 15px;
+        .update:hover {
+            background:
+                var(--panel-light);
+
+            padding-left:
+                36px;
         }
 
         .update-header {
@@ -735,39 +1058,170 @@
 
             align-items: center;
 
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .version {
-            font-weight: 800;
+            color:
+                var(--green-light);
 
-            color: var(--accent);
+            font-family:
+                monospace;
+
+            font-size: .75rem;
+
+            font-weight: 700;
+
+            letter-spacing: .1em;
         }
 
         .date {
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            font-size: 0.9rem;
+            font-size: .72rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .06em;
         }
 
         .update h3 {
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.25rem;
+
+            text-transform: uppercase;
+
             margin-bottom: 8px;
+
+            color:
+                var(--white);
         }
 
         .update p {
-            color: var(--muted);
+            color:
+                var(--muted);
+
+            font-size: .88rem;
+
+            max-width: 650px;
         }
 
+        .changelog-side {
+            padding-top: 20px;
+
+            color:
+                var(--muted);
+
+            font-size: .9rem;
+        }
+
+        .changelog-side strong {
+            display: block;
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: 1.2rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .all-changelog {
+            margin-top: 22px;
+        }
+
+
+        /* =========================================================
+           FOLLOW
+        ========================================================= */
+
         .follow-section {
-            text-align: center;
+            max-width: 1050px;
+
+            margin:
+                0 auto 110px;
+
+            padding:
+                55px 7vw;
+
+            border-top:
+                1px solid var(--line);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position: relative;
+        }
+
+        .follow-section::before {
+            content: "";
+
+            position: absolute;
+
+            left: -1px;
+
+            top: -2px;
+
+            width: 65px;
+
+            height: 3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+        }
+
+        .follow-heading {
+            max-width: 520px;
+
+            margin-bottom: 28px;
+        }
+
+        .follow-heading h2 {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(2.5rem, 6vw, 4.5rem);
+
+            text-transform: uppercase;
+
+            line-height: .9;
+
+            color:
+                var(--white);
+
+            margin-bottom: 14px;
+        }
+
+        .follow-heading p {
+            color:
+                var(--muted);
+
+            font-size: .9rem;
+
+            text-align: left;
         }
 
         .follow-links {
             display: flex;
 
-            justify-content: center;
-
-            gap: 15px;
+            gap: 10px;
 
             flex-wrap: wrap;
         }
@@ -779,128 +1233,327 @@
 
             gap: 10px;
 
-            padding: 12px 18px;
+            min-height: 44px;
+
+            padding:
+                0 17px;
 
             border:
-                1px solid var(--border);
-
-            border-radius: 10px;
+                1px solid var(--line);
 
             background:
-                rgba(255, 255, 255, 0.03);
+                rgba(255,255,255,.015);
 
-            color: var(--text);
+            font-size: .75rem;
 
-            font-weight: 700;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
 
             transition:
-                0.2s ease;
+                .2s ease;
         }
 
         .follow-link:hover {
-            background:
-                rgba(124, 92, 255, 0.12);
+            color:
+                var(--green-light);
 
             border-color:
-                rgba(124, 92, 255, 0.35);
+                rgba(145,184,63,.55);
 
             transform:
                 translateY(-2px);
         }
 
         .follow-link svg {
-            width: 20px;
+            width: 18px;
 
-            height: 20px;
+            height: 18px;
 
             flex-shrink: 0;
         }
 
-        footer {
-            border-top:
-                1px solid var(--border);
 
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
             padding:
-                30px 20px;
+                35px 20px 45px;
 
             text-align: center;
 
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            font-size: 0.9rem;
+            font-size: .72rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .08em;
         }
 
         footer strong {
-            color: white;
+            color:
+                var(--white);
         }
 
-        @media (max-width: 700px) {
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .hero {
+                min-height: 570px;
+
+                padding:
+                    0 25px 70px;
+            }
+
+            .hero h1 {
+                font-size:
+                    clamp(3.7rem, 17vw, 7rem);
+            }
+
+            .hero h1 span {
+                margin-left: 7vw;
+            }
+
+            .hero-copy {
+                margin-left: 7vw;
+            }
+
+            .server-wrap {
+                margin:
+                    -30px 20px 80px;
+            }
+
+            .server-box {
+                margin: 0;
+
+                box-shadow:
+                    10px 10px 0 rgba(0,0,0,.25);
+            }
+
+            .features-intro {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .info-card:nth-child(2),
+            .info-card:nth-child(5) {
+                transform: none;
+            }
+
+            .world-section {
+                padding:
+                    45px 30px 30px;
+            }
+
+            .world-section-content {
+                max-width: 100%;
+            }
+
+            .world-postcard {
+                position: relative;
+
+                right: auto;
+
+                top: auto;
+
+                width: 90%;
+
+                margin:
+                    45px auto 10px;
+
+                transform:
+                    rotate(2deg);
+            }
+
+            .world-postcard img {
+                height: 250px;
+            }
+
+            .world-section::after {
+                display: none;
+            }
+
+            .changelog-layout {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding:
+                    0 20px;
+            }
 
             .nav-links {
                 display: none;
             }
 
             .hero {
-                padding-top: 80px;
+                min-height: 520px;
+
+                background-position:
+                    58% center;
+            }
+
+            .hero::after {
+                left: 25px;
             }
 
             .hero h1 {
-                letter-spacing: -2px;
+                font-size:
+                    4.1rem;
+
+                letter-spacing:
+                    -.02em;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .hero h1 span {
+                margin-left:
+                    22px;
+            }
+
+            .hero-copy {
+                margin-left:
+                    22px;
+
+                margin-top:
+                    25px;
+
+                font-size:
+                    .88rem;
+            }
+
+            .server-header {
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
+            }
+
+            .server-status {
+                align-self:
+                    flex-start;
             }
 
             .ip-box {
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                align-items: stretch;
+                align-items:
+                    stretch;
             }
 
             .copy-button {
-                width: 100%;
+                width:
+                    100%;
             }
 
-            .update-header {
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                gap: 5px;
+            .buttons {
+                flex-direction:
+                    column;
             }
 
-            .world-section {
-                padding: 35px 25px 30px;
-
-                min-height: auto;
+            .button {
+                width:
+                    100%;
             }
 
-            .world-section-content {
-                max-width: 100%;
+            .container {
+                padding:
+                    0 20px 70px;
+            }
 
-                padding-top: 0;
+            .section {
+                margin-bottom:
+                    85px;
+            }
+
+            .info-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .info-card {
+                min-height:
+                    auto;
+            }
+
+            .world-section h2 {
+                font-size:
+                    3.2rem;
             }
 
             .world-postcard {
-                position: relative;
-
-                width: 85%;
-
-                right: auto;
-
-                top: auto;
-
-                margin: 40px auto 0;
-
-                transform:
-                    rotate(3deg);
+                width:
+                    100%;
             }
 
-            .world-postcard:hover {
-                transform:
-                    rotate(1deg)
-                    scale(1.03);
+            .world-postcard img {
+                height:
+                    210px;
+            }
+
+            .update-header {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+                gap:
+                    4px;
+            }
+
+            .follow-section {
+                margin:
+                    0 20px 80px;
+
+                padding:
+                    45px 0;
+            }
+
+            .follow-heading p {
+                text-align:
+                    left;
+            }
+
+            .follow-links {
+                flex-direction:
+                    column;
+            }
+
+            .follow-link {
+                width:
+                    100%;
+
+                justify-content:
+                    flex-start;
             }
 
         }
@@ -911,6 +1564,11 @@
 
 
 <body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav>
 
@@ -949,94 +1607,131 @@
 </nav>
 
 
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero">
 
-    <h1>
-        Nuke<span>Roleplay</span>
-    </h1>
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Minecraft Roleplay · Community Server
+        </div>
+
+        <h1>
+            Nuke
+            <span>Roleplay</span>
+        </h1>
+
+        <p class="hero-copy">
+            A Minecraft world built around cities,
+            jobs, properties and the people who live in them.
+            Build your life, make money, get a job or make
+            your own way through the city.
+        </p>
+
+    </div>
 
 </section>
 
 
-<div
-    class="server-box"
-    id="server"
->
+<!-- =========================================================
+     SERVER
+========================================================= -->
 
-    <div class="server-header">
+<div class="server-wrap">
 
-        <div>
+    <div
+        class="server-box"
+        id="server"
+    >
 
-            <h2>
-                🎮 Join NukeRoleplay
-            </h2>
+        <div class="server-header">
+
+            <div>
+
+                <h2>
+                    Join NukeRoleplay
+                </h2>
+
+                <div class="server-subtitle">
+                    Your next character starts here.
+                </div>
+
+            </div>
 
             <div class="server-status">
 
-                <span class="status-dot" id="statusDot"></span>
+                <span
+                    class="status-dot"
+                    id="statusDot"
+                ></span>
 
-                <span id="mcStatus">Server Online</span>
+                <span id="mcStatus">
+                    Checking server...
+                </span>
 
             </div>
 
         </div>
 
+
+        <div class="ip-box">
+
+            <span
+                class="ip"
+                id="serverIP"
+            >
+                nukeroleplay.net
+            </span>
+
+            <button
+                class="copy-button"
+                onclick="copyIP()"
+            >
+                Copy IP
+            </button>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <a
+                class="button button-primary"
+                href="https://discord.gg/zdH3rhXzdu"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Join Discord
+            </a>
+
+            <a
+                class="button button-secondary"
+                href="changelogs/"
+            >
+                Changelogs
+            </a>
+
+            <a
+                class="button button-secondary"
+                href="http://nukerp.ggwp.cc:17240/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Live Map
+            </a>
+
+        </div>
+
+
+        <div
+            class="stats-row"
+            id="discordStatus"
+        ></div>
+
     </div>
-
-
-    <div class="ip-box">
-
-        <span
-            class="ip"
-            id="serverIP"
-        >
-            nukeroleplay.net
-        </span>
-
-
-        <button
-            class="copy-button"
-            onclick="copyIP()"
-        >
-            Copy IP
-        </button>
-
-    </div>
-
-
-    <div class="buttons server-buttons">
-
-        <a
-            class="button button-primary"
-            href="https://discord.gg/zdH3rhXzdu"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            💬 Join our Discord
-        </a>
-
-
-        <a
-            class="button button-secondary"
-            href="changelogs/"
-        >
-            📋 View Changelogs
-        </a>
-
-
-        <a
-            class="button button-secondary"
-            href="http://nukerp.ggwp.cc:17240/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            🗺️ Live Map
-        </a>
-
-    </div>
-
-
-    <div class="stats-row" id="discordStatus"></div>
 
 </div>
 
@@ -1044,22 +1739,42 @@
 <main class="container">
 
 
+<!-- =========================================================
+     INFORMATION
+========================================================= -->
+
 <section
     class="section"
     id="info"
 >
 
-    <h2 class="section-title">
-        What Can You Do?
-    </h2>
+    <div class="features-intro">
 
-    <p class="section-description">
+        <div class="section-heading">
 
-        NukeRoleplay is more than just building and
-        exploring. Create your own story and decide
-        how you want to live.
+            <div class="section-label">
+                The server
+            </div>
 
-    </p>
+            <h2 class="section-title">
+                Make your own life.
+            </h2>
+
+        </div>
+
+        <p class="section-description">
+
+            NukeRoleplay isn't built around one way to play.
+            Buy a place to live, find a job, start a business,
+            join the police or simply explore the world.
+
+            <br><br>
+
+            What happens next is mostly up to you.
+
+        </p>
+
+    </div>
 
 
     <div class="info-grid">
@@ -1072,14 +1787,13 @@
             </div>
 
             <h3>
-                Buy & Own Properties
+                Properties
             </h3>
 
             <p>
-                Buy your own house, apartment or
-                other properties. Build your home,
-                customize it and give trusted players
-                access to your property.
+                Buy houses, apartments and other properties.
+                Build your home and give people you trust
+                access to it.
             </p>
 
         </div>
@@ -1092,13 +1806,12 @@
             </div>
 
             <h3>
-                Jobs & Careers
+                Jobs
             </h3>
 
             <p>
-                Choose your career and earn money
-                through different jobs. Work your way
-                up and build your own financial future.
+                Work different jobs, earn money and slowly
+                build up your character's life.
             </p>
 
         </div>
@@ -1111,13 +1824,13 @@
             </div>
 
             <h3>
-                Legal & Illegal Economy
+                Economy
             </h3>
 
             <p>
-                Make money legally through jobs and
-                businesses — or take the risky path
-                and earn money through illegal activities.
+                Make money legally through work and
+                businesses — or take the less respectable
+                route.
             </p>
 
         </div>
@@ -1130,13 +1843,12 @@
             </div>
 
             <h3>
-                Vehicles & Transportation
+                Vehicles
             </h3>
 
             <p>
-                Travel across the world using cars,
-                public transportation and other ways
-                to get around the cities.
+                Get around the cities with cars,
+                public transport and other vehicles.
             </p>
 
         </div>
@@ -1149,13 +1861,13 @@
             </div>
 
             <h3>
-                Police & Law
+                Police
             </h3>
 
             <p>
-                Follow the law, become a police officer,
-                investigate crimes or live life on the
-                other side of the law.
+                Join the police, enforce the law,
+                investigate crimes or find yourself
+                on the other side of it.
             </p>
 
         </div>
@@ -1168,13 +1880,13 @@
             </div>
 
             <h3>
-                A Growing World
+                The World
             </h3>
 
             <p>
-                Explore cities, mountains, beaches and
-                unique locations in a constantly expanding
-                world filled with new places to discover.
+                Cities, beaches, mountains and plenty
+                of places to discover as the map continues
+                to grow.
             </p>
 
         </div>
@@ -1185,6 +1897,10 @@
 </section>
 
 
+<!-- =========================================================
+     WORLD
+========================================================= -->
+
 <section class="section">
 
     <div class="world-section">
@@ -1192,17 +1908,20 @@
 
         <div class="world-section-content">
 
+            <div class="section-label">
+                NukeRoleplay World
+            </div>
+
             <h2>
-                Explore the World
+                See where<br>
+                your story happens.
             </h2>
 
             <p>
-                Discover the cities, towns, landmarks and
-                landscapes of NukeRoleplay. Explore our
-                world and get a glimpse of the places
-                where your story takes place.
+                Explore the cities, towns, mountains and
+                landmarks that make up the NukeRoleplay world.
+                There's always another place to find.
             </p>
-
 
             <a
                 href="world/"
@@ -1221,7 +1940,7 @@
 
             <img
                 src="images/world/postcard_mastercity.png"
-                alt="Master City"
+                alt="Master City in NukeRoleplay"
             >
 
         </a>
@@ -1232,141 +1951,139 @@
 </section>
 
 
+<!-- =========================================================
+     CHANGELOG
+========================================================= -->
+
 <section
     class="section"
     id="changelog"
 >
 
-    <h2 class="section-title">
-        Latest Updates
-    </h2>
+    <div class="changelog-layout">
 
 
-    <p class="section-description">
+        <div>
 
-        Check out the latest changes and improvements
-        to NukeRoleplay.
+            <div class="section-heading">
 
-    </p>
+                <div class="section-label">
+                    What's new
+                </div>
 
+                <h2 class="section-title">
+                    Latest Updates
+                </h2>
 
-    <div class="changelog">
-
-
-        <article class="update">
-
-
-            <div class="update-header">
+            </div>
 
 
-                <span class="version">
-                    v0.5.1
-                </span>
+            <div class="changelog">
 
 
-                <span class="date">
-                    August 8, 2026
-                </span>
+                <article class="update">
+
+                    <div class="update-header">
+
+                        <span class="version">
+                            v0.5.1
+                        </span>
+
+                        <span class="date">
+                            August 8, 2026
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        World Expansion & New Systems
+                    </h3>
+
+                    <p>
+                        Major world expansions, new buildings,
+                        housing improvements and new systems.
+                    </p>
+
+                    <br>
+
+                    <a
+                        href="changelogs/0.5.1/"
+                        class="button button-primary"
+                    >
+                        Read Update →
+                    </a>
+
+                </article>
+
+
+                <article class="update">
+
+                    <div class="update-header">
+
+                        <span class="version">
+                            v0.5
+                        </span>
+
+                        <span class="date">
+                            July 9, 2026
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Jobs, Economy & Roleplay
+                    </h3>
+
+                    <p>
+                        New jobs, buildings, shops, housing,
+                        economy features and gameplay improvements.
+                    </p>
+
+                    <br>
+
+                    <a
+                        href="changelogs/0.5/"
+                        class="button button-primary"
+                    >
+                        Read Update →
+                    </a>
+
+                </article>
 
 
             </div>
 
 
-            <h3>
-                World Expansion & New Systems
-            </h3>
+            <div class="all-changelog">
 
-
-            <p>
-
-                Major world expansions, new buildings,
-                housing improvements and new systems.
-
-            </p>
-
-
-            <br>
-
-
-            <a
-                href="changelogs/0.5.1/"
-                class="button button-primary"
-            >
-                View Changelog →
-            </a>
-
-
-        </article>
-
-
-        <article class="update">
-
-
-            <div class="update-header">
-
-
-                <span class="version">
-                    v0.5
-                </span>
-
-
-                <span class="date">
-                    July 9, 2026
-                </span>
-
+                <a
+                    href="changelogs/"
+                    class="button button-secondary"
+                >
+                    View All Changelogs →
+                </a>
 
             </div>
 
-
-            <h3>
-                Jobs, Economy & Roleplay
-            </h3>
+        </div>
 
 
-            <p>
+        <aside class="changelog-side">
 
-                New jobs, buildings, shops, housing,
-                economy features and major gameplay
-                improvements.
+            <strong>
+                Keeping track
+            </strong>
 
-            </p>
+            The server is still growing.
 
+            New places, systems and changes are
+            added over time. Check the changelog
+            when you come back to see what's changed.
 
-            <br>
-
-
-            <a
-                href="changelogs/0.5/"
-                class="button button-primary"
-            >
-                View Changelog →
-            </a>
-
-
-        </article>
+        </aside>
 
 
     </div>
-
-
-    <div
-        style="
-            text-align: center;
-            margin-top: 30px;
-        "
-    >
-
-
-        <a
-            href="changelogs/"
-            class="button button-secondary"
-        >
-            View All Changelogs →
-        </a>
-
-
-    </div>
-
 
 </section>
 
@@ -1374,18 +2091,32 @@
 </main>
 
 
-<section class="section follow-section">
+<!-- =========================================================
+     FOLLOW
+========================================================= -->
 
-    <h2 class="section-title">
-        Follow Us
-    </h2>
+<section class="follow-section">
 
-    <p class="section-description">
-        Follow Nuke Studios for updates,
-        builds and more.
-    </p>
+    <div class="follow-heading">
+
+        <div class="section-label">
+            Stay around
+        </div>
+
+        <h2>
+            Follow Nuke Studios
+        </h2>
+
+        <p>
+            Updates, builds, world projects and other
+            things we're working on.
+        </p>
+
+    </div>
+
 
     <div class="follow-links">
+
 
         <a
             href="https://www.youtube.com/@nukestudios15"
@@ -1398,10 +2129,12 @@
                 viewBox="0 0 24 24"
                 aria-hidden="true"
             >
+
                 <path
                     fill="currentColor"
                     d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.5 3.9-6.5 3.9Z"
                 />
+
             </svg>
 
             YouTube
@@ -1420,39 +2153,51 @@
                 viewBox="0 0 24 24"
                 aria-hidden="true"
             >
+
                 <path
                     fill="currentColor"
                     d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.8 6.2a1 1 0 1 1-1 1 1 0 0 1 17.8 6.2Z"
                 />
+
             </svg>
 
             Instagram
 
         </a>
 
+
     </div>
 
 </section>
 
 
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-    <p>
+    © 2026
 
-        © 2026
+    <strong>
+        Nuke Studios
+    </strong>.
 
-        <strong>
-            Nuke Studios
-        </strong>.
-
-        All rights reserved.
-
-    </p>
+    All rights reserved.
 
 </footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
+
+
+    /* =========================================================
+       COPY SERVER IP
+    ========================================================= */
 
     function copyIP() {
 
@@ -1462,19 +2207,15 @@
                 .innerText;
 
 
-        navigator
-            .clipboard
-            .writeText(ip);
+        navigator.clipboard.writeText(ip);
 
 
         const button =
-            document.querySelector(
-                ".copy-button"
-            );
+            document.querySelector(".copy-button");
 
 
         button.innerText =
-            "✓ Copied!";
+            "Copied";
 
 
         setTimeout(() => {
@@ -1487,65 +2228,158 @@
     }
 
 
-    // --- Minecraft-Serverstatus (mcsrvstat.us) ---
+    /* =========================================================
+       MINECRAFT SERVER STATUS
+    ========================================================= */
+
     async function updateServerStatus() {
 
-        const statusEl = document.getElementById("mcStatus");
-        const dotEl = document.getElementById("statusDot");
+        const statusEl =
+            document.getElementById("mcStatus");
+
+        const dotEl =
+            document.getElementById("statusDot");
+
 
         try {
 
-            const res = await fetch("https://api.mcsrvstat.us/3/nukerp.ggwp.cc");
-            const data = await res.json();
+            const res =
+                await fetch(
+                    "https://api.mcsrvstat.us/3/nukerp.ggwp.cc"
+                );
+
+
+            const data =
+                await res.json();
+
 
             if (data.online) {
+
                 statusEl.textContent =
-                    `Server Online · ${data.players.online}/${data.players.max} Player`;
-                dotEl.style.background = "var(--success)";
+                    `Online · ${data.players.online}/${data.players.max} players`;
+
+                dotEl.style.background =
+                    "var(--green)";
+
             } else {
-                statusEl.textContent = "Server Offline";
-                dotEl.style.background = "#e05d5d";
+
+                statusEl.textContent =
+                    "Server Offline";
+
+                dotEl.style.background =
+                    "var(--red)";
+
             }
 
-        } catch (e) {
-            console.error("Status could not load:", e);
+
+        } catch (error) {
+
+            statusEl.textContent =
+                "Status unavailable";
+
+            dotEl.style.background =
+                "var(--muted)";
+
+            console.error(
+                "Minecraft status could not load:",
+                error
+            );
+
         }
 
     }
 
 
-    // --- Discord-Online-Anzeige (Discord Widget API) ---
-    const DISCORD_GUILD_ID = "1412280196417196148";
+    /* =========================================================
+       DISCORD STATUS
+    ========================================================= */
+
+    const DISCORD_GUILD_ID =
+        "1412280196417196148";
+
 
     async function updateDiscordStatus() {
 
-        const el = document.getElementById("discordStatus");
+        const el =
+            document.getElementById(
+                "discordStatus"
+            );
 
-        if (DISCORD_GUILD_ID === "DEINE_SERVER_ID_HIER") {
-            return; // noch nicht konfiguriert
-        }
 
         try {
 
-            const res = await fetch(
-                `https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`
+            const res =
+                await fetch(
+                    `https://discord.com/api/guilds/${DISCORD_GUILD_ID}/widget.json`
+                );
+
+
+            if (!res.ok) {
+                throw new Error(
+                    "Discord widget unavailable"
+                );
+            }
+
+
+            const data =
+                await res.json();
+
+
+            if (
+                typeof data.presence_count ===
+                "number"
+            ) {
+
+                el.textContent =
+                    `Discord · ${data.presence_count} online`;
+
+            } else {
+
+                el.textContent =
+                    "Discord · Online";
+
+            }
+
+
+        } catch (error) {
+
+            el.textContent =
+                "Discord · Join the community";
+
+            console.error(
+                "Discord status could not load:",
+                error
             );
-            const data = await res.json();
 
-            el.textContent = `💬 ${data.presence_count} online on Discord`;
-
-        } catch (e) {
-            console.error("Discord-Status could not load:", e);
         }
 
     }
 
 
+    /* =========================================================
+       INITIAL LOAD
+    ========================================================= */
+
     updateServerStatus();
+
     updateDiscordStatus();
 
-    setInterval(updateServerStatus, 60000);
-    setInterval(updateDiscordStatus, 60000);
+
+    /* =========================================================
+       REFRESH
+    ========================================================= */
+
+    setInterval(
+        updateServerStatus,
+        60000
+    );
+
+
+    setInterval(
+        updateDiscordStatus,
+        60000
+    );
+
 
 </script>
 
