@@ -166,6 +166,7 @@
         .hero-kicker::before { content: ""; width: 30px; height: 1px; background: var(--green); }
  
         .hero h1 {
+            position: relative;
             font-family: Impact, "Arial Narrow", sans-serif;
             font-size: clamp(4rem, 11vw, 9.5rem);
             line-height: .82;
@@ -177,6 +178,18 @@
         }
  
         .hero h1 span { display: block; color: var(--green); margin-left: 9vw; }
+ 
+        .hero-notch-character {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            bottom: 0;
+            width: 9.2vw;
+            object-fit: contain;
+            object-position: bottom left;
+            z-index: 1;
+            pointer-events: none;
+        }
  
         .hero-copy {
             max-width: 520px;
@@ -604,6 +617,7 @@
             .hero { min-height: 570px; padding: 0 25px 70px; }
             .hero h1 { font-size: clamp(3.7rem, 17vw, 7rem); }
             .hero h1 span { margin-left: 7vw; }
+            .hero-notch-character { width: 7vw; }
             .hero-copy { margin-left: 7vw; }
             .server-wrap { margin: -30px 20px 80px; }
             .server-box { margin: 0; box-shadow: 10px 10px 0 rgba(0,0,0,.25); }
@@ -624,6 +638,7 @@
             .hero::after { left: 25px; }
             .hero h1 { font-size: 4.1rem; letter-spacing: -.02em; }
             .hero h1 span { margin-left: 22px; }
+            .hero-notch-character { display: none; }
             .hero-copy { margin-left: 22px; margin-top: 25px; font-size: .88rem; }
             .server-header { flex-direction: column; gap: 10px; }
             .server-status { align-self: flex-start; }
@@ -665,7 +680,7 @@
 <section class="hero">
     <div class="hero-content">
         <div class="hero-kicker">Minecraft Roleplay · Community Server</div>
-        <h1>Nuke<span>Roleplay</span></h1>
+        <h1>Nuke<img src="images/rc.png" alt="" class="hero-notch-character"><span>Roleplay</span></h1>
         <p class="hero-copy">
             Rent an apartment. Clock into a job. Run a business, or run
             from the police. Oblivion City keeps going whether you log
@@ -956,3 +971,4 @@
  
 </body>
 </html>
+ 
