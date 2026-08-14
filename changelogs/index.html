@@ -281,42 +281,61 @@
 
 
         /* =========================================================
-           PAGE
+           HERO
         ========================================================= */
 
-        .page {
-
-            max-width:
-                1080px;
-
-            margin:
-                auto;
-
-            padding:
-                100px 30px 120px;
-
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        .header {
+        .changelog-hero {
 
             position:
                 relative;
 
-            margin-bottom:
-                65px;
+            width:
+                100%;
 
-            padding-left:
-                34px;
+            min-height:
+                500px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            overflow:
+                hidden;
+
+            background:
+                var(--black);
 
         }
 
 
-        .header::before {
+        .changelog-hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.02) 0%,
+                    rgba(9,10,10,.08) 45%,
+                    rgba(9,10,10,.92) 100%
+                );
+
+            z-index:
+                1;
+
+        }
+
+
+        .changelog-hero::after {
 
             content:
                 "";
@@ -325,36 +344,88 @@
                 absolute;
 
             left:
-                0;
+                7vw;
 
-            top:
-                6px;
+            bottom:
+                48px;
 
             width:
-                4px;
+                90px;
 
             height:
-                88px;
+                3px;
 
             background:
                 var(--green);
 
             transform:
-                skewY(-18deg);
+                skewX(-35deg);
+
+            z-index:
+                3;
 
         }
 
 
-        .header-label {
+        .changelog-hero img {
 
-            color:
-                var(--green-light);
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+        }
+
+
+        .changelog-hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            width:
+                100%;
+
+            padding:
+                0 7vw 90px;
+
+        }
+
+
+        .changelog-hero-label {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
 
             font-size:
-                .7rem;
+                .75rem;
 
             font-weight:
-                800;
+                700;
 
             text-transform:
                 uppercase;
@@ -362,13 +433,30 @@
             letter-spacing:
                 .2em;
 
-            margin-bottom:
-                8px;
+            color:
+                var(--green-light);
 
         }
 
 
-        .header h1 {
+        .changelog-hero-label::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .changelog-hero h1 {
 
             font-family:
                 Impact,
@@ -378,46 +466,56 @@
             font-size:
                 clamp(
                     4rem,
-                    9vw,
-                    7rem
+                    11vw,
+                    9.5rem
                 );
 
             line-height:
-                .78;
-
-            letter-spacing:
-                -.02em;
+                .82;
 
             text-transform:
                 uppercase;
 
+            letter-spacing:
+                -.025em;
+
             color:
                 var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+            white-space:
+                nowrap;
 
         }
 
 
-        .header h1 span {
+        .changelog-hero h1 span {
 
             color:
                 var(--green);
 
+            margin-left:
+                0;
+
         }
 
 
-        .header p {
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .page {
 
             max-width:
-                650px;
+                1120px;
 
-            margin-top:
-                25px;
+            margin:
+                auto;
 
-            color:
-                var(--muted);
-
-            font-size:
-                .95rem;
+            padding:
+                55px 30px 120px;
 
         }
 
@@ -456,7 +554,7 @@
                 relative;
 
             padding:
-                32px 34px;
+                34px 38px;
 
             background:
                 var(--panel);
@@ -481,7 +579,7 @@
                 var(--green);
 
             padding-left:
-                40px;
+                44px;
 
         }
 
@@ -619,7 +717,7 @@
         .description {
 
             max-width:
-                720px;
+                760px;
 
             color:
                 var(--muted);
@@ -765,6 +863,7 @@
 
         }
 
+
         footer strong {
 
             color:
@@ -795,51 +894,56 @@
             }
 
 
-            .page {
+            .changelog-hero {
+
+                min-height:
+                    430px;
+
+            }
+
+
+            .changelog-hero-content {
 
                 padding:
-                    70px 20px 85px;
+                    0 25px 70px;
 
             }
 
 
-            .header {
+            .changelog-hero::after {
 
-                padding-left:
-                    27px;
+                left:
+                    25px;
 
-                margin-bottom:
-                    45px;
-
-            }
-
-
-            .header::before {
-
-                height:
-                    70px;
+                bottom:
+                    32px;
 
             }
 
 
-            .header h1 {
+            .changelog-hero h1 {
 
                 font-size:
                     4.1rem;
 
                 line-height:
-                    .76;
+                    .82;
 
             }
 
 
-            .header p {
+            .changelog-hero-label {
 
                 font-size:
-                    .88rem;
+                    .65rem;
 
-                margin-top:
-                    22px;
+            }
+
+
+            .page {
+
+                padding:
+                    35px 20px 85px;
 
             }
 
@@ -899,6 +1003,34 @@
 
         }
 
+
+        @media (max-width: 420px) {
+
+            .changelog-hero {
+
+                min-height:
+                    360px;
+
+            }
+
+
+            .changelog-hero h1 {
+
+                font-size:
+                    3.5rem;
+
+            }
+
+
+            .changelog-hero-content {
+
+                padding-bottom:
+                    60px;
+
+            }
+
+        }
+
     </style>
 
 </head>
@@ -949,18 +1081,21 @@
 
 
 <!-- =========================================================
-     MAIN
+     HERO
 ========================================================= -->
 
-<main class="page">
+<section class="changelog-hero">
+
+    <img
+        src="../images/hero_changelogs.png"
+        alt="NukeRoleplay Changelogs"
+    >
 
 
-    <!-- HEADER -->
+    <div class="changelog-hero-content">
 
-    <header class="header">
-
-        <div class="header-label">
-            NukeRoleplay / Updates
+        <div class="changelog-hero-label">
+            NukeRoleplay · Updates
         </div>
 
 
@@ -968,19 +1103,21 @@
             Change<span>logs</span>
         </h1>
 
+    </div>
 
-        <p>
-            Explore every major update, feature,
-            improvement and bug fix released
-            for NukeRoleplay.
-        </p>
+</section>
 
-    </header>
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="page">
 
 
     <!-- =====================================================
          CHANGELOGS
-    ===================================================== -->
+    ====================================================== -->
 
     <div class="changelog-list">
 
@@ -1126,11 +1263,13 @@
 
     © 2026 <strong>Nuke Studios</strong>. All rights reserved.
 
+
     <div class="footer-links">
 
         <a href="../impressum/">
             Imprint
         </a>
+
 
         <a href="../datenschutz/">
             Privacy Policy

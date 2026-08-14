@@ -32,7 +32,6 @@
 
         /* =========================================================
            COLORS
-           Same palette as the main NukeRoleplay website
         ========================================================= */
 
         :root {
@@ -266,7 +265,7 @@
 
 
         /* =========================================================
-           PAGE HEADER
+           WORLD HERO
         ========================================================= */
 
         .page-header {
@@ -274,13 +273,73 @@
                 relative;
 
             max-width:
-                1180px;
+                none;
+
+            min-height:
+                620px;
 
             margin:
-                auto;
+                0;
 
             padding:
-                105px 30px 75px;
+                0 7vw 90px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                flex-end;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.05) 0%,
+                    rgba(9,10,10,.18) 40%,
+                    rgba(9,10,10,.96) 100%
+                ),
+                url("../images/hero_world.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+        }
+
+
+        .page-header::after {
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                46px;
+
+            width:
+                90px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+            z-index:
+                1;
         }
 
 
@@ -309,13 +368,16 @@
                 .18em;
 
             color:
-                #4e534f;
+                rgba(241,240,235,.45);
 
             transform:
                 rotate(-90deg);
 
             transform-origin:
                 right top;
+
+            z-index:
+                2;
         }
 
 
@@ -346,6 +408,12 @@
 
             letter-spacing:
                 .2em;
+
+            position:
+                relative;
+
+            z-index:
+                2;
         }
 
 
@@ -365,6 +433,12 @@
 
 
         .page-header h1 {
+            position:
+                relative;
+
+            z-index:
+                2;
+
             font-family:
                 Impact,
                 "Arial Narrow",
@@ -374,7 +448,7 @@
                 clamp(4.5rem, 10vw, 8rem);
 
             line-height:
-                0.72;
+                .72;
 
             letter-spacing:
                 -2px;
@@ -387,6 +461,12 @@
 
             max-width:
                 800px;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
         }
 
 
@@ -400,6 +480,12 @@
 
 
         .page-header p {
+            position:
+                relative;
+
+            z-index:
+                2;
+
             max-width:
                 570px;
 
@@ -410,7 +496,7 @@
                 8vw;
 
             color:
-                var(--muted);
+                #c0c2bb;
 
             font-size:
                 .95rem;
@@ -1108,8 +1194,16 @@
         }
 
 
-        .footer-links {
+        footer strong {
+            color:
+                var(--white);
 
+            font-weight:
+                700;
+        }
+
+
+        .footer-links {
             margin-top:
                 10px;
 
@@ -1121,34 +1215,21 @@
 
             gap:
                 18px;
-
         }
 
 
         .footer-links a {
-
             color:
                 var(--muted);
 
             transition:
                 color .2s ease;
-
         }
 
 
         .footer-links a:hover {
-
             color:
                 var(--green-light);
-
-        }
-
-        footer strong {
-            color:
-                var(--white);
-
-            font-weight:
-                700;
         }
 
 
@@ -1165,8 +1246,14 @@
 
 
             .page-header {
+                min-height:
+                    540px;
+
                 padding:
-                    75px 25px 55px;
+                    0 25px 70px;
+
+                background-position:
+                    center;
             }
 
 
@@ -1348,8 +1435,14 @@
 
 
             .page-header {
+                min-height:
+                    500px;
+
                 padding:
-                    65px 20px 50px;
+                    0 20px 65px;
+
+                background-position:
+                    center;
             }
 
 
@@ -1478,7 +1571,7 @@
 
 
 <!-- =========================================================
-     HEADER
+     WORLD HERO
 ========================================================= -->
 
 <header class="page-header">
