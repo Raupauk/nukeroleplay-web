@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Documentation | NukeRoleplay</title>
+
+    <meta
+        name="description"
+        content="NukeRoleplay Documentation — Learn everything about jobs, housing, vehicles, police, businesses, phones, commands and activities."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                560px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 85px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.18) 38%,
+                    rgba(9,10,10,.97) 100%
+                ),
+                url("../images/hero_documentation.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                42px;
+
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                1000px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                650px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .98rem;
+
+        }
+
+
+        /* =========================================================
+           MAIN CONTAINER
+        ========================================================= */
+
+        .container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            padding:
+                105px 5vw 120px;
+
+        }
+
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .intro {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1.5fr;
+
+            gap:
+                70px;
+
+            align-items:
+                start;
+
+            margin-bottom:
+                55px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            padding-left:
+                34px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                7px;
+
+            width:
+                4px;
+
+            height:
+                58px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .7rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.7rem,
+                    5vw,
+                    4.5rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .intro-text {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .95rem;
+
+            max-width:
+                620px;
+
+            padding-top:
+                8px;
+
+        }
+
+
+        .intro-text strong {
+
+            color:
+                var(--white);
+
+            font-weight:
+                600;
+
+        }
+
+
+        /* =========================================================
+           DOCUMENTATION GRID
+        ========================================================= */
+
+        .documentation-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                18px;
+
+        }
+
+
+        /* =========================================================
+           DOCUMENTATION CARD
+        ========================================================= */
+
+        .documentation-card {
+
+            position:
+                relative;
+
+            min-height:
+                235px;
+
+            padding:
+                30px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+            transition:
+                background .25s ease,
+                border-color .25s ease,
+                transform .25s ease;
+
+        }
+
+
+        .documentation-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-4px);
+
+        }
+
+
+        .documentation-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            top:
+                0;
+
+            left:
+                0;
+
+            width:
+                0;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .3s ease;
+
+        }
+
+
+        .documentation-card:hover::before {
+
+            width:
+                70px;
+
+        }
+
+
+        .documentation-card::after {
+
+            content:
+                attr(data-number);
+
+            position:
+                absolute;
+
+            right:
+                20px;
+
+            bottom:
+                -12px;
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                6rem;
+
+            line-height:
+                1;
+
+            color:
+                rgba(255,255,255,.025);
+
+            pointer-events:
+                none;
+
+        }
+
+
+        .card-number {
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--green);
+
+            margin-bottom:
+                28px;
+
+        }
+
+
+        .documentation-card h2 {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.35rem;
+
+            line-height:
+                1.05;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .025em;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .documentation-card p {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .83rem;
+
+            line-height:
+                1.7;
+
+            max-width:
+                38ch;
+
+        }
+
+
+        .card-arrow {
+
+            position:
+                absolute;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            z-index:
+                3;
+
+            color:
+                var(--green-light);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .78rem;
+
+            transition:
+                transform .2s ease;
+
+        }
+
+
+        .documentation-card:hover .card-arrow {
+
+            transform:
+                translateX(5px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER NOTE
+        ========================================================= */
+
+        .documentation-note {
+
+            margin-top:
+                55px;
+
+            padding:
+                25px 30px;
+
+            border-top:
+                1px solid var(--line);
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .78rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .06em;
+
+        }
+
+
+        .documentation-note strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .intro {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    25px;
+
+            }
+
+
+            .documentation-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    500px;
+
+                padding:
+                    0 25px 70px;
+
+                background-position:
+                    center;
+
+            }
+
+
+            .hero::before {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4.3rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    22px;
+
+                margin-top:
+                    24px;
+
+                font-size:
+                    .87rem;
+
+            }
+
+
+            .container {
+
+                padding:
+                    75px 20px 85px;
+
+            }
+
+
+            .documentation-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .documentation-card {
+
+                min-height:
+                    210px;
+
+            }
+
+
+            .section-title {
+
+                font-size:
+                    3.2rem;
+
+            }
+
+
+            .documentation-note {
+
+                padding:
+                    22px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../">
+            Home
+        </a>
+
+        <a href="../world/">
+            World
+        </a>
+
+        <a href="./">
+            Documentation
+        </a>
+
+        <a href="../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            NukeRoleplay / Knowledge Base
+        </div>
+
+
+        <h1>
+            Documenta<span>tion</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Everything you need to know about life in
+            NukeRoleplay. Learn how the server works,
+            discover its systems and find your way around
+            the world.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="container">
+
+
+    <!-- =====================================================
+         INTRO
+    ===================================================== -->
+
+    <section class="intro">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                NukeRoleplay / Guide
+            </div>
+
+
+            <h2 class="section-title">
+                Know<br>
+                the system.
+            </h2>
+
+        </div>
+
+
+        <p class="intro-text">
+
+            NukeRoleplay is built around a lot of systems,
+            and there is a lot to discover.
+            <br><br>
+
+            Whether you're joining the server for the first
+            time or looking for information about a specific
+            feature, the documentation gives you a place to
+            find the answers.
+            <br><br>
+
+            <strong>
+                Choose a category below to get started.
+            </strong>
+
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         DOCUMENTATION CATEGORIES
+    ===================================================== -->
+
+    <section class="documentation-grid">
+
+
+        <!-- =================================================
+             01 · GETTING STARTED
+        ================================================= -->
+
+        <a
+            href="start/"
+            class="documentation-card"
+            data-number="01"
+        >
+
+            <div class="card-number">
+                FILE · 01
+            </div>
+
+
+            <h2>
+                Getting Started
+            </h2>
+
+
+            <p>
+                New to NukeRoleplay?
+                Learn the basics, join the server,
+                get started and find your way around
+                your first day in the city.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             02 · JOBS
+        ================================================= -->
+
+        <a
+            href="jobs/"
+            class="documentation-card"
+            data-number="02"
+        >
+
+            <div class="card-number">
+                FILE · 02
+            </div>
+
+
+            <h2>
+                Jobs
+            </h2>
+
+
+            <p>
+                Learn how jobs work, where to find them,
+                how to get paid and how to build your
+                career in the city.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             03 · HOUSING
+        ================================================= -->
+
+        <a
+            href="housing/"
+            class="documentation-card"
+            data-number="03"
+        >
+
+            <div class="card-number">
+                FILE · 03
+            </div>
+
+
+            <h2>
+                Housing
+            </h2>
+
+
+            <p>
+                Everything about apartments, houses,
+                properties, keys, ownership and
+                making a place your own.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             04 · VEHICLES
+        ================================================= -->
+
+        <a
+            href="vehicles/"
+            class="documentation-card"
+            data-number="04"
+        >
+
+            <div class="card-number">
+                FILE · 04
+            </div>
+
+
+            <h2>
+                Vehicles
+            </h2>
+
+
+            <p>
+                Learn about vehicles, ownership,
+                transportation and everything you need
+                to know about getting around the city.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             05 · POLICE & LAW
+        ================================================= -->
+
+        <a
+            href="police/"
+            class="documentation-card"
+            data-number="05"
+        >
+
+            <div class="card-number">
+                FILE · 05
+            </div>
+
+
+            <h2>
+                Police & Law
+            </h2>
+
+
+            <p>
+                Understand the city's laws, police
+                systems, punishments and what happens
+                when you end up on the wrong side of them.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             06 · BUSINESSES
+        ================================================= -->
+
+        <a
+            href="businesses/"
+            class="documentation-card"
+            data-number="06"
+        >
+
+            <div class="card-number">
+                FILE · 06
+            </div>
+
+
+            <h2>
+                Businesses
+            </h2>
+
+
+            <p>
+                Discover how businesses work,
+                how they can be operated and how
+                they fit into the city's economy.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             07 · PHONE
+        ================================================= -->
+
+        <a
+            href="phone/"
+            class="documentation-card"
+            data-number="07"
+        >
+
+            <div class="card-number">
+                FILE · 07
+            </div>
+
+
+            <h2>
+                Phone
+            </h2>
+
+
+            <p>
+                Your phone connects you to the city.
+                Learn about its apps, communication
+                features and everything else it can do.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             08 · COMMANDS
+        ================================================= -->
+
+        <a
+            href="commands/"
+            class="documentation-card"
+            data-number="08"
+        >
+
+            <div class="card-number">
+                FILE · 08
+            </div>
+
+
+            <h2>
+                Commands
+            </h2>
+
+
+            <p>
+                A complete reference for useful
+                commands available to players
+                throughout NukeRoleplay.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             09 · ACTIVITIES
+        ================================================= -->
+
+        <a
+            href="activities/"
+            class="documentation-card"
+            data-number="09"
+        >
+
+            <div class="card-number">
+                FILE · 09
+            </div>
+
+
+            <h2>
+                Activities
+            </h2>
+
+
+            <p>
+                Things to do outside of work.
+                Discover activities, places and
+                other ways to spend your time in the city.
+            </p>
+
+
+            <span class="card-arrow">
+                →
+            </span>
+
+        </a>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         NOTE
+    ===================================================== -->
+
+    <div class="documentation-note">
+
+        <strong>
+            Documentation is continuously updated.
+        </strong>
+
+        New systems, features and guides will be added
+        as NukeRoleplay continues to grow.
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
