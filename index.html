@@ -612,6 +612,16 @@
  
         footer strong { color: var(--white); }
  
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+ 
+        .footer-links a { color: var(--muted); transition: color .2s ease; }
+        .footer-links a:hover { color: var(--green-light); }
+ 
         @media (max-width: 850px) {
             .nav-links { gap: 16px; }
             .hero { min-height: 570px; padding: 0 25px 70px; }
@@ -911,6 +921,10 @@
  
 <footer>
     © 2026 <strong>Nuke Studios</strong>. All rights reserved.
+    <div class="footer-links">
+        <a href="impressum/">Imprint</a>
+        <a href="datenschutz/">Privacy Policy</a>
+    </div>
 </footer>
  
 <script>
@@ -971,4 +985,3 @@
  
 </body>
 </html>
- 

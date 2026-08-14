@@ -725,6 +725,42 @@
         }
 
 
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
         footer strong {
             color:
                 var(--white);
@@ -1222,13 +1258,19 @@
 
 <footer>
 
-    © 2026
+    © 2026 <strong>Nuke Studios</strong>. All rights reserved.
 
-    <strong>
-        Nuke Studios
-    </strong>.
+    <div class="footer-links">
 
-    All rights reserved.
+        <a href="../../impressum/">
+            Imprint
+        </a>
+
+        <a href="../../datenschutz/">
+            Privacy Policy
+        </a>
+
+    </div>
 
 </footer>
 

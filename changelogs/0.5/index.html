@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
@@ -9,20 +10,11 @@
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
 
 :root {
 
@@ -43,11 +35,6 @@
 
     --line: rgba(255,255,255,.09);
 }
-
-
-/* =========================================================
-   BASE
-========================================================= */
 
 html {
     scroll-behavior: smooth;
@@ -77,9 +64,6 @@ body {
         hidden;
 }
 
-
-/* subtle scanline texture */
-
 body::before {
 
     content: "";
@@ -108,7 +92,6 @@ body::before {
     z-index:
         999;
 }
-
 
 a {
 
@@ -160,7 +143,6 @@ nav {
         blur(10px);
 }
 
-
 .logo {
 
     font-family:
@@ -178,13 +160,11 @@ nav {
         uppercase;
 }
 
-
 .logo span {
 
     color:
         var(--green);
 }
-
 
 .nav-links {
 
@@ -210,7 +190,6 @@ nav {
         var(--muted);
 }
 
-
 .nav-links a {
 
     position:
@@ -219,7 +198,6 @@ nav {
     transition:
         color .2s ease;
 }
-
 
 .nav-links a::after {
 
@@ -248,13 +226,11 @@ nav {
         width .2s ease;
 }
 
-
 .nav-links a:hover {
 
     color:
         var(--white);
 }
-
 
 .nav-links a:hover::after {
 
@@ -314,7 +290,6 @@ nav {
         .2s ease;
 }
 
-
 .back:hover {
 
     color:
@@ -340,7 +315,6 @@ nav {
     padding-left:
         32px;
 }
-
 
 .header::before {
 
@@ -369,7 +343,6 @@ nav {
         skewY(-18deg);
 }
 
-
 .version {
 
     color:
@@ -390,7 +363,6 @@ nav {
     text-transform:
         uppercase;
 }
-
 
 .header h1 {
 
@@ -417,7 +389,6 @@ nav {
     margin:
         8px 0 18px;
 }
-
 
 .date {
 
@@ -464,7 +435,6 @@ nav {
         transform .2s ease;
 }
 
-
 .category:hover {
 
     background:
@@ -473,9 +443,6 @@ nav {
     transform:
         translateY(-2px);
 }
-
-
-/* green top line */
 
 .category::before {
 
@@ -504,13 +471,11 @@ nav {
         width .25s ease;
 }
 
-
 .category:hover::before {
 
     width:
         65px;
 }
-
 
 .category h2 {
 
@@ -535,7 +500,6 @@ nav {
         var(--green-light);
 }
 
-
 .category ul {
 
     padding-left:
@@ -544,7 +508,6 @@ nav {
     color:
         var(--muted);
 }
-
 
 .category li {
 
@@ -555,15 +518,11 @@ nav {
         .9rem;
 }
 
-
 .category li:last-child {
 
     margin-bottom:
         0;
 }
-
-
-/* custom bullet */
 
 .category li::marker {
 
@@ -600,11 +559,40 @@ footer {
         1px solid var(--line);
 }
 
-
 footer strong {
 
     color:
         var(--white);
+}
+
+.footer-links {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+}
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+.footer-links a:hover {
+
+    color:
+        var(--green-light);
 }
 
 
@@ -620,20 +608,17 @@ footer strong {
             0 20px;
     }
 
-
     .nav-links {
 
         display:
             none;
     }
 
-
     .page {
 
         padding:
             65px 20px 85px;
     }
-
 
     .header {
 
@@ -644,20 +629,17 @@ footer strong {
             40px;
     }
 
-
     .header::before {
 
         height:
             90px;
     }
 
-
     .header h1 {
 
         font-size:
             3.8rem;
     }
-
 
     .category {
 
@@ -668,13 +650,11 @@ footer strong {
             8px 8px 0 rgba(0,0,0,.18);
     }
 
-
     .category h2 {
 
         font-size:
             1.1rem;
     }
-
 
     .category li {
 
@@ -688,9 +668,7 @@ footer strong {
 
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      NAVIGATION
@@ -698,40 +676,41 @@ footer strong {
 
 <nav>
 
-    <a
-        href="../../"
-        class="logo"
-    >
-        Nuke<span>Roleplay</span>
+
+<a
+    href="../../"
+    class="logo"
+>
+    Nuke<span>Roleplay</span>
+</a>
+
+
+<div class="nav-links">
+
+    <a href="../../">
+        Home
     </a>
 
+    <a href="../">
+        Changelogs
+    </a>
 
-    <div class="nav-links">
+    <a href="../../world/">
+        World
+    </a>
 
-        <a href="../../">
-            Home
-        </a>
+    <a
+        href="https://discord.gg/zdH3rhXzdu"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Discord
+    </a>
 
-        <a href="../">
-            Changelogs
-        </a>
+</div>
 
-        <a href="../../world/">
-            World
-        </a>
-
-        <a
-            href="https://discord.gg/zdH3rhXzdu"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Discord
-        </a>
-
-    </div>
 
 </nav>
-
 
 <!-- =========================================================
      CONTENT
@@ -740,373 +719,372 @@ footer strong {
 <main class="page">
 
 
-    <a
-        href="../"
-        class="back"
-    >
-        ← Back to Changelogs
-    </a>
+<a
+    href="../"
+    class="back"
+>
+    ← Back to Changelogs
+</a>
 
 
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <header class="header">
+<header class="header">
 
-        <div class="version">
-            VERSION 0.5
-        </div>
+    <div class="version">
+        VERSION 0.5
+    </div>
 
-        <h1>
-            Jobs &amp; Economy
-        </h1>
+    <h1>
+        Jobs &amp; Economy
+    </h1>
 
-        <div class="date">
-            July 9, 2026
-        </div>
+    <div class="date">
+        July 9, 2026
+    </div>
 
-    </header>
+</header>
 
 
-    <!-- =====================================================
-         WORLD & BUILDING
-    ===================================================== -->
+<!-- =====================================================
+     WORLD & BUILDING
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            🌍 World &amp; Building
-        </h2>
+    <h2>
+        🌍 World &amp; Building
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Finished the F1 Racing Track.
-            </li>
+        <li>
+            Finished the F1 Racing Track.
+        </li>
 
-            <li>
-                Added a new Spawn Area.
-            </li>
+        <li>
+            Added a new Spawn Area.
+        </li>
 
-            <li>
-                Added the White House Garden.
-            </li>
+        <li>
+            Added the White House Garden.
+        </li>
 
-            <li>
-                Added new buildings in Sintra.
-            </li>
+        <li>
+            Added new buildings in Sintra.
+        </li>
 
-            <li>
-                Finished decorating most buildings in Sintra.
-            </li>
+        <li>
+            Finished decorating most buildings in Sintra.
+        </li>
 
-            <li>
-                Updated BlueMap.
-            </li>
+        <li>
+            Updated BlueMap.
+        </li>
 
-            <li>
-                Added Björn the Castle Keeper.
-            </li>
+        <li>
+            Added Björn the Castle Keeper.
+        </li>
 
-            <li>
-                Added Zandor's Magic Show in Grimwater.
-            </li>
+        <li>
+            Added Zandor's Magic Show in Grimwater.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         JOBS & ECONOMY
-    ===================================================== -->
+<!-- =====================================================
+     JOBS & ECONOMY
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            💼 Jobs &amp; Economy
-        </h2>
+    <h2>
+        💼 Jobs &amp; Economy
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Remade the Miner Job.
-            </li>
+        <li>
+            Remade the Miner Job.
+        </li>
 
-            <li>
-                The new mines are located at the
-                Master City Quarry instead of Dry Valley.
-            </li>
+        <li>
+            The new mines are located at the
+            Master City Quarry instead of Dry Valley.
+        </li>
 
-            <li>
-                Mines now consist of two levels instead of three.
-            </li>
+        <li>
+            Mines now consist of two levels instead of three.
+        </li>
 
-            <li>
-                Mines are significantly larger and contain
-                more ores and mineable blocks.
-            </li>
+        <li>
+            Mines are significantly larger and contain
+            more ores and mineable blocks.
+        </li>
 
-            <li>
-                Fixed money checks not working correctly.
-            </li>
+        <li>
+            Fixed money checks not working correctly.
+        </li>
 
-            <li>
-                Fixed Lumberjack and Miner tools not losing durability.
-            </li>
+        <li>
+            Fixed Lumberjack and Miner tools not losing durability.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         SHOPS & NPCS
-    ===================================================== -->
+<!-- =====================================================
+     SHOPS & NPCS
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            🛍️ Shops &amp; NPCs
-        </h2>
+    <h2>
+        🛍️ Shops &amp; NPCs
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Added Helena's Spawner Shop.
-            </li>
+        <li>
+            Added Helena's Spawner Shop.
+        </li>
 
-            <li>
-                Added the Industrial Shop selling Ore Crushers,
-                Industrial Crafters and more.
-            </li>
+        <li>
+            Added the Industrial Shop selling Ore Crushers,
+            Industrial Crafters and more.
+        </li>
 
-            <li>
-                Added firework rockets with different designs
-                to Travolios Stage Shop.
-            </li>
+        <li>
+            Added firework rockets with different designs
+            to Travolios Stage Shop.
+        </li>
 
-            <li>
-                Redefined multiple NPC regions.
-            </li>
+        <li>
+            Redefined multiple NPC regions.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         SYSTEMS & MECHANICS
-    ===================================================== -->
+<!-- =====================================================
+     SYSTEMS & MECHANICS
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            ⚙️ Systems &amp; Mechanics
-        </h2>
+    <h2>
+        ⚙️ Systems &amp; Mechanics
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Updated multiple plugins and outdated scripts.
-            </li>
+        <li>
+            Updated multiple plugins and outdated scripts.
+        </li>
 
-            <li>
-                Added XP caps to passive spawners,
-                which increase with level.
-            </li>
+        <li>
+            Added XP caps to passive spawners,
+            which increase with level.
+        </li>
 
-            <li>
-                Fixed passive spawners only using half
-                of their storage at Storage Level 3.
-            </li>
+        <li>
+            Fixed passive spawners only using half
+            of their storage at Storage Level 3.
+        </li>
 
-            <li>
-                Added the /loginstreak command,
-                giving players a daily reward for staying active.
-            </li>
+        <li>
+            Added the /loginstreak command,
+            giving players a daily reward for staying active.
+        </li>
 
-            <li>
-                Remade the passport system.
-            </li>
+        <li>
+            Remade the passport system.
+        </li>
 
-            <li>
-                Players can now set their hometown
-                at the passport official of their preferred town.
-            </li>
+        <li>
+            Players can now set their hometown
+            at the passport official of their preferred town.
+        </li>
 
-            <li>
-                Added the /house menu and /house trust commands.
-            </li>
+        <li>
+            Added the /house menu and /house trust commands.
+        </li>
 
-            <li>
-                Players can now trust others and give them
-                permissions inside their houses.
-            </li>
+        <li>
+            Players can now trust others and give them
+            permissions inside their houses.
+        </li>
 
-            <li>
-                Fixed several bugs within the new housing system.
-            </li>
+        <li>
+            Fixed several bugs within the new housing system.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         MOBILE & CRAFTING
-    ===================================================== -->
+<!-- =====================================================
+     MOBILE & CRAFTING
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            📱 Mobile &amp; Crafting
-        </h2>
+    <h2>
+        📱 Mobile &amp; Crafting
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Changed Junk Phone functions by removing apps
-                that are now limited to better phones.
-            </li>
+        <li>
+            Changed Junk Phone functions by removing apps
+            that are now limited to better phones.
+        </li>
 
-            <li>
-                Added Tweeter to the Mobile Phone.
-            </li>
+        <li>
+            Added Tweeter to the Mobile Phone.
+        </li>
 
-            <li>
-                Set up telephone cells.
-            </li>
+        <li>
+            Set up telephone cells.
+        </li>
 
-            <li>
-                Remade recipe menus for the Wood Bench Saw
-                and Carpenter's Table.
-            </li>
+        <li>
+            Remade recipe menus for the Wood Bench Saw
+            and Carpenter's Table.
+        </li>
 
-            <li>
-                Added the Ore Crusher.
-            </li>
+        <li>
+            Added the Ore Crusher.
+        </li>
 
-            <li>
-                Added blasting recipes for gold, iron and copper.
-            </li>
+        <li>
+            Added blasting recipes for gold, iron and copper.
+        </li>
 
-            <li>
-                Added the Industrial Crafter.
-            </li>
+        <li>
+            Added the Industrial Crafter.
+        </li>
 
-            <li>
-                Fixed material formatting in the Bench Saw
-                and Carpenter's Table.
-            </li>
+        <li>
+            Fixed material formatting in the Bench Saw
+            and Carpenter's Table.
+        </li>
 
-            <li>
-                Fixed the Bench Saw and Carpenter's Table accepting
-                Custom Items as materials.
-            </li>
+        <li>
+            Fixed the Bench Saw and Carpenter's Table accepting
+            Custom Items as materials.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         POLICE & LAW
-    ===================================================== -->
+<!-- =====================================================
+     POLICE & LAW
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            👮 Police &amp; Law
-        </h2>
+    <h2>
+        👮 Police &amp; Law
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Added Grimwater Police Station as a spawn point
-                for police teams.
-            </li>
+        <li>
+            Added Grimwater Police Station as a spawn point
+            for police teams.
+        </li>
 
-            <li>
-                Fixed a bug where fighting in the Fightclub
-                activated a police call.
-            </li>
+        <li>
+            Fixed a bug where fighting in the Fightclub
+            activated a police call.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         GAMEPLAY & EVENTS
-    ===================================================== -->
+<!-- =====================================================
+     GAMEPLAY & EVENTS
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            🎮 Gameplay &amp; Events
-        </h2>
+    <h2>
+        🎮 Gameplay &amp; Events
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Fixed a bug causing players in the Fightclub menu
-                not to be displayed.
-            </li>
+        <li>
+            Fixed a bug causing players in the Fightclub menu
+            not to be displayed.
+        </li>
 
-            <li>
-                Fixed a bug where players could trust themselves
-                as show hosts in the Trivolio Theater.
-            </li>
+        <li>
+            Fixed a bug where players could trust themselves
+            as show hosts in the Trivolio Theater.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
-    <!-- =====================================================
-         BUG FIXES
-    ===================================================== -->
+<!-- =====================================================
+     BUG FIXES
+===================================================== -->
 
-    <section class="category">
+<section class="category">
 
-        <h2>
-            🐛 Bug Fixes
-        </h2>
+    <h2>
+        🐛 Bug Fixes
+    </h2>
 
-        <ul>
+    <ul>
 
-            <li>
-                Fixed players being unable to select items
-                from their inventory in the Auction House.
-            </li>
+        <li>
+            Fixed players being unable to select items
+            from their inventory in the Auction House.
+        </li>
 
-            <li>
-                Changed iBuy History to show the Seller
-                instead of the Buyer.
-            </li>
+        <li>
+            Changed iBuy History to show the Seller
+            instead of the Buyer.
+        </li>
 
-            <li>
-                Fixed players being unable to add fuel to Oil Pumps.
-            </li>
+        <li>
+            Fixed players being unable to add fuel to Oil Pumps.
+        </li>
 
-            <li>
-                Fixed mushroom pickup.
-            </li>
+        <li>
+            Fixed mushroom pickup.
+        </li>
 
-            <li>
-                Fixed players being able to interact with
-                armor stands without permission.
-            </li>
+        <li>
+            Fixed players being able to interact with
+            armor stands without permission.
+        </li>
 
-        </ul>
+    </ul>
 
-    </section>
+</section>
 
 
 </main>
-
 
 <!-- =========================================================
      FOOTER
@@ -1114,16 +1092,27 @@ footer strong {
 
 <footer>
 
-    © 2026
+© 2026
 
-    <strong>
-        Nuke Studios
-    </strong>.
+<strong>
+    Nuke Studios
+</strong>.
 
-    All rights reserved.
+All rights reserved.
+
+<div class="footer-links">
+
+    <a href="../../impressum/">
+        Imprint
+    </a>
+
+    <a href="../../datenschutz/">
+        Privacy Policy
+    </a>
+
+</div>
 
 </footer>
-
 
 </body>
 </html>
