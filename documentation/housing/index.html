@@ -1,0 +1,2720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Housing | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn everything about housing, properties, rent, ownership, building, permissions and property taxes in NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+            color:
+                var(--green);
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                430px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 75px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.25) 40%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                38px;
+
+            width:
+                95px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                950px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                17px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4rem,
+                    10vw,
+                    8rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.02em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                670px;
+
+            margin-top:
+                25px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .92rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+        .page {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            padding:
+                90px 5vw 120px;
+
+        }
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                70px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PAYMENT CARDS
+        ========================================================= */
+
+        .payment-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                18px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .payment-card {
+
+            padding:
+                30px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .payment-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .payment-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .payment-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.3rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .payment-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .84rem;
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           COMMAND
+        ========================================================= */
+
+        .command-box {
+
+            margin-top:
+                25px;
+
+            padding:
+                20px 22px;
+
+            background:
+                #0b0d0c;
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .command-label {
+
+            color:
+                var(--muted);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        code {
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                monospace;
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .88rem;
+
+        }
+
+
+        /* =========================================================
+           TAX EXAMPLE
+        ========================================================= */
+
+        .tax-example {
+
+            margin-top:
+                28px;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .tax-row {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .tax-row:last-child {
+
+            border-bottom:
+                0;
+
+        }
+
+
+        .tax-row > div {
+
+            padding:
+                15px 18px;
+
+            background:
+                var(--panel);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .78rem;
+
+            border-right:
+                1px solid var(--line);
+
+        }
+
+
+        .tax-row > div:last-child {
+
+            border-right:
+                0;
+
+        }
+
+
+        .tax-header > div {
+
+            background:
+                #101211;
+
+            color:
+                var(--white);
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .67rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .tax-total > div {
+
+            color:
+                var(--white);
+
+            font-weight:
+                700;
+
+        }
+
+
+        .tax-total > div:last-child {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           QUICK REFERENCE
+        ========================================================= */
+
+        .quick-reference {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                25px;
+
+        }
+
+
+        .quick-item {
+
+            padding:
+                18px 20px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .quick-item span {
+
+            display:
+                block;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .65rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .quick-item strong {
+
+            font-size:
+                .85rem;
+
+        }
+
+        /* =========================================================
+        PROPERTY IMAGE
+        ========================================================= */
+
+        .property-image {
+
+            margin-top:
+                35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .property-image img {
+
+            display:
+                block;
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            max-height:
+                560px;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+        }
+
+
+        .property-image-caption {
+
+            padding:
+                15px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            line-height:
+                1.6;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .06em;
+
+        }
+
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    420px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+            .page {
+
+                padding:
+                    65px 20px 85px;
+
+            }
+
+
+            .info-grid,
+            .payment-grid,
+            .quick-reference {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .tax-row {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .tax-row > div {
+
+                border-right:
+                    0;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+
+            .tax-row > div:last-child {
+
+                border-bottom:
+                    0;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Housing
+        </div>
+
+
+        <h1>
+            <span>Housing</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Everything you need to know about buying,
+            renting, building and managing properties
+            in NukeRoleplay.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================= -->
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Your place<br>
+                        in the city.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Properties are an important part of life
+                    in NukeRoleplay. Whether you are looking
+                    for a small apartment, a family home,
+                    a business property or somewhere to build
+                    your own space, there are many different
+                    properties available throughout the world.
+                </p>
+
+
+                <p>
+                    Properties can either be purchased with
+                    a <strong>One Time Payment</strong> or
+                    rented through a recurring
+                    <strong>daily rent</strong>.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            12 Properties
+                        </h3>
+
+                        <p>
+                            A player can own a maximum of
+                            12 properties at the same time.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Build Inside
+                        </h3>
+
+                        <p>
+                            Many properties include garages,
+                            basements or other areas where
+                            players can build.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Two Payment Types
+                        </h3>
+
+                        <p>
+                            Properties can use either a
+                            One Time Payment or a daily
+                            rental system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Player Permissions
+                        </h3>
+
+                        <p>
+                            Property owners can trust other
+                            players and manage their
+                            permissions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                FINDING PROPERTY
+            ================================================= -->
+
+            <section
+                class="section"
+                id="finding"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Step / 01
+                    </div>
+
+                    <h2 class="section-title">
+                        Finding a<br>
+                        Property
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    There are two main ways to find a property
+                    in NukeRoleplay.
+                </p>
+
+
+                <div class="payment-grid">
+
+                    <div class="payment-card">
+
+                        <div class="payment-number">
+                            METHOD · 01
+                        </div>
+
+                        <h3>
+                            Scotex
+                        </h3>
+
+                        <p>
+                            Open your Mobile Phone and launch
+                            the <strong>Scotex</strong> app.
+                            From there you can browse available
+                            properties through different
+                            categories and look for a property
+                            that fits your needs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="payment-card">
+
+                        <div class="payment-number">
+                            METHOD · 02
+                        </div>
+
+                        <h3>
+                            Property Signs
+                        </h3>
+
+                        <p>
+                            You can also find properties directly
+                            in the world. Walk up to a property
+                            with a sign and interact with it to
+                            view the available purchase options.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROPERTY SIGN IMAGE -->
+
+                <div class="property-image">
+
+                    <img
+                        src="./housing1.png"
+                        alt="Property purchase sign"
+                    >
+
+                    <div class="property-image-caption">
+                        Property purchase sign · Interact with the sign
+                        to view the available property options.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PAYMENT
+            ================================================= -->
+
+            <section
+                class="section"
+                id="payment"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Step / 02
+                    </div>
+
+                    <h2 class="section-title">
+                        Buying or<br>
+                        Renting
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Properties use one of two different
+                    payment models. Make sure you understand
+                    which model a property uses before
+                    committing to it.
+                </p>
+
+
+                <div class="payment-grid">
+
+
+                    <div class="payment-card">
+
+                        <div class="payment-number">
+                            PAYMENT · 01
+                        </div>
+
+                        <h3>
+                            One Time Payment
+                        </h3>
+
+                        <p>
+                            Pay the full purchase price once
+                            and own the property. There are
+                            no daily rent payments for this
+                            type of property.
+                        </p>
+
+                        <p>
+                            However, owning more than two
+                            One Time Payment properties will
+                            activate the property tax system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="payment-card">
+
+                        <div class="payment-number">
+                            PAYMENT · 02
+                        </div>
+
+                        <h3>
+                            Rent
+                        </h3>
+
+                        <p>
+                            Instead of paying the full purchase
+                            price, you pay rent every
+                            <strong>real-life day</strong>.
+                        </p>
+
+                        <p>
+                            You need to keep enough money
+                            available to cover your rent.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Important · Property Loss
+                    </div>
+
+                    <p>
+                        If a rented property is removed from
+                        your ownership because you can no
+                        longer afford the rent, everything
+                        built inside the property can be
+                        <strong>deleted</strong>.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BUILDING
+            ================================================= -->
+
+            <section
+                class="section"
+                id="building"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Building
+                    </div>
+
+                    <h2 class="section-title">
+                        Make it<br>
+                        yours.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Many properties include additional
+                    spaces such as garages, basements or
+                    other buildable areas.
+                </p>
+
+
+                <p>
+                    Players can use these spaces to create
+                    their own interiors and build their own
+                    spaces inside the property.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Warning · Builds Are Property Bound
+                    </div>
+
+                    <p>
+                        Your builds are tied to the property.
+                        If the property is sold, removed or
+                        lost because you cannot afford the rent,
+                        the builds inside it will be
+                        <strong>deleted</strong>.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    Keep this in mind before spending a large
+                    amount of time building inside a property.
+                    Losing the property can mean losing
+                    everything you built there.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRUST
+            ================================================= -->
+
+            <section
+                class="section"
+                id="permissions"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Permissions
+                    </div>
+
+                    <h2 class="section-title">
+                        Trust your<br>
+                        people.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Property owners can give other players
+                    permissions to access and use their
+                    property.
+                </p>
+
+
+                <div class="command-box">
+
+                    <div class="command-label">
+                        Trust a player
+                    </div>
+
+                    <code>
+                        /house &lt;Housename&gt; trust &lt;Playername&gt;
+                    </code>
+
+                </div>
+
+
+                <p>
+                    Once a player has been trusted, their
+                    permissions can be managed through the
+                    property menu.
+                </p>
+
+
+                <div class="command-box">
+
+                    <div class="command-label">
+                        Manage permissions
+                    </div>
+
+                    <code>
+                        /house menu
+                    </code>
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Security
+                    </div>
+
+                    <p>
+                        Only give property permissions to
+                        players you trust. Make sure you
+                        understand what access you are giving
+                        before adding someone.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROPERTY LIMIT
+            ================================================= -->
+
+            <section
+                class="section"
+                id="limits"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Limits
+                    </div>
+
+                    <h2 class="section-title">
+                        Property<br>
+                        Limit
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Players can own a maximum of
+                    <strong>12 properties</strong> at the
+                    same time.
+                </p>
+
+
+                <p>
+                    Once you reach the limit, you must own
+                    fewer than 12 properties before you can
+                    purchase another one.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TAXES
+            ================================================= -->
+
+            <section
+                class="section"
+                id="taxes"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Economy
+                    </div>
+
+                    <h2 class="section-title">
+                        Property<br>
+                        Taxes
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    One Time Payment properties have a special
+                    tax system designed to prevent players
+                    from collecting large numbers of permanent
+                    properties without ongoing costs.
+                </p>
+
+
+                <p>
+                    You can own up to
+                    <strong>2 One Time Payment properties</strong>
+                    without paying property taxes.
+                </p>
+
+
+                <p>
+                    Once you purchase a third One Time Payment
+                    property, taxes apply to
+                    <strong>all One Time Payment properties</strong>
+                    you own.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Tax Trigger
+                        </h3>
+
+                        <p>
+                            Your third One Time Payment
+                            property activates property taxes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Tax Rate
+                        </h3>
+
+                        <p>
+                            10% of the original purchase price
+                            for each One Time Payment property.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Tax Interval
+                        </h3>
+
+                        <p>
+                            Property taxes are charged every
+                            7 real-life days.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            All One-Time Properties
+                        </h3>
+
+                        <p>
+                            Once activated, the tax applies
+                            to every One Time Payment property
+                            you own.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TAX EXAMPLE -->
+
+                <div class="tax-example">
+
+
+                    <div class="tax-row tax-header">
+
+                        <div>
+                            Property
+                        </div>
+
+                        <div>
+                            Purchase Price
+                        </div>
+
+                        <div>
+                            10% Tax
+                        </div>
+
+                    </div>
+
+
+                    <div class="tax-row">
+
+                        <div>
+                            House A
+                        </div>
+
+                        <div>
+                            $100,000
+                        </div>
+
+                        <div>
+                            $10,000
+                        </div>
+
+                    </div>
+
+
+                    <div class="tax-row">
+
+                        <div>
+                            House B
+                        </div>
+
+                        <div>
+                            $150,000
+                        </div>
+
+                        <div>
+                            $15,000
+                        </div>
+
+                    </div>
+
+
+                    <div class="tax-row">
+
+                        <div>
+                            House C
+                        </div>
+
+                        <div>
+                            $200,000
+                        </div>
+
+                        <div>
+                            $20,000
+                        </div>
+
+                    </div>
+
+
+                    <div class="tax-row tax-total">
+
+                        <div>
+                            Total
+                        </div>
+
+                        <div>
+                            $450,000
+                        </div>
+
+                        <div>
+                            $45,000 / 7 days
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <p style="margin-top: 22px;">
+
+                    In this example, the player owns three
+                    One Time Payment properties. Since the
+                    third property activates the tax system,
+                    all three properties are taxed.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Housing / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>
+                        Reference
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-reference">
+
+                    <div class="quick-item">
+
+                        <span>
+                            Property Limit
+                        </span>
+
+                        <strong>
+                            12 properties
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Tax-Free One Time Properties
+                        </span>
+
+                        <strong>
+                            2 properties
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Property Tax
+                        </span>
+
+                        <strong>
+                            10% of purchase price
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Tax Interval
+                        </span>
+
+                        <strong>
+                            Every 7 real-life days
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Rental Interval
+                        </span>
+
+                        <strong>
+                            Every real-life day
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Trust Command
+                        </span>
+
+                        <strong>
+                            /house &lt;Housename&gt; trust &lt;Playername&gt;
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Housing
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview"
+                        class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a href="#finding">
+                        Finding a Property
+                    </a>
+
+
+                    <a href="#payment">
+                        Buying or Renting
+                    </a>
+
+
+                    <a href="#building">
+                        Building
+                    </a>
+
+
+                    <a href="#permissions">
+                        Trust & Permissions
+                    </a>
+
+
+                    <a href="#limits">
+                        Property Limit
+                    </a>
+
+
+                    <a href="#taxes">
+                        Property Taxes
+                    </a>
+
+
+                    <a href="#quick-reference">
+                        Quick Reference
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>
+                    Keep in mind
+                </strong>
+
+                Property builds are tied to the
+                property. Losing the property can
+                also mean losing everything built
+                inside it.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

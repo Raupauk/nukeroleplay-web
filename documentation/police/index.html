@@ -1,0 +1,3032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Police | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn everything about the Oblivion City Police Department, police ranks, departments, LETC training, wanted players and police procedures in NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+            --blue: #527fa5;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                520px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 80px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.22) 38%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                42px;
+
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                1000px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .94rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+        .page {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            padding:
+                90px 5vw 120px;
+
+        }
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                75px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           FEATURE IMAGE
+        ========================================================= */
+
+        .feature-image {
+
+            position:
+                relative;
+
+            margin:
+                30px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .feature-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .9;
+
+            transition:
+                transform .5s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .feature-image:hover img {
+
+            transform:
+                scale(1.025);
+
+            opacity:
+                1;
+
+        }
+
+
+        .feature-caption {
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--muted);
+
+            background:
+                #101211;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           RANK SYSTEM
+        ========================================================= */
+
+        .rank-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .rank-card {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            align-items:
+                center;
+
+            padding:
+                20px 22px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .rank-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .rank-number {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                2rem;
+
+            color:
+                var(--green);
+
+            text-align:
+                center;
+
+        }
+
+
+        .rank-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .rank-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .department-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .department-card {
+
+            padding:
+                27px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .department-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .department-code {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .department-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.2rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .department-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PROCESS STEPS
+        ========================================================= */
+
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           WANTED / POLICE IMAGE
+        ========================================================= */
+
+        .wanted-image {
+
+            margin:
+                30px 0;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .wanted-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+        }
+
+
+        .wanted-caption {
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .7rem;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           OCPD LOGO
+        ========================================================= */
+
+        .ocpd-logo {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                35px 20px;
+
+            margin:
+                25px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .ocpd-logo img {
+
+            width:
+                145px;
+
+            max-width:
+                38%;
+
+            height:
+                auto;
+
+            opacity:
+                .92;
+
+        }
+
+
+        /* =========================================================
+           DISCORD LINK
+        ========================================================= */
+
+        .discord-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                10px;
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--white);
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .discord-link:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .discord-link span {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    450px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+            .page {
+
+                padding:
+                    65px 20px 85px;
+
+            }
+
+
+            .info-grid,
+            .department-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .rank-card {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .ocpd-logo img {
+
+                width:
+                    125px;
+
+                max-width:
+                    45%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Police
+        </div>
+
+
+        <h1>
+            <span>Police</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Learn everything about the Oblivion City Police
+            Department, its ranks, departments, training,
+            procedures and the tools used to protect the city.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================= -->
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Serve the<br>
+                        city.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The <strong>Oblivion City Police Department</strong>,
+                    commonly known as the <strong>OCPD</strong>, is
+                    responsible for protecting the people of
+                    Oblivion City and enforcing the law.
+                </p>
+
+
+                <p>
+                    Police is one of the most complex jobs in
+                    NukeRoleplay. Officers have access to specialized
+                    tools, departments and systems that allow them
+                    to handle everything from everyday patrols to
+                    major incidents.
+                </p>
+
+
+                <p>
+                    Officers are expected to act professionally,
+                    follow the law and use their authority
+                    responsibly. Good work can lead to promotions
+                    and eventually to positions of leadership
+                    within the department.
+                </p>
+
+
+                <div class="ocpd-logo">
+
+                    <img
+                        src="./Police3.png"
+                        alt="Oblivion City Police Department Logo"
+                    >
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            OCPD
+                        </h3>
+
+                        <p>
+                            The Oblivion City Police Department
+                            protects the city and enforces
+                            its laws.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Career
+                        </h3>
+
+                        <p>
+                            Officers can progress through the
+                            department by demonstrating good
+                            work and responsibility.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Specialized Units
+                        </h3>
+
+                        <p>
+                            Officers can become part of specialized
+                            departments such as SWAT, ASU, K-9
+                            Corps and Internal Affairs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Law Enforcement
+                        </h3>
+
+                        <p>
+                            Police officers are expected to
+                            enforce the law while acting
+                            professionally and responsibly.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 JOINING
+            ================================================= -->
+
+            <section
+                class="section"
+                id="joining"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Recruitment
+                    </div>
+
+                    <h2 class="section-title">
+                        Join the<br>
+                        OCPD.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Becoming a police officer is not as simple
+                    as selecting the job. Players must first
+                    demonstrate that they understand the
+                    responsibilities that come with being a
+                    member of law enforcement.
+                </p>
+
+
+                <div class="process">
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Visit the LETC
+                            </h3>
+
+                            <p>
+                                Before joining the police,
+                                players must visit the
+                                <strong>Law Enforcement Training Center</strong>
+                                and take the required test.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Pass the Test
+                            </h3>
+
+                            <p>
+                                The LETC test consists of
+                                multiple-choice questions.
+                                You must pass the test before
+                                continuing with the recruitment
+                                process.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Contact the OCPD
+                            </h3>
+
+                            <p>
+                                After passing the LETC test,
+                                check the OCPD Discord for
+                                information about how to
+                                officially apply and enroll.
+                            </p>
+
+
+                            <a
+                                class="discord-link"
+                                href="https://discord.gg/Tcm4e6QEqH"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>
+                                    →
+                                </span>
+
+                                OCPD Discord
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LETC
+            ================================================= -->
+
+            <section
+                class="section"
+                id="letc"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Training
+                    </div>
+
+                    <h2 class="section-title">
+                        LETC
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The <strong>Law Enforcement Training Center</strong>,
+                    or LETC, is where aspiring officers prove
+                    that they understand the fundamentals of
+                    law enforcement before joining the OCPD.
+                </p>
+
+
+                <div class="feature-image">
+
+                    <img
+                        src="./Police1.png"
+                        alt="Law Enforcement Training Center"
+                    >
+
+
+                    <div class="feature-caption">
+                        Law Enforcement Training Center · LETC
+                    </div>
+
+                </div>
+
+
+                <p>
+                    The LETC is not only useful for new recruits.
+                    Current police officers can return to the
+                    training center whenever they want to
+                    practice and improve their skills.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Recruitment Test
+                        </h3>
+
+                        <p>
+                            New applicants must complete the
+                            multiple-choice LETC test before
+                            they can proceed with recruitment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Officer Training
+                        </h3>
+
+                        <p>
+                            Existing officers can use the LETC
+                            to train and practice at any time.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RANKS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="ranks"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Career
+                    </div>
+
+                    <h2 class="section-title">
+                        Rise through<br>
+                        the ranks.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The OCPD has a structured rank system.
+                    Officers can progress through the department
+                    by doing good work, gaining experience and
+                    taking on greater responsibilities.
+                </p>
+
+
+                <div class="rank-list">
+
+
+                    <div class="rank-card">
+
+                        <div class="rank-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Shift Officers
+                            </h3>
+
+                            <p>
+                                The frontline officers of the
+                                OCPD. Shift Officers handle
+                                everyday police work, patrols,
+                                calls and enforcement.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank-card">
+
+                        <div class="rank-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Commanders
+                            </h3>
+
+                            <p>
+                                Commanders are responsible for
+                                leading divisions and overseeing
+                                the officers working within them.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank-card">
+
+                        <div class="rank-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Chief Ranks
+                            </h3>
+
+                            <p>
+                                The highest ranks in the OCPD.
+                                Chief Ranks oversee the department
+                                as a whole and provide overall
+                                leadership for the police force.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Career · Responsibility
+                    </div>
+
+                    <p>
+                        Higher ranks come with greater
+                        responsibility. Officers should always
+                        remember that rank is earned through
+                        good work and responsible conduct.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DEPARTMENTS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="departments"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Departments
+                    </div>
+
+                    <h2 class="section-title">
+                        Specialized<br>
+                        Units.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The OCPD is divided into several specialized
+                    departments. Each unit focuses on a different
+                    area of police work and can have its own
+                    members and progression.
+                </p>
+
+
+                <div class="department-grid">
+
+
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            UNIT · 01
+                        </div>
+
+                        <h3>
+                            SWAT
+                        </h3>
+
+                        <p>
+                            A specialized tactical unit for
+                            situations that require a higher
+                            level of preparation, coordination
+                            and equipment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            UNIT · 02
+                        </div>
+
+                        <h3>
+                            ASU
+                        </h3>
+
+                        <p>
+                            The <strong>Aviation Support Unit</strong>
+                            provides aerial support for police
+                            operations and situations where
+                            an elevated view is useful.
+                        </p>
+
+                    </div>
+
+
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            UNIT · 03
+                        </div>
+
+                        <h3>
+                            K-9 Corps
+                        </h3>
+
+                        <p>
+                            The K-9 Corps specializes in police
+                            work involving trained police dogs
+                            and their handlers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            UNIT · 04
+                        </div>
+
+                        <h3>
+                            Internal Affairs
+                        </h3>
+
+                        <p>
+                            Internal Affairs focuses on
+                            maintaining accountability and
+                            investigating issues involving
+                            members of the department.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <p style="margin-top: 22px;">
+                    Officers can become members of specialized
+                    units and progress through their respective
+                    structures. Commanders are responsible for
+                    leading divisions, while the Chief Ranks
+                    oversee the department at the highest level.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 WANTED
+            ================================================= -->
+
+            <section
+                class="section"
+                id="wanted"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Enforcement
+                    </div>
+
+                    <h2 class="section-title">
+                        Wanted<br>
+                        List.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Police stations provide an important service
+                    to everyone in the city. At the reception
+                    desk, any player can view the current list
+                    of wanted players.
+                </p>
+
+
+                <div class="wanted-image">
+
+                    <img
+                        src="./Police2.png"
+                        alt="Police officer viewing the wanted list"
+                    >
+
+
+                    <div class="wanted-caption">
+                        Police station · Wanted player information
+                    </div>
+
+                </div>
+
+
+                <p>
+                    The wanted list allows players and officers
+                    to see which individuals are currently
+                    wanted by law enforcement.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Law Enforcement
+                    </div>
+
+                    <p>
+                        Being wanted can have serious
+                        consequences. Police officers are
+                        responsible for handling wanted players
+                        according to the applicable laws and
+                        procedures.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TOOLS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="tools"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Equipment
+                    </div>
+
+                    <h2 class="section-title">
+                        Tools of<br>
+                        the trade.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Police officers have access to a variety of
+                    tools and systems designed to make their work
+                    more efficient. These tools allow officers
+                    to access relevant information, respond to
+                    situations and perform their duties throughout
+                    the city.
+                </p>
+
+
+                <div class="info-grid">
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Mobile Data
+                        </h3>
+
+                        <p>
+                            Officers can access relevant police
+                            information through specialized
+                            police systems while away from a
+                            station.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Police Equipment
+                        </h3>
+
+                        <p>
+                            Specialized equipment helps officers
+                            handle different situations and
+                            perform their duties efficiently.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Communication
+                        </h3>
+
+                        <p>
+                            Police work depends on effective
+                            communication between officers,
+                            divisions and leadership.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Training
+                        </h3>
+
+                        <p>
+                            Officers can continue practicing
+                            and improving their skills at the
+                            LETC.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONDUCT
+            ================================================= -->
+
+            <section
+                class="section"
+                id="conduct"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Conduct
+                    </div>
+
+                    <h2 class="section-title">
+                        Enforce<br>
+                        the law.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Police officers have a position of authority
+                    and are expected to use that authority
+                    responsibly.
+                </p>
+
+
+                <p>
+                    Every officer should act according to the
+                    law, treat civilians fairly and avoid
+                    unnecessary use of their authority.
+                    Professional conduct is an important part
+                    of being a member of the OCPD.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        OCPD Standard
+                    </div>
+
+                    <p>
+                        Police officers must always act within
+                        the law. Misusing police authority can
+                        damage public trust and may have
+                        consequences for an officer's career.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    The goal of the OCPD is not simply to
+                    punish criminals. Officers are there to
+                    maintain order, protect civilians and
+                    keep Oblivion City safe.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Police / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>
+                        Reference
+                    </h2>
+
+                </div>
+
+
+                <div class="info-grid">
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Department
+                        </h3>
+
+                        <p>
+                            Oblivion City Police Department
+                            · OCPD
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Training
+                        </h3>
+
+                        <p>
+                            Law Enforcement Training Center
+                            · LETC
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Rank Structure
+                        </h3>
+
+                        <p>
+                            Shift Officers → Commanders →
+                            Chief Ranks
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Specialized Units
+                        </h3>
+
+                        <p>
+                            SWAT · ASU · K-9 Corps ·
+                            Internal Affairs
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Recruitment
+                        </h3>
+
+                        <p>
+                            Pass the LETC multiple-choice
+                            test before applying to the OCPD.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Wanted List
+                        </h3>
+
+                        <p>
+                            Available to players at the
+                            reception of police stations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Police
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview"
+                        class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a href="#joining">
+                        Joining the OCPD
+                    </a>
+
+
+                    <a href="#letc">
+                        LETC
+                    </a>
+
+
+                    <a href="#ranks">
+                        Ranks
+                    </a>
+
+
+                    <a href="#departments">
+                        Departments
+                    </a>
+
+
+                    <a href="#wanted">
+                        Wanted List
+                    </a>
+
+
+                    <a href="#tools">
+                        Police Tools
+                    </a>
+
+
+                    <a href="#conduct">
+                        Conduct
+                    </a>
+
+
+                    <a href="#quick-reference">
+                        Quick Reference
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>
+                    Remember
+                </strong>
+
+                Police officers represent the OCPD.
+                Use your authority responsibly,
+                follow the law and treat civilians
+                fairly.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

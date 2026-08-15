@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Commands | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn about the most important commands available on NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+            color:
+                var(--green);
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                430px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 75px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.25) 40%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                38px;
+
+            width:
+                95px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                950px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                17px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4rem,
+                    10vw,
+                    8rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.02em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                670px;
+
+            margin-top:
+                25px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .92rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+        .page {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            padding:
+                90px 5vw 120px;
+
+        }
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                70px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           COMMAND GRID
+        ========================================================= */
+
+        .command-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                30px;
+
+        }
+
+
+        .command-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .command-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .command-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .command-number {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .command-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .command-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        .command-code {
+
+            display:
+                block;
+
+            margin-bottom:
+                12px;
+
+            padding:
+                11px 13px;
+
+            background:
+                #0b0d0c;
+
+            border:
+                1px solid var(--line);
+
+            overflow-x:
+                auto;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .command-code code {
+
+            color:
+                var(--green-light);
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                monospace;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           INTRO BOX
+        ========================================================= */
+
+        .intro-box {
+
+            padding:
+                28px 30px;
+
+            margin-top:
+                28px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            border-left:
+                4px solid var(--green);
+
+        }
+
+
+        .intro-box p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    420px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+            .page {
+
+                padding:
+                    65px 20px 85px;
+
+            }
+
+
+            .command-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Commands
+        </div>
+
+
+        <h1>
+            <span>Commands</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            A guide to the most important commands
+            available to players on NukeRoleplay.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+
+            <!-- =================================================
+                 INTRODUCTION
+            ================================================= -->
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Commands / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Your command<br>
+                        guide.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    NukeRoleplay offers a variety of commands
+                    that allow you to communicate with other
+                    players, manage your vehicles, access
+                    properties and interact with different
+                    systems around the server.
+                </p>
+
+
+                <p>
+                    The commands below are some of the most
+                    important commands you should know when
+                    playing on the server.
+                </p>
+
+
+                <div class="intro-box">
+
+                    <p>
+                        <strong>Tip:</strong>
+                        Keep this page bookmarked so you can
+                        quickly look up a command whenever
+                        you need it.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMUNICATION
+            ================================================= -->
+
+            <section
+                class="section"
+                id="communication"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Category / Communication
+                    </div>
+
+                    <h2 class="section-title">
+                        Communication
+                    </h2>
+
+                </div>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 01
+                        </div>
+
+                        <div class="command-code">
+                            <code>/team chat</code>
+                        </div>
+
+                        <h3>
+                            Team Chat
+                        </h3>
+
+                        <p>
+                            Chat with the other members of
+                            your team. Everyone on your team
+                            will be able to see your message.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 02
+                        </div>
+
+                        <div class="command-code">
+                            <code>/team allychat</code>
+                        </div>
+
+                        <h3>
+                            Team Ally Chat
+                        </h3>
+
+                        <p>
+                            Communicate with all allied teams.
+                            This is especially useful for
+                            players on the police team who need
+                            to communicate with other police
+                            teams.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 03
+                        </div>
+
+                        <div class="command-code">
+                            <code>/msg &lt;Playername&gt; &lt;Message&gt;</code>
+                        </div>
+
+                        <h3>
+                            Private Message
+                        </h3>
+
+                        <p>
+                            Send a private message to another
+                            player. The other player can reply
+                            by using the same command.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 04
+                        </div>
+
+                        <div class="command-code">
+                            <code>/help &lt;Message&gt;</code>
+                        </div>
+
+                        <h3>
+                            Moderator Help
+                        </h3>
+
+                        <p>
+                            Send a help request to all online
+                            moderators when you need assistance
+                            as soon as possible.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Important · /help
+                    </div>
+
+                    <p>
+                        Do not abuse the help command. Misusing
+                        it may result in a punishment.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MISSIONS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="missions"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Category / Missions
+                    </div>
+
+                    <h2 class="section-title">
+                        Missions
+                    </h2>
+
+                </div>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 05
+                        </div>
+
+                        <div class="command-code">
+                            <code>/missions</code>
+                        </div>
+
+                        <h3>
+                            Mission Menu
+                        </h3>
+
+                        <p>
+                            Open the missions menu to see
+                            missions you have completed, missions
+                            currently in progress and missions
+                            you have not discovered yet.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VEHICLES
+            ================================================= -->
+
+            <section
+                class="section"
+                id="vehicles"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Category / Vehicles
+                    </div>
+
+                    <h2 class="section-title">
+                        Vehicles
+                    </h2>
+
+                </div>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 06
+                        </div>
+
+                        <div class="command-code">
+                            <code>/delcar</code>
+                        </div>
+
+                        <h3>
+                            Despawn Vehicle
+                        </h3>
+
+                        <p>
+                            Despawn your currently spawned
+                            vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 07
+                        </div>
+
+                        <div class="command-code">
+                            <code>/lockcar</code>
+                        </div>
+
+                        <h3>
+                            Lock Vehicle
+                        </h3>
+
+                        <p>
+                            Lock your vehicle to prevent
+                            unauthorized access.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 08
+                        </div>
+
+                        <div class="command-code">
+                            <code>/unlockcar</code>
+                        </div>
+
+                        <h3>
+                            Unlock Vehicle
+                        </h3>
+
+                        <p>
+                            Unlock your vehicle so it can
+                            be accessed again.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HOUSING
+            ================================================= -->
+
+            <section
+                class="section"
+                id="housing"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Category / Housing
+                    </div>
+
+                    <h2 class="section-title">
+                        Housing
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The housing commands make it easier to
+                    access your properties and manage the
+                    permissions of other players.
+                </p>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 09
+                        </div>
+
+                        <div class="command-code">
+                            <code>/tphome</code>
+                        </div>
+
+                        <h3>
+                            Teleport Home
+                        </h3>
+
+                        <p>
+                            If you own a property, use this
+                            command to teleport to your home
+                            whenever you want.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 10
+                        </div>
+
+                        <div class="command-code">
+                            <code>/house &lt;Housename&gt; trust &lt;Playername&gt;</code>
+                        </div>
+
+                        <h3>
+                            Trust a Player
+                        </h3>
+
+                        <p>
+                            Give another player permissions
+                            for one of your properties.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 11
+                        </div>
+
+                        <div class="command-code">
+                            <code>/house menu</code>
+                        </div>
+
+                        <h3>
+                            House Menu
+                        </h3>
+
+                        <p>
+                            Open the house management menu
+                            where you can manage the permissions
+                            you have given to other players.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Security · Housing Permissions
+                    </div>
+
+                    <p>
+                        Only trust players you know and trust.
+                        Giving another player access to your
+                        property can give them permissions
+                        inside your house.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 PRIVACY
+            ================================================= -->
+
+            <section
+                class="section"
+                id="privacy"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Category / Privacy
+                    </div>
+
+                    <h2 class="section-title">
+                        Privacy
+                    </h2>
+
+                </div>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 12
+                        </div>
+
+                        <div class="command-code">
+                            <code>/bmpc</code>
+                        </div>
+
+                        <h3>
+                            Map Marker
+                        </h3>
+
+                        <p>
+                            Toggle whether your player marker
+                            appears on the live map on the
+                            NukeRoleplay website.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="intro-box">
+
+                    <p>
+                        This can be useful when you do not want
+                        your current position to be visible
+                        on the live map.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Commands / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>
+                        Reference
+                    </h2>
+
+                </div>
+
+
+                <div class="command-grid">
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/team chat</code>
+                        </div>
+
+                        <p>
+                            Team communication
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/team allychat</code>
+                        </div>
+
+                        <p>
+                            Allied team communication
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/missions</code>
+                        </div>
+
+                        <p>
+                            Open the missions menu
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/msg</code>
+                        </div>
+
+                        <p>
+                            Private messaging
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/delcar</code>
+                        </div>
+
+                        <p>
+                            Despawn your vehicle
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/lockcar</code>
+                        </div>
+
+                        <p>
+                            Lock your vehicle
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/unlockcar</code>
+                        </div>
+
+                        <p>
+                            Unlock your vehicle
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/tphome</code>
+                        </div>
+
+                        <p>
+                            Teleport to your home
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/house &lt;Housename&gt; trust &lt;Playername&gt;</code>
+                        </div>
+
+                        <p>
+                            Give a player property permissions
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/house menu</code>
+                        </div>
+
+                        <p>
+                            Manage property permissions
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/help</code>
+                        </div>
+
+                        <p>
+                            Contact online moderators
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-code">
+                            <code>/bmpc</code>
+                        </div>
+
+                        <p>
+                            Toggle live-map visibility
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUGGESTION
+            ================================================= -->
+
+            <section
+                class="section"
+                id="suggestions"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Commands / Community
+                    </div>
+
+                    <h2 class="section-title">
+                        Missing a<br>
+                        Command?
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    These are the most important commands
+                    currently listed in the command guide.
+                </p>
+
+
+                <p>
+                    If you think another command should be
+                    included on this page, feel free to join
+                    the NukeRoleplay Discord and suggest it.
+                </p>
+
+
+                <a
+                    href="https://discord.gg/zdH3rhXzdu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="back-link"
+                >
+                    Join the Discord →
+                </a>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Commands
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview"
+                        class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a href="#communication">
+                        Communication
+                    </a>
+
+
+                    <a href="#missions">
+                        Missions
+                    </a>
+
+
+                    <a href="#vehicles">
+                        Vehicles
+                    </a>
+
+
+                    <a href="#housing">
+                        Housing
+                    </a>
+
+
+                    <a href="#privacy">
+                        Privacy
+                    </a>
+
+
+                    <a href="#quick-reference">
+                        Quick Reference
+                    </a>
+
+
+                    <a href="#suggestions">
+                        Suggestions
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>
+                    Command Guide
+                </strong>
+
+                These are the most important commands
+                available to players. More commands
+                may exist for specific systems or jobs.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

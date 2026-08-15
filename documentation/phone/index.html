@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Phone | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn everything about the NukeRoleplay phone, its applications, features and special access."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+
+            --line: rgba(255,255,255,.09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--black);
+            color: var(--text);
+
+            min-height: 100vh;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+            opacity: .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index: 999;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5vw;
+
+            background: rgba(9,10,10,.94);
+
+            border-bottom: 1px solid var(--line);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: 1.45rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+
+            color: var(--muted);
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: color .2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--green);
+
+            transition: width .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 430px;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 0 7vw 75px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.25) 40%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 7vw;
+            bottom: 38px;
+
+            width: 95px;
+            height: 3px;
+
+            background: var(--green);
+
+            transform: skewX(-35deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 950px;
+        }
+
+        .hero-kicker {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+            margin-bottom: 17px;
+
+            font-size: .72rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .2em;
+
+            color: var(--green-light);
+        }
+
+        .hero-kicker::before {
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: var(--green);
+        }
+
+        .hero h1 {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: clamp(4rem, 10vw, 8rem);
+
+            line-height: .8;
+
+            text-transform: uppercase;
+            letter-spacing: -.02em;
+
+            color: var(--white);
+
+            text-shadow: 4px 5px 0 rgba(0,0,0,.35);
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-copy {
+            max-width: 670px;
+
+            margin-top: 25px;
+            margin-left: 8vw;
+
+            color: #c0c2bb;
+
+            font-size: .92rem;
+        }
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .page {
+            max-width: 1180px;
+
+            margin: auto;
+
+            padding: 90px 5vw 120px;
+        }
+
+        .content-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap: 65px;
+
+            align-items: start;
+        }
+
+        .article {
+            min-width: 0;
+        }
+
+        .section {
+            margin-bottom: 70px;
+
+            scroll-margin-top: 100px;
+        }
+
+        .section-heading {
+            position: relative;
+
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+
+        .section-heading::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 5px;
+
+            width: 4px;
+            height: 42px;
+
+            background: var(--green);
+
+            transform: skewY(-18deg);
+        }
+
+        .section-label {
+            color: var(--green-light);
+
+            font-size: .68rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .2em;
+
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: clamp(2.3rem, 4vw, 3.8rem);
+
+            line-height: .9;
+
+            text-transform: uppercase;
+            letter-spacing: -.01em;
+
+            color: var(--white);
+        }
+
+        .article p {
+            color: var(--muted);
+
+            font-size: .91rem;
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+        }
+
+        .article strong {
+            color: var(--white);
+        }
+
+        /* =========================================================
+           PHONE IMAGE
+        ========================================================= */
+
+        .phone-image {
+            margin: 30px 0 35px;
+
+            border: 1px solid var(--line);
+
+            background: var(--panel);
+
+            overflow: hidden;
+        }
+
+        .phone-image img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 500px;
+
+            object-fit: cover;
+        }
+
+        .image-caption {
+            padding: 12px 16px;
+
+            color: var(--muted);
+
+            font-size: .68rem;
+
+            text-transform: uppercase;
+            letter-spacing: .1em;
+
+            border-top: 1px solid var(--line);
+        }
+
+        /* =========================================================
+           APP GRID
+        ========================================================= */
+
+        .app-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+        .app-card {
+            position: relative;
+
+            padding: 24px 25px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+        }
+
+        .app-card:hover {
+            background: var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform: translateY(-3px);
+        }
+
+        .app-number {
+            color: var(--green);
+
+            font-family: monospace;
+
+            font-size: .66rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            margin-bottom: 12px;
+        }
+
+        .app-card h3 {
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.05rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .app-card p {
+            margin: 0;
+
+            font-size: .78rem;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+        .info-card {
+            position: relative;
+
+            padding: 25px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+        }
+
+        .info-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 3px;
+            height: 100%;
+
+            background: var(--green);
+        }
+
+        .info-card h3 {
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.1rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            margin: 0;
+
+            font-size: .82rem;
+        }
+
+        /* =========================================================
+           SPECIAL ACCESS
+        ========================================================= */
+
+        .access-card {
+            margin-top: 28px;
+
+            padding: 28px 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+
+            border-left: 4px solid var(--green);
+        }
+
+        .access-card h3 {
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: 1.2rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .access-card p {
+            margin: 0;
+        }
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+            position: relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin: 30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+        }
+
+        .warning-label {
+            color: #d87971;
+
+            font-family: monospace;
+
+            font-size: .68rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .warning p {
+            margin: 0;
+
+            color: var(--text);
+
+            font-size: .86rem;
+        }
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: sticky;
+            top: 105px;
+        }
+
+        .sidebar-box {
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+        }
+
+        .sidebar-header {
+            padding: 20px 22px;
+
+            border-bottom: 1px solid var(--line);
+
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: .85rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-links a {
+            padding: 13px 22px;
+
+            color: var(--muted);
+
+            font-size: .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+        }
+
+        .sidebar-links a:hover {
+            color: var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left: 27px;
+        }
+
+        .sidebar-links a.active {
+            color: var(--green-light);
+
+            border-left: 3px solid var(--green);
+
+            padding-left: 19px;
+        }
+
+        .sidebar-note {
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border: 1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: .72rem;
+        }
+
+        .sidebar-note strong {
+            display: block;
+
+            color: var(--white);
+
+            margin-bottom: 7px;
+
+            text-transform: uppercase;
+
+            font-size: .7rem;
+
+            letter-spacing: .08em;
+        }
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 15px;
+
+            color: var(--muted);
+
+            font-size: .72rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--green-light);
+
+            transform: translateX(-4px);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 20px 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: .72rem;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            border-top: 1px solid var(--line);
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+
+            transition: color .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green-light);
+        }
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 18px;
+            }
+
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+
+            .sidebar-links {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .sidebar-links a {
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+            }
+
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 420px;
+
+                padding:
+                    0 25px 65px;
+            }
+
+            .hero::after {
+                left: 25px;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero-copy {
+                margin-left: 20px;
+
+                font-size: .86rem;
+            }
+
+            .page {
+                padding:
+                    65px 20px 85px;
+            }
+
+            .app-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-links {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Phone
+        </div>
+
+
+        <h1>
+            <span>Phone</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Your mobile connection to the city. Access
+            communication, services, entertainment,
+            information and more directly from your phone.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================= -->
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Your city<br>
+                        in your hand.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The NukeRoleplay phone is your central
+                    interface for many of the services and
+                    systems available throughout the city.
+                </p>
+
+
+                <p>
+                    Depending on the phone you own, you can
+                    access applications for communication,
+                    real estate, jobs, emergency services,
+                    entertainment and many other features.
+                </p>
+
+
+                <div class="phone-image">
+
+                    <img
+                        src="./phone1.png"
+                        alt="NukeRoleplay Phone"
+                    >
+
+                    <div class="image-caption">
+                        The NukeRoleplay Mobile Phone
+                    </div>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Mobile Interface
+                        </h3>
+
+                        <p>
+                            Access your available applications
+                            through the in-game phone interface.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Multiple Apps
+                        </h3>
+
+                        <p>
+                            Different applications provide
+                            access to different server systems.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Phone Quality
+                        </h3>
+
+                        <p>
+                            Some phones provide access to more
+                            applications than others.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Special Access
+                        </h3>
+
+                        <p>
+                            Certain applications only appear
+                            when specific requirements are met.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 OPENING PHONE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="access"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Access
+                    </div>
+
+                    <h2 class="section-title">
+                        Open your<br>
+                        Phone
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    To access your phone, use a phone item
+                    that supports the NukeRoleplay mobile
+                    interface. Right-click the phone to open
+                    the application menu.
+                </p>
+
+
+                <p>
+                    Supported phones can display a different
+                    selection of applications depending on
+                    the type of phone you own.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Important · Phone Types
+                    </div>
+
+                    <p>
+                        Not every phone provides access to the
+                        same applications. A lower-tier or
+                        special phone may have fewer available
+                        applications.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STANDARD APPS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="apps"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Applications
+                    </div>
+
+                    <h2 class="section-title">
+                        Your<br>
+                        Applications
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Standard phones provide access to a wide
+                    selection of applications. Each application
+                    connects you to a different part of the
+                    NukeRoleplay world.
+                </p>
+
+
+                <div class="app-grid">
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 01
+                        </div>
+
+                        <h3>
+                            Telephone
+                        </h3>
+
+                        <p>
+                            Call emergency services when you
+                            need assistance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 02
+                        </div>
+
+                        <h3>
+                            Discord
+                        </h3>
+
+                        <p>
+                            Access the server's Discord
+                            link directly from your phone.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 03
+                        </div>
+
+                        <h3>
+                            Passport
+                        </h3>
+
+                        <p>
+                            View your own passport information
+                            through the phone.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 04
+                        </div>
+
+                        <h3>
+                            Level System
+                        </h3>
+
+                        <p>
+                            View your level and access rewards
+                            associated with the level system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 05
+                        </div>
+
+                        <h3>
+                            Job Selector
+                        </h3>
+
+                        <p>
+                            Choose a job or leave your current
+                            job through the Job Selector.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 06
+                        </div>
+
+                        <h3>
+                            Radio
+                        </h3>
+
+                        <p>
+                            Listen to music through the
+                            in-game radio system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 07
+                        </div>
+
+                        <h3>
+                            Scotex
+                        </h3>
+
+                        <p>
+                            Access the real estate system to
+                            purchase or rent properties.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 08
+                        </div>
+
+                        <h3>
+                            Degrees
+                        </h3>
+
+                        <p>
+                            View your degrees and licenses
+                            you have earned.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 09
+                        </div>
+
+                        <h3>
+                            Cosmetics
+                        </h3>
+
+                        <p>
+                            Equip available cosmetics directly
+                            from your phone.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 10
+                        </div>
+
+                        <h3>
+                            ObliStocks
+                        </h3>
+
+                        <p>
+                            Invest in and manage your position
+                            in the stock market.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 11
+                        </div>
+
+                        <h3>
+                            Discoveries
+                        </h3>
+
+                        <p>
+                            View places you have already
+                            discovered throughout the world.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 12
+                        </div>
+
+                        <h3>
+                            Messenger
+                        </h3>
+
+                        <p>
+                            Check your recent messages and
+                            communicate with other players.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 13
+                        </div>
+
+                        <h3>
+                            Auction House
+                        </h3>
+
+                        <p>
+                            Buy and sell items through the
+                            in-game auction house.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            APP · 14
+                        </div>
+
+                        <h3>
+                            Tweeter
+                        </h3>
+
+                        <p>
+                            Post tweets and reply to tweets
+                            from other players.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REAL ESTATE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="scotex"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Real Estate
+                    </div>
+
+                    <h2 class="section-title">
+                        Scotex<br>
+                        Real Estate
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The <strong>Scotex</strong> application
+                    acts as your mobile real estate agent.
+                </p>
+
+
+                <p>
+                    Use it to browse available properties
+                    and find a house or other property that
+                    fits your needs.
+                </p>
+
+
+                <div class="access-card">
+
+                    <h3>
+                        What can you do?
+                    </h3>
+
+                    <p>
+                        Purchase or rent properties directly
+                        through the real estate system. For
+                        more information about property
+                        ownership, rental payments, taxes and
+                        building, visit the
+                        <strong>Housing</strong> documentation.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMUNICATION
+            ================================================= -->
+
+            <section
+                class="section"
+                id="communication"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Communication
+                    </div>
+
+                    <h2 class="section-title">
+                        Stay<br>
+                        Connected
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Several applications are dedicated to
+                    communication and keeping you connected
+                    with the rest of the city.
+                </p>
+
+
+                <div class="app-grid">
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            COMMUNICATION · 01
+                        </div>
+
+                        <h3>
+                            Telephone
+                        </h3>
+
+                        <p>
+                            Contact emergency services when
+                            you require immediate assistance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            COMMUNICATION · 02
+                        </div>
+
+                        <h3>
+                            Messenger
+                        </h3>
+
+                        <p>
+                            Check recent messages and important
+                            information for you.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            COMMUNICATION · 03
+                        </div>
+
+                        <h3>
+                            Tweeter
+                        </h3>
+
+                        <p>
+                            Share public posts and interact
+                            with other players through tweets.
+                        </p>
+
+                    </div>
+
+
+                    <div class="app-card">
+
+                        <div class="app-number">
+                            COMMUNICATION · 04
+                        </div>
+
+                        <h3>
+                            Discord
+                        </h3>
+
+                        <p>
+                            Join the official Discord
+                            server and chat there.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 POLICE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="police"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Police
+                    </div>
+
+                    <h2 class="section-title">
+                        OCPD<br>
+                        Mobile Data
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Police players can receive access to the
+                    <strong>OCPD Mobile Data Terminal</strong>.
+                </p>
+
+
+                <p>
+                    The application provides access to relevant
+                    and confidential police data from wherever
+                    the officer is located.
+                </p>
+
+
+                <div class="access-card">
+
+                    <h3>
+                        Restricted Application
+                    </h3>
+
+                    <p>
+                        The Mobile Data Terminal is only
+                        displayed when the player is recognized
+                        as a member of the police system.
+                    </p>
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Confidential
+                    </div>
+
+                    <p>
+                        Police data can contain confidential
+                        information. Access to the application
+                        is therefore restricted to eligible
+                        police players.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DISCOVERIES
+            ================================================= -->
+
+            <section
+                class="section"
+                id="discoveries"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Exploration
+                    </div>
+
+                    <h2 class="section-title">
+                        Discover<br>
+                        the World
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    The <strong>Discoveries</strong> application
+                    allows you to review locations you have
+                    discovered throughout the world.
+                </p>
+
+
+                <p>
+                    The application becomes available when
+                    you  have progressed far enough in
+                    the relevant discovery mission.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRIVOLIO
+            ================================================= -->
+
+            <section
+                class="section"
+                id="trivolio"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Entertainment
+                    </div>
+
+                    <h2 class="section-title">
+                        Trivolio<br>
+                        Theater
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Players with the required permissions for
+                    the Trivolio Theater can access the
+                    <strong>Trivolio App</strong>.
+                </p>
+
+
+                <p>
+                    The application provides tools to manage
+                    shows at the Trivolio Theater.
+                </p>
+
+
+                <div class="access-card">
+
+                    <h3>
+                        Permission Required
+                    </h3>
+
+                    <p>
+                        The application only appears for players
+                        who are show hosts or have been trusted
+                        by the current show host.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BETTER PHONE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="upgrades"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Upgrades
+                    </div>
+
+                    <h2 class="section-title">
+                        Upgrade<br>
+                        Your Phone
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Not every phone has access to every
+                    application.
+                </p>
+
+
+                <p>
+                    The <strong>junk phone</strong>, for example,
+                    provides a more limited selection of apps.
+                    Additional applications can become available
+                    by purchasing a better phone.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Limited Device
+                    </div>
+
+                    <p>
+                        If an application is missing from your
+                        phone, it may simply be unavailable on
+                        your current device rather than being
+                        disabled for yourself.
+                    </p>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Junk Phone
+                        </h3>
+
+                        <p>
+                            Provides a reduced application
+                            selection and displays information
+                            encouraging players to upgrade.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Better Phones
+                        </h3>
+
+                        <p>
+                            Purchasing a better phone can unlock
+                            additional applications and services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Phone / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>
+                        Reference
+                    </h2>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Real Estate
+                        </h3>
+
+                        <p>
+                            Scotex lets you purchase or rent
+                            properties.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Communication
+                        </h3>
+
+                        <p>
+                            Telephone, Messenger, Tweeter
+                            and Discord keep you connected.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Police
+                        </h3>
+
+                        <p>
+                            Eligible police players can access
+                            the OCPD Mobile Data Terminal.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Entertainment
+                        </h3>
+
+                        <p>
+                            Radio, Cosmetics, ObliStocks and
+                            other apps provide additional
+                            activities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Exploration
+                        </h3>
+
+                        <p>
+                            Discoveries lets you review places
+                            discovered by your character.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Phone Upgrades
+                        </h3>
+
+                        <p>
+                            Better phones can unlock more
+                            applications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Phone
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview"
+                        class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a href="#access">
+                        Opening the Phone
+                    </a>
+
+
+                    <a href="#apps">
+                        Applications
+                    </a>
+
+
+                    <a href="#scotex">
+                        Scotex
+                    </a>
+
+
+                    <a href="#communication">
+                        Communication
+                    </a>
+
+
+                    <a href="#police">
+                        OCPD Mobile Data
+                    </a>
+
+
+                    <a href="#discoveries">
+                        Discoveries
+                    </a>
+
+
+                    <a href="#trivolio">
+                        Trivolio Theater
+                    </a>
+
+
+                    <a href="#upgrades">
+                        Phone Upgrades
+                    </a>
+
+
+                    <a href="#quick-reference">
+                        Quick Reference
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>
+                    Keep in mind
+                </strong>
+
+                Different phones can provide access
+                to different applications. Missing
+                apps may require a better phone.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
