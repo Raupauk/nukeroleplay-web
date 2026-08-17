@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Getting Started | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Everything new players need to know when starting their life in NukeRoleplay."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+            --line: rgba(255,255,255,.09);
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: var(--black);
+            color: var(--text);
+
+            min-height: 100vh;
+            line-height: 1.65;
+
+            overflow-x: hidden;
+        }
+
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index: 999;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5vw;
+
+            background: rgba(9,10,10,.94);
+
+            border-bottom: 1px solid var(--line);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .logo {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: 1.45rem;
+            letter-spacing: .5px;
+
+            text-transform: uppercase;
+        }
+
+
+        .logo span {
+            color: var(--green);
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            font-size: .82rem;
+
+            text-transform: uppercase;
+            letter-spacing: .12em;
+
+            color: var(--muted);
+        }
+
+
+        .nav-links a {
+            position: relative;
+            transition: color .2s ease;
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--green);
+
+            transition: width .2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 470px;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 0 7vw 78px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.25) 40%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 7vw;
+            bottom: 40px;
+
+            width: 95px;
+            height: 3px;
+
+            background: var(--green);
+
+            transform: skewX(-35deg);
+        }
+
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 950px;
+        }
+
+
+        .hero-kicker {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 17px;
+
+            font-size: .72rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .2em;
+
+            color: var(--green-light);
+        }
+
+
+        .hero-kicker::before {
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: var(--green);
+        }
+
+
+        .hero h1 {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(4rem, 10vw, 8rem);
+
+            line-height: .8;
+
+            text-transform: uppercase;
+            letter-spacing: -.02em;
+
+            color: var(--white);
+
+            text-shadow: 4px 5px 0 rgba(0,0,0,.35);
+        }
+
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+
+        .hero-copy {
+            max-width: 670px;
+
+            margin-top: 25px;
+            margin-left: 8vw;
+
+            color: #c0c2bb;
+
+            font-size: .92rem;
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+        .page {
+            max-width: 1180px;
+
+            margin: auto;
+
+            padding: 90px 5vw 120px;
+        }
+
+
+        .content-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap: 65px;
+
+            align-items: start;
+        }
+
+
+        .article {
+            min-width: 0;
+        }
+
+
+        .section {
+            margin-bottom: 70px;
+
+            scroll-margin-top: 100px;
+        }
+
+
+        .section-heading {
+            position: relative;
+
+            margin-bottom: 25px;
+
+            padding-left: 30px;
+        }
+
+
+        .section-heading::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 5px;
+
+            width: 4px;
+            height: 42px;
+
+            background: var(--green);
+
+            transform: skewY(-18deg);
+        }
+
+
+        .section-label {
+            color: var(--green-light);
+
+            font-size: .68rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .2em;
+
+            margin-bottom: 6px;
+        }
+
+
+        .section-title {
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(2.3rem, 4vw, 3.8rem);
+
+            line-height: .9;
+
+            text-transform: uppercase;
+            letter-spacing: -.01em;
+
+            color: var(--white);
+        }
+
+
+        .article p {
+            color: var(--muted);
+
+            font-size: .91rem;
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+        }
+
+
+        .article strong {
+            color: var(--white);
+        }
+
+
+        /* =========================================================
+           IMAGE
+        ========================================================= */
+
+        .article-image {
+            width: 100%;
+
+            margin: 30px 0 35px;
+
+            border: 1px solid var(--line);
+
+            background: var(--panel);
+
+            overflow: hidden;
+        }
+
+
+        .article-image img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 430px;
+
+            object-fit: cover;
+        }
+
+
+        .image-caption {
+            padding: 12px 16px;
+
+            color: var(--muted);
+
+            font-size: .68rem;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+
+        /* =========================================================
+           INFO GRID
+        ========================================================= */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+
+        .info-card {
+            position: relative;
+
+            padding: 25px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+        }
+
+
+        .info-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 3px;
+            height: 100%;
+
+            background: var(--green);
+        }
+
+
+        .info-card h3 {
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.1rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+
+        .info-card p {
+            margin: 0;
+
+            font-size: .82rem;
+        }
+
+
+        /* =========================================================
+           STEP CARDS
+        ========================================================= */
+
+        .step-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+
+            margin-top: 28px;
+        }
+
+
+        .step-card {
+            padding: 30px;
+
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+        }
+
+
+        .step-card:hover {
+            background: var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform: translateY(-3px);
+        }
+
+
+        .step-number {
+            font-family: monospace;
+
+            color: var(--green);
+
+            font-size: .68rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            margin-bottom: 18px;
+        }
+
+
+        .step-card h3 {
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size: 1.3rem;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+
+        .step-card p {
+            margin: 0;
+
+            font-size: .84rem;
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+            position: relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin: 30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+        }
+
+
+        .warning-label {
+            color: #d87971;
+
+            font-family: monospace;
+
+            font-size: .68rem;
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+
+        .warning p {
+            margin: 0;
+
+            color: var(--text);
+
+            font-size: .86rem;
+        }
+
+
+        /* =========================================================
+           CHECKLIST
+        ========================================================= */
+
+        .checklist {
+            margin-top: 28px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 1px;
+
+            background: var(--line);
+
+            border: 1px solid var(--line);
+        }
+
+
+        .check-item {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            padding: 17px 20px;
+
+            background: var(--panel);
+        }
+
+
+        .check-mark {
+            flex-shrink: 0;
+
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid
+                rgba(145,184,63,.45);
+
+            color: var(--green-light);
+
+            font-family: monospace;
+
+            font-size: .75rem;
+        }
+
+
+        .check-item strong {
+            display: block;
+
+            color: var(--white);
+
+            font-size: .84rem;
+
+            margin-bottom: 2px;
+        }
+
+
+        .check-item span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: .76rem;
+        }
+
+
+        /* =========================================================
+           QUICK REFERENCE
+        ========================================================= */
+
+        .quick-reference {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 1px;
+
+            background: var(--line);
+
+            border: 1px solid var(--line);
+
+            margin-top: 25px;
+        }
+
+
+        .quick-item {
+            padding: 18px 20px;
+
+            background: var(--panel);
+        }
+
+
+        .quick-item span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: .65rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .1em;
+
+            margin-bottom: 5px;
+        }
+
+
+        .quick-item strong {
+            font-size: .85rem;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: sticky;
+            top: 105px;
+        }
+
+
+        .sidebar-box {
+            background: var(--panel);
+
+            border: 1px solid var(--line);
+        }
+
+
+        .sidebar-header {
+            padding: 20px 22px;
+
+            border-bottom: 1px solid var(--line);
+
+            color: var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size: .85rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .sidebar-links a {
+            padding: 13px 22px;
+
+            color: var(--muted);
+
+            font-size: .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+        }
+
+
+        .sidebar-links a:hover {
+            color: var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left: 27px;
+        }
+
+
+        .sidebar-links a.active {
+            color: var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left: 19px;
+        }
+
+
+        .sidebar-note {
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border: 1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: .72rem;
+        }
+
+
+        .sidebar-note strong {
+            display: block;
+
+            color: var(--white);
+
+            margin-bottom: 7px;
+
+            text-transform: uppercase;
+
+            font-size: .7rem;
+
+            letter-spacing: .08em;
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 15px;
+
+            color: var(--muted);
+
+            font-size: .72rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+        }
+
+
+        .back-link:hover {
+            color: var(--green-light);
+
+            transform: translateX(-4px);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 35px 20px 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: .72rem;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            border-top: 1px solid var(--line);
+        }
+
+
+        footer strong {
+            color: var(--white);
+        }
+
+
+        .footer-links {
+            margin-top: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 18px;
+        }
+
+
+        .footer-links a {
+            color: var(--muted);
+
+            transition: color .2s ease;
+        }
+
+
+        .footer-links a:hover {
+            color: var(--green-light);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 18px;
+            }
+
+
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .sidebar {
+                position: static;
+
+                order: -1;
+            }
+
+
+            .sidebar-links {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .sidebar-links a {
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero {
+                min-height: 430px;
+
+                padding: 0 25px 65px;
+            }
+
+
+            .hero::after {
+                left: 25px;
+            }
+
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+
+            .hero-copy {
+                margin-left: 20px;
+
+                font-size: .86rem;
+            }
+
+
+            .page {
+                padding: 65px 20px 85px;
+            }
+
+
+            .info-grid,
+            .step-grid,
+            .quick-reference {
+                grid-template-columns: 1fr;
+            }
+
+
+            .sidebar-links {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Getting Started
+        </div>
+
+
+        <h1>
+            Getting<br>
+            <span>Started</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Your first steps in NukeRoleplay.
+            Learn how to make money, get around,
+            follow the rules and build a stable life
+            in the city.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+
+            <!-- =================================================
+                 WELCOME
+            ================================================= -->
+
+            <section
+                class="section"
+                id="welcome"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 01
+                    </div>
+
+                    <h2 class="section-title">
+                        Welcome<br>
+                        to the city.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    NukeRoleplay is a large roleplay environment
+                    with many interconnected systems. When you
+                    first join, it can feel like there is a lot
+                    to learn.
+                </p>
+
+
+                <p>
+                    You do not need to understand everything
+                    immediately. Start with the basics, learn
+                    how to make money, get familiar with the
+                    city and gradually discover the more advanced
+                    systems.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Earn Money
+                        </h3>
+
+                        <p>
+                            Find a reliable source of income.
+                            A regular job is usually the best
+                            starting point.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Explore
+                        </h3>
+
+                        <p>
+                            Learn where important shops,
+                            transport stations and services
+                            are located.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Follow the Rules
+                        </h3>
+
+                        <p>
+                            Your actions have consequences.
+                            Breaking the law can result in
+                            police intervention.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Take Your Time
+                        </h3>
+
+                        <p>
+                            You do not need an expensive house
+                            or vehicle immediately. Build your
+                            life step by step.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FIRST MONEY
+            ================================================= -->
+
+            <section
+                class="section"
+                id="money"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 02
+                    </div>
+
+                    <h2 class="section-title">
+                        Make<br>
+                        Money.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Money is one of the most important things
+                    to establish when starting out. Almost
+                    everything in the city costs money, from
+                    transportation and food to vehicles and
+                    eventually property.
+                </p>
+
+
+                <p>
+                    The most reliable way to build an income is
+                    to find a <strong>job</strong>. Jobs provide
+                    a more consistent source of money and allow
+                    you to build up enough savings for the things
+                    you want later.
+                </p>
+
+
+                <div class="step-grid">
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            INCOME · 01
+                        </div>
+
+                        <h3>
+                            Get a Job
+                        </h3>
+
+                        <p>
+                            Find a job that suits you
+                            and start working. A consistent job
+                            should be your first major source
+                            of income.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            INCOME · 02
+                        </div>
+
+                        <h3>
+                            Collect Junk
+                        </h3>
+
+                        <p>
+                            You can also make some quick money
+                            by picking up junk found around the
+                            world and selling it at Junk Shops.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Economy · Plan Ahead
+                    </div>
+
+                    <p>
+                        Do not spend all of your money as soon
+                        as you earn it. Keep some savings for
+                        unexpected expenses and work towards
+                        establishing a stable income first.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    For more information about the available
+                    jobs and how the job system works, see the
+                    <strong>Jobs</strong> documentation.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSPORT
+            ================================================= -->
+
+            <section
+                class="section"
+                id="transport"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 03
+                    </div>
+
+                    <h2 class="section-title">
+                        Get<br>
+                        Around.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    You do not need a car to explore the world.
+                    The city has several forms of public
+                    transportation that make getting around
+                    affordable.
+                </p>
+
+
+                <div class="step-grid">
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            TRANSPORT · 01
+                        </div>
+
+                        <h3>
+                            Metro
+                        </h3>
+
+                        <p>
+                            A cheap way to travel through the
+                            city and reach different areas
+                            without owning a vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            TRANSPORT · 02
+                        </div>
+
+                        <h3>
+                            Train
+                        </h3>
+
+                        <p>
+                            Useful for travelling longer
+                            distances and connecting different
+                            parts of the world.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            TRANSPORT · 03
+                        </div>
+
+                        <h3>
+                            Bus
+                        </h3>
+
+                        <p>
+                            An inexpensive option for everyday
+                            transportation when you do not
+                            have your own vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-card">
+
+                        <div class="step-number">
+                            TRANSPORT · 04
+                        </div>
+
+                        <h3>
+                            Tram
+                        </h3>
+
+                        <p>
+                            Another affordable way to move
+                            around populated areas of the city.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p style="margin-top: 25px;">
+                    Public transportation is especially useful
+                    during your first few hours in the city.
+                    Save your money instead of rushing to buy
+                    a vehicle immediately.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SHOPS
+            ================================================= -->
+
+            <section
+                class="section"
+                id="shops"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 04
+                    </div>
+
+                    <h2 class="section-title">
+                        Learn the<br>
+                        City.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    There are many NPC-operated shops throughout
+                    the world where you can purchase everyday
+                    necessities.
+                </p>
+
+
+                <p>
+                    When you first arrive, explore your
+                    surroundings and learn where the important
+                    shops and services are located. Knowing where
+                    to get basic supplies can make everyday life
+                    much easier.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            NPC Shops
+                        </h3>
+
+                        <p>
+                            Purchase basic items and necessities
+                            from shops operated by NPCs.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Junk Shops
+                        </h3>
+
+                        <p>
+                            Sell collected junk to turn items
+                            found around the world into money.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Services
+                        </h3>
+
+                        <p>
+                            Learn where important public services
+                            and facilities are located.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Explore First
+                        </h3>
+
+                        <p>
+                            Your first days are a good time to
+                            learn the layout of the city before
+                            committing to expensive purchases.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RULES
+            ================================================= -->
+
+            <section
+                class="section"
+                id="rules"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 05
+                    </div>
+
+                    <h2 class="section-title">
+                        Know the<br>
+                        Rules.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    NukeRoleplay is a roleplay server, which means
+                    your actions are part of a shared world.
+                    Other players, businesses and authorities
+                    are affected by what you do.
+                </p>
+
+
+                <p>
+                    Make sure you understand the server rules
+                    before getting involved in situations that
+                    could have consequences for you.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Police · Consequences
+                    </div>
+
+                    <p>
+                        Breaking laws can lead to police
+                        intervention, including being
+                        <strong>arrested</strong>. Just because
+                        something is possible in the game does
+                        not mean it is without consequences.
+                    </p>
+
+                </div>
+
+
+                <div class="checklist">
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Respect the roleplay environment
+                            </strong>
+
+                            <span>
+                                Remember that other players are
+                                part of the same world.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Follow server rules
+                            </strong>
+
+                            <span>
+                                Read the official rules and
+                                understand what is expected
+                                from players.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Think about consequences
+                            </strong>
+
+                            <span>
+                                Criminal actions can attract
+                                attention from the police.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            04
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Ask when you are unsure
+                            </strong>
+
+                            <span>
+                                It is better to ask other players
+                                or staff than to accidentally
+                                break a rule.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HOUSING
+            ================================================= -->
+
+            <section
+                class="section"
+                id="housing"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 06
+                    </div>
+
+                    <h2 class="section-title">
+                        Don't Rush<br>
+                        Your Home.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Owning a house is an important milestone,
+                    but it is also expensive. Buying a property
+                    before you have a reliable income can leave
+                    you struggling to pay for other necessities.
+                </p>
+
+
+                <p>
+                    Your first goal should be to establish a
+                    <strong>constant source of income</strong>.
+                    Once you have enough money coming in
+                    regularly, you can start thinking about
+                    vehicles and property.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            First
+                        </h3>
+
+                        <p>
+                            Establish a reliable source of income
+                            and learn how the economy works.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Then
+                        </h3>
+
+                        <p>
+                            Build up savings and avoid spending
+                            everything on unnecessary purchases.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Later
+                        </h3>
+
+                        <p>
+                            Consider buying a vehicle or property
+                            once you can comfortably afford it.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Remember
+                        </h3>
+
+                        <p>
+                            Property is a long-term commitment.
+                            Make sure your finances can support it.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p style="margin-top: 25px;">
+                    The Housing documentation contains more
+                    information about buying, renting, property
+                    taxes, permissions and building.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SOCIAL
+            ================================================= -->
+
+            <section
+                class="section"
+                id="social"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 07
+                    </div>
+
+                    <h2 class="section-title">
+                        Meet the<br>
+                        Community.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    NukeRoleplay is much more than a collection
+                    of systems. A large part of the experience
+                    comes from interacting with other players.
+                </p>
+
+
+                <p>
+                    Talk to people, find players who share your
+                    interests and build relationships. 
+                    You may eventually find
+                    yourself working together, joining an
+                    organization or simply making friends.
+                </p>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Work Together
+                        </h3>
+
+                        <p>
+                            Other players can help you discover
+                            systems, locations and opportunities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Build Your Character
+                        </h3>
+
+                        <p>
+                            Think about who you are,
+                            what you want and how you fit
+                            into the city.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Ask Questions
+                        </h3>
+
+                        <p>
+                            Experienced players can often help
+                            when you are unfamiliar with a system.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Use Discord
+                        </h3>
+
+                        <p>
+                            The community Discord is a useful
+                            place to stay informed and communicate
+                            with other members.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PHONE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="phone"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 08
+                    </div>
+
+                    <h2 class="section-title">
+                        Your Phone<br>
+                        Matters.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Your phone is one of the most useful tools
+                    available to you. It connects you to many
+                    systems and services throughout the city.
+                </p>
+
+
+                <p>
+                    Take some time to explore its applications.
+                    Depending on your phone, you may have access
+                    to communication, real estate, jobs,
+                    transportation, entertainment and other
+                    important services.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Tip · Explore Your Apps
+                    </div>
+
+                    <p>
+                        If you are unsure how to access a system,
+                        check your phone first. Many important
+                        features are available directly through
+                        its applications.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FIRST DAY
+            ================================================= -->
+
+            <section
+                class="section"
+                id="first-day"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / 09
+                    </div>
+
+                    <h2 class="section-title">
+                        Your First<br>
+                        Day.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    You do not need to accomplish everything
+                    immediately. A good first day is about
+                    becoming familiar with the world and
+                    establishing a foundation for your character.
+                </p>
+
+
+                <div class="checklist">
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Explore your surroundings
+                            </strong>
+
+                            <span>
+                                Learn where shops, transportation
+                                and important locations are.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Find a source of income
+                            </strong>
+
+                            <span>
+                                Start looking for a job or use
+                                simple methods such as collecting
+                                and selling junk.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Learn public transportation
+                            </strong>
+
+                            <span>
+                                Use the metro, train, bus and tram
+                                while you save money for a vehicle.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            04
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Learn the rules
+                            </strong>
+
+                            <span>
+                                Understand what is expected from
+                                you before getting involved in
+                                risky situations.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            05
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Save your money
+                            </strong>
+
+                            <span>
+                                Build a financial buffer before
+                                making expensive purchases.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="check-item">
+
+                        <div class="check-mark">
+                            06
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Meet other players
+                            </strong>
+
+                            <span>
+                                Learn from the community and begin
+                                developing your character's story.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Getting Started / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Keep This<br>
+                        In Mind.
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-reference">
+
+                    <div class="quick-item">
+
+                        <span>
+                            First Priority
+                        </span>
+
+                        <strong>
+                            Establish a reliable income
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Easy Starter Money
+                        </span>
+
+                        <strong>
+                            Collect and sell junk
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Cheap Transportation
+                        </span>
+
+                        <strong>
+                            Metro, train, bus & tram
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Expensive Purchase
+                        </span>
+
+                        <strong>
+                            Houses and properties
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Important Tool
+                        </span>
+
+                        <strong>
+                            Your phone
+                        </strong>
+
+                    </div>
+
+
+                    <div class="quick-item">
+
+                        <span>
+                            Important Rule
+                        </span>
+
+                        <strong>
+                            Actions can have consequences
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Getting Started
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#welcome"
+                        class="active"
+                    >
+                        Welcome
+                    </a>
+
+
+                    <a href="#money">
+                        Making Money
+                    </a>
+
+
+                    <a href="#transport">
+                        Transportation
+                    </a>
+
+
+                    <a href="#shops">
+                        Shops & Services
+                    </a>
+
+
+                    <a href="#rules">
+                        Rules
+                    </a>
+
+
+                    <a href="#housing">
+                        Housing
+                    </a>
+
+
+                    <a href="#social">
+                        Community
+                    </a>
+
+
+                    <a href="#phone">
+                        Phone
+                    </a>
+
+
+                    <a href="#first-day">
+                        First Day
+                    </a>
+
+
+                    <a href="#quick-reference">
+                        Quick Reference
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>
+                    Best Advice
+                </strong>
+
+                Do not rush.
+
+                Find a reliable source of income,
+                learn the city, follow the rules and
+                build your character's life step by step.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
