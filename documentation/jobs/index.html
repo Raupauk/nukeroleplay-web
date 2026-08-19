@@ -1,0 +1,3653 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Jobs | NukeRoleplay Documentation</title>
+
+<meta
+    name="description"
+    content="Learn about jobs in NukeRoleplay, from simple application-free jobs to Police, Civil Management, Law, Construction and News."
+>
+
+<style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    :root {
+
+        --black: #090a0a;
+        --dark: #101211;
+        --panel: #151817;
+        --panel-light: #1b1e1c;
+
+        --white: #f1f0eb;
+        --text: #d8d8d2;
+        --muted: #8d918c;
+
+        --green: #91b83f;
+        --green-light: #b1d65b;
+        --green-dark: #617e27;
+
+        --red: #b34a43;
+
+        --line: rgba(255,255,255,.09);
+
+    }
+
+
+    /* =========================================================
+       BASE
+    ========================================================= */
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+
+        font-family:
+            "Helvetica Neue",
+            Helvetica,
+            Arial,
+            sans-serif;
+
+        background:
+            var(--black);
+
+        color:
+            var(--text);
+
+        min-height:
+            100vh;
+
+        line-height:
+            1.65;
+
+        overflow-x:
+            hidden;
+
+    }
+
+
+    body::before {
+
+        content: "";
+
+        position:
+            fixed;
+
+        inset:
+            0;
+
+        pointer-events:
+            none;
+
+        opacity:
+            .05;
+
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,.8) 0,
+                rgba(255,255,255,.8) 1px,
+                transparent 1px,
+                transparent 4px
+            ),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+        z-index:
+            999;
+
+    }
+
+
+    a {
+
+        color:
+            inherit;
+
+        text-decoration:
+            none;
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    nav {
+
+        height:
+            72px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+        padding:
+            0 5vw;
+
+        background:
+            rgba(9,10,10,.94);
+
+        border-bottom:
+            1px solid var(--line);
+
+        position:
+            sticky;
+
+        top:
+            0;
+
+        z-index:
+            100;
+
+        backdrop-filter:
+            blur(10px);
+
+    }
+
+
+    .logo {
+
+        font-family:
+            Impact,
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            1.45rem;
+
+        letter-spacing:
+            .5px;
+
+        text-transform:
+            uppercase;
+
+    }
+
+
+    .logo span {
+
+        color:
+            var(--green);
+
+    }
+
+
+    .nav-links {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            30px;
+
+        font-size:
+            .82rem;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .12em;
+
+        color:
+            var(--muted);
+
+    }
+
+
+    .nav-links a {
+
+        position:
+            relative;
+
+        transition:
+            color .2s ease;
+
+    }
+
+
+    .nav-links a::after {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        left:
+            0;
+
+        bottom:
+            -7px;
+
+        width:
+            0;
+
+        height:
+            1px;
+
+        background:
+            var(--green);
+
+        transition:
+            width .2s ease;
+
+    }
+
+
+    .nav-links a:hover {
+
+        color:
+            var(--white);
+
+    }
+
+
+    .nav-links a:hover::after {
+
+        width:
+            100%;
+
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
+        position:
+            relative;
+
+        min-height:
+            430px;
+
+        display:
+            flex;
+
+        align-items:
+            flex-end;
+
+        padding:
+            0 7vw 75px;
+
+        overflow:
+            hidden;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(9,10,10,.08) 0%,
+                rgba(9,10,10,.25) 40%,
+                rgba(9,10,10,.98) 100%
+            ),
+            url("./hero.png");
+
+        background-size:
+            cover;
+
+        background-position:
+            center;
+
+    }
+
+
+    .hero::after {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        left:
+            7vw;
+
+        bottom:
+            38px;
+
+        width:
+            95px;
+
+        height:
+            3px;
+
+        background:
+            var(--green);
+
+        transform:
+            skewX(-35deg);
+
+    }
+
+
+    .hero-content {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        max-width:
+            950px;
+
+    }
+
+
+    .hero-kicker {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            12px;
+
+        margin-bottom:
+            17px;
+
+        font-size:
+            .72rem;
+
+        font-weight:
+            800;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .2em;
+
+        color:
+            var(--green-light);
+
+    }
+
+
+    .hero-kicker::before {
+
+        content:
+            "";
+
+        width:
+            30px;
+
+        height:
+            1px;
+
+        background:
+            var(--green);
+
+    }
+
+
+    .hero h1 {
+
+        font-family:
+            Impact,
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            clamp(
+                4rem,
+                10vw,
+                8rem
+            );
+
+        line-height:
+            .8;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            -.02em;
+
+        color:
+            var(--white);
+
+        text-shadow:
+            4px 5px 0 rgba(0,0,0,.35);
+
+    }
+
+
+    .hero h1 span {
+
+        color:
+            var(--green);
+
+    }
+
+
+    .hero-copy {
+
+        max-width:
+            670px;
+
+        margin-top:
+            25px;
+
+        margin-left:
+            8vw;
+
+        color:
+            #c0c2bb;
+
+        font-size:
+            .92rem;
+
+    }
+
+
+    /* =========================================================
+       PAGE LAYOUT
+    ========================================================= */
+
+    .page {
+
+        max-width:
+            1180px;
+
+        margin:
+            auto;
+
+        padding:
+            90px 5vw 120px;
+
+    }
+
+
+    .content-layout {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            minmax(0, 1fr) 270px;
+
+        gap:
+            65px;
+
+        align-items:
+            start;
+
+    }
+
+
+    /* =========================================================
+       ARTICLE
+    ========================================================= */
+
+    .article {
+
+        min-width:
+            0;
+
+    }
+
+
+    .section {
+
+        margin-bottom:
+            70px;
+
+        scroll-margin-top:
+            100px;
+
+    }
+
+
+    .section-heading {
+
+        position:
+            relative;
+
+        margin-bottom:
+            25px;
+
+        padding-left:
+            30px;
+
+    }
+
+
+    .section-heading::before {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        left:
+            0;
+
+        top:
+            5px;
+
+        width:
+            4px;
+
+        height:
+            42px;
+
+        background:
+            var(--green);
+
+        transform:
+            skewY(-18deg);
+
+    }
+
+
+    .section-label {
+
+        color:
+            var(--green-light);
+
+        font-size:
+            .68rem;
+
+        font-weight:
+            800;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .2em;
+
+        margin-bottom:
+            6px;
+
+    }
+
+
+    .section-title {
+
+        font-family:
+            Impact,
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            clamp(
+                2.3rem,
+                4vw,
+                3.8rem
+            );
+
+        line-height:
+            .9;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            -.01em;
+
+        color:
+            var(--white);
+
+    }
+
+
+    .article p {
+
+        color:
+            var(--muted);
+
+        font-size:
+            .91rem;
+
+        line-height:
+            1.8;
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .article strong {
+
+        color:
+            var(--white);
+
+    }
+
+
+    /* =========================================================
+       INFO CARDS
+    ========================================================= */
+
+    .info-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            15px;
+
+        margin-top:
+            28px;
+
+    }
+
+
+    .info-card {
+
+        position:
+            relative;
+
+        padding:
+            25px;
+
+        background:
+            var(--panel);
+
+        border:
+            1px solid var(--line);
+
+    }
+
+
+    .info-card::before {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        left:
+            0;
+
+        top:
+            0;
+
+        width:
+            3px;
+
+        height:
+            100%;
+
+        background:
+            var(--green);
+
+    }
+
+
+    .info-card h3 {
+
+        color:
+            var(--white);
+
+        font-family:
+            "Arial Narrow",
+            "Helvetica Neue",
+            sans-serif;
+
+        font-size:
+            1.1rem;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            8px;
+
+    }
+
+
+    .info-card p {
+
+        margin:
+            0;
+
+        font-size:
+            .82rem;
+
+    }
+
+
+    /* =========================================================
+       JOB CARDS
+    ========================================================= */
+
+    .job-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            18px;
+
+        margin-top:
+            28px;
+
+    }
+
+
+    .job-card {
+
+        position:
+            relative;
+
+        padding:
+            28px;
+
+        background:
+            var(--panel);
+
+        border:
+            1px solid var(--line);
+
+        overflow:
+            hidden;
+
+        transition:
+            background .2s ease,
+            border-color .2s ease,
+            transform .2s ease;
+
+    }
+
+
+    .job-card:hover {
+
+        background:
+            var(--panel-light);
+
+        border-color:
+            rgba(145,184,63,.35);
+
+        transform:
+            translateY(-3px);
+
+    }
+
+
+    .job-card::after {
+
+        content:
+            attr(data-number);
+
+        position:
+            absolute;
+
+        right:
+            12px;
+
+        bottom:
+            -18px;
+
+        font-family:
+            Impact,
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            5rem;
+
+        line-height:
+            1;
+
+        color:
+            rgba(255,255,255,.025);
+
+        pointer-events:
+            none;
+
+    }
+
+
+    .job-number {
+
+        font-family:
+            monospace;
+
+        color:
+            var(--green);
+
+        font-size:
+            .68rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            .12em;
+
+        margin-bottom:
+            16px;
+
+    }
+
+
+    .job-card h3 {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        color:
+            var(--white);
+
+        font-family:
+            "Arial Narrow",
+            "Helvetica Neue",
+            sans-serif;
+
+        font-size:
+            1.35rem;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            11px;
+
+    }
+
+
+    .job-card p {
+
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        margin:
+            0;
+
+        font-size:
+            .83rem;
+
+    }
+
+
+    .job-tag {
+
+        display:
+            inline-block;
+
+        margin-top:
+            18px;
+
+        padding:
+            5px 9px;
+
+        border:
+            1px solid rgba(145,184,63,.25);
+
+        color:
+            var(--green-light);
+
+        font-family:
+            monospace;
+
+        font-size:
+            .61rem;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .08em;
+
+    }
+
+
+    /* =========================================================
+       APPLICATION / PROCESS CARDS
+    ========================================================= */
+
+    .process-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap:
+            15px;
+
+        margin-top:
+            28px;
+
+    }
+
+
+    .process-card {
+
+        padding:
+            25px;
+
+        background:
+            var(--panel);
+
+        border:
+            1px solid var(--line);
+
+    }
+
+
+    .process-number {
+
+        color:
+            var(--green);
+
+        font-family:
+            monospace;
+
+        font-size:
+            .68rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            .12em;
+
+        margin-bottom:
+            16px;
+
+    }
+
+
+    .process-card h3 {
+
+        color:
+            var(--white);
+
+        font-family:
+            "Arial Narrow",
+            "Helvetica Neue",
+            sans-serif;
+
+        font-size:
+            1.05rem;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            9px;
+
+    }
+
+
+    .process-card p {
+
+        margin:
+            0;
+
+        font-size:
+            .8rem;
+
+    }
+
+
+    /* =========================================================
+       WARNING
+    ========================================================= */
+
+    .warning {
+
+        position:
+            relative;
+
+        padding:
+            27px 30px 27px 34px;
+
+        margin:
+            30px 0;
+
+        background:
+            rgba(179,74,67,.06);
+
+        border:
+            1px solid rgba(179,74,67,.2);
+
+        border-left:
+            4px solid var(--red);
+
+    }
+
+
+    .warning-label {
+
+        color:
+            #d87971;
+
+        font-family:
+            monospace;
+
+        font-size:
+            .68rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            .12em;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            8px;
+
+    }
+
+
+    .warning p {
+
+        margin:
+            0;
+
+        color:
+            var(--text);
+
+        font-size:
+            .86rem;
+
+    }
+
+
+    /* =========================================================
+       APPLICATION BOX
+    ========================================================= */
+
+    .application-box {
+
+        margin-top:
+            28px;
+
+        padding:
+            30px;
+
+        background:
+            #0b0d0c;
+
+        border:
+            1px solid var(--line);
+
+    }
+
+
+    .application-label {
+
+        color:
+            var(--green);
+
+        font-family:
+            monospace;
+
+        font-size:
+            .65rem;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .1em;
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .application-box h3 {
+
+        color:
+            var(--white);
+
+        font-family:
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            1.3rem;
+
+        text-transform:
+            uppercase;
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .application-box p {
+
+        margin:
+            0;
+
+        font-size:
+            .84rem;
+
+    }
+
+
+    .application-box a {
+
+        color:
+            var(--green-light);
+
+        text-decoration:
+            underline;
+
+        text-underline-offset:
+            3px;
+
+    }
+
+
+    /* =========================================================
+       QUICK REFERENCE
+    ========================================================= */
+
+    .quick-reference {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            1px;
+
+        background:
+            var(--line);
+
+        border:
+            1px solid var(--line);
+
+        margin-top:
+            25px;
+
+    }
+
+
+    .quick-item {
+
+        padding:
+            18px 20px;
+
+        background:
+            var(--panel);
+
+    }
+
+
+    .quick-item span {
+
+        display:
+            block;
+
+        color:
+            var(--muted);
+
+        font-size:
+            .65rem;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .1em;
+
+        margin-bottom:
+            5px;
+
+    }
+
+
+    .quick-item strong {
+
+        font-size:
+            .85rem;
+
+    }
+
+
+    /* =========================================================
+       SIDEBAR
+    ========================================================= */
+
+    .sidebar {
+
+        position:
+            sticky;
+
+        top:
+            105px;
+
+    }
+
+
+    .sidebar-box {
+
+        background:
+            var(--panel);
+
+        border:
+            1px solid var(--line);
+
+    }
+
+
+    .sidebar-header {
+
+        padding:
+            20px 22px;
+
+        border-bottom:
+            1px solid var(--line);
+
+        color:
+            var(--white);
+
+        font-family:
+            "Arial Narrow",
+            sans-serif;
+
+        font-size:
+            .85rem;
+
+        font-weight:
+            700;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .08em;
+
+    }
+
+
+    .sidebar-links {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .sidebar-links a {
+
+        padding:
+            13px 22px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            .76rem;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.045);
+
+        transition:
+            color .2s ease,
+            background .2s ease,
+            padding-left .2s ease;
+
+    }
+
+
+    .sidebar-links a:hover {
+
+        color:
+            var(--green-light);
+
+        background:
+            rgba(145,184,63,.035);
+
+        padding-left:
+            27px;
+
+    }
+
+
+    .sidebar-links a.active {
+
+        color:
+            var(--green-light);
+
+        border-left:
+            3px solid var(--green);
+
+        padding-left:
+            19px;
+
+    }
+
+
+    .sidebar-note {
+
+        margin-top:
+            18px;
+
+        padding:
+            20px;
+
+        border:
+            1px solid var(--line);
+
+        color:
+            var(--muted);
+
+        font-size:
+            .72rem;
+
+    }
+
+
+    .sidebar-note strong {
+
+        display:
+            block;
+
+        color:
+            var(--white);
+
+        margin-bottom:
+            7px;
+
+        text-transform:
+            uppercase;
+
+        font-size:
+            .7rem;
+
+        letter-spacing:
+            .08em;
+
+    }
+
+
+    /* =========================================================
+       BACK LINK
+    ========================================================= */
+
+    .back-link {
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        gap:
+            8px;
+
+        margin-top:
+            15px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            .72rem;
+
+        font-weight:
+            700;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .08em;
+
+        transition:
+            color .2s ease,
+            transform .2s ease;
+
+    }
+
+
+    .back-link:hover {
+
+        color:
+            var(--green-light);
+
+        transform:
+            translateX(-4px);
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+        padding:
+            35px 20px 45px;
+
+        text-align:
+            center;
+
+        color:
+            var(--muted);
+
+        font-size:
+            .72rem;
+
+        text-transform:
+            uppercase;
+
+        letter-spacing:
+            .08em;
+
+        border-top:
+            1px solid var(--line);
+
+    }
+
+
+    footer strong {
+
+        color:
+            var(--white);
+
+    }
+
+
+    .footer-links {
+
+        margin-top:
+            10px;
+
+        display:
+            flex;
+
+        justify-content:
+            center;
+
+        gap:
+            18px;
+
+    }
+
+
+    .footer-links a {
+
+        color:
+            var(--muted);
+
+        transition:
+            color .2s ease;
+
+    }
+
+
+    .footer-links a:hover {
+
+        color:
+            var(--green-light);
+
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+        .nav-links {
+
+            gap:
+                18px;
+
+        }
+
+
+        .content-layout {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+
+        .sidebar {
+
+            position:
+                static;
+
+            order:
+                -1;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+        }
+
+
+        .sidebar-links a {
+
+            border-right:
+                1px solid rgba(255,255,255,.045);
+
+        }
+
+
+        .process-grid {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+        nav {
+
+            padding:
+                0 20px;
+
+        }
+
+
+        .nav-links {
+
+            display:
+                none;
+
+        }
+
+
+        .hero {
+
+            min-height:
+                420px;
+
+            padding:
+                0 25px 65px;
+
+        }
+
+
+        .hero::after {
+
+            left:
+                25px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                4rem;
+
+        }
+
+
+        .hero-copy {
+
+            margin-left:
+                20px;
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        .page {
+
+            padding:
+                65px 20px 85px;
+
+        }
+
+
+        .info-grid,
+        .job-grid,
+        .quick-reference {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+
+        .sidebar-links {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+
+<a
+    href="../../"
+    class="logo"
+>
+    Nuke<span>Roleplay</span>
+</a>
+
+
+<div class="nav-links">
+
+    <a href="../../">
+        Home
+    </a>
+
+    <a href="../../world/">
+        World
+    </a>
+
+    <a href="../../changelogs/">
+        Changelogs
+    </a>
+
+    <a href="../">
+        Documentation
+    </a>
+
+    <a
+        href="https://discord.gg/zdH3rhXzdu"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Discord
+    </a>
+
+</div>
+
+
+</nav>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+    <div class="hero-kicker">
+        Documentation / Jobs
+    </div>
+
+
+    <h1>
+        <span>Jobs</span>
+    </h1>
+
+
+    <p class="hero-copy">
+        Find your way into the workforce of NukeRoleplay.
+        From simple side jobs to careers that require
+        applications, certifications and responsibility.
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+<div class="content-layout">
+
+
+    <!-- =====================================================
+         ARTICLE
+    ===================================================== -->
+
+    <article class="article">
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================= -->
+
+        <section
+            class="section"
+            id="overview"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Overview
+                </div>
+
+                <h2 class="section-title">
+                    Find your<br>
+                    living.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Jobs are one of the most important ways
+                to build a stable income in NukeRoleplay.
+                Whether you want something simple to do
+                whenever you need money or want to build
+                an actual career inside the city, there
+                are many different paths available.
+            </p>
+
+
+            <p>
+                The job system is split into two major
+                categories:
+                <strong>jobs without an application</strong>
+                and
+                <strong>jobs that require an application</strong>.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        No Application
+                    </h3>
+
+                    <p>
+                        Simple jobs that anyone can start.
+                        Buy the required tool, go to work
+                        and sell what you collect.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Application Required
+                    </h3>
+
+                    <p>
+                        Career-based jobs that require you
+                        to join the associated Discord
+                        and complete an application process.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Build Your Career
+                    </h3>
+
+                    <p>
+                        Some jobs offer departments,
+                        certifications, ranks or additional
+                        responsibilities as you progress.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Make It Your Own
+                    </h3>
+
+                    <p>
+                        You are not limited to one way of
+                        making money. Combine different
+                        jobs and activities to build your
+                        own source of income.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+            COMPANIES & EMPLOYMENT
+        ================================================= -->
+
+        <section
+            class="section"
+            id="companies"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Employment
+                </div>
+
+                <h2 class="section-title">
+                    Work for<br>
+                    yourself.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Not every career in NukeRoleplay has to be tied
+                to one of the predefined jobs. Players can also
+                create their own <strong>companies</strong> and
+                build their own businesses within the city.
+            </p>
+
+
+            <p>
+                Whether you want to run a service, create a
+                construction company, operate a shop or come up
+                with something completely different, starting
+                your own company gives you the freedom to create
+                your own role in the economy.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        Create a Company
+                    </h3>
+
+                    <p>
+                        Build your own business and create a
+                        company around an idea, service or
+                        profession.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Hire Players
+                    </h3>
+
+                    <p>
+                        Grow your company by employing other
+                        players and giving them a way to earn
+                        money through your business.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Work for Others
+                    </h3>
+
+                    <p>
+                        You can also work for player-owned
+                        companies instead of running your own.
+                        Find a business that fits your interests
+                        and become part of its team.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Build Your Reputation
+                    </h3>
+
+                    <p>
+                        Player-run companies can become an
+                        important part of the city's economy.
+                        Good service and reliable employees can
+                        help a company grow over time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p style="margin-top: 25px;">
+
+                Company creation, management and the different
+                possibilities available to business owners are
+                covered in more detail on the
+                <strong>Businesses Documentation</strong> page.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICATION FREE
+        ================================================= -->
+
+        <section
+            class="section"
+            id="no-application"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Open Employment
+                </div>
+
+                <h2 class="section-title">
+                    Start<br>
+                    working.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Application-free jobs are designed to be
+                accessible to everyone. Once you have the
+                necessary equipment, you can simply go to
+                the relevant location and begin working.
+            </p>
+
+
+            <p>
+                The resources you collect can generally
+                be sold again, giving you a straightforward
+                way to turn your time into money.
+            </p>
+
+
+            <div class="job-grid">
+
+
+                <div
+                    class="job-card"
+                    data-number="01"
+                >
+
+                    <div class="job-number">
+                        JOB · 01
+                    </div>
+
+                    <h3>
+                        Miner
+                    </h3>
+
+                    <p>
+                        Head into the mines and extract
+                        ores and other blocks. The mines
+                        contain several different levels
+                        with different materials and
+                        challenges.
+                    </p>
+
+                    <span class="job-tag">
+                        No Application
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="02"
+                >
+
+                    <div class="job-number">
+                        JOB · 02
+                    </div>
+
+                    <h3>
+                        Lumberjack
+                    </h3>
+
+                    <p>
+                        Enjoy the forest air while cutting
+                        wood and helping keep the forests
+                        clean. Collected wood can be sold
+                        or processed into other materials.
+                    </p>
+
+                    <span class="job-tag">
+                        No Application
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="03"
+                >
+
+                    <div class="job-number">
+                        JOB · 03
+                    </div>
+
+                    <h3>
+                        Fisher
+                    </h3>
+
+                    <p>
+                        Travel to different biomes and
+                        fish for a variety of catches.
+                        Different locations can provide
+                        different things to bring home
+                        and sell.
+                    </p>
+
+                    <span class="job-tag">
+                        No Application
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="04"
+                >
+
+                    <div class="job-number">
+                        JOB · 04
+                    </div>
+
+                    <h3>
+                        Junk Collector
+                    </h3>
+
+                    <p>
+                        The simplest job in the city.
+                        Walk through the streets, collect
+                        junk and sell it to collectors or
+                        Junk Shops. You can also use junk
+                        as materials to create completely
+                        new items.
+                    </p>
+
+                    <span class="job-tag">
+                        No Application
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="warning">
+
+                <div class="warning-label">
+                    Miner · Environmental Hazard
+                </div>
+
+                <p>
+                    The lower levels of the mines can be
+                    <strong>toxic</strong>. Do not assume
+                    that going deeper is always safer or
+                    more profitable. Prepare yourself
+                    before entering dangerous areas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MINER
+        ================================================= -->
+
+        <section
+            class="section"
+            id="miner"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Job / Mining
+                </div>
+
+                <h2 class="section-title">
+                    Beneath<br>
+                    the city.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Mining is a straightforward way to turn
+                your time into resources and money.
+                Enter the mines, equip the appropriate
+                tool and begin extracting ores and other
+                blocks.
+            </p>
+
+
+            <p>
+                The mines are divided into multiple levels.
+                Deeper levels can provide access to
+                different resources, but they also become
+                more dangerous.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        Multiple Levels
+                    </h3>
+
+                    <p>
+                        Explore different depths of the
+                        mines to find different resources.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Tools
+                    </h3>
+
+                    <p>
+                        Purchase the appropriate equipment
+                        before entering the mines.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Sell Your Resources
+                    </h3>
+
+                    <p>
+                        Mined materials can be turned back
+                        into money through the appropriate
+                        selling or processing systems.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Watch the Depth
+                    </h3>
+
+                    <p>
+                        Lower mine levels can contain
+                        toxic environments. Know what you
+                        are getting into before going deeper.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LUMBERJACK / FISHER / JUNK
+        ================================================= -->
+
+        <section
+            class="section"
+            id="resource-jobs"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Resources
+                </div>
+
+                <h2 class="section-title">
+                    Work the<br>
+                    world.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Not every job takes place in a building.
+                Some of the most accessible work in
+                NukeRoleplay takes you directly into the
+                world around you.
+            </p>
+
+
+            <div class="job-grid">
+
+
+                <div
+                    class="job-card"
+                    data-number="01"
+                >
+
+                    <div class="job-number">
+                        RESOURCE · 01
+                    </div>
+
+                    <h3>
+                        Lumberjack
+                    </h3>
+
+                    <p>
+                        Harvest wood from the forests.
+                        The materials can be sold directly
+                        or processed further into useful
+                        products.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="02"
+                >
+
+                    <div class="job-number">
+                        RESOURCE · 02
+                    </div>
+
+                    <h3>
+                        Fisher
+                    </h3>
+
+                    <p>
+                        Fish across different biomes and
+                        discover that different waters can
+                        offer different catches.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="03"
+                >
+
+                    <div class="job-number">
+                        RESOURCE · 03
+                    </div>
+
+                    <h3>
+                        Junk Collector
+                    </h3>
+
+                    <p>
+                        Search the streets for discarded
+                        items. Sell them for quick cash
+                        or keep the junk for crafting
+                        and other uses.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="04"
+                >
+
+                    <div class="job-number">
+                        RESOURCE · 04
+                    </div>
+
+                    <h3>
+                        Processing
+                    </h3>
+
+                    <p>
+                        Some resources are more valuable
+                        when processed. Keep an eye out
+                        for opportunities to turn basic
+                        materials into something more useful.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICATION JOBS
+        ================================================= -->
+
+        <section
+            class="section"
+            id="applications"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Applications
+                </div>
+
+                <h2 class="section-title">
+                    Build a<br>
+                    career.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Some jobs are more than a simple way to
+                make money. They are structured careers
+                within the city and require players to
+                apply before they can join.
+            </p>
+
+
+            <p>
+                An application job generally requires you
+                to join the relevant Discord server and
+                submit an application or form. Each
+                organisation can have its own requirements
+                and selection process.
+            </p>
+
+
+            <div class="job-grid">
+
+
+                <div
+                    class="job-card"
+                    data-number="01"
+                >
+
+                    <div class="job-number">
+                        CAREER · 01
+                    </div>
+
+                    <h3>
+                        Police
+                    </h3>
+
+                    <p>
+                        Protect the city, enforce the law
+                        and keep yourself on the safe side
+                        of it. Officers can join different
+                        divisions for additional roles
+                        and responsibilities.
+                    </p>
+
+                    <span class="job-tag">
+                        Application Required
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="02"
+                >
+
+                    <div class="job-number">
+                        CAREER · 02
+                    </div>
+
+                    <h3>
+                        Civil Management
+                    </h3>
+
+                    <p>
+                        Keep the city functioning. Repair
+                        broken ATMs, streetlights, potholes,
+                        metro infrastructure and other
+                        problems around the city.
+                    </p>
+
+                    <span class="job-tag">
+                        Application Required
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="03"
+                >
+
+                    <div class="job-number">
+                        CAREER · 03
+                    </div>
+
+                    <h3>
+                        Lawyer
+                    </h3>
+
+                    <p>
+                        Earn your certification at the
+                        Law University and represent
+                        clients as a qualified lawyer.
+                    </p>
+
+                    <span class="job-tag">
+                        Certification
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="04"
+                >
+
+                    <div class="job-number">
+                        CAREER · 04
+                    </div>
+
+                    <h3>
+                        Judge
+                    </h3>
+
+                    <p>
+                        Apply to the Department of Justice
+                        and take a seat in the courtroom.
+                        Judges oversee proceedings and
+                        make decisions within the court.
+                    </p>
+
+                    <span class="job-tag">
+                        Department of Justice
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="05"
+                >
+
+                    <div class="job-number">
+                        CAREER · 05
+                    </div>
+
+                    <h3>
+                        ENGE Constructions
+                    </h3>
+
+                    <p>
+                        Earn an Architecture Degree from
+                        the University of Architecture
+                        and help create new buildings
+                        for the city.
+                    </p>
+
+                    <span class="job-tag">
+                        Degree Required
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="06"
+                >
+
+                    <div class="job-number">
+                        CAREER · 06
+                    </div>
+
+                    <h3>
+                        Oblivion News Network
+                    </h3>
+
+                    <p>
+                        Join the news network and keep
+                        the population informed about
+                        the latest events, stories and
+                        strange happenings around the world.
+                    </p>
+
+                    <span class="job-tag">
+                        Application Required
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             POLICE
+        ================================================= -->
+
+        <section
+            class="section"
+            id="police"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career / Police
+                </div>
+
+                <h2 class="section-title">
+                    Serve &amp;<br>
+                    protect.
+                </h2>
+
+            </div>
+
+
+            <p>
+                The
+                <strong>Oblivion City Police Department</strong>
+                is one of the most structured careers in
+                NukeRoleplay. Officers enforce the law,
+                respond to incidents and help keep the city
+                safe.
+            </p>
+
+
+            <p>
+                Police officers can progress through ranks
+                and may join specialised divisions such as
+                SWAT, Aviation Support Unit, K-9 Corps or
+                Internal Affairs.
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <h3>
+                        Shift Officers
+                    </h3>
+
+                    <p>
+                        The operational officers who work
+                        shifts and handle day-to-day
+                        policing throughout the city.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Commanders
+                    </h3>
+
+                    <p>
+                        Commanders lead individual divisions
+                        and oversee their members and
+                        operations.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Chief Ranks
+                    </h3>
+
+                    <p>
+                        The highest ranks within the OCPD,
+                        responsible for leading the
+                        department as a whole.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Specialised Divisions
+                    </h3>
+
+                    <p>
+                        SWAT, ASU, K-9 Corps and Internal
+                        Affairs provide additional paths
+                        within the police department.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="application-box">
+
+                <div class="application-label">
+                    Police Application
+                </div>
+
+                <h3>
+                    Join the OCPD
+                </h3>
+
+                <p>
+                    Police applicants must complete the
+                    required process before joining.
+                    Visit the
+                    <strong>Police documentation</strong>
+                    for more information about the LETC,
+                    testing, ranks and divisions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CIVIL MANAGEMENT
+        ================================================= -->
+
+        <section
+            class="section"
+            id="civil-management"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career / Civil Management
+                </div>
+
+                <h2 class="section-title">
+                    Keep the<br>
+                    city alive.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Civil Management is responsible for keeping
+                infrastructure around the city operational.
+                When something breaks, Civil Management
+                helps get it working again.
+            </p>
+
+
+            <div class="job-grid">
+
+
+                <div
+                    class="job-card"
+                    data-number="01"
+                >
+
+                    <div class="job-number">
+                        SERVICE · 01
+                    </div>
+
+                    <h3>
+                        ATMs
+                    </h3>
+
+                    <p>
+                        Repair damaged or broken ATMs so
+                        residents can continue to access
+                        essential financial services.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="02"
+                >
+
+                    <div class="job-number">
+                        SERVICE · 02
+                    </div>
+
+                    <h3>
+                        Streetlights
+                    </h3>
+
+                    <p>
+                        Maintain streetlights and other
+                        public infrastructure around the
+                        city.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="03"
+                >
+
+                    <div class="job-number">
+                        SERVICE · 03
+                    </div>
+
+                    <h3>
+                        Potholes
+                    </h3>
+
+                    <p>
+                        Repair damaged roads and help keep
+                        the city's streets usable.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="04"
+                >
+
+                    <div class="job-number">
+                        SERVICE · 04
+                    </div>
+
+                    <h3>
+                        Metro Repairs
+                    </h3>
+
+                    <p>
+                        Help restore broken metro systems
+                        and other infrastructure that
+                        residents rely on.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LAW
+        ================================================= -->
+
+        <section
+            class="section"
+            id="law"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career / Justice
+                </div>
+
+                <h2 class="section-title">
+                    The law<br>
+                    works both ways.
+                </h2>
+
+            </div>
+
+
+            <p>
+                The legal system provides two distinct
+                career paths: representing people as a
+                <strong>Lawyer</strong> or overseeing
+                proceedings as a <strong>Judge</strong>.
+            </p>
+
+
+            <div class="job-grid">
+
+
+                <div
+                    class="job-card"
+                    data-number="01"
+                >
+
+                    <div class="job-number">
+                        LEGAL · 01
+                    </div>
+
+                    <h3>
+                        Lawyer
+                    </h3>
+
+                    <p>
+                        Become a lawyer by obtaining the
+                        required certification at the
+                        Law University. Once qualified,
+                        you can represent clients according
+                        to the rules of the legal system.
+                    </p>
+
+                    <span class="job-tag">
+                        Law University
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="job-card"
+                    data-number="02"
+                >
+
+                    <div class="job-number">
+                        LEGAL · 02
+                    </div>
+
+                    <h3>
+                        Judge
+                    </h3>
+
+                    <p>
+                        Apply to the Department of Justice
+                        to become a judge. In the courtroom,
+                        judges oversee proceedings and
+                        make decisions on cases.
+                    </p>
+
+                    <span class="job-tag">
+                        Department of Justice
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="warning">
+
+                <div class="warning-label">
+                    Certification
+                </div>
+
+                <p>
+                    Legal careers can involve additional
+                    education, certification and application
+                    requirements. Make sure you understand
+                    the current requirements before applying.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONSTRUCTION
+        ================================================= -->
+
+        <section
+            class="section"
+            id="construction"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career / Construction
+                </div>
+
+                <h2 class="section-title">
+                    Build the<br>
+                    city.
+                </h2>
+
+            </div>
+
+
+            <p>
+                ENGE Constructions gives qualified players
+                the opportunity to contribute directly to
+                the physical world of NukeRoleplay.
+            </p>
+
+
+            <p>
+                To become part of the team, you need an
+                <strong>Architecture Degree</strong> from
+                the <strong>University of Architecture</strong>.
+                Once qualified, you can design houses and
+                other structures and submit them through
+                the discord server.
+            </p>
+
+
+            <div class="process-grid">
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 01
+                    </div>
+
+                    <h3>
+                        Study Architecture
+                    </h3>
+
+                    <p>
+                        Obtain your Architecture Degree
+                        from the University of Architecture.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 02
+                    </div>
+
+                    <h3>
+                        Design
+                    </h3>
+
+                    <p>
+                        Create houses or other structures
+                        that could fit into the NukeRoleplay
+                        world.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 03
+                    </div>
+
+                    <h3>
+                        Submit
+                    </h3>
+
+                    <p>
+                        Submit your work through the required
+                        form. Approved creations may make
+                        their way onto the actual map.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p style="margin-top: 22px;">
+
+                The Nuke Studios Building Team also hosts
+                regular training sessions and further
+                education for members who want to improve
+                their building and architectural skills.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             NEWS
+        ================================================= -->
+
+        <section
+            class="section"
+            id="news"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career / Media
+                </div>
+
+                <h2 class="section-title">
+                    Tell the<br>
+                    story.
+                </h2>
+
+            </div>
+
+
+            <p>
+                The <strong>Oblivion News Network</strong>
+                keeps the population informed about what
+                is happening throughout the world.
+            </p>
+
+
+            <p>
+                From unusual events to important developments
+                in the city, news staff can investigate
+                stories and bring them to the wider community.
+            </p>
+
+
+            <div class="application-box">
+
+                <div class="application-label">
+                    Application Required
+                </div>
+
+                <h3>
+                    Join the News Network
+                </h3>
+
+                <p>
+                    Applications are handled through the
+                    relevant Discord server. Join the
+                    organisation, check its current
+                    requirements and submit your application
+                    there.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ILLEGAL
+        ================================================= -->
+
+        <section
+            class="section"
+            id="illegal"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Classified
+                </div>
+
+                <h2 class="section-title">
+                    Not every<br>
+                    job is legal.
+                </h2>
+
+            </div>
+
+
+            <p>
+                The jobs listed on this page are the
+                legitimate careers and activities available
+                to players through the city's normal
+                systems.
+            </p>
+
+
+            <p>
+                There are also <strong>illegal ways to make
+                money</strong> in NukeRoleplay. Those paths
+                are intentionally not documented here.
+            </p>
+
+
+            <div class="warning">
+
+                <div class="warning-label">
+                    Classified · Your Choice
+                </div>
+
+                <p>
+                    If you decide to explore the criminal
+                    side of the city, remember that actions
+                    can have consequences. The police,
+                    courts and other systems of the city
+                    still apply.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICATION PROCESS
+        ================================================= -->
+
+        <section
+            class="section"
+            id="application-process"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Application Guide
+                </div>
+
+                <h2 class="section-title">
+                    How to<br>
+                    apply.
+                </h2>
+
+            </div>
+
+
+            <p>
+                Application-based jobs are managed by
+                their respective organisations. The exact
+                requirements can differ, but the general
+                process is straightforward.
+            </p>
+
+
+            <div class="process-grid">
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 01
+                    </div>
+
+                    <h3>
+                        Find the Organisation
+                    </h3>
+
+                    <p>
+                        Identify the department or company
+                        you want to join and find its
+                        official Discord server.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 02
+                    </div>
+
+                    <h3>
+                        Read the Requirements
+                    </h3>
+
+                    <p>
+                        Check the organisation's rules,
+                        requirements and application
+                        information before submitting anything.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <div class="process-number">
+                        STEP · 03
+                    </div>
+
+                    <h3>
+                        Apply
+                    </h3>
+
+                    <p>
+                        Complete the relevant form and
+                        follow the organisation's instructions
+                        for the next steps.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="warning">
+
+                <div class="warning-label">
+                    Important
+                </div>
+
+                <p>
+                    Discord servers, application forms and
+                    requirements can change over time.
+                    Always follow the current information
+                    provided by the organisation itself.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK REFERENCE
+        ================================================= -->
+
+        <section
+            class="section"
+            id="quick-reference"
+        >
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Jobs / Reference
+                </div>
+
+                <h2 class="section-title">
+                    Quick<br>
+                    Reference
+                </h2>
+
+            </div>
+
+
+            <div class="quick-reference">
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Easiest Start
+                    </span>
+
+                    <strong>
+                        Junk Collector
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Resource Jobs
+                    </span>
+
+                    <strong>
+                        Miner · Lumberjack · Fisher
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Police
+                    </span>
+
+                    <strong>
+                        Application Required
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Civil Management
+                    </span>
+
+                    <strong>
+                        Application Required
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Lawyer
+                    </span>
+
+                    <strong>
+                        Law University Certification
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Judge
+                    </span>
+
+                    <strong>
+                        Department of Justice
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        ENGE Constructions
+                    </span>
+
+                    <strong>
+                        Architecture Degree
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-item">
+
+                    <span>
+                        Oblivion News Network
+                    </span>
+
+                    <strong>
+                        Application Required
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <a
+            href="../"
+            class="back-link"
+        >
+            ← Back to Documentation
+        </a>
+
+
+    </article>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-box">
+
+            <div class="sidebar-header">
+                Jobs
+            </div>
+
+
+            <div class="sidebar-links">
+
+                <a
+                    href="#overview"
+                    class="active"
+                >
+                    Overview
+                </a>
+
+                
+                <a href="#companies">
+                    Companies & Employment
+                </a>
+
+
+                <a href="#no-application">
+                    Application-Free Jobs
+                </a>
+
+
+                <a href="#miner">
+                    Mining
+                </a>
+
+
+                <a href="#resource-jobs">
+                    Resource Jobs
+                </a>
+
+
+                <a href="#applications">
+                    Career Jobs
+                </a>
+
+
+                <a href="#police">
+                    Police
+                </a>
+
+
+                <a href="#civil-management">
+                    Civil Management
+                </a>
+
+
+                <a href="#law">
+                    Lawyer & Judge
+                </a>
+
+
+                <a href="#construction">
+                    ENGE Constructions
+                </a>
+
+
+                <a href="#news">
+                    Oblivion News Network
+                </a>
+
+
+                <a href="#illegal">
+                    Illegal Jobs
+                </a>
+
+
+                <a href="#application-process">
+                    Application Process
+                </a>
+
+
+                <a href="#quick-reference">
+                    Quick Reference
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-note">
+
+            <strong>
+                New to NukeRoleplay?
+            </strong>
+
+            Start with an application-free job.
+            Junk collecting, mining, lumberjacking
+            and fishing are easy ways to build your
+            first source of income.
+
+        </div>
+
+
+        <div class="sidebar-note">
+
+            <strong>
+                Remember
+            </strong>
+
+            Application-based jobs can have their
+            own requirements, Discord servers,
+            certifications and recruitment processes.
+
+        </div>
+
+    </aside>
+
+
+</div>
+
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+
+© 2026 <strong>Nuke Studios</strong>.
+All rights reserved.
+
+
+<div class="footer-links">
+
+    <a href="../../imprint/">
+        Imprint
+    </a>
+
+
+    <a href="../../privacypolicy/">
+        Privacy Policy
+    </a>
+
+</div>
+
+
+</footer>
+
+</body>
+
+</html>
