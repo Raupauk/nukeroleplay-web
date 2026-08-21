@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Recruitment | NukeRoleplay</title>
+
+<meta
+    name="description"
+    content="Join the NukeRoleplay team. Explore open positions in building, development, creative, media, community, modelling and texturing."
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.65;
+
+    overflow-x:
+        hidden;
+}
+
+body::before {
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .05;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+    z-index:
+        999;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 5vw;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.logo {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+.logo span {
+    color:
+        var(--green);
+}
+
+.nav-links {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+.nav-links a {
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+.nav-links a::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+.nav-links a:hover {
+    color:
+        var(--white);
+}
+
+.nav-links a:hover::after {
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position:
+        relative;
+
+    min-height:
+        500px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    padding:
+        0 7vw 80px;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(9,10,10,.05) 0%,
+            rgba(9,10,10,.25) 40%,
+            rgba(9,10,10,.98) 100%
+        ),
+        url("/images/hero_recruitment.png");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+}
+
+.hero::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        7vw;
+
+    bottom:
+        40px;
+
+    width:
+        95px;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewX(-35deg);
+}
+
+.hero-content {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        1000px;
+}
+
+.hero-kicker {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        17px;
+
+    font-size:
+        .72rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .2em;
+
+    color:
+        var(--green-light);
+}
+
+.hero-kicker::before {
+    content:
+        "";
+
+    width:
+        30px;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+}
+
+.hero h1 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(
+            4rem,
+            10vw,
+            8rem
+        );
+
+    line-height:
+        .8;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.02em;
+
+    color:
+        var(--white);
+
+    text-shadow:
+        4px 5px 0 rgba(0,0,0,.35);
+}
+
+.hero h1 span {
+    color:
+        var(--green);
+}
+
+.hero-copy {
+    max-width:
+        720px;
+
+    margin-top:
+        25px;
+
+    margin-left:
+        8vw;
+
+    color:
+        #c0c2bb;
+
+    font-size:
+        .92rem;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    max-width:
+        1180px;
+
+    margin:
+        auto;
+
+    padding:
+        90px 5vw 120px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    max-width:
+        800px;
+
+    margin-bottom:
+        85px;
+}
+
+.section-label {
+    color:
+        var(--green-light);
+
+    font-size:
+        .68rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .2em;
+
+    margin-bottom:
+        8px;
+}
+
+.intro h2 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.7rem,
+            5vw,
+            4.5rem
+        );
+
+    line-height:
+        .9;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        25px;
+}
+
+.intro h2 span {
+    color:
+        var(--green);
+}
+
+.intro p {
+    color:
+        var(--muted);
+
+    font-size:
+        .92rem;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        16px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.category {
+    margin-bottom:
+        25px;
+
+    scroll-margin-top:
+        100px;
+}
+
+
+/* =========================================================
+   CATEGORY CARD
+========================================================= */
+
+.category-card {
+    position:
+        relative;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    overflow:
+        hidden;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.category-card:hover {
+    background:
+        var(--panel-light);
+
+    border-color:
+        rgba(145,184,63,.35);
+}
+
+.category-button {
+    width:
+        100%;
+
+    padding:
+        27px 30px;
+
+    background:
+        transparent;
+
+    border:
+        0;
+
+    color:
+        inherit;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    font:
+        inherit;
+
+    position:
+        relative;
+}
+
+.category-button::after {
+    content:
+        "+";
+
+    position:
+        absolute;
+
+    right:
+        30px;
+
+    top:
+        27px;
+
+    color:
+        var(--green);
+
+    font-family:
+        monospace;
+
+    font-size:
+        1.35rem;
+
+    transition:
+        transform .25s ease;
+}
+
+.category-card.open .category-button::after {
+    transform:
+        rotate(45deg);
+}
+
+.category-kicker {
+    color:
+        var(--green);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .65rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .12em;
+
+    margin-bottom:
+        9px;
+}
+
+.category-title {
+    color:
+        var(--white);
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.5rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    padding-right:
+        45px;
+}
+
+.category-short {
+    color:
+        var(--muted);
+
+    font-size:
+        .8rem;
+
+    margin-top:
+        7px;
+
+    padding-right:
+        40px;
+}
+
+
+/* =========================================================
+   CATEGORY DETAILS
+========================================================= */
+
+.category-details {
+    display:
+        grid;
+
+    grid-template-rows:
+        0fr;
+
+    transition:
+        grid-template-rows .35s ease;
+}
+
+.category-details-inner {
+    overflow:
+        hidden;
+}
+
+.category-card.open .category-details {
+    grid-template-rows:
+        1fr;
+}
+
+.category-content {
+    padding:
+        0 30px 30px;
+
+    border-top:
+        1px solid var(--line);
+}
+
+.category-description {
+    padding-top:
+        25px;
+
+    max-width:
+        900px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .88rem;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        25px;
+}
+
+
+/* =========================================================
+   APPLICATION
+========================================================= */
+
+.application-area {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        20px 0 0;
+
+    border-top:
+        1px solid var(--line);
+}
+
+.application-copy {
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+}
+
+.application-copy strong {
+    display:
+        block;
+
+    color:
+        var(--white);
+
+    font-size:
+        .75rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    margin-bottom:
+        3px;
+}
+
+.application-button {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        190px;
+
+    padding:
+        13px 20px;
+
+    background:
+        var(--green);
+
+    color:
+        #101211;
+
+    font-size:
+        .68rem;
+
+    font-weight:
+        900;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.application-button:hover {
+    background:
+        var(--green-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+    position:
+        relative;
+
+    margin-top:
+        85px;
+
+    padding:
+        55px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    overflow:
+        hidden;
+}
+
+.final-cta::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        4px;
+
+    height:
+        100%;
+
+    background:
+        var(--green);
+}
+
+.final-cta h2 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    color:
+        var(--white);
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            4.5rem
+        );
+
+    line-height:
+        .9;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        18px;
+}
+
+.final-cta h2 span {
+    color:
+        var(--green);
+}
+
+.final-cta p {
+    max-width:
+        700px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .86rem;
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        25px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+footer strong {
+    color:
+        var(--white);
+}
+
+.footer-links {
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+}
+
+.footer-links a {
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+.footer-links a:hover {
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        padding:
+            0 20px;
+    }
+
+    .nav-links {
+        display:
+            none;
+    }
+
+    .hero {
+        min-height:
+            430px;
+
+        padding:
+            0 25px 65px;
+    }
+
+    .hero::after {
+        left:
+            25px;
+    }
+
+    .hero h1 {
+        font-size:
+            4rem;
+    }
+
+    .hero-copy {
+        margin-left:
+            20px;
+
+        font-size:
+            .86rem;
+    }
+
+    .page {
+        padding:
+            65px 20px 85px;
+    }
+
+    .category-button,
+    .category-content {
+        padding-left:
+            20px;
+
+        padding-right:
+            20px;
+    }
+
+    .category-button::after {
+        right:
+            18px;
+    }
+
+    .application-area {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+    .application-button {
+        width:
+            100%;
+    }
+
+    .final-cta {
+        padding:
+            40px 30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+<a
+    href="../"
+    class="logo"
+>
+    Nuke<span>Roleplay</span>
+</a>
+
+
+<div class="nav-links">
+
+    <a href="../">
+        Home
+    </a>
+
+    <a href="../world/">
+        World
+    </a>
+
+    <a href="../changelogs/">
+        Changelogs
+    </a>
+
+    <a href="../documentation/">
+        Documentation
+    </a>
+
+    <a
+        href="https://discord.gg/zdH3rhXzdu"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Discord
+    </a>
+
+</div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="hero-kicker">
+        NukeRoleplay / Recruitment
+    </div>
+
+    <h1>
+        Join the<br>
+        <span>Team.</span>
+    </h1>
+
+    <p class="hero-copy">
+        Help us build, develop and grow NukeRoleplay.
+        Find a department that matches your skills and
+        become part of the team behind the world.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="section-label">
+        Recruitment / Open Positions
+    </div>
+
+    <h2>
+        Build the world<br>
+        <span>with us.</span>
+    </h2>
+
+    <p>
+        NukeRoleplay is built by a team of people with
+        different skills, ideas and backgrounds. Whether
+        you enjoy building, programming, creating,
+        producing content or working with the community,
+        there may be a place for you.
+    </p>
+
+    <p>
+        You do not need to be perfect. We are looking for
+        people who are motivated, reliable and willing to
+        learn and contribute to the project.
+    </p>
+
+    <p>
+        Choose a department below to learn more about the
+        type of work involved. The application form will
+        allow you to tell us more about your individual
+        skills, experience and areas of expertise.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     BUILDING & DECORATING
+===================================================== -->
+
+<section
+    class="category"
+    id="building"
+>
+
+<div class="category-card">
+
+    <button
+        class="category-button"
+        type="button"
+    >
+
+        <div class="category-kicker">
+            DEPARTMENT · BUILDING
+        </div>
+
+        <div class="category-title">
+            Building & Decorating
+        </div>
+
+        <div class="category-short">
+            Shape the physical world of NukeRoleplay.
+        </div>
+
+    </button>
+
+
+    <div class="category-details">
+
+        <div class="category-details-inner">
+
+            <div class="category-content">
+
+                <p class="category-description">
+
+                    As a member of the Building & Decorating
+                    department, you will help create the locations
+                    that players actually experience in NukeRoleplay.
+                    This includes streets, houses, businesses,
+                    public buildings, interiors, industrial areas,
+                    neighbourhoods and other environments that make
+                    the world feel alive and believable.
+
+                    <br><br>
+
+                    Your work would involve taking concepts, references
+                    or rough ideas and turning them into finished
+                    environments inside the game. You may be asked to
+                    build a completely new location, improve an
+                    existing area or decorate an interior with props,
+                    furniture and other details. Attention to scale,
+                    composition, realism and performance is important,
+                    as every location should not only look good but
+                    also work well for gameplay and roleplay.
+
+                    <br><br>
+
+                    You should bring creativity, patience and a good
+                    eye for detail. Previous building experience is
+                    helpful, but motivation and the willingness to
+                    learn are just as important. Being able to work
+                    from references, accept feedback and make changes
+                    based on the needs of the project is especially
+                    valuable. If you enjoy creating environments and
+                    seeing your work become part of a playable world,
+                    this department could be a good fit for you.
+
+                </p>
+
+
+                <div class="application-area">
+
+                    <div class="application-copy">
+
+                        <strong>
+                            Interested?
+                        </strong>
+
+                        Tell us about your skills and experience
+                        through our application form.
+
+                    </div>
+
+
+                    <a
+                        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="application-button"
+                    >
+                        Application Form →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DEVELOPMENT
+===================================================== -->
+
+<section
+    class="category"
+    id="development"
+>
+
+<div class="category-card">
+
+    <button
+        class="category-button"
+        type="button"
+    >
+
+        <div class="category-kicker">
+            DEPARTMENT · DEVELOPMENT
+        </div>
+
+        <div class="category-title">
+            Development
+        </div>
+
+        <div class="category-short">
+            Build the systems and technology behind NukeRoleplay.
+        </div>
+
+    </button>
+
+
+    <div class="category-details">
+
+        <div class="category-details-inner">
+
+            <div class="category-content">
+
+                <p class="category-description">
+
+                    The Development department is responsible for
+                    turning ideas into functional systems that players
+                    can use. Developers work behind the scenes to build
+                    the technical foundation of NukeRoleplay, from
+                    gameplay systems and interfaces to databases,
+                    tools, scripts and other features required by the
+                    project.
+
+                    <br><br>
+
+                    Depending on your area of expertise, you could work
+                    on player systems, jobs, inventories, vehicles,
+                    interactions, menus, administration tools,
+                    permissions, economy systems or other gameplay
+                    mechanics. You may also help fix bugs, improve
+                    existing systems, optimise performance and connect
+                    different parts of the project together.
+
+                    <br><br>
+
+                    We are looking for people who enjoy solving problems
+                    and are comfortable working independently while
+                    communicating with the rest of the team. Programming
+                    experience is naturally important for this
+                    department, but the exact requirements depend on the
+                    role and technologies involved. Clean code,
+                    reliability, logical thinking and the ability to
+                    understand existing systems are highly valued.
+
+                    <br><br>
+
+                    You should also be willing to test your own work,
+                    investigate problems and respond constructively to
+                    feedback. If you enjoy programming and want to see
+                    your systems used by real players, Development gives
+                    you the opportunity to directly shape how
+                    NukeRoleplay works.
+
+                </p>
+
+
+                <div class="application-area">
+
+                    <div class="application-copy">
+
+                        <strong>
+                            Interested?
+                        </strong>
+
+                        Tell us about your skills and experience
+                        through our application form.
+
+                    </div>
+
+
+                    <a
+                        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="application-button"
+                    >
+                        Application Form →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CREATIVE & ROLEPLAY
+===================================================== -->
+
+<section
+    class="category"
+    id="creative"
+>
+
+<div class="category-card">
+
+    <button
+        class="category-button"
+        type="button"
+    >
+
+        <div class="category-kicker">
+            DEPARTMENT · CREATIVE
+        </div>
+
+        <div class="category-title">
+            Creative & Roleplay
+        </div>
+
+        <div class="category-short">
+            Shape the gameplay, lore and roleplay experience.
+        </div>
+
+    </button>
+
+
+    <div class="category-details">
+
+        <div class="category-details-inner">
+
+            <div class="category-content">
+
+                <p class="category-description">
+
+                    The Creative & Roleplay department focuses on the
+                    actual experience players have inside the world.
+                    Members of this department develop ideas for
+                    gameplay, roleplay situations, jobs, activities,
+                    organisations, events, lore and other systems that
+                    give players reasons to interact with the world.
+
+                    <br><br>
+
+                    You could be involved in designing new roleplay
+                    opportunities, writing background stories,
+                    developing factions, creating jobs, planning
+                    activities or thinking about how different parts of
+                    the world can work together. The goal is not simply
+                    to create more content, but to create content that
+                    makes sense, encourages interaction and gives
+                    players meaningful things to do.
+
+                    <br><br>
+
+                    Creativity is important, but so is structure. Good
+                    ideas need to fit the setting, technical
+                    possibilities and overall direction of
+                    NukeRoleplay. You should therefore be able to
+                    explain your ideas clearly, listen to feedback and
+                    improve concepts instead of becoming attached to a
+                    first draft.
+
+                    <br><br>
+
+                    Previous roleplay or game-design experience is
+                    helpful, but it is not the only thing we look for.
+                    We value people who understand what makes roleplay
+                    enjoyable, who think from a player's perspective
+                    and who are willing to work together with other
+                    departments to turn ideas into playable content.
+
+                </p>
+
+
+                <div class="application-area">
+
+                    <div class="application-copy">
+
+                        <strong>
+                            Interested?
+                        </strong>
+
+                        Tell us about your skills and experience
+                        through our application form.
+
+                    </div>
+
+
+                    <a
+                        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="application-button"
+                    >
+                        Application Form →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MEDIA & COMMUNITY
+===================================================== -->
+
+<section
+    class="category"
+    id="media"
+>
+
+<div class="category-card">
+
+    <button
+        class="category-button"
+        type="button"
+    >
+
+        <div class="category-kicker">
+            DEPARTMENT · MEDIA
+        </div>
+
+        <div class="category-title">
+            Media & Community
+        </div>
+
+        <div class="category-short">
+            Represent NukeRoleplay and connect with the community.
+        </div>
+
+    </button>
+
+
+    <div class="category-details">
+
+        <div class="category-details-inner">
+
+            <div class="category-content">
+
+                <p class="category-description">
+
+                    The Media & Community department is responsible
+                    for the public presence of NukeRoleplay and the
+                    relationship between the project and its players.
+                    Members help communicate what is happening within
+                    the project and make sure the community stays
+                    informed, active and engaged.
+
+                    <br><br>
+
+                    Depending on your strengths, you could create
+                    announcements, social media posts, trailers,
+                    screenshots, promotional graphics, videos or other
+                    forms of content. You may also help prepare
+                    community events, communicate development updates,
+                    collect feedback from players or support the team
+                    with public-facing communication.
+
+                    <br><br>
+
+                    Community work also means being approachable and
+                    professional. You may interact directly with
+                    players, answer questions, explain changes or help
+                    direct people to the right information. A good
+                    understanding of the project's tone and the ability
+                    to communicate clearly are therefore important.
+
+                    <br><br>
+
+                    Depending on the position, useful skills can include
+                    graphic design, video editing, photography,
+                    writing, social media management or community
+                    management. You do not need to be an expert in
+                    everything. We are interested in people who have
+                    something they are good at and want to use that
+                    skill to help NukeRoleplay grow.
+
+                </p>
+
+
+                <div class="application-area">
+
+                    <div class="application-copy">
+
+                        <strong>
+                            Interested?
+                        </strong>
+
+                        Tell us about your skills and experience
+                        through our application form.
+
+                    </div>
+
+
+                    <a
+                        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="application-button"
+                    >
+                        Application Form →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MODELLING & TEXTURING
+===================================================== -->
+
+<section
+    class="category"
+    id="modelling"
+>
+
+<div class="category-card">
+
+    <button
+        class="category-button"
+        type="button"
+    >
+
+        <div class="category-kicker">
+            DEPARTMENT · ART
+        </div>
+
+        <div class="category-title">
+            Modelling & Texturing
+        </div>
+
+        <div class="category-short">
+            Create the custom assets that make the world unique.
+        </div>
+
+    </button>
+
+
+    <div class="category-details">
+
+        <div class="category-details-inner">
+
+            <div class="category-content">
+
+                <p class="category-description">
+
+                    The Modelling & Texturing department creates the
+                    custom assets that give NukeRoleplay its own visual
+                    identity. Instead of relying entirely on existing
+                    assets, members of this department can create
+                    objects and visual elements specifically for the
+                    project.
+
+                    <br><br>
+
+                    Depending on your skills, you could work on
+                    buildings, furniture, props, vehicles, signs,
+                    equipment, decorations or other objects that are
+                    needed throughout the world. The process can include
+                    creating a 3D model, preparing UVs, creating
+                    textures and materials, optimising the asset and
+                    finally preparing it for use inside the game.
+
+                    <br><br>
+
+                    We are looking for people with an interest in 3D
+                    art, visual design and detail. Experience with tools
+                    such as Blender, Maya, 3ds Max, Substance Painter
+                    or similar software can be useful, depending on the
+                    specific role. You should also understand that
+                    game-ready assets are different from purely
+                    high-quality renders: polygon count, texture sizes,
+                    optimisation and correct implementation all matter.
+
+                    <br><br>
+
+                    An important part of the position is consistency.
+                    Assets should fit the overall visual style of
+                    NukeRoleplay rather than looking like isolated
+                    pieces. Being able to work from references,
+                    receive artistic feedback and make revisions is
+                    therefore just as important as technical skill.
+
+                    <br><br>
+
+                    Whether you already have professional 3D experience
+                    or are still developing your skills, we are
+                    interested in seeing what you can create and how
+                    motivated you are to improve.
+
+                </p>
+
+
+                <div class="application-area">
+
+                    <div class="application-copy">
+
+                        <strong>
+                            Interested?
+                        </strong>
+
+                        Tell us about your skills and experience
+                        through our application form.
+
+                    </div>
+
+
+                    <a
+                        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="application-button"
+                    >
+                        Application Form →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+    <h2>
+        Ready to<br>
+        <span>build?</span>
+    </h2>
+
+    <p>
+        Think you have what it takes to contribute to
+        NukeRoleplay? Choose a department above and submit
+        an application. Tell us what you can do, what
+        experience you have and how you would like to
+        contribute to the project.
+    </p>
+
+    <a
+        href="https://forms.gle/ix8SfbbdQPc1dc1W8"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="application-button"
+    >
+        Open Application Form →
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+© 2026 <strong>Nuke Studios</strong>.
+All rights reserved.
+
+
+<div class="footer-links">
+
+    <a href="../imprint/">
+        Imprint
+    </a>
+
+    <a href="../privacypolicy/">
+        Privacy Policy
+    </a>
+
+    <a href="../recruitment/">
+        Recruitment
+    </a>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const categoryCards =
+    document.querySelectorAll(".category-card");
+
+
+categoryCards.forEach(card => {
+
+    const button =
+        card.querySelector(".category-button");
+
+
+    button.addEventListener("click", () => {
+
+        const isOpen =
+            card.classList.contains("open");
+
+
+        categoryCards.forEach(otherCard => {
+
+            otherCard.classList.remove("open");
+
+        });
+
+
+        if (!isOpen) {
+
+            card.classList.add("open");
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>
