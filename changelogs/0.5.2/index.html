@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>v0.5.2 | NukeRoleplay</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+
+    --red: #b34a43;
+
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.7;
+
+    overflow-x:
+        hidden;
+}
+
+
+/* subtle scanline texture */
+
+body::before {
+
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:
+        999;
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    height:
+        72px;
+
+    padding:
+        0 5vw;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.logo {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.logo span {
+
+    color:
+        var(--green);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+
+.nav-links a {
+
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--white);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    padding:
+        85px 25px 120px;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        38px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    transition:
+        .2s ease;
+}
+
+
+.back:hover {
+
+    color:
+        var(--green-light);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position:
+        relative;
+
+    margin-bottom:
+        55px;
+
+    padding-left:
+        32px;
+}
+
+
+.header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        5px;
+
+    width:
+        4px;
+
+    height:
+        110px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
+
+.version {
+
+    color:
+        var(--green-light);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.header h1 {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 6rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.02em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin:
+        8px 0 18px;
+}
+
+
+.date {
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category {
+
+    position:
+        relative;
+
+    margin-bottom:
+        28px;
+
+    padding:
+        30px 32px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    box-shadow:
+        12px 12px 0 rgba(0,0,0,.18);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.category:hover {
+
+    background:
+        var(--panel-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* green top accent */
+
+.category::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+
+.category:hover::before {
+
+    width:
+        65px;
+}
+
+
+.category h2 {
+
+    margin-bottom:
+        22px;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.25rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+}
+
+
+.category ul {
+
+    padding-left:
+        22px;
+
+    color:
+        var(--muted);
+}
+
+
+.category li {
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        .9rem;
+}
+
+
+.category li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.category li::marker {
+
+    color:
+        var(--green);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+footer strong {
+
+    color:
+        var(--white);
+}
+
+
+.footer-links {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+}
+
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+
+.footer-links a:hover {
+
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding:
+            0 20px;
+    }
+
+
+    .nav-links {
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            65px 20px 85px;
+    }
+
+
+    .header {
+
+        padding-left:
+            25px;
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .header::before {
+
+        height:
+            90px;
+    }
+
+
+    .header h1 {
+
+        font-size:
+            3.8rem;
+    }
+
+
+    .category {
+
+        padding:
+            25px 22px;
+
+        box-shadow:
+            8px 8px 0 rgba(0,0,0,.18);
+    }
+
+
+    .category h2 {
+
+        font-size:
+            1.1rem;
+    }
+
+
+    .category li {
+
+        font-size:
+            .86rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Changelogs
+        </a>
+
+        <a href="../../documentation/">Documentation</a>
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="page">
+
+    <a href="../" class="back">← Back to Changelogs</a>
+
+    <header class="header">
+        <div class="version">VERSION 0.5.2</div>
+        <h1>Underworld & Expansion</h1>
+        <div class="date">August 21, 2026</div>
+    </header>
+
+    <section class="category">
+        <h2>🌍 World &amp; Building</h2>
+        <ul>
+            <li>Added new buildings near the spawn in Ermesinde.</li>
+            <li>Furnished and completed the Bolon Market in Ermesinde.</li>
+            <li>Added a new hospital in North Sampaio.</li>
+            <li>Added new medium-density buildings in Fanzeres.</li>
+            <li>Added new apartment decorations in Sampaio.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>📍 Spawn</h2>
+        <ul>
+            <li>Players now spawn at their last location instead of the world spawn.</li>
+            <li>Added spawn protection when joining.</li>
+            <li>Added no-spawn zones that kick players out when joining inside of them.</li>
+            <li>Added /spawn.</li>
+            <li>Added a new server spawn point in Ermesinde.</li>
+            <li>Added a new server IP.</li>
+            <li>Added the tutorial area to the spawn in Ermesinde.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>💰 Economy &amp; Shops</h2>
+        <ul>
+            <li>Added the Abimbas Sneaker Shop.</li>
+            <li>Added more NPC shops around the world.</li>
+            <li>Added housing taxes.</li>
+            <li>Added Vertex Properties, a company selling offices.</li>
+            <li>Added Royce the Pawnbroker.</li>
+            <li>Added ammunition to all guns.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🔫 Crime &amp; Missions</h2>
+        <ul>
+            <li>Added the Undercity.</li>
+            <li>Added a new ATM Robbing System.</li>
+            <li>Added three new Mafia missions.</li>
+            <li>Added the mission "The Corrupt Cop".</li>
+            <li>Added Passcode Scanners for the Undercity.</li>
+            <li>Added Piranhas swimming in the sewers.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🎓 Housing &amp; Jobs</h2>
+        <ul>
+            <li>Added Graduation Hats for players receiving a university degree.</li>
+            <li>Added new CTT delivery locations across the world.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🖥️ UI &amp; Server</h2>
+        <ul>
+            <li>Updated the tab list.</li>
+            <li>Added new chat formatting.</li>
+            <li>Added new lore tags for items and applied them across the server.</li>
+            <li>Remade permissions for Players, Moderators and Team ranks.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🧱 Models &amp; Props</h2>
+        <ul>
+            <li>Added new kitchen models, for example counters, cabinets, sinks and more in different variants.</li>
+            <li>Added new kitchen appliances, including Microwaves, Coffee machines, Blenders, Toasters, Fridges, Ovens, Stoves and more.</li>
+            <li>Added new interior and exterior props, such as Air conditioning units, Trash cans and bins, Computers and more.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🐛 Bug Fixes</h2>
+        <ul>
+            <li>Fixed the layout of car spawners.</li>
+            <li>Fixed players being able to vote multiple times during a votekick.</li>
+            <li>Fixed passive spawner upgrade items not working correctly.</li>
+            <li>Fixed players being able to take books from lecterns.</li>
+            <li>Fixed players in prison being able to use /spawn.</li>
+            <li>Fixed NPCs walking outside their designated areas.</li>
+            <li>Removed nametags from Fightclub NPCs.</li>
+        </ul>
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        Nuke Studios
+    </strong>.
+
+    All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
