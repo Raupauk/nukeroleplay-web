@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="NukeRoleplay Documentation — Learn everything about jobs, housing, vehicles, police, businesses, phones, commands and activities."
+        content="NukeRoleplay Documentation. Learn everything about jobs, housing, vehicles, police, businesses, phones, commands and activities."
     >
 
     <style>
@@ -476,24 +476,6 @@
 
 
         /* =========================================================
-           MAIN CONTAINER
-        ========================================================= */
-
-        .container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-            padding:
-                105px 5vw 120px;
-
-        }
-
-
-        /* =========================================================
            INTRO
         ========================================================= */
 
@@ -638,37 +620,36 @@
 
 
         /* =========================================================
-           DOCUMENTATION GRID
+           DOCUMENTATION LIST (plain text, top to bottom)
         ========================================================= */
 
-        .documentation-grid {
+        .docs-list {
 
             display:
-                grid;
+                flex;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            flex-direction:
+                column;
 
             gap:
-                18px;
+                14px;
 
         }
 
 
-        /* =========================================================
-           DOCUMENTATION CARD
-        ========================================================= */
+        .docs-list-item {
 
-        .documentation-card {
+            display:
+                flex;
 
-            position:
-                relative;
+            align-items:
+                center;
 
-            min-height:
-                235px;
+            gap:
+                30px;
 
             padding:
-                30px;
+                26px 30px;
 
             background:
                 var(--panel);
@@ -676,18 +657,15 @@
             border:
                 1px solid var(--line);
 
-            overflow:
-                hidden;
-
             transition:
-                background .25s ease,
-                border-color .25s ease,
-                transform .25s ease;
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
 
         }
 
 
-        .documentation-card:hover {
+        .docs-list-item:hover {
 
             background:
                 var(--panel-light);
@@ -696,112 +674,49 @@
                 rgba(145,184,63,.4);
 
             transform:
-                translateY(-4px);
+                translateX(4px);
 
         }
 
 
-        .documentation-card::before {
+        .docs-list-head {
 
-            content:
-                "";
+            display:
+                flex;
 
-            position:
-                absolute;
+            align-items:
+                center;
 
-            top:
-                0;
+            gap:
+                14px;
 
-            left:
-                0;
-
-            width:
-                0;
-
-            height:
-                3px;
-
-            background:
-                var(--green);
-
-            transition:
-                width .3s ease;
+            flex:
+                0 0 260px;
 
         }
 
 
-        .documentation-card:hover::before {
-
-            width:
-                70px;
-
-        }
-
-
-        .documentation-card::after {
-
-            content:
-                attr(data-number);
-
-            position:
-                absolute;
-
-            right:
-                20px;
-
-            bottom:
-                -12px;
-
-            font-family:
-                Impact,
-                "Arial Narrow",
-                sans-serif;
-
-            font-size:
-                6rem;
-
-            line-height:
-                1;
-
-            color:
-                rgba(255,255,255,.025);
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .card-number {
+        .docs-list-num {
 
             font-family:
                 monospace;
 
             font-size:
-                .65rem;
+                .68rem;
 
             font-weight:
                 700;
 
             letter-spacing:
-                .12em;
+                .1em;
 
             color:
                 var(--green);
 
-            margin-bottom:
-                28px;
-
         }
 
 
-        .documentation-card h2 {
-
-            position:
-                relative;
-
-            z-index:
-                2;
+        .docs-list-title {
 
             font-family:
                 "Arial Narrow",
@@ -809,62 +724,35 @@
                 sans-serif;
 
             font-size:
-                1.35rem;
+                1.2rem;
 
             line-height:
-                1.05;
+                1.15;
 
             text-transform:
                 uppercase;
 
             letter-spacing:
-                .025em;
+                .02em;
 
             color:
                 var(--white);
 
-            margin-bottom:
-                12px;
+            transition:
+                color .2s ease;
 
         }
 
 
-        .documentation-card p {
-
-            position:
-                relative;
-
-            z-index:
-                2;
+        .docs-list-item:hover .docs-list-title {
 
             color:
-                var(--muted);
-
-            font-size:
-                .83rem;
-
-            line-height:
-                1.7;
-
-            max-width:
-                38ch;
+                var(--green-light);
 
         }
 
 
-        .card-arrow {
-
-            position:
-                absolute;
-
-            right:
-                25px;
-
-            bottom:
-                25px;
-
-            z-index:
-                3;
+        .docs-list-arrow {
 
             color:
                 var(--green-light);
@@ -873,18 +761,48 @@
                 monospace;
 
             font-size:
-                .78rem;
+                .9rem;
+
+            flex-shrink:
+                0;
+
+            opacity:
+                0;
+
+            transform:
+                translateX(-4px);
 
             transition:
+                opacity .2s ease,
                 transform .2s ease;
 
         }
 
 
-        .documentation-card:hover .card-arrow {
+        .docs-list-item:hover .docs-list-arrow {
+
+            opacity:
+                1;
 
             transform:
-                translateX(5px);
+                translateX(0);
+
+        }
+
+
+        .docs-list-desc {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .85rem;
+
+            line-height:
+                1.7;
+
+            flex:
+                1;
 
         }
 
@@ -1028,14 +946,6 @@
 
             }
 
-
-            .documentation-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
         }
 
 
@@ -1105,26 +1015,24 @@
             }
 
 
-            .container {
+            .docs-list-item {
 
-                padding:
-                    75px 20px 85px;
+                flex-direction:
+                    column;
 
-            }
+                align-items:
+                    flex-start;
 
-
-            .documentation-grid {
-
-                grid-template-columns:
-                    1fr;
+                gap:
+                    10px;
 
             }
 
 
-            .documentation-card {
+            .docs-list-head {
 
-                min-height:
-                    210px;
+                flex-basis:
+                    auto;
 
             }
 
@@ -1147,6 +1055,8 @@
         }
 
     </style>
+
+    <link rel="stylesheet" href="assets/docs-sidebar.css">
 
 </head>
 
@@ -1233,7 +1143,60 @@
      MAIN
 ========================================================= -->
 
-<main class="container">
+<main class="docs-shell no-toc">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <button class="docs-menu-toggle" type="button">
+        ☰ Menu
+    </button>
+
+    <aside class="docs-sidebar">
+
+        <div class="docs-search">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+
+            <input type="text" placeholder="Search documentation…" aria-label="Search documentation">
+
+        </div>
+
+        <div class="docs-nav-label">Documentation</div>
+
+        <div class="docs-nav-scroll">
+
+        <ul class="docs-nav">
+
+            <li><a class="docs-nav-link" href="getting-started/"><span class="num">01</span> Getting Started</a></li>
+            <li><a class="docs-nav-link" href="jobs/"><span class="num">02</span> Jobs</a></li>
+            <li><a class="docs-nav-link" href="housing/"><span class="num">03</span> Housing</a></li>
+            <li><a class="docs-nav-link" href="vehicles/"><span class="num">04</span> Vehicles</a></li>
+            <li><a class="docs-nav-link" href="police/"><span class="num">05</span> Police</a></li>
+            <li><a class="docs-nav-link" href="business/"><span class="num">06</span> Businesses</a></li>
+            <li><a class="docs-nav-link" href="rules&law/"><span class="num">07</span> Rules & Law</a></li>
+            <li><a class="docs-nav-link" href="commands/"><span class="num">08</span> Commands</a></li>
+            <li><a class="docs-nav-link" href="activities/"><span class="num">09</span> Activities</a></li>
+
+        </ul>
+
+        <div class="docs-nav-empty">No results found.</div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENT
+    ===================================================== -->
+
+    <div class="docs-content">
 
 
     <!-- =====================================================
@@ -1282,40 +1245,29 @@
          DOCUMENTATION CATEGORIES
     ===================================================== -->
 
-    <section class="documentation-grid">
+    <div class="docs-list">
 
 
         <!-- =================================================
              01 · GETTING STARTED
         ================================================= -->
 
-        <a
-            href="getting-started/"
-            class="documentation-card"
-            data-number="01"
-        >
+        <a href="getting-started/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 01
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">01</span>
+                <h2 class="docs-list-title">Getting Started</h2>
+                            </div>
 
-
-            <h2>
-                Getting Started
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 New to NukeRoleplay?
                 Learn the basics, join the server,
                 get started and find your way around
                 your first day in the city.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1324,32 +1276,21 @@
              02 · JOBS
         ================================================= -->
 
-        <a
-            href="jobs/"
-            class="documentation-card"
-            data-number="02"
-        >
+        <a href="jobs/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 02
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">02</span>
+                <h2 class="docs-list-title">Jobs</h2>
+                            </div>
 
-
-            <h2>
-                Jobs
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Learn how jobs work, where to find them,
                 how to get paid and how to build your
                 career in the city.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1358,32 +1299,21 @@
              03 · HOUSING
         ================================================= -->
 
-        <a
-            href="housing/"
-            class="documentation-card"
-            data-number="03"
-        >
+        <a href="housing/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 03
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">03</span>
+                <h2 class="docs-list-title">Housing</h2>
+                            </div>
 
-
-            <h2>
-                Housing
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Everything about apartments, houses,
                 properties, keys, ownership and
                 making a place your own.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1392,32 +1322,21 @@
              04 · VEHICLES
         ================================================= -->
 
-        <a
-            href="vehicles/"
-            class="documentation-card"
-            data-number="04"
-        >
+        <a href="vehicles/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 04
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">04</span>
+                <h2 class="docs-list-title">Vehicles</h2>
+                            </div>
 
-
-            <h2>
-                Vehicles
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Learn about vehicles, ownership,
                 transportation and everything you need
                 to know about getting around the city.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1426,32 +1345,21 @@
              05 · POLICE
         ================================================= -->
 
-        <a
-            href="police/"
-            class="documentation-card"
-            data-number="05"
-        >
+        <a href="police/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 05
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">05</span>
+                <h2 class="docs-list-title">Police</h2>
+                            </div>
 
-
-            <h2>
-                Police
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Understand the city's police
                 systems, punishments and what happens
                 when you end up on the wrong side of them.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1460,66 +1368,44 @@
              06 · BUSINESSES
         ================================================= -->
 
-        <a
-            href="business/"
-            class="documentation-card"
-            data-number="06"
-        >
+        <a href="business/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 06
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">06</span>
+                <h2 class="docs-list-title">Businesses</h2>
+                            </div>
 
-
-            <h2>
-                Businesses
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Discover how businesses work,
                 how they can be operated and how
                 they fit into the city's economy.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
 
         <!-- =================================================
-             07 · PHONE
+             07 · RULES & LAW
         ================================================= -->
 
-        <a
-            href="rules&law/"
-            class="documentation-card"
-            data-number="07"
-        >
+        <a href="rules&law/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 07
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">07</span>
+                <h2 class="docs-list-title">Rules & Law</h2>
+                            </div>
 
-
-            <h2>
-                Rules & Law
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Learn about how rules are enforced,
                 which laws exist and how you can
                 make use of your rights!
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1528,32 +1414,21 @@
              08 · COMMANDS
         ================================================= -->
 
-        <a
-            href="commands/"
-            class="documentation-card"
-            data-number="08"
-        >
+        <a href="commands/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 08
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">08</span>
+                <h2 class="docs-list-title">Commands</h2>
+                            </div>
 
-
-            <h2>
-                Commands
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 A complete reference for useful
                 commands available to players
                 throughout NukeRoleplay.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
@@ -1562,37 +1437,26 @@
              09 · ACTIVITIES
         ================================================= -->
 
-        <a
-            href="activities/"
-            class="documentation-card"
-            data-number="09"
-        >
+        <a href="activities/" class="docs-list-item">
 
-            <div class="card-number">
-                FILE · 09
-            </div>
+            <div class="docs-list-head">
+                <span class="docs-list-num">09</span>
+                <h2 class="docs-list-title">Activities</h2>
+                            </div>
 
-
-            <h2>
-                Activities
-            </h2>
-
-
-            <p>
+            <p class="docs-list-desc">
                 Things to do outside of work.
                 Discover activities, places and
                 other ways to spend your time in the city.
             </p>
 
+        <span class="docs-list-arrow">→</span>
 
-            <span class="card-arrow">
-                →
-            </span>
 
         </a>
 
 
-    </section>
+    </div>
 
 
     <!-- =====================================================
@@ -1607,6 +1471,8 @@
 
         New systems, features and guides will be added
         as NukeRoleplay continues to grow.
+
+    </div>
 
     </div>
 
@@ -1640,6 +1506,9 @@
 
 </footer>
 
+
+<script src="assets/docs-search-index.js"></script>
+<script src="assets/docs-sidebar.js"></script>
 
 </body>
 
