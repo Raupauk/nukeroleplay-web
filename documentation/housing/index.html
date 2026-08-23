@@ -477,19 +477,6 @@
            PAGE LAYOUT
         ========================================================= */
 
-        .page {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-            padding:
-                90px 5vw 120px;
-
-        }
-
 
         .content-layout {
 
@@ -1633,13 +1620,6 @@
             }
 
 
-            .page {
-
-                padding:
-                    65px 20px 85px;
-
-            }
-
 
             .info-grid,
             .payment-grid,
@@ -1688,6 +1668,8 @@
         }
 
     </style>
+
+    <link rel="stylesheet" href="../assets/docs-sidebar.css">
 
 </head>
 
@@ -1773,7 +1755,55 @@
      PAGE
 ========================================================= -->
 
-<main class="page">
+<main class="docs-shell no-toc">
+
+
+<button class="docs-menu-toggle" type="button">
+    ☰ Menu
+</button>
+
+<aside class="docs-sidebar">
+
+    <div class="docs-search">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input type="text" placeholder="Search documentation…" aria-label="Search documentation">
+
+    </div>
+
+    <div class="docs-nav-label">Documentation</div>
+
+<div class="docs-nav-scroll">
+
+    <ul class="docs-nav">
+
+        <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
+        <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
+        <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">03</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">04</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">05</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">06</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../rules&law/"><span class="num">07</span> Rules & Law</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">08</span> Commands</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">09</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">10</span> Phone</a></li>
+
+    </ul>
+
+    <div class="docs-nav-empty">No results found.</div>
+
+</div>
+
+</aside>
+
+
+<div class="docs-content">
+
 
 
     <div class="content-layout">
@@ -2686,6 +2716,9 @@
 
     </div>
 
+</div>
+
+
 </main>
 
 
@@ -2715,6 +2748,9 @@
 
 </footer>
 
+
+<script src="../assets/docs-search-index.js"></script>
+<script src="../assets/docs-sidebar.js"></script>
 
 </body>
 
