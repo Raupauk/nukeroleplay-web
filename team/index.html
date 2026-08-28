@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Team | NukeRoleplay</title>
+
+<meta
+    name="description"
+    content="Meet the people behind NukeRoleplay — the leadership and team building, developing and running the server."
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.65;
+
+    overflow-x:
+        hidden;
+}
+
+body::before {
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .05;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+    z-index:
+        999;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 5vw;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.logo {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+.logo span {
+    color:
+        var(--green);
+}
+
+.nav-links {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+.nav-links a {
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+.nav-links a::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+.nav-links a:hover {
+    color:
+        var(--white);
+}
+
+.nav-links a:hover::after {
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position:
+        relative;
+
+    min-height:
+        500px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    padding:
+        0 7vw 80px;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(9,10,10,.05) 0%,
+            rgba(9,10,10,.25) 40%,
+            rgba(9,10,10,.98) 100%
+        ),
+        url("hero.png");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+}
+
+.hero::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        7vw;
+
+    bottom:
+        40px;
+
+    width:
+        95px;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewX(-35deg);
+}
+
+.hero-content {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        1000px;
+}
+
+.hero-kicker {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        17px;
+
+    font-size:
+        .72rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .2em;
+
+    color:
+        var(--green-light);
+}
+
+.hero-kicker::before {
+    content:
+        "";
+
+    width:
+        30px;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+}
+
+.hero h1 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(
+            4rem,
+            10vw,
+            8rem
+        );
+
+    line-height:
+        .8;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.02em;
+
+    color:
+        var(--white);
+
+    text-shadow:
+        4px 5px 0 rgba(0,0,0,.35);
+}
+
+.hero h1 span {
+    color:
+        var(--green);
+}
+
+.hero-copy {
+    max-width:
+        720px;
+
+    margin-top:
+        25px;
+
+    margin-left:
+        8vw;
+
+    color:
+        #c0c2bb;
+
+    font-size:
+        .92rem;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+    max-width:
+        1180px;
+
+    margin:
+        auto;
+
+    padding:
+        90px 5vw 120px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    max-width:
+        800px;
+
+    margin-bottom:
+        85px;
+}
+
+.section-label {
+    color:
+        var(--green-light);
+
+    font-size:
+        .68rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .2em;
+
+    margin-bottom:
+        8px;
+}
+
+.intro h2 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.7rem,
+            5vw,
+            4.5rem
+        );
+
+    line-height:
+        .9;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        25px;
+}
+
+.intro h2 span {
+    color:
+        var(--green);
+}
+
+.intro p {
+    color:
+        var(--muted);
+
+    font-size:
+        .92rem;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        16px;
+}
+
+
+/* =========================================================
+   TEAM SECTION HEADING
+========================================================= */
+
+.team-section {
+    margin-bottom:
+        90px;
+}
+
+.team-section-heading {
+    position:
+        relative;
+
+    margin-bottom:
+        38px;
+
+    padding-left:
+        34px;
+}
+
+.team-section-heading::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        7px;
+
+    width:
+        4px;
+
+    height:
+        42px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
+.team-section-title {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(
+            2.1rem,
+            4vw,
+            3.2rem
+        );
+
+    line-height:
+        .95;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.01em;
+
+    color:
+        var(--white);
+}
+
+
+/* =========================================================
+   TEAM GRID
+========================================================= */
+
+.team-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        18px;
+}
+
+.team-grid.team-grid-secondary {
+    grid-template-columns:
+        repeat(3, 1fr);
+}
+
+
+/* =========================================================
+   TEAM CARD
+========================================================= */
+
+.team-card {
+    padding:
+        24px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        border-color .2s ease;
+}
+
+.team-card:hover {
+    background:
+        var(--panel-light);
+
+    border-color:
+        rgba(145,184,63,.35);
+
+    transform:
+        translateY(-3px);
+}
+
+.team-card::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+.team-card:hover::before {
+    width:
+        55px;
+}
+
+.team-tag {
+    font-family:
+        monospace;
+
+    font-size:
+        .62rem;
+
+    letter-spacing:
+        .1em;
+
+    color:
+        var(--muted);
+
+    margin-bottom:
+        16px;
+}
+
+.team-photo {
+    width:
+        100%;
+
+    aspect-ratio:
+        1 / 1;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--dark);
+
+    border:
+        1px solid var(--line);
+
+    margin-bottom:
+        18px;
+}
+
+.team-photo img {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+    filter:
+        grayscale(20%);
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.team-card:hover .team-photo img {
+    transform:
+        scale(1.06);
+
+    filter:
+        grayscale(0%);
+}
+
+.team-name {
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .01em;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        4px;
+}
+
+.team-role {
+    color:
+        var(--green-light);
+
+    font-size:
+        .72rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+    position:
+        relative;
+
+    margin-top:
+        20px;
+
+    padding:
+        55px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    overflow:
+        hidden;
+}
+
+.final-cta::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        4px;
+
+    height:
+        100%;
+
+    background:
+        var(--green);
+}
+
+.final-cta h2 {
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    color:
+        var(--white);
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            4.5rem
+        );
+
+    line-height:
+        .9;
+
+    text-transform:
+        uppercase;
+
+    margin-bottom:
+        18px;
+}
+
+.final-cta h2 span {
+    color:
+        var(--green);
+}
+
+.final-cta p {
+    max-width:
+        700px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .86rem;
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        25px;
+}
+
+.final-cta-button {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        190px;
+
+    padding:
+        13px 20px;
+
+    background:
+        var(--green);
+
+    color:
+        #101211;
+
+    font-size:
+        .68rem;
+
+    font-weight:
+        900;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .1em;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.final-cta-button:hover {
+    background:
+        var(--green-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+footer strong {
+    color:
+        var(--white);
+}
+
+.footer-links {
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+}
+
+.footer-links a {
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+.footer-links a:hover {
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .team-grid,
+    .team-grid.team-grid-secondary {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    nav {
+        padding:
+            0 20px;
+    }
+
+    .nav-links {
+        display:
+            none;
+    }
+
+    .hero {
+        min-height:
+            430px;
+
+        padding:
+            0 25px 65px;
+    }
+
+    .hero::after {
+        left:
+            25px;
+    }
+
+    .hero h1 {
+        font-size:
+            4rem;
+    }
+
+    .hero-copy {
+        margin-left:
+            20px;
+
+        font-size:
+            .86rem;
+    }
+
+    .page {
+        padding:
+            65px 20px 85px;
+    }
+
+    .team-grid,
+    .team-grid.team-grid-secondary {
+        grid-template-columns:
+            1fr;
+    }
+
+    .final-cta {
+        padding:
+            40px 30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+<a
+    href="../"
+    class="logo"
+>
+    Nuke<span>Roleplay</span>
+</a>
+
+
+<div class="nav-links">
+
+    <a href="../">
+        Home
+    </a>
+
+    <a href="../world/">
+        World
+    </a>
+
+    <a href="../changelogs/">
+        Changelogs
+    </a>
+
+    <a href="../documentation/">
+        Documentation
+    </a>
+
+    <a
+        href="https://discord.gg/zdH3rhXzdu"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Discord
+    </a>
+
+</div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <div class="hero-kicker">
+        NukeRoleplay / Team
+    </div>
+
+    <h1>
+        Meet the<br>
+        <span>Team.</span>
+    </h1>
+
+    <p class="hero-copy">
+        NukeRoleplay is built, run and kept alive by a small
+        group of people behind the scenes. Here's who's
+        actually making it happen.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="page">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="section-label">
+        Team / Who We Are
+    </div>
+
+    <h2>
+        Behind<br>
+        <span>NukeRoleplay.</span>
+    </h2>
+
+    <p>
+        Every district, job and system on the server started
+        as work from someone on this team. Leadership sets the
+        direction, and the rest of the team builds, develops
+        and keeps the community running day to day.
+    </p>
+
+    <p>
+        Below are the people currently part of the project.
+        Interested in joining them? Check out our
+        <a
+            href="../recruitment/"
+            style="color: var(--green-light); text-decoration: underline;"
+        >open positions</a>.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     LEADERSHIP
+===================================================== -->
+
+<section class="team-section">
+
+    <div class="team-section-heading">
+        <div class="section-label">
+            Leadership
+        </div>
+        <h3 class="team-section-title">
+            Running the project.
+        </h3>
+    </div>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <div class="team-tag">LEADERSHIP · 01</div>
+            <div class="team-photo">
+                <img src="DARKFADE15.png" alt="DARKFADE15">
+            </div>
+            <div class="team-name">DARKFADE15</div>
+            <div class="team-role">Project Leader</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">LEADERSHIP · 02</div>
+            <div class="team-photo">
+                <img src="AQCbr.png" alt="AQCbr">
+            </div>
+            <div class="team-name">AQCbr</div>
+            <div class="team-role">Building Manager</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">LEADERSHIP · 03</div>
+            <div class="team-photo">
+                <img src="raupauk.png" alt="raupauk">
+            </div>
+            <div class="team-name">raupauk</div>
+            <div class="team-role">Development Manager</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">LEADERSHIP · 04</div>
+            <div class="team-photo">
+                <img src="RCdaCat.png" alt="RCdaCat">
+            </div>
+            <div class="team-name">RCdaCat</div>
+            <div class="team-role">Community Manager</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEAM
+===================================================== -->
+
+<section class="team-section">
+
+    <div class="team-section-heading">
+        <div class="section-label">
+            Team
+        </div>
+        <h3 class="team-section-title">
+            Making it happen.
+        </h3>
+    </div>
+
+    <div class="team-grid team-grid-secondary">
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 01</div>
+            <div class="team-photo">
+                <img src="ahhster.png" alt="ahhster">
+            </div>
+            <div class="team-name">ahhster</div>
+            <div class="team-role">Roleplay Director</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 02</div>
+            <div class="team-photo">
+                <img src="__wil_.png" alt="__wil_">
+            </div>
+            <div class="team-name">__wil_</div>
+            <div class="team-role">Developer</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 03</div>
+            <div class="team-photo">
+                <img src="Loyalty10K.png" alt="Loyalty10K">
+            </div>
+            <div class="team-name">Loyalty10K</div>
+            <div class="team-role">Developer</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 04</div>
+            <div class="team-photo">
+                <img src="kSazu.png" alt="kSazu">
+            </div>
+            <div class="team-name">kSazu</div>
+            <div class="team-role">Builder</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 05</div>
+            <div class="team-photo">
+                <img src="TheSymphoner.png" alt="TheSymphoner">
+            </div>
+            <div class="team-name">TheSymphoner</div>
+            <div class="team-role">Decorator</div>
+        </div>
+
+        <div class="team-card">
+            <div class="team-tag">TEAM · 06</div>
+            <div class="team-photo">
+                <img src="unit01.png" alt="unit01">
+            </div>
+            <div class="team-name">unit01</div>
+            <div class="team-role">Builder</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final-cta">
+
+    <h2>
+        Want to<br>
+        <span>join us?</span>
+    </h2>
+
+    <p>
+        We're always open to motivated people who want to
+        help build, develop or grow NukeRoleplay. Check out
+        our open positions and send in an application.
+    </p>
+
+    <a
+        href="../recruitment/"
+        class="final-cta-button"
+    >
+        View Open Positions →
+    </a>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+© 2026 <strong>Nuke Studios</strong>.
+All rights reserved.
+
+
+<div class="footer-links">
+
+    <a href="../imprint/">
+        Imprint
+    </a>
+
+    <a href="../privacypolicy/">
+        Privacy Policy
+    </a>
+
+    <a href="../recruitment/">
+        Recruitment
+    </a>
+
+    <a href="../team/">
+        Team
+    </a>
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
