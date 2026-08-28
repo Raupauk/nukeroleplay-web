@@ -10,11 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Housing | NukeRoleplay Documentation</title>
+    <title>Government | NukeRoleplay Documentation</title>
 
     <meta
         name="description"
-        content="Learn everything about housing, properties, rent, ownership, building, permissions and property taxes in NukeRoleplay."
+        content="Learn everything about NukeRoleplay's government system — Parliament, elections, the President, cabinet appointments and how new laws are made."
     >
 
     <style>
@@ -46,6 +46,8 @@
             --green-dark: #617e27;
 
             --red: #b34a43;
+            --blue: #527fa5;
+            --blue-light: #7fa7c9;
 
             --line: rgba(255,255,255,.09);
 
@@ -130,6 +132,17 @@
         }
 
 
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
         /* =========================================================
            NAVIGATION
         ========================================================= */
@@ -192,8 +205,10 @@
 
 
         .logo span {
+
             color:
                 var(--green);
+
         }
 
 
@@ -289,7 +304,7 @@
                 relative;
 
             min-height:
-                430px;
+                520px;
 
             display:
                 flex;
@@ -298,7 +313,7 @@
                 flex-end;
 
             padding:
-                0 7vw 75px;
+                0 7vw 80px;
 
             overflow:
                 hidden;
@@ -307,7 +322,7 @@
                 linear-gradient(
                     to bottom,
                     rgba(9,10,10,.08) 0%,
-                    rgba(9,10,10,.25) 40%,
+                    rgba(9,10,10,.22) 38%,
                     rgba(9,10,10,.98) 100%
                 ),
                 url("./hero.png");
@@ -333,10 +348,10 @@
                 7vw;
 
             bottom:
-                38px;
+                42px;
 
             width:
-                95px;
+                105px;
 
             height:
                 3px;
@@ -359,7 +374,7 @@
                 2;
 
             max-width:
-                950px;
+                1000px;
 
         }
 
@@ -376,7 +391,7 @@
                 12px;
 
             margin-bottom:
-                17px;
+                18px;
 
             font-size:
                 .72rem;
@@ -422,9 +437,9 @@
 
             font-size:
                 clamp(
-                    4rem,
-                    10vw,
-                    8rem
+                    4.5rem,
+                    11vw,
+                    9rem
                 );
 
             line-height:
@@ -434,7 +449,7 @@
                 uppercase;
 
             letter-spacing:
-                -.02em;
+                -.025em;
 
             color:
                 var(--white);
@@ -456,10 +471,10 @@
         .hero-copy {
 
             max-width:
-                670px;
+                700px;
 
             margin-top:
-                25px;
+                28px;
 
             margin-left:
                 8vw;
@@ -468,7 +483,7 @@
                 #c0c2bb;
 
             font-size:
-                .92rem;
+                .94rem;
 
         }
 
@@ -510,7 +525,7 @@
         .section {
 
             margin-bottom:
-                70px;
+                75px;
 
             scroll-margin-top:
                 100px;
@@ -736,10 +751,107 @@
 
 
         /* =========================================================
-           PAYMENT CARDS
+           PROCESS STEPS
         ========================================================= */
 
-        .payment-grid {
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS / CABINET
+        ========================================================= */
+
+        .department-grid {
 
             display:
                 grid;
@@ -748,7 +860,7 @@
                 repeat(2, 1fr);
 
             gap:
-                18px;
+                15px;
 
             margin-top:
                 28px;
@@ -756,10 +868,10 @@
         }
 
 
-        .payment-card {
+        .department-card {
 
             padding:
-                30px;
+                27px;
 
             background:
                 var(--panel);
@@ -775,7 +887,7 @@
         }
 
 
-        .payment-card:hover {
+        .department-card:hover {
 
             background:
                 var(--panel-light);
@@ -789,16 +901,16 @@
         }
 
 
-        .payment-number {
-
-            font-family:
-                monospace;
+        .department-code {
 
             color:
                 var(--green);
 
+            font-family:
+                monospace;
+
             font-size:
-                .68rem;
+                .65rem;
 
             font-weight:
                 700;
@@ -807,12 +919,12 @@
                 .12em;
 
             margin-bottom:
-                18px;
+                14px;
 
         }
 
 
-        .payment-card h3 {
+        .department-card h3 {
 
             color:
                 var(--white);
@@ -823,24 +935,24 @@
                 sans-serif;
 
             font-size:
-                1.3rem;
+                1.2rem;
 
             text-transform:
                 uppercase;
 
             margin-bottom:
-                12px;
+                9px;
 
         }
 
 
-        .payment-card p {
+        .department-card p {
 
             margin:
                 0;
 
             font-size:
-                .84rem;
+                .82rem;
 
         }
 
@@ -913,42 +1025,51 @@
 
 
         /* =========================================================
-           COMMAND
+           NOTICE (informational, non-alarming)
         ========================================================= */
 
-        .command-box {
+        .notice {
 
-            margin-top:
-                25px;
+            position:
+                relative;
 
             padding:
-                20px 22px;
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
 
             background:
-                #0b0d0c;
+                rgba(82,127,165,.07);
 
             border:
-                1px solid var(--line);
+                1px solid rgba(82,127,165,.25);
+
+            border-left:
+                4px solid var(--blue);
 
         }
 
 
-        .command-label {
+        .notice-label {
 
             color:
-                var(--muted);
+                var(--blue-light);
 
             font-family:
                 monospace;
 
             font-size:
-                .65rem;
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
 
             text-transform:
                 uppercase;
-
-            letter-spacing:
-                .1em;
 
             margin-bottom:
                 8px;
@@ -956,269 +1077,18 @@
         }
 
 
-        code {
+        .notice p {
 
-            font-family:
-                "SFMono-Regular",
-                Consolas,
-                monospace;
-
-            color:
-                var(--green-light);
-
-            font-size:
-                .88rem;
-
-        }
-
-
-        /* =========================================================
-           TAX EXAMPLE
-        ========================================================= */
-
-        .tax-example {
-
-            margin-top:
-                28px;
-
-            overflow:
-                hidden;
-
-            border:
-                1px solid var(--line);
-
-        }
-
-
-        .tax-row {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1.4fr 1fr 1fr;
-
-            border-bottom:
-                1px solid var(--line);
-
-        }
-
-
-        .tax-row:last-child {
-
-            border-bottom:
+            margin:
                 0;
 
-        }
-
-
-        .tax-row > div {
-
-            padding:
-                15px 18px;
-
-            background:
-                var(--panel);
-
             color:
-                var(--muted);
+                var(--text);
 
             font-size:
-                .78rem;
-
-            border-right:
-                1px solid var(--line);
+                .86rem;
 
         }
-
-
-        .tax-row > div:last-child {
-
-            border-right:
-                0;
-
-        }
-
-
-        .tax-header > div {
-
-            background:
-                #101211;
-
-            color:
-                var(--white);
-
-            font-weight:
-                700;
-
-            text-transform:
-                uppercase;
-
-            font-size:
-                .67rem;
-
-            letter-spacing:
-                .08em;
-
-        }
-
-
-        .tax-total > div {
-
-            color:
-                var(--white);
-
-            font-weight:
-                700;
-
-        }
-
-
-        .tax-total > div:last-child {
-
-            color:
-                var(--green-light);
-
-        }
-
-
-        /* =========================================================
-           QUICK REFERENCE
-        ========================================================= */
-
-        .quick-reference {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                1px;
-
-            background:
-                var(--line);
-
-            border:
-                1px solid var(--line);
-
-            margin-top:
-                25px;
-
-        }
-
-
-        .quick-item {
-
-            padding:
-                18px 20px;
-
-            background:
-                var(--panel);
-
-        }
-
-
-        .quick-item span {
-
-            display:
-                block;
-
-            color:
-                var(--muted);
-
-            font-size:
-                .65rem;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                .1em;
-
-            margin-bottom:
-                5px;
-
-        }
-
-
-        .quick-item strong {
-
-            font-size:
-                .85rem;
-
-        }
-
-        /* =========================================================
-        PROPERTY IMAGE
-        ========================================================= */
-
-        .property-image {
-
-            margin-top:
-                35px;
-
-            background:
-                var(--panel);
-
-            border:
-                1px solid var(--line);
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .property-image img {
-
-            display:
-                block;
-
-            width:
-                100%;
-
-            height:
-                auto;
-
-            max-height:
-                560px;
-
-            object-fit:
-                cover;
-
-            object-position:
-                center;
-
-        }
-
-
-        .property-image-caption {
-
-            padding:
-                15px 20px;
-
-            border-top:
-                1px solid var(--line);
-
-            color:
-                var(--muted);
-
-            font-size:
-                .72rem;
-
-            line-height:
-                1.6;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                .06em;
-
-        }
-
 
 
         /* =========================================================
@@ -1585,7 +1455,7 @@
             .hero {
 
                 min-height:
-                    420px;
+                    450px;
 
                 padding:
                     0 25px 65px;
@@ -1620,10 +1490,16 @@
             }
 
 
+            .page {
+
+                padding:
+                    65px 20px 85px;
+
+            }
+
 
             .info-grid,
-            .payment-grid,
-            .quick-reference {
+            .department-grid {
 
                 grid-template-columns:
                     1fr;
@@ -1639,29 +1515,13 @@
             }
 
 
-            .tax-row {
+            .process-step {
 
                 grid-template-columns:
                     1fr;
 
-            }
-
-
-            .tax-row > div {
-
-                border-right:
-                    0;
-
-                border-bottom:
-                    1px solid rgba(255,255,255,.045);
-
-            }
-
-
-            .tax-row > div:last-child {
-
-                border-bottom:
-                    0;
+                gap:
+                    5px;
 
             }
 
@@ -1731,19 +1591,20 @@
     <div class="hero-content">
 
         <div class="hero-kicker">
-            Documentation / Housing
+            Documentation / Government
         </div>
 
 
         <h1>
-            <span>Housing</span>
+            <span>Government</span>
         </h1>
 
 
         <p class="hero-copy">
-            Everything you need to know about buying,
-            renting, building and managing properties
-            in NukeRoleplay.
+            Discover how power works in Oblivion City — from
+            the players elected to Parliament, to the President
+            they choose, to the laws that end up shaping how
+            everyone plays.
         </p>
 
     </div>
@@ -1828,32 +1689,149 @@
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Housing / Overview
+                        Government / Overview
                     </div>
 
                     <h2 class="section-title">
-                        Your place<br>
-                        in the city.
+                        Power to<br>
+                        the people.
                     </h2>
 
                 </div>
 
 
                 <p>
-                    Properties are an important part of life
-                    in NukeRoleplay. Whether you are looking
-                    for a small apartment, a family home,
-                    a business property or somewhere to build
-                    your own space, there are many different
-                    properties available throughout the world.
+                    NukeRoleplay is building a
+                    <strong>player-driven government system</strong>.
+                    Instead of laws simply being handed down,
+                    players themselves will get the chance to
+                    represent the city, sit in Parliament and
+                    even become President.
                 </p>
 
 
                 <p>
-                    Properties can either be purchased with
-                    a <strong>One Time Payment</strong> or
-                    rented through a recurring
-                    <strong>daily rent</strong>.
+                    The system is built around three pillars:
+                    a <strong>Parliament</strong> elected by the
+                    community, a <strong>President</strong> chosen
+                    by that Parliament, and a set of appointed
+                    positions and ministries that keep the city
+                    running.
+                </p>
+
+
+                <div class="notice">
+
+                    <div class="notice-label">
+                        Status · In Development
+                    </div>
+
+                    <p>
+                        The government system doesn't exist in
+                        the game yet — this page describes the
+                        plan for how it will work. Details may
+                        still change before it goes live, so
+                        check back as development continues.
+                    </p>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Parliament
+                        </h3>
+
+                        <p>
+                            A group of players elected by the
+                            community to represent them and
+                            propose new laws.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            President
+                        </h3>
+
+                        <p>
+                            Elected by Parliament, the President
+                            leads the city and appoints its
+                            key positions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Cabinet
+                        </h3>
+
+                        <p>
+                            Appointed roles such as the Chief
+                            of Police, Attorney General and
+                            various ministers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Legislation
+                        </h3>
+
+                        <p>
+                            Parliament can propose changes to
+                            the law, within limits set by the
+                            server itself.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARLIAMENT
+            ================================================= -->
+
+            <section
+                class="section"
+                id="parliament"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Government / Legislature
+                    </div>
+
+                    <h2 class="section-title">
+                        The<br>
+                        Parliament.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Parliament is the elected voice of the
+                    community. Its members are regular players,
+                    voted in by other players, who take on the
+                    responsibility of representing the city and
+                    shaping its laws.
                 </p>
 
 
@@ -1862,12 +1840,13 @@
                     <div class="info-card">
 
                         <h3>
-                            12 Properties
+                            Eligibility
                         </h3>
 
                         <p>
-                            A player can own a maximum of
-                            12 properties at the same time.
+                            Players need a certain amount of
+                            playtime on the server before they
+                            can run for a seat in Parliament.
                         </p>
 
                     </div>
@@ -1876,13 +1855,13 @@
                     <div class="info-card">
 
                         <h3>
-                            Build Inside
+                            Elections
                         </h3>
 
                         <p>
-                            Many properties include garages,
-                            basements or other areas where
-                            players can build.
+                            Seats are filled during dedicated
+                            voting phases, held periodically
+                            for the community.
                         </p>
 
                     </div>
@@ -1891,13 +1870,12 @@
                     <div class="info-card">
 
                         <h3>
-                            Two Payment Types
+                            Representation
                         </h3>
 
                         <p>
-                            Properties can use either a
-                            One Time Payment or a daily
-                            rental system.
+                            Members are chosen directly by the
+                            players who vote for them.
                         </p>
 
                     </div>
@@ -1906,13 +1884,12 @@
                     <div class="info-card">
 
                         <h3>
-                            Player Permissions
+                            Responsibility
                         </h3>
 
                         <p>
-                            Property owners can trust other
-                            players and manage their
-                            permissions.
+                            Parliament drafts and votes on
+                            proposals for new or changed laws.
                         </p>
 
                     </div>
@@ -1923,92 +1900,128 @@
 
 
             <!-- =================================================
-                FINDING PROPERTY
+                 ELECTIONS
             ================================================= -->
 
             <section
                 class="section"
-                id="finding"
+                id="elections"
             >
 
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Step / 01
+                        Government / Voting
                     </div>
 
                     <h2 class="section-title">
-                        Finding a<br>
-                        Property
+                        Voting<br>
+                        Phases.
                     </h2>
 
                 </div>
 
 
                 <p>
-                    There are two main ways to find a property
-                    in NukeRoleplay.
+                    Seats in Parliament aren't permanent. From
+                    time to time, a voting phase opens up and
+                    gives the community the chance to elect a
+                    new Parliament.
                 </p>
 
 
-                <div class="payment-grid">
+                <div class="process">
 
-                    <div class="payment-card">
+                    <div class="process-step">
 
-                        <div class="payment-number">
-                            METHOD · 01
+                        <div class="process-number">
+                            STEP · 01
                         </div>
 
-                        <h3>
-                            Scotex
-                        </h3>
+                        <div>
 
-                        <p>
-                            Open your Mobile Phone and launch
-                            the <strong>Scotex</strong> app.
-                            From there you can browse available
-                            properties through different
-                            categories and look for a property
-                            that fits your needs.
-                        </p>
+                            <h3>
+                                Voting Phase Opens
+                            </h3>
+
+                            <p>
+                                A voting phase is announced,
+                                opening up Parliament seats
+                                for the community.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="payment-card">
+                    <div class="process-step">
 
-                        <div class="payment-number">
-                            METHOD · 02
+                        <div class="process-number">
+                            STEP · 02
                         </div>
 
-                        <h3>
-                            Property Signs
-                        </h3>
+                        <div>
 
-                        <p>
-                            You can also find properties directly
-                            in the world. Walk up to a property
-                            with a sign and interact with it to
-                            view the available purchase options.
-                        </p>
+                            <h3>
+                                Players Run for a Seat
+                            </h3>
+
+                            <p>
+                                Any player who meets the
+                                required playtime can put
+                                themselves forward as a
+                                candidate.
+                            </p>
+
+                        </div>
 
                     </div>
 
-                </div>
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                The Community Votes
+                            </h3>
+
+                            <p>
+                                Players vote for the candidates
+                                they want to see representing
+                                them in Parliament.
+                            </p>
+
+                        </div>
+
+                    </div>
 
 
-                <!-- PROPERTY SIGN IMAGE -->
+                    <div class="process-step">
 
-                <div class="property-image">
+                        <div class="process-number">
+                            STEP · 04
+                        </div>
 
-                    <img
-                        src="./housing1.png"
-                        alt="Property purchase sign"
-                    >
+                        <div>
 
-                    <div class="property-image-caption">
-                        Property purchase sign · Interact with the sign
-                        to view the available property options.
+                            <h3>
+                                Parliament is Seated
+                            </h3>
+
+                            <p>
+                                Elected members take their
+                                seats and begin representing
+                                the players who voted for them.
+                            </p>
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -2017,104 +2030,61 @@
 
 
             <!-- =================================================
-                 PAYMENT
+                 THE PRESIDENT
             ================================================= -->
 
             <section
                 class="section"
-                id="payment"
+                id="president"
             >
 
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Step / 02
+                        Government / Executive
                     </div>
 
                     <h2 class="section-title">
-                        Buying or<br>
-                        Renting
+                        The<br>
+                        President.
                     </h2>
 
                 </div>
 
 
                 <p>
-                    Properties use one of two different
-                    payment models. Make sure you understand
-                    which model a property uses before
-                    committing to it.
+                    Once a Parliament is seated, its first big
+                    decision is choosing who leads the city.
+                    Parliament <strong>votes for the President</strong>,
+                    who then takes on the executive role for the
+                    city of Oblivion.
                 </p>
 
 
-                <div class="payment-grid">
-
-
-                    <div class="payment-card">
-
-                        <div class="payment-number">
-                            PAYMENT · 01
-                        </div>
-
-                        <h3>
-                            One Time Payment
-                        </h3>
-
-                        <p>
-                            Pay the full purchase price once
-                            and own the property. There are
-                            no daily rent payments for this
-                            type of property.
-                        </p>
-
-                        <p>
-                            However, owning more than two
-                            One Time Payment properties will
-                            activate the property tax system.
-                        </p>
-
-                    </div>
-
-
-                    <div class="payment-card">
-
-                        <div class="payment-number">
-                            PAYMENT · 02
-                        </div>
-
-                        <h3>
-                            Rent
-                        </h3>
-
-                        <p>
-                            Instead of paying the full purchase
-                            price, you pay rent every
-                            <strong>real-life day</strong>.
-                        </p>
-
-                        <p>
-                            You need to keep enough money
-                            available to cover your rent.
-                        </p>
-
-                    </div>
-
-
-                </div>
+                <p>
+                    The President doesn't govern alone. One of
+                    their main responsibilities is
+                    <strong>appointing key positions</strong>
+                    within the city's government — filling the
+                    leadership roles that keep departments and
+                    services running.
+                </p>
 
 
                 <div class="warning">
 
                     <div class="warning-label">
-                        Important · Property Loss
+                        Executive · Limits
                     </div>
 
                     <p>
-                        If a rented property is removed from
-                        your ownership because you can no
-                        longer afford the rent, everything
-                        built inside the property can be
-                        <strong>deleted</strong>.
+                        The President's power isn't unlimited.
+                        Changes to positions or laws still
+                        require approval from the
+                        Nuke Studios team, see
+                        <a href="#checks" style="color: var(--green-light); text-decoration: underline;">
+                            Checks & Approval
+                        </a>.
                     </p>
 
                 </div>
@@ -2123,382 +2093,112 @@
 
 
             <!-- =================================================
-                 BUILDING
+                 CABINET & APPOINTMENTS
             ================================================= -->
 
             <section
                 class="section"
-                id="building"
+                id="cabinet"
             >
 
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Housing / Building
+                        Government / Appointments
                     </div>
 
                     <h2 class="section-title">
-                        Make it<br>
-                        yours.
+                        Cabinet &<br>
+                        Appointments.
                     </h2>
 
                 </div>
 
 
                 <p>
-                    Many properties include additional
-                    spaces such as garages, basements or
-                    other buildable areas.
+                    After being elected, the President appoints
+                    players to lead some of the city's most
+                    important positions. These appointments are
+                    expected to grow over time as the government
+                    system develops further.
                 </p>
 
 
-                <p>
-                    Players can use these spaces to create
-                    their own interiors and build their own
-                    spaces inside the property.
-                </p>
+                <div class="department-grid">
 
 
-                <div class="warning">
+                    <div class="department-card">
 
-                    <div class="warning-label">
-                        Warning · Builds Are Property Bound
-                    </div>
-
-                    <p>
-                        Your builds are tied to the property.
-                        If the property is sold, removed or
-                        lost because you cannot afford the rent,
-                        the builds inside it will be
-                        <strong>deleted</strong>.
-                    </p>
-
-                </div>
-
-
-                <p>
-                    Keep this in mind before spending a large
-                    amount of time building inside a property.
-                    Losing the property can mean losing
-                    everything you built there.
-                </p>
-
-            </section>
-
-
-            <!-- =================================================
-                 TRUST
-            ================================================= -->
-
-            <section
-                class="section"
-                id="permissions"
-            >
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        Housing / Permissions
-                    </div>
-
-                    <h2 class="section-title">
-                        Trust your<br>
-                        people.
-                    </h2>
-
-                </div>
-
-
-                <p>
-                    Property owners can give other players
-                    permissions to access and use their
-                    property.
-                </p>
-
-
-                <div class="command-box">
-
-                    <div class="command-label">
-                        Trust a player
-                    </div>
-
-                    <code>
-                        /house &lt;Housename&gt; trust &lt;Playername&gt;
-                    </code>
-
-                </div>
-
-
-                <p>
-                    Once a player has been trusted, their
-                    permissions can be managed through the
-                    property menu.
-                </p>
-
-
-                <div class="command-box">
-
-                    <div class="command-label">
-                        Manage permissions
-                    </div>
-
-                    <code>
-                        /house menu
-                    </code>
-
-                </div>
-
-
-                <div class="warning">
-
-                    <div class="warning-label">
-                        Security
-                    </div>
-
-                    <p>
-                        Only give property permissions to
-                        players you trust. Make sure you
-                        understand what access you are giving
-                        before adding someone.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 PROPERTY LIMIT
-            ================================================= -->
-
-            <section
-                class="section"
-                id="limits"
-            >
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        Housing / Limits
-                    </div>
-
-                    <h2 class="section-title">
-                        Property<br>
-                        Limit
-                    </h2>
-
-                </div>
-
-
-                <p>
-                    Players can own a maximum of
-                    <strong>12 properties</strong> at the
-                    same time.
-                </p>
-
-
-                <p>
-                    Once you reach the limit, you must own
-                    fewer than 12 properties before you can
-                    purchase another one.
-                </p>
-
-            </section>
-
-
-            <!-- =================================================
-                 TAXES
-            ================================================= -->
-
-            <section
-                class="section"
-                id="taxes"
-            >
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        Housing / Economy
-                    </div>
-
-                    <h2 class="section-title">
-                        Property<br>
-                        Taxes
-                    </h2>
-
-                </div>
-
-
-                <p>
-                    One Time Payment properties have a special
-                    tax system designed to prevent players
-                    from collecting large numbers of permanent
-                    properties without ongoing costs.
-                </p>
-
-
-                <p>
-                    You can own up to
-                    <strong>2 One Time Payment properties</strong>
-                    without paying property taxes.
-                </p>
-
-
-                <p>
-                    Once you purchase a third One Time Payment
-                    property, taxes apply to
-                    <strong>all One Time Payment properties</strong>
-                    you own.
-                </p>
-
-
-                <div class="info-grid">
-
-                    <div class="info-card">
+                        <div class="department-code">
+                            APPOINTMENT · 01
+                        </div>
 
                         <h3>
-                            Tax Trigger
+                            Chief of Police
                         </h3>
 
                         <p>
-                            Your third One Time Payment
-                            property activates property taxes.
+                            Leads the Oblivion City Police
+                            Department and oversees its
+                            operations at the highest level.
                         </p>
 
                     </div>
 
 
-                    <div class="info-card">
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            APPOINTMENT · 02
+                        </div>
 
                         <h3>
-                            Tax Rate
+                            Supreme Court Chief Justice
                         </h3>
 
                         <p>
-                            10% of the original purchase price
-                            for each One Time Payment property.
+                            Heads the judicial side of the
+                            city's government and oversees
+                            how the law is interpreted.
                         </p>
 
                     </div>
 
 
-                    <div class="info-card">
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            APPOINTMENT · 03
+                        </div>
 
                         <h3>
-                            Tax Interval
+                            Attorney General
                         </h3>
 
                         <p>
-                            Property taxes are charged every
-                            7 real-life days.
+                            Represents the government in legal
+                            matters and oversees how justice is
+                            carried out in the city.
                         </p>
 
                     </div>
 
 
-                    <div class="info-card">
+                    <div class="department-card">
+
+                        <div class="department-code">
+                            APPOINTMENT · 04
+                        </div>
 
                         <h3>
-                            All One-Time Properties
+                            Ministers
                         </h3>
 
                         <p>
-                            Once activated, the tax applies
-                            to every One Time Payment property
-                            you own.
+                            Cabinet ministers, such as a Health
+                            Minister or Education Minister,
+                            oversee specific areas of the city.
                         </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TAX EXAMPLE -->
-
-                <div class="tax-example">
-
-
-                    <div class="tax-row tax-header">
-
-                        <div>
-                            Property
-                        </div>
-
-                        <div>
-                            Purchase Price
-                        </div>
-
-                        <div>
-                            10% Tax
-                        </div>
-
-                    </div>
-
-
-                    <div class="tax-row">
-
-                        <div>
-                            House A
-                        </div>
-
-                        <div>
-                            $100,000
-                        </div>
-
-                        <div>
-                            $10,000
-                        </div>
-
-                    </div>
-
-
-                    <div class="tax-row">
-
-                        <div>
-                            House B
-                        </div>
-
-                        <div>
-                            $150,000
-                        </div>
-
-                        <div>
-                            $15,000
-                        </div>
-
-                    </div>
-
-
-                    <div class="tax-row">
-
-                        <div>
-                            House C
-                        </div>
-
-                        <div>
-                            $200,000
-                        </div>
-
-                        <div>
-                            $20,000
-                        </div>
-
-                    </div>
-
-
-                    <div class="tax-row tax-total">
-
-                        <div>
-                            Total
-                        </div>
-
-                        <div>
-                            $450,000
-                        </div>
-
-                        <div>
-                            $45,000 / 7 days
-                        </div>
 
                     </div>
 
@@ -2507,12 +2207,199 @@
 
 
                 <p style="margin-top: 22px;">
+                    The exact list of ministries is still being
+                    worked out. As the government system grows,
+                    more appointed positions may be added to
+                    cover other areas of city life.
+                </p>
 
-                    In this example, the player owns three
-                    One Time Payment properties. Since the
-                    third property activates the tax system,
-                    all three properties are taxed.
+            </section>
 
+
+            <!-- =================================================
+                 LAWMAKING
+            ================================================= -->
+
+            <section
+                class="section"
+                id="lawmaking"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Government / Legislation
+                    </div>
+
+                    <h2 class="section-title">
+                        Making<br>
+                        the law.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    One of Parliament's core jobs is proposing
+                    new laws and changes to the city's existing
+                    legal system. But a proposal from Parliament
+                    is only the first step.
+                </p>
+
+
+                <div class="process">
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Parliament Proposes
+                            </h3>
+
+                            <p>
+                                A new law or an amendment to
+                                an existing one is drafted and
+                                voted on within Parliament.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Presidential Approval
+                            </h3>
+
+                            <p>
+                                The President reviews the
+                                proposal and must approve it
+                                before it can move forward.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Nuke Studios Review
+                            </h3>
+
+                            <p>
+                                The Nuke Studios team reviews
+                                the proposal to make sure it
+                                fits the server's roleplay.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-number">
+                            STEP · 04
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Law Enacted
+                            </h3>
+
+                            <p>
+                                Once approved by both the
+                                President and Nuke Studios, the
+                                change officially becomes law.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CHECKS & APPROVAL
+            ================================================= -->
+
+            <section
+                class="section"
+                id="checks"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Government / Oversight
+                    </div>
+
+                    <h2 class="section-title">
+                        Checks &<br>
+                        Approval.
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Parliament has real power, but that power
+                    isn't unlimited. Not everything about the
+                    city's rules and systems can be changed
+                    through the government alone.
+                </p>
+
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Government · Oversight
+                    </div>
+
+                    <p>
+                        Any change made by Parliament always
+                        requires approval from the President
+                        <strong>and</strong> from the
+                        Nuke Studios team, the staff involved
+                        in the server's roleplay. This keeps
+                        the government fun and meaningful
+                        without letting it break the server.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    In short: players get real influence over
+                    how the city is run, while Nuke Studios
+                    keeps a final say to make sure everything
+                    stays fair, balanced and fun for everyone.
                 </p>
 
             </section>
@@ -2530,7 +2417,7 @@
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Housing / Reference
+                        Government / Reference
                     </div>
 
                     <h2 class="section-title">
@@ -2541,84 +2428,90 @@
                 </div>
 
 
-                <div class="quick-reference">
-
-                    <div class="quick-item">
-
-                        <span>
-                            Property Limit
-                        </span>
-
-                        <strong>
-                            12 properties
-                        </strong>
-
-                    </div>
+                <div class="info-grid">
 
 
-                    <div class="quick-item">
+                    <div class="info-card">
 
-                        <span>
-                            Tax-Free One Time Properties
-                        </span>
+                        <h3>
+                            Legislature
+                        </h3>
 
-                        <strong>
-                            2 properties
-                        </strong>
+                        <p>
+                            Parliament · elected by players
+                        </p>
 
                     </div>
 
 
-                    <div class="quick-item">
+                    <div class="info-card">
 
-                        <span>
-                            Property Tax
-                        </span>
+                        <h3>
+                            Executive
+                        </h3>
 
-                        <strong>
-                            10% of purchase price
-                        </strong>
-
-                    </div>
-
-
-                    <div class="quick-item">
-
-                        <span>
-                            Tax Interval
-                        </span>
-
-                        <strong>
-                            Every 7 real-life days
-                        </strong>
+                        <p>
+                            President · elected by Parliament
+                        </p>
 
                     </div>
 
 
-                    <div class="quick-item">
+                    <div class="info-card">
 
-                        <span>
-                            Rental Interval
-                        </span>
+                        <h3>
+                            Key Appointments
+                        </h3>
 
-                        <strong>
-                            Every real-life day
-                        </strong>
+                        <p>
+                            Chief of Police · Attorney General
+                            · Supreme Court Chief Justice ·
+                            Ministers
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Eligibility
+                        </h3>
+
+                        <p>
+                            Minimum playtime required to run
+                            for Parliament.
+                        </p>
 
                     </div>
 
 
-                    <div class="quick-item">
+                    <div class="info-card">
 
-                        <span>
-                            Trust Command
-                        </span>
+                        <h3>
+                            Law Changes
+                        </h3>
 
-                        <strong>
-                            /house &lt;Housename&gt; trust &lt;Playername&gt;
-                        </strong>
+                        <p>
+                            Require Parliament, the President
+                            and Nuke Studios to all agree.
+                        </p>
 
                     </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Status
+                        </h3>
+
+                        <p>
+                            In development · subject to change
+                        </p>
+
+                    </div>
+
 
                 </div>
 
@@ -2645,7 +2538,7 @@
             <div class="sidebar-box">
 
                 <div class="sidebar-header">
-                    Housing
+                    Government
                 </div>
 
 
@@ -2659,33 +2552,33 @@
                     </a>
 
 
-                    <a href="#finding">
-                        Finding a Property
+                    <a href="#parliament">
+                        Parliament
                     </a>
 
 
-                    <a href="#payment">
-                        Buying or Renting
+                    <a href="#elections">
+                        Voting Phases
                     </a>
 
 
-                    <a href="#building">
-                        Building
+                    <a href="#president">
+                        The President
                     </a>
 
 
-                    <a href="#permissions">
-                        Trust & Permissions
+                    <a href="#cabinet">
+                        Cabinet & Appointments
                     </a>
 
 
-                    <a href="#limits">
-                        Property Limit
+                    <a href="#lawmaking">
+                        Making the Law
                     </a>
 
 
-                    <a href="#taxes">
-                        Property Taxes
+                    <a href="#checks">
+                        Checks & Approval
                     </a>
 
 
@@ -2701,13 +2594,12 @@
             <div class="sidebar-note">
 
                 <strong>
-                    Keep in mind
+                    Coming Soon
                 </strong>
 
-                Property builds are tied to the
-                property. Losing the property can
-                also mean losing everything built
-                inside it.
+                The government system is still being
+                built. Some details described here may
+                still change before release.
 
             </div>
 
@@ -2717,7 +2609,6 @@
     </div>
 
 </div>
-
 
 </main>
 

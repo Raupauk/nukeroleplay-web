@@ -42,11 +42,11 @@ window.DOCS_SEARCH_INDEX = [
     "snippet": "Discover how businesses work, how they can be operated and how they fit into the city's economy."
   },
   {
-    "path": "rules&law/",
-    "category": "Rules & Law",
-    "title": "Rules & Law",
-    "text": "Learn about how rules are enforced, which laws exist and how you can make use of your rights!",
-    "snippet": "Learn about how rules are enforced, which laws exist and how you can make use of your rights!"
+    "path": "government/",
+    "category": "Government",
+    "title": "Government",
+    "text": "Discover the city's political system, from Parliament and the President to how new laws come to life.",
+    "snippet": "Discover the city's political system, from Parliament and the President to how new laws come to life."
   },
   {
     "path": "commands/",
@@ -481,5 +481,61 @@ window.DOCS_SEARCH_INDEX = [
     "title": "Quick Reference",
     "text": "Phone / Reference Real Estate Scotex lets you purchase or rent properties. Communication Telephone, Messenger, Tweeter and Discord keep you connected. Police Eligible police players can access the OCPD Mobile Data Terminal. Entertainment Radio, Cosmetics, ObliStocks and other apps provide additional activities. Exploration Discoveries lets you review places discovered by your character. Phone Upgrades Better phones can unlock more applications.",
     "snippet": "Real Estate Scotex lets you purchase or rent properties. Communication Telephone, Messenger, Tweeter and Discord keep you connected. Police Eligible police play"
+  },
+  {
+    "path": "government/#overview",
+    "category": "Government",
+    "title": "Power to the people.",
+    "text": "Government / Overview NukeRoleplay is building a player-driven government system. Instead of laws simply being handed down, players themselves will get the chance to represent the city, sit in Parliament and even become President. The system is built around three pillars: a Parliament elected by the community, a President chosen by that Parliament, and a set of appointed positions and ministries that keep the city running. The government system doesn't exist in the game yet, this page describes the plan for how it will work. Details may still change before it goes live.",
+    "snippet": "NukeRoleplay is building a player-driven government system. Instead of laws simply being handed down, players themselves will get the chance to represent the c"
+  },
+  {
+    "path": "government/#parliament",
+    "category": "Government",
+    "title": "The Parliament.",
+    "text": "Government / Legislature Parliament is the elected voice of the community. Its members are regular players, voted in by other players, who take on the responsibility of representing the city and shaping its laws. Eligibility Players need a certain amount of playtime on the server before they can run for a seat in Parliament. Elections Seats are filled during dedicated voting phases, held periodically for the community. Representation Members are chosen directly by the players who vote for them. Responsibility Parliament drafts and votes on proposals for new or changed laws.",
+    "snippet": "Parliament is the elected voice of the community. Its members are regular players, voted in by other players, who take on the responsibility of representing th"
+  },
+  {
+    "path": "government/#elections",
+    "category": "Government",
+    "title": "Voting Phases.",
+    "text": "Government / Voting Seats in Parliament aren't permanent. From time to time, a voting phase opens up and gives the community the chance to elect a new Parliament. Voting Phase Opens A voting phase is announced, opening up Parliament seats for the community. Players Run for a Seat Any player who meets the required playtime can put themselves forward as a candidate. The Community Votes Players vote for the candidates they want to see representing them in Parliament. Parliament is Seated Elected members take their seats and begin representing the players who voted for them.",
+    "snippet": "Seats in Parliament aren't permanent. From time to time, a voting phase opens up and gives the community the chance to elect a new Parliament."
+  },
+  {
+    "path": "government/#president",
+    "category": "Government",
+    "title": "The President.",
+    "text": "Government / Executive Once a Parliament is seated, its first big decision is choosing who leads the city. Parliament votes for the President, who then takes on the executive role for the city of Oblivion. The President doesn't govern alone. One of their main responsibilities is appointing key positions within the city's government, filling the leadership roles that keep departments and services running. The President's power isn't unlimited. Changes to positions or laws still require approval from the Nuke Studios team.",
+    "snippet": "Once a Parliament is seated, its first big decision is choosing who leads the city. Parliament votes for the President, who then takes on the executive role for"
+  },
+  {
+    "path": "government/#cabinet",
+    "category": "Government",
+    "title": "Cabinet & Appointments.",
+    "text": "Government / Appointments After being elected, the President appoints players to lead some of the city's most important positions. Chief of Police Leads the Oblivion City Police Department and oversees its operations at the highest level. Supreme Court Chief Justice Heads the judicial side of the city's government and oversees how the law is interpreted. Attorney General Represents the government in legal matters and oversees how justice is carried out in the city. Ministers Cabinet ministers, such as a Health Minister or Education Minister, oversee specific areas of the city.",
+    "snippet": "After being elected, the President appoints players to lead some of the city's most important positions. Chief of Police, Supreme Court Chief Justice, Attorney"
+  },
+  {
+    "path": "government/#lawmaking",
+    "category": "Government",
+    "title": "Making the law.",
+    "text": "Government / Legislation One of Parliament's core jobs is proposing new laws and changes to the city's existing legal system. Parliament Proposes A new law or an amendment to an existing one is drafted and voted on within Parliament. Presidential Approval The President reviews the proposal and must approve it before it can move forward. Nuke Studios Review The Nuke Studios team reviews the proposal to make sure it fits the server's roleplay. Law Enacted Once approved by both the President and Nuke Studios, the change officially becomes law.",
+    "snippet": "One of Parliament's core jobs is proposing new laws and changes to the city's existing legal system. A proposal must pass Parliament, the President and Nuke St"
+  },
+  {
+    "path": "government/#checks",
+    "category": "Government",
+    "title": "Checks & Approval.",
+    "text": "Government / Oversight Parliament has real power, but that power isn't unlimited. Not everything about the city's rules and systems can be changed through the government alone. Any change made by Parliament always requires approval from the President and from the Nuke Studios team, the staff involved in the server's roleplay. This keeps the government fun and meaningful without letting it break the server.",
+    "snippet": "Parliament has real power, but that power isn't unlimited. Any change made by Parliament always requires approval from the President and from the Nuke Studios "
+  },
+  {
+    "path": "government/#quick-reference",
+    "category": "Government",
+    "title": "Quick Reference",
+    "text": "Government / Reference Legislature Parliament, elected by players. Executive President, elected by Parliament. Key Appointments Chief of Police, Attorney General, Supreme Court Chief Justice, Ministers. Eligibility Minimum playtime required to run for Parliament. Law Changes Require Parliament, the President and Nuke Studios to all agree. Status In development, subject to change.",
+    "snippet": "Legislature Parliament, elected by players. Executive President, elected by Parliament. Key Appointments Chief of Police, Attorney General, Supreme Court Chief"
   }
 ];
