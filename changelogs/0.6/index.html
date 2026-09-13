@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+
+<title>v0.6 | NukeRoleplay</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+
+    --red: #b34a43;
+
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.7;
+
+    overflow-x:
+        hidden;
+}
+
+
+/* subtle scanline texture */
+
+body::before {
+
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:
+        999;
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    height:
+        72px;
+
+    padding:
+        0 5vw;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.logo {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.logo span {
+
+    color:
+        var(--green);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+
+.nav-links a {
+
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--white);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    padding:
+        85px 25px 120px;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        38px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    transition:
+        .2s ease;
+}
+
+
+.back:hover {
+
+    color:
+        var(--green-light);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position:
+        relative;
+
+    margin-bottom:
+        55px;
+
+    padding-left:
+        32px;
+}
+
+
+.header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        5px;
+
+    width:
+        4px;
+
+    height:
+        110px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
+
+.version {
+
+    color:
+        var(--green-light);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.header h1 {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 6rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.02em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin:
+        8px 0 18px;
+}
+
+
+.date {
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* =========================================================
+   DEV BLOG
+========================================================= */
+
+.devblog {
+
+    margin-bottom:
+        55px;
+}
+
+
+.devblog-label {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+
+    margin-bottom:
+        18px;
+}
+
+
+.devblog p {
+
+    color:
+        var(--text);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+
+    max-width:
+        760px;
+
+    margin-bottom:
+        16px;
+}
+
+
+.devblog p:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.devblog strong {
+
+    color:
+        var(--white);
+}
+
+
+.changelog-divider {
+
+    border-top:
+        1px solid var(--line);
+
+    margin:
+        50px 0 45px;
+}
+
+
+.full-changelog-heading {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(1.6rem, 3vw, 2.2rem);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.01em;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        30px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category {
+
+    position:
+        relative;
+
+    margin-bottom:
+        28px;
+
+    padding:
+        30px 32px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    box-shadow:
+        12px 12px 0 rgba(0,0,0,.18);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.category:hover {
+
+    background:
+        var(--panel-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* green top accent */
+
+.category::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+
+.category:hover::before {
+
+    width:
+        65px;
+}
+
+
+.category h2 {
+
+    margin-bottom:
+        22px;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.25rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+}
+
+
+.category ul {
+
+    padding-left:
+        22px;
+
+    color:
+        var(--muted);
+}
+
+
+.category li {
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        .9rem;
+}
+
+
+.category li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.category li::marker {
+
+    color:
+        var(--green);
+}
+
+
+.category li .sub {
+
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .84rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+footer strong {
+
+    color:
+        var(--white);
+}
+
+
+.footer-links {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+}
+
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+
+.footer-links a:hover {
+
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding:
+            0 20px;
+    }
+
+
+    .nav-links {
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            65px 20px 85px;
+    }
+
+
+    .header {
+
+        padding-left:
+            25px;
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .header::before {
+
+        height:
+            90px;
+    }
+
+
+    .header h1 {
+
+        font-size:
+            3.8rem;
+    }
+
+
+    .category {
+
+        padding:
+            25px 22px;
+
+        box-shadow:
+            8px 8px 0 rgba(0,0,0,.18);
+    }
+
+
+    .category h2 {
+
+        font-size:
+            1.1rem;
+    }
+
+
+    .category li {
+
+        font-size:
+            .86rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Changelogs
+        </a>
+
+        <a href="../../documentation/">Documentation</a>
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="page">
+
+    <a href="../" class="back">← Back to Changelogs</a>
+
+    <header class="header">
+        <div class="version">VERSION 0.6</div>
+        <h1>NPCs &amp; Wanted System</h1>
+        <div class="date">September 13, 2026</div>
+    </header>
+
+
+    <!-- =====================================================
+         DEV BLOG
+    ====================================================== -->
+
+    <div class="devblog">
+
+        <div class="devblog-label">📋 Dev Blog — Update 0.6</div>
+
+        <p>
+            Update 0.6 is here, and it's one of the bigger
+            updates in a while: the entire <strong>NPC
+            system</strong> got rebuilt from the ground up,
+            on top of that there's a <strong>new wanted and
+            combat system</strong>, three reworked or brand
+            new <strong>transport systems</strong>, a bunch
+            of <strong>new shops</strong>, and a ton of
+            <strong>bug fixes</strong>.
+        </p>
+
+        <p>
+            The biggest piece is the <strong>new NPC
+            system</strong> 🧍. NPCs now have a lot more
+            personality, greet you differently each time,
+            and generally feel more alive. The biggest
+            change though: NPCs can now be attacked ⚔️, and
+            some of them will fight back, with their fists,
+            a gun, or other weapons. If someone gets
+            attacked, nearby NPCs will now flee instead of
+            just standing around. On top of that, we've
+            added a huge amount of new NPCs across the
+            world, including in Porto, Ermesinde and parts
+            of Sampaio, at every bank branch, and even a
+            few that just talk about the weather.
+        </p>
+
+        <p>
+            To make fights against NPCs (and other players)
+            actually mean something, we've added the
+            <strong>Combat Logging system</strong> 🥊: while
+            you're fighting, you count as combat logging,
+            some features are locked out during that time,
+            and you should try not to leave the server while
+            it's active. Alongside that, <strong>police
+            officers</strong> 👮 now patrol and will chase you
+            down if you're wanted and no real police are
+            online. The <strong>wanted system</strong> itself
+            got reworked too: stars now build up gradually,
+            so it takes more crime to reach 5 stars, and they
+            start out white, only turning red once the police
+            actually spot you nearby. Police can also only
+            cuff wanted players now, and reputation losses
+            from fighting have been toned down so you don't
+            lose too much just from getting into a fight.
+        </p>
+
+        <p>
+            We've also rebuilt a big chunk of the
+            <strong>transport infrastructure</strong> 🚆: the
+            metro and tram systems were both remade from
+            scratch, and there's now a brand new train
+            system on top of that.
+        </p>
+
+        <p>
+            On the <strong>economy</strong> side 💰, we
+            converted a large part of the existing shops
+            over to the new shop system and gave all the
+            usual stores, like bakeries and grocery stores,
+            actual stock. New additions include Embers'
+            Firework Shop with its own firework creator, and
+            Gugas Banner Shop with its own banner creator.
+            Bank interest and insurance prices now scale with
+            your reputation, cosmetic prices got adjusted and
+            can now be bought directly, and there are a lot
+            of new ways to earn XP.
+        </p>
+
+        <p>
+            And the city keeps growing 🏙️: Sampaio got even
+            more buildings decorated, the stadium is almost
+            finished, there are new street layouts in upper
+            Sampaio, and work has started on rebuilding the
+            airport. Gas stations also got a new design.
+        </p>
+
+    </div>
+
+
+    <div class="changelog-divider"></div>
+
+    <h2 class="full-changelog-heading">Full Changelog</h2>
+
+
+    <section class="category">
+        <h2>🗣️ NPCs</h2>
+        <ul>
+            <li>Remade the NPC system.</li>
+            <li>Added a lot more NPCs.</li>
+            <li>NPCs have more variety in their first-time greetings, and sometimes skip the greeting entirely.</li>
+            <li>Added a lot of new NPCs to Porto, Ermesinde and parts of Sampaio.</li>
+            <li>Added NPCs to all banks, letting players see their interest rate and disable the join message from the bank.</li>
+            <li>Added NPCs talking about the weather occasionally.</li>
+            <li>
+                Added the Old Boatman to Pontelima.
+                <span class="sub">→ Fund his expedition and he might pay you back.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>⚔️ Combat &amp; Wanted System</h2>
+        <ul>
+            <li>
+                NPCs can now be attacked.
+                <span class="sub">→ Some NPCs fight back with their fists, a gun or other weapons.</span>
+            </li>
+            <li>Nearby NPCs will now flee if they see someone else being attacked.</li>
+            <li>
+                Added the Combat Logging system.
+                <span class="sub">→ While fighting, you are combat logging. Some features might not be available during that time, and you should try not to leave the server while it's active.</span>
+            </li>
+            <li>Added police officers that show up and chase you down if you're wanted and no real police are online.</li>
+            <li>Wanted stars now build up gradually, so it takes more crime to reach 5 stars.</li>
+            <li>Wanted stars are now white until the police actually spot you nearby, then they turn red.</li>
+            <li>Made it so police can only cuff wanted players.</li>
+            <li>Reputation changes have been made to prevent losing too much reputation from just fighting.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🚇 Transport</h2>
+        <ul>
+            <li>Remade the metro system.</li>
+            <li>Remade the tram system.</li>
+            <li>Added a train system.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>💰 Economy &amp; Shops</h2>
+        <ul>
+            <li>Insurance price now depends on reputation.</li>
+            <li>Bank interest now depends on reputation.</li>
+            <li>Converted most existing shops into the new shop system.</li>
+            <li>Added stock to all common shops, like bakeries, grocery stores, etc.</li>
+            <li>Added the Scrap Disassembler and Working Stations to craft items.</li>
+            <li>Added Mafia Hitman Contracts.</li>
+            <li>Added a lot of new ways to gain XP.</li>
+            <li>Adjusted cosmetics prices, and cosmetics can now be purchased directly.</li>
+            <li>Added Embers' Firework Shop, with a custom firework creator.</li>
+            <li>Added Gugas Banner Shop, with a custom banner creator.</li>
+            <li>Removed the illegal section in certain pubs.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🏙️ World &amp; Building</h2>
+        <ul>
+            <li>Decorated even more buildings in Sampaio.</li>
+            <li>The Sampaio stadium is almost finished.</li>
+            <li>Started remaking the airport.</li>
+            <li>Added new street layouts to upper Sampaio.</li>
+            <li>Changed the design of gas stations.</li>
+            <li>Added new banned spawn regions.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🧱 Models &amp; Props</h2>
+        <ul>
+            <li>Added a custom model for ATMs.</li>
+            <li>Added custom models to all ammunation for guns.</li>
+            <li>Added new models.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🖥️ UI &amp; Server</h2>
+        <ul>
+            <li>Fixed moderation commands not working on Discord.</li>
+            <li>Remade the MOTD handler, since the old one caused the server to crash.</li>
+            <li>Remade the UIs for the Lumberjack and Miner Workstations.</li>
+            <li>Fixed "Back" buttons in the IKAA Shop not working.</li>
+            <li>Fixed the layout of a few more parking spaces.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🐛 Bug Fixes</h2>
+        <ul>
+            <li>Fixed money checks sometimes not working correctly.</li>
+            <li>Fixed some NPCs not moving or walking around properly.</li>
+            <li>Fixed melee attacks sometimes not dealing damage to NPCs during the day.</li>
+            <li>Fixed the combat log timer not stopping properly when you die.</li>
+            <li>Fixed NPCs occasionally not behaving correctly after a server restart.</li>
+            <li>Fixed furniture in the garage not being removed when selling a house.</li>
+            <li>Fixed shop NPCs being able to get shot.</li>
+            <li>Fixed a bug where players could interact with an industrial crafter outside of their garage.</li>
+            <li>Fixed furniture losing its item tags when being broken.</li>
+            <li>Fixed a bug in Travolio's stage shop causing costumes to glitch out.</li>
+            <li>Fixed a bug in Pharmacy shops causing them to not work properly.</li>
+            <li>Fixed a bug in the IceGP system causing boats to not despawn.</li>
+        </ul>
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        Nuke Studios
+    </strong>.
+
+    All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
