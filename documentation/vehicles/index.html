@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Vehicle documentation for NukeRoleplay is currently under construction. Check back soon."
+        content="Learn about driving licenses, the car dealership, vehicle insurance, repairs and public transport in NukeRoleplay."
     >
 
     <style>
@@ -47,8 +47,8 @@
             --green-light: #b1d65b;
             --green-dark: #617e27;
 
-            --amber: #c98a3b;
-            --amber-light: #e2ab5f;
+            --red: #b34a43;
+            --blue: #527fa5;
 
             --line: rgba(255,255,255,.09);
 
@@ -129,6 +129,17 @@
 
             text-decoration:
                 none;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
 
         }
 
@@ -285,7 +296,7 @@
 
 
         /* =========================================================
-           MAINTENANCE HERO
+           HERO
         ========================================================= */
 
         .hero {
@@ -294,30 +305,39 @@
                 relative;
 
             min-height:
-                calc(100vh - 72px);
+                520px;
 
             display:
                 flex;
 
             align-items:
-                center;
-
-            justify-content:
-                center;
+                flex-end;
 
             padding:
-                80px 6vw;
+                0 7vw 80px;
 
             overflow:
                 hidden;
 
             background:
-                var(--dark);
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.22) 38%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
 
         }
 
 
-        .hero::before {
+        .hero::after {
 
             content:
                 "";
@@ -325,25 +345,28 @@
             position:
                 absolute;
 
-            inset:
-                0;
+            left:
+                7vw;
 
-            background-image:
-                repeating-linear-gradient(
-                    -45deg,
-                    rgba(201,138,59,.05) 0,
-                    rgba(201,138,59,.05) 26px,
-                    transparent 26px,
-                    transparent 52px
-                );
+            bottom:
+                42px;
 
-            pointer-events:
-                none;
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
 
         }
 
 
-        .maintenance {
+        .hero-content {
 
             position:
                 relative;
@@ -352,69 +375,212 @@
                 2;
 
             max-width:
-                640px;
-
-            text-align:
-                center;
+                1000px;
 
         }
 
 
-        .maintenance-icon {
-
-            font-size:
-                4rem;
-
-            margin-bottom:
-                22px;
-
-            filter:
-                drop-shadow(0 6px 14px rgba(0,0,0,.4));
-
-            animation:
-                wrench-wiggle 2.6s ease-in-out infinite;
-
-        }
-
-
-        @keyframes wrench-wiggle {
-
-            0%, 100% {
-                transform: rotate(-8deg);
-            }
-
-            50% {
-                transform: rotate(8deg);
-            }
-
-        }
-
-
-        .maintenance-badge {
+        .hero-kicker {
 
             display:
-                inline-flex;
+                flex;
 
             align-items:
                 center;
 
             gap:
-                10px;
-
-            padding:
-                9px 18px;
+                12px;
 
             margin-bottom:
-                26px;
+                18px;
 
-            background:
-                rgba(201,138,59,.08);
+            font-size:
+                .72rem;
 
-            border:
-                1px solid rgba(201,138,59,.3);
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
 
             color:
-                var(--amber-light);
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .94rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                75px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
 
             font-size:
                 .68rem;
@@ -426,43 +592,15 @@
                 uppercase;
 
             letter-spacing:
-                .18em;
+                .2em;
+
+            margin-bottom:
+                6px;
 
         }
 
 
-        .maintenance-badge::before {
-
-            content:
-                "";
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--amber-light);
-
-            animation:
-                blink 1.4s ease-in-out infinite;
-
-        }
-
-
-        @keyframes blink {
-
-            0%, 100% { opacity: 1; }
-            50% { opacity: .25; }
-
-        }
-
-
-        .maintenance h1 {
+        .section-title {
 
             font-family:
                 Impact,
@@ -470,7 +608,11 @@
                 sans-serif;
 
             font-size:
-                clamp(3rem, 8vw, 5.5rem);
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
 
             line-height:
                 .9;
@@ -479,43 +621,32 @@
                 uppercase;
 
             letter-spacing:
-                -.02em;
+                -.01em;
 
             color:
                 var(--white);
 
-            margin-bottom:
-                22px;
-
         }
 
 
-        .maintenance h1 span {
+        .article p {
 
             color:
-                var(--green);
-
-        }
-
-
-        .maintenance-copy {
-
-            color:
-                var(--text);
+                var(--muted);
 
             font-size:
-                1rem;
+                .91rem;
 
-            max-width:
-                520px;
+            line-height:
+                1.8;
 
-            margin:
-                0 auto 30px;
+            margin-bottom:
+                18px;
 
         }
 
 
-        .maintenance-copy strong {
+        .article strong {
 
             color:
                 var(--white);
@@ -524,67 +655,16 @@
 
 
         /* =========================================================
-           PROGRESS
+           FEATURE IMAGE
         ========================================================= */
 
-        .progress-wrap {
-
-            max-width:
-                420px;
-
-            margin:
-                0 auto 34px;
-
-            text-align:
-                left;
-
-        }
-
-
-        .progress-label {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            font-size:
-                .68rem;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                .1em;
-
-            color:
-                var(--muted);
-
-            margin-bottom:
-                9px;
-
-        }
-
-
-        .progress-label span:last-child {
-
-            color:
-                var(--amber-light);
-
-            font-weight:
-                700;
-
-        }
-
-
-        .progress-track {
+        .feature-image {
 
             position:
                 relative;
 
-            height:
-                10px;
+            margin:
+                30px 0 35px;
 
             background:
                 var(--panel);
@@ -598,7 +678,134 @@
         }
 
 
-        .progress-fill {
+        .feature-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .9;
+
+            transition:
+                transform .5s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .feature-image:hover img {
+
+            transform:
+                scale(1.025);
+
+            opacity:
+                1;
+
+        }
+
+
+        .feature-caption {
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--muted);
+
+            background:
+                #101211;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
 
             position:
                 absolute;
@@ -609,66 +816,107 @@
             top:
                 0;
 
-            bottom:
-                0;
-
             width:
-                38%;
+                3px;
+
+            height:
+                100%;
 
             background:
-                repeating-linear-gradient(
-                    -45deg,
-                    var(--amber) 0,
-                    var(--amber) 8px,
-                    var(--amber-light) 8px,
-                    var(--amber-light) 16px
-                );
-
-            background-size:
-                200% 100%;
-
-            animation:
-                stripes 1.4s linear infinite;
+                var(--green);
 
         }
 
 
-        @keyframes stripes {
+        .sub-title {
 
-            0% { background-position: 0 0; }
-            100% { background-position: 32px 0; }
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            text-transform:
+                uppercase;
+
+            margin:
+                44px 0 14px;
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
 
         }
 
 
         /* =========================================================
-           PREVIEW GRID
+           RANK SYSTEM
         ========================================================= */
 
-        .preview-grid {
+        .rank-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .rank-card {
 
             display:
                 grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                70px 1fr;
 
             gap:
-                12px;
+                20px;
 
-            max-width:
-                560px;
-
-            margin:
-                0 auto 40px;
-
-        }
-
-
-        .preview-card {
+            align-items:
+                center;
 
             padding:
-                18px 12px;
+                20px 22px;
 
             background:
                 var(--panel);
@@ -676,8 +924,326 @@
             border:
                 1px solid var(--line);
 
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .rank-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .rank-number {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
             font-size:
-                .74rem;
+                2rem;
+
+            color:
+                var(--green);
+
+            text-align:
+                center;
+
+        }
+
+
+        .rank-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .rank-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .department-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .department-card {
+
+            padding:
+                27px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .department-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .department-code {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .department-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.2rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .department-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PROCESS STEPS
+        ========================================================= */
+
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           WANTED / POLICE IMAGE
+        ========================================================= */
+
+        .wanted-image {
+
+            margin:
+                30px 0;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .wanted-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+        }
+
+
+        .wanted-caption {
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .7rem;
 
             color:
                 var(--muted);
@@ -686,15 +1252,230 @@
                 uppercase;
 
             letter-spacing:
-                .04em;
+                .08em;
 
         }
 
 
-        .preview-card strong {
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           OCPD LOGO
+        ========================================================= */
+
+        .ocpd-logo {
 
             display:
-                block;
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                35px 20px;
+
+            margin:
+                25px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .ocpd-logo img {
+
+            width:
+                145px;
+
+            max-width:
+                38%;
+
+            height:
+                auto;
+
+            opacity:
+                .92;
+
+        }
+
+
+        /* =========================================================
+           DISCORD LINK
+        ========================================================= */
+
+        .discord-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                10px;
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--white);
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .discord-link:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .discord-link span {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
 
             color:
                 var(--white);
@@ -704,16 +1485,120 @@
                 sans-serif;
 
             font-size:
-                .82rem;
+                .85rem;
 
-            margin-bottom:
-                4px;
+            font-weight:
+                700;
 
             text-transform:
-                none;
+                uppercase;
 
             letter-spacing:
-                normal;
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
 
         }
 
@@ -733,11 +1618,14 @@
             gap:
                 8px;
 
+            margin-top:
+                15px;
+
             color:
                 var(--muted);
 
             font-size:
-                .74rem;
+                .72rem;
 
             font-weight:
                 700;
@@ -748,15 +1636,8 @@
             letter-spacing:
                 .08em;
 
-            padding:
-                14px 24px;
-
-            border:
-                1px solid var(--line);
-
             transition:
                 color .2s ease,
-                border-color .2s ease,
                 transform .2s ease;
 
         }
@@ -767,11 +1648,8 @@
             color:
                 var(--green-light);
 
-            border-color:
-                rgba(145,184,63,.4);
-
             transform:
-                translateY(-2px);
+                translateX(-4px);
 
         }
 
@@ -851,6 +1729,60 @@
 
 
         /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
            MOBILE
         ========================================================= */
 
@@ -874,16 +1806,86 @@
 
             .hero {
 
+                min-height:
+                    450px;
+
                 padding:
-                    60px 22px;
+                    0 25px 65px;
 
             }
 
 
-            .preview-grid {
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+
+            .info-grid,
+            .department-grid {
 
                 grid-template-columns:
                     1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .rank-card {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .ocpd-logo img {
+
+                width:
+                    125px;
+
+                max-width:
+                    45%;
 
             }
 
@@ -945,7 +1947,34 @@
 
 
 <!-- =========================================================
-     MAINTENANCE
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Vehicles
+        </div>
+
+
+        <h1>
+            <span>Vehicles</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Learn about driving licenses, buying cars, insurance, repairs and the public transport systems of the city.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
 ========================================================= -->
 
 <main class="docs-shell no-toc">
@@ -997,82 +2026,698 @@
 
 <div class="docs-content">
 
-<section class="hero">
-
-    <div class="maintenance">
-
-        <div class="maintenance-icon">
-            🔧
-        </div>
 
 
-        <div class="maintenance-badge">
-            Under Maintenance
-        </div>
+    <div class="content-layout">
 
 
-        <h1>
-            <span>Vehicles</span>
-        </h1>
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Get<br>moving.
+                    </h2>
+
+                </div>
+
+                <p>
+                    You do not need a vehicle to live in the city, but owning one makes getting around much
+        faster. To drive your own car you need a <strong>driving license</strong>, a car from the
+        dealership and some fuel.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Driving License
+                        </h3>
+
+                        <p>
+                            Pass the theory and the practical test to be allowed to spawn cars.
+                        </p>
+
+                    </div>
 
 
-        <p class="maintenance-copy">
-            Our mechanics are still elbow-deep under the hood
-            of this page. Turns out writing documentation is
-            harder than parallel-parking a Bugatti — we'll
-            have it running smoothly soon.
-        </p>
+                    <div class="info-card">
+
+                        <h3>
+                            Car Dealership
+                        </h3>
+
+                        <p>
+                            Browse collections, preview cars and buy the ones you like.
+                        </p>
+
+                    </div>
 
 
-        <div class="progress-wrap">
+                    <div class="info-card">
 
-            <div class="progress-label">
-                <span>Engine Diagnostics</span>
-                <span>38%</span>
+                        <h3>
+                            Insurance
+                        </h3>
+
+                        <p>
+                            Get your car back faster after it was destroyed.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Public Transport
+                        </h3>
+
+                        <p>
+                            Metro, tram and train get you around without owning a car.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="license"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / License
+                    </div>
+
+                    <h2 class="section-title">
+                        Driving<br>license.
+                    </h2>
+
+                </div>
+
+                <p>
+                    You cannot spawn a car without a driving license. The test costs <strong>5,000€</strong>
+        and consists of two parts.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Theory
+                        </h3>
+
+                        <p>
+                            Answer questions about traffic rules and road signs. It is a good idea to study the signs around the driving school first.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Practical Test
+                        </h3>
+
+                        <p>
+                            A test car is spawned for you. Reach the marked areas on the bridge, in the roundabout and at the parking spot. Stay on the road, because leaving the road adds error points.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Before you start
+                    </div>
+
+                    <p>
+                        Despawn your current vehicle with /delcar before starting the test. You can cancel a running test with /canceldrivingtest.
+                    </p>
+
+                </div>
+
+                <p>
+                    Passing the test also gives you a small boost to your reputation.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="dealership"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Dealership
+                    </div>
+
+                    <h2 class="section-title">
+                        Buy your<br>ride.
+                    </h2>
+
+                </div>
+
+                <p>
+                    The car dealership sorts its cars into collections. Pick a collection, browse the cars
+        and check their top speed, acceleration and number of seats. You can <strong>preview</strong>
+        a car before you buy it. Some collections are only available for a limited time.
+                </p>
+
+                <p>
+                    Your reputation changes the price: very honored players get a 10% discount, while players
+        with a criminal reputation pay 10% more. See the Reputation section in Getting Started.
+                </p>
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Remember
+                    </div>
+
+                    <p>
+                        Cars are expensive. Build up a reliable income before buying one and do not forget that you also need a driving license.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="spawning"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Using Your Car
+                    </div>
+
+                    <h2 class="section-title">
+                        Spawn and<br>drive.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Owned cars are spawned at car spawners around the city. Open the spawner, search or sort
+        your cars and click <strong>Spawn</strong>. You can only have one vehicle spawned at a time.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            /delcar
+                        </h3>
+
+                        <p>
+                            Despawn your current vehicle.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            /lockcar
+                        </h3>
+
+                        <p>
+                            Lock your vehicle so nobody else can use it.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            /unlockcar
+                        </h3>
+
+                        <p>
+                            Unlock your vehicle again.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Fuel
+                        </h3>
+
+                        <p>
+                            A fuel bar is shown while you drive. Keep an eye on it so you do not run dry.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="repair"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Repairs
+                    </div>
+
+                    <h2 class="section-title">
+                        Insurance &amp;<br>repairs.
+                    </h2>
+
+                </div>
+
+                <p>
+                    If your car is destroyed, you cannot spawn it again right away. Without insurance it takes
+        <strong>20 minutes</strong> before the car is available again. With vehicle insurance it takes
+        only <strong>5 minutes</strong>.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Vehicle Insurance
+                        </h3>
+
+                        <p>
+                            A one time fee of 10,000€. You can cancel it at any time.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Mechanic
+                        </h3>
+
+                        <p>
+                            At the garage you can mount tires, install and upgrade parts and repair your car.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="mechanic"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Mechanic
+                    </div>
+
+                    <h2 class="section-title">
+                        Tune your<br>car.
+                    </h2>
+
+                </div>
+
+                <p>
+                    The mechanic's garage lets you repair and upgrade your car. Drive into the garage with your own car and
+        talk to the mechanic. Only cars can enter, only one car fits at a time and you cannot enter the garage while you are wanted.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Engine
+                        </h3>
+
+                        <p>
+                            Raises top speed and acceleration.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Brakes
+                        </h3>
+
+                        <p>
+                            Raises your braking strength.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Fuel Tank
+                        </h3>
+
+                        <p>
+                            Lowers fuel consumption so a full tank takes you further.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Trunk
+                        </h3>
+
+                        <p>
+                            Adds storage rows to your trunk.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Chassis
+                        </h3>
+
+                        <p>
+                            Raises the amount of damage your car can take.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Tires
+                        </h3>
+
+                        <p>
+                            Choose road tires for more speed on roads, offroad tires for more traction away from the road or ice tires for winter. Only one tire type can be mounted at a time.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Style
+                        </h3>
+
+                        <p>
+                            Add a drift effect, a trail effect or a different horn to your car.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Repair
+                        </h3>
+
+                        <p>
+                            Repair damage to your car. The cost depends on the price of your car and how damaged it is.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p>
+                    Parts come in five upgrade tiers: Uncommon, Rare, Epic, Legendary and Mythic. Each tier is stronger and more expensive than
+        the one before. You can preview a part before you buy it.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="transport"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Public Transport
+                    </div>
+
+                    <h2 class="section-title">
+                        Without<br>a car.
+                    </h2>
+
+                </div>
+
+                <p>
+                    The metro, tram and train systems were rebuilt in update 0.6. You pay per stop
+        you travel.
+                </p>
+
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Transport</th><th>Price per stop</th></tr></thead>
+                    <tbody>
+                        <tr><td>Metro</td><td>2€</td></tr>
+                        <tr><td>Tram</td><td>4€</td></tr>
+                        <tr><td>Train</td><td>10€</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <p>
+                    Open the station menu, pick your destination and the fare is paid automatically.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Vehicles / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>Reference
+                    </h2>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            License
+                        </h3>
+
+                        <p>
+                            5,000€, theory and practical test
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Insurance
+                        </h3>
+
+                        <p>
+                            10,000€ once, repair time 20 min → 5 min
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Commands
+                        </h3>
+
+                        <p>
+                            /delcar, /lockcar, /unlockcar
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Fares
+                        </h3>
+
+                        <p>
+                            Metro 2€, tram 4€, train 10€ per stop
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Vehicles
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview"
+                        class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a
+                        href="#license"
+                    >
+                        Driving License
+                    </a>
+
+
+                    <a
+                        href="#dealership"
+                    >
+                        Dealership
+                    </a>
+
+
+                    <a
+                        href="#spawning"
+                    >
+                        Spawning &amp; Driving
+                    </a>
+
+
+                    <a
+                        href="#repair"
+                    >
+                        Insurance &amp; Repairs
+                    </a>
+
+
+                    <a
+                        href="#mechanic"
+                    >
+                        Mechanic
+                    </a>
+
+
+                    <a
+                        href="#transport"
+                    >
+                        Public Transport
+                    </a>
+
+
+                    <a
+                        href="#quick-reference"
+                    >
+                        Quick Reference
+                    </a>
+
+                </div>
+
             </div>
 
 
-            <div class="progress-track">
+            <div class="sidebar-note">
 
-                <div class="progress-fill"></div>
+                <strong>Tip</strong> Public transport is cheap. Save your money before you buy your first car.
 
             </div>
 
-        </div>
+        </aside>
 
-
-        <div class="preview-grid">
-
-            <div class="preview-card">
-                <strong>Dealerships</strong>
-                Coming soon
-            </div>
-
-            <div class="preview-card">
-                <strong>Customization</strong>
-                Coming soon
-            </div>
-
-            <div class="preview-card">
-                <strong>Impound Lot</strong>
-                Coming soon
-            </div>
-
-        </div>
-
-
-        <a
-            href="../"
-            class="back-link"
-        >
-            ← Back to Documentation
-        </a>
 
     </div>
 
-</section>
-
 </div>
+
 
 </main>
 

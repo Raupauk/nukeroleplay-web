@@ -1529,6 +1529,43 @@
 
         }
 
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+
+        .section h3.sub-title {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin: 44px 0 14px;
+        }
+
     </style>
 
     <link rel="stylesheet" href="../assets/docs-sidebar.css">
@@ -1730,7 +1767,7 @@
 
                     <p>
                         The government system doesn't exist in
-                        the game yet — this page describes the
+                        the game yet. This page describes the
                         plan for how it will work. Details may
                         still change before it goes live, so
                         check back as development continues.
@@ -2347,6 +2384,109 @@
             </section>
 
 
+                        <!-- =================================================
+                 JUSTICE
+            ================================================= -->
+
+            <section
+                class="section"
+                id="justice"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Government / Justice
+                    </div>
+
+                    <h2 class="section-title">
+                        Justice<br>System.
+                    </h2>
+
+                </div>
+
+                <p>
+                    The Department of Justice (DOJ) settles disputes between players and deals with serious cases.
+    Judges, lawyers and the justice staff work together to keep the city fair.
+                </p>
+
+                <h3 class="sub-title">Quick Court</h3>
+
+                <p>
+                    Small disputes are handled through <strong>Quick Court</strong> on Discord. Justice staff open a case
+    with the two parties and a short summary. Everyone can then vote for Party 1, vote for Party 2 or request a
+    full court hearing. Nothing is final until a member of the justice staff ends the voting.
+                </p>
+
+                <h3 class="sub-title">Court hearings</h3>
+
+                <p>
+                    Bigger cases can be scheduled as a regular court hearing. A judge listens to both sides and the verdict
+    is logged and closes the case. A Supreme Court also exists as part of the DOJ.
+                </p>
+
+                <h3 class="sub-title">Roles</h3>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Judge
+                        </h3>
+
+                        <p>
+                            Oversees proceedings and decides cases.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Lawyer
+                        </h3>
+
+                        <p>
+                            Represents players in court. You need the Lawyer Certification, and at least a Neutral reputation to take the exam.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Justice Staff
+                        </h3>
+
+                        <p>
+                            Opens and closes Quick Court cases and manages the court schedule.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Police
+                        </h3>
+
+                        <p>
+                            Brings players in for court ordered custody on request of the DOJ.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                
+
+            </section>
+
+
             <!-- =================================================
                  CHECKS & APPROVAL
             ================================================= -->
@@ -2576,6 +2716,11 @@
 
                     <a href="#lawmaking">
                         Making the Law
+                    </a>
+
+
+                    <a href="#justice">
+                        Justice System
                     </a>
 
 
