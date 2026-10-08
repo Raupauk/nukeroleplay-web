@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+
+<title>v0.6.5 | NukeRoleplay</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+
+    --red: #b34a43;
+
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.7;
+
+    overflow-x:
+        hidden;
+}
+
+
+/* subtle scanline texture */
+
+body::before {
+
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:
+        999;
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    height:
+        72px;
+
+    padding:
+        0 5vw;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.logo {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.logo span {
+
+    color:
+        var(--green);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+
+.nav-links a {
+
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--white);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    padding:
+        85px 25px 120px;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        38px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    transition:
+        .2s ease;
+}
+
+
+.back:hover {
+
+    color:
+        var(--green-light);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position:
+        relative;
+
+    margin-bottom:
+        55px;
+
+    padding-left:
+        32px;
+}
+
+
+.header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        5px;
+
+    width:
+        4px;
+
+    height:
+        110px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
+
+.version {
+
+    color:
+        var(--green-light);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.header h1 {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 6rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.02em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin:
+        8px 0 18px;
+}
+
+
+.date {
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* =========================================================
+   DEV BLOG
+========================================================= */
+
+.devblog {
+
+    margin-bottom:
+        55px;
+}
+
+
+.devblog-label {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+
+    margin-bottom:
+        18px;
+}
+
+
+.devblog p {
+
+    color:
+        var(--text);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+
+    max-width:
+        760px;
+
+    margin-bottom:
+        16px;
+}
+
+
+.devblog p:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.devblog strong {
+
+    color:
+        var(--white);
+}
+
+
+.changelog-divider {
+
+    border-top:
+        1px solid var(--line);
+
+    margin:
+        50px 0 45px;
+}
+
+
+.full-changelog-heading {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(1.6rem, 3vw, 2.2rem);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.01em;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        30px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category {
+
+    position:
+        relative;
+
+    margin-bottom:
+        28px;
+
+    padding:
+        30px 32px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    box-shadow:
+        12px 12px 0 rgba(0,0,0,.18);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.category:hover {
+
+    background:
+        var(--panel-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* green top accent */
+
+.category::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+
+.category:hover::before {
+
+    width:
+        65px;
+}
+
+
+.category h2 {
+
+    margin-bottom:
+        22px;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.25rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+}
+
+
+.category ul {
+
+    padding-left:
+        22px;
+
+    color:
+        var(--muted);
+}
+
+
+.category li {
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        .9rem;
+}
+
+
+.category li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.category li::marker {
+
+    color:
+        var(--green);
+}
+
+
+.category li .sub {
+
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .84rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+footer strong {
+
+    color:
+        var(--white);
+}
+
+
+.footer-links {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+}
+
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+
+.footer-links a:hover {
+
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding:
+            0 20px;
+    }
+
+
+    .nav-links {
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            65px 20px 85px;
+    }
+
+
+    .header {
+
+        padding-left:
+            25px;
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .header::before {
+
+        height:
+            90px;
+    }
+
+
+    .header h1 {
+
+        font-size:
+            3.8rem;
+    }
+
+
+    .category {
+
+        padding:
+            25px 22px;
+
+        box-shadow:
+            8px 8px 0 rgba(0,0,0,.18);
+    }
+
+
+    .category h2 {
+
+        font-size:
+            1.1rem;
+    }
+
+
+    .category li {
+
+        font-size:
+            .86rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Changelogs
+        </a>
+
+        <a href="../../documentation/">Documentation</a>
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="page">
+
+    <a href="../" class="back">← Back to Changelogs</a>
+
+    <header class="header">
+        <div class="version">VERSION 0.6.5</div>
+        <h1>Vehicles, Farming &amp; Hunting</h1>
+        <div class="date">October 8, 2026</div>
+    </header>
+
+
+    <!-- =====================================================
+         DEV BLOG
+    ====================================================== -->
+
+    <div class="devblog">
+
+        <div class="devblog-label">📋 Dev Blog — Update 0.6.5</div>
+
+        <p>
+            Update 0.6.5 is here, and it's a big one: three brand
+            new gameplay systems, a rebuilt vehicle experience, a
+            full economy rebalance, and a whole lot of new things to
+            do around the city. Let's get into it.
+        </p>
+
+        <p>
+            The biggest piece is the <strong>new Vehicle
+            System</strong> 🚗. With a <strong>driver's
+            license</strong> you can now buy vehicles at the
+            <strong>Car Dealership</strong>, or at specialized shops
+            like the new <strong>Hose Motorbike Store</strong> for
+            bikes and motorcycles, and spawn them at <strong>Vehicle
+            Spawners</strong> across the city. We've added a lot of
+            new cars, remade the Car Dealership and the Spawners from
+            scratch, and moved the dealership from Fanzeres to
+            Paddington. Once you own a car, bring it to a <strong>Car
+            Mechanic</strong> 🔧, where you can upgrade pretty much
+            everything: from a <strong>racing engine</strong> to
+            <strong>tires that can handle snow and mud</strong>,
+            <strong>drift particles</strong>, and even a <strong>new
+            horn</strong>. New Car Mechanic Garages are opening in
+            Paddington, Master City and Grimwater. Your car now also
+            needs <strong>fuel</strong> ⛽: there's a fuel bar while
+            driving, and new <strong>Gas Stations</strong> in
+            Paddington, Grimwater, Master City and Porto let you
+            refill your vehicle directly at the pump. You can also
+            grab an empty jerrycan, fill it up and take it with you,
+            and the shop sells snacks and drinks too. To protect your
+            ride, there's a new <strong>Vehicle Insurance
+            Shop</strong>, and helicopters now kick up ground effect
+            particles when flying low 🚁.
+        </p>
+
+        <p>
+            Next up is the <strong>Farming System</strong> 🌱. Grab
+            your watering can, head over to the <strong>Emerald Villa
+            Farmers Market</strong> and buy some seeds (the Seed
+            Vendor puts a different seed on sale every day). Plants
+            are grown in <strong>Portable Planters</strong> and need
+            proper care: watering, fertilizing, the whole deal. Keep
+            some <strong>plant protection</strong> in your backpack
+            too, because if you forget, pests will happily eat your
+            entire harvest. Once everything is grown, sell your crops
+            at the <strong>Farm Market</strong>, or fulfill the
+            <strong>Restaurant Owner's</strong> daily produce orders.
+            The <strong>Compost Vendor</strong> sells fertilizer and
+            plant protection and buys your bio waste, and the Plant
+            Shop has everything else you need, from Watering Cans to
+            Farmer's Goggles.
+        </p>
+
+        <p>
+            Then there's the <strong>Hunting System</strong> 🦌,
+            which completely overhauls everything you know about
+            vanilla animals. Animals now have a <strong>group
+            sense</strong> and flee together as soon as a player is
+            too loud, so stay quiet while hunting. Place
+            <strong>bait</strong> on the ground (grain, meat or
+            wheat, all sold at the new Hunting Shop) to lure animals
+            in, but be careful: if they spot you, they're gone. Once
+            you've made your catch, loot the corpse. The cleaner your
+            kill, the better the quality of the loot you'll get.
+        </p>
+
+        <p>
+            <strong>Fishing</strong> 🎣 got a big upgrade too.
+            There's a brand new <strong>fishing minigame</strong>,
+            and you can now attach different <strong>hooks</strong>
+            and <strong>bait</strong> to your rod to change what you
+            catch. All the extra junk you pull out of the water can
+            be sold at the new <strong>Junk Shop in Sampaio</strong>,
+            and junk shops now change what they buy every single day.
+            The Scrap Workstation can also disassemble more junk
+            items.
+        </p>
+
+        <p>
+            If you want a break from all that, the new
+            <strong>Arcade</strong> 🕹️ has you covered with
+            <strong>Air Hockey</strong>, <strong>Solitaire</strong>
+            and <strong>Whack-a-Mole</strong> (grab some Arcade Coins
+            at the Coin Shop first), and the <strong>Oblivion Chess
+            Club</strong> brings full <strong>Chess</strong> to the
+            city ♟️. Your <strong>phone</strong> 📱 also got
+            upgrades: Contacts, a GPS system to find your way around,
+            and spam messages in the messenger that you can get rid
+            of with an Ad-Blocker (which you can now cancel for a
+            partial refund).
+        </p>
+
+        <p>
+            On the quality of life side, we've remade the
+            <strong>/mission menu</strong>, added
+            <strong>/ignore</strong>, introduced <strong>Daily
+            Quests</strong> (/quests), and converted a lot of old
+            chest UIs into proper dialogues. If you're looking to
+            promote your business, the new <strong>Advertisement
+            Office</strong> lets you rent billboards across the city
+            and show your own ad (all ads are reviewed by the staff
+            team before they go live 📢).
+        </p>
+
+        <p>
+            We also took a long look at the <strong>economy</strong>
+            💰 and rebalanced most item prices, rewards and paychecks
+            to create a more consistent and healthier economy. Among
+            other things, police and justice paychecks now depend on
+            your rank, bank interest has been lowered and capped, and
+            skydiving costs money now. Check the full changelog below
+            for all the details.
+        </p>
+
+        <p>
+            And finally, the city keeps growing 🏙️: the
+            <strong>airport</strong> and its surroundings are built,
+            Sampaio is almost fully decorated, the BlackWing Stadium
+            keeps getting more detail, there are new houses in
+            Horizon Plains, and the <strong>Ring of Fire
+            Caldera</strong>, an extinct volcano inside a huge lake,
+            is waiting to be explored 🌋.
+        </p>
+
+    </div>
+
+
+    <div class="changelog-divider"></div>
+
+    <h2 class="full-changelog-heading">Full Changelog</h2>
+
+
+    <section class="category">
+        <h2>🌍 World &amp; Building</h2>
+        <ul>
+            <li>Moved the Car Dealership from Fanzeres to Paddington.</li>
+            <li>Added new Car Mechanic Garages in Paddington, Master City and Grimwater.</li>
+            <li>Built the airport and its surroundings.</li>
+            <li>Decorated Sampaio even more (almost finished!).</li>
+            <li>Continued decorating the BlackWing Stadium.</li>
+            <li>Added Ring of Fire Caldera, an extinct volcano inside a huge lake.</li>
+            <li>Added new houses to Horizon Plains.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🦌 Hunting</h2>
+        <ul>
+            <li>
+                Added the hunting system.
+                <span class="sub">→ Animals now have custom behaviour and a group sense: they flee together when a player is too loud, so stay quiet while hunting.</span>
+                <span class="sub">→ Animals that spot you will run away.</span>
+                <span class="sub">→ Loot the corpse after a successful hunt. The cleaner the kill, the better the quality of the loot.</span>
+            </li>
+            <li>
+                Added hunting bait.
+                <span class="sub">→ Place bait on the ground to lure animals in.</span>
+            </li>
+            <li>Added the Hunting Shop with grain, meat and wheat bait.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🚗 Vehicles</h2>
+        <ul>
+            <li>Remade the Car Dealership and Car Spawners.</li>
+            <li>
+                Added a lot of new cars.
+                <span class="sub">→ Vehicles can be bought with a driver's license at the Car Dealership or other vehicle shops, and spawned at Car Spawners.</span>
+            </li>
+            <li>Added the Hose Motorbike Store.</li>
+            <li>
+                Added the Car Mechanics Shop.
+                <span class="sub">→ Upgrade your car in the following categories: Engine, Brakes, Fuel Tank, Trunk, Chassis, Tires, Drift Particles, Trail Particles and Horn.</span>
+                <span class="sub">→ Choose from upgrades like racing engines or tires that can handle snow and mud.</span>
+            </li>
+            <li>Added the Vehicle Insurance Shop.</li>
+            <li>Added a Car Spawner in Grimwater.</li>
+            <li>
+                Added Gas Stations in Paddington, Grimwater, Master City and Porto.
+                <span class="sub">→ The Gas Station Shop sells empty jerrycans, snacks and drinks.</span>
+                <span class="sub">→ Fill jerrycans or your vehicle directly at the pump.</span>
+            </li>
+            <li>Added a fuel bar that shows while driving.</li>
+            <li>Added helicopter ground effect particles.</li>
+            <li>Added new vehicle horns.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🌱 Farming</h2>
+        <ul>
+            <li>Added the planter system.</li>
+            <li>Added the Plant Shop (Portable Planters, Watering Cans, Farmer's Goggles).</li>
+            <li>Added the Seed Vendor (one seed is on sale every day).</li>
+            <li>Added the Compost Vendor (Fertilizer, Plant Protection, buys Bio Waste).</li>
+            <li>Added the Farm Market (buys crops) and the Restaurant Owner (new produce orders every day).</li>
+            <li>Added all farm NPCs to the Emerald Villa market.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🎣 Fishing &amp; Junk</h2>
+        <ul>
+            <li>Added a fishing minigame.</li>
+            <li>Added fishing hook types and bait.</li>
+            <li>Added a new junk shop in Sampaio.</li>
+            <li>Junk shops now change what they buy every day.</li>
+            <li>The Scrap Workstation can now disassemble more junk items.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🕹️ Arcade</h2>
+        <ul>
+            <li>
+                Added the Arcade.
+                <span class="sub">→ Added Air Hockey.</span>
+                <span class="sub">→ Added Solitaire.</span>
+                <span class="sub">→ Added Whack-a-Mole.</span>
+            </li>
+            <li>Added the Arcade Coin Shop (buy Arcade Coins to play).</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>♟️ Chess</h2>
+        <ul>
+            <li>
+                Added Chess.
+                <span class="sub">→ Added a functional chess board.</span>
+                <span class="sub">→ Play against an AI or against other players.</span>
+            </li>
+            <li>
+                Added the Oblivion Chess Club.
+                <span class="sub">→ Get an Elo rating and improve it by playing.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>📱 Phone</h2>
+        <ul>
+            <li>Added Contacts to the Mobile Phone.</li>
+            <li>Added the GPS System.</li>
+            <li>
+                Added spam messages to the messenger.
+                <span class="sub">→ Buy an Ad-Blocker to stop them.</span>
+            </li>
+            <li>The Ad-Blocker can be cancelled again for a partial refund.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🖥️ Menus &amp; Quality of Life</h2>
+        <ul>
+            <li>Remade the /mission menu.</li>
+            <li>Added /ignore.</li>
+            <li>Remade a lot of UIs to transfer from Chest UIs to Dialogues.</li>
+            <li>Added Daily Quests (/quests).</li>
+            <li>Added a new mission: help Tom find his way.</li>
+            <li>Added new bossbar locations.</li>
+            <li>Added External Plugin Developers to /credits.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>💰 Economy</h2>
+        <ul>
+            <li>Remade almost all item prices to match each other and create a better economy.</li>
+            <li>Lowered the discovery reward per location from 1200€ to 100€.</li>
+            <li>Lowered level, playtime and mafia money rewards.</li>
+            <li>Police and Justice paychecks now depend on rank (250€ – 1800€) instead of a flat 3000€.</li>
+            <li>Bank interest massively lowered and capped.</li>
+            <li>Fight Club milestones now reward rank titles instead of money.</li>
+            <li>Skydiving now costs 100€ per jump, has a 10 minute cooldown and gives lower rewards.</li>
+            <li>Stock market: trades are limited and prices slowly return to their base value.</li>
+            <li>Unpaid rent now adds up and is collected when you have enough money.</li>
+            <li>Remade Life Insurance as a dialog.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>📢 Advertising</h2>
+        <ul>
+            <li>
+                Added the Advertisement Office: rent billboards across the city and show your own advertisement.
+                <span class="sub">→ Ads are reviewed by the staff team before they go live.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🐛 Bug Fixes</h2>
+        <ul>
+            <li>Fixed cars being damaged when driving up slabs or trapdoors.</li>
+            <li>Fixed police NPCs not walking around correctly.</li>
+            <li>Fixed text displays staying when clearing a house garage.</li>
+            <li>Fixed the reputation bar showing only text and not a color when joining with a certain amount of reputation.</li>
+            <li>Fixed some NPCs not working because of multiple worlds.</li>
+            <li>Fixed a bug where chat bubbles would not respawn when players unload an area fast enough.</li>
+        </ul>
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        Nuke Studios
+    </strong>.
+
+    All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
