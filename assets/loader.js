@@ -8,8 +8,17 @@
 (function () {
     "use strict";
 
-    var MAX_WAIT = 6000;  // never block the page longer than this (ms)
+    var MAX_WAIT = 6000;      // never block the page longer than this (ms)
+    var MIN_FIRST = 1200;     // first page view of a session: always show the loader this long (ms)
+    var MIN_NEXT = 0;         // later page views: only show it while content is still loading (ms)
     var FADE_MS = 400;
+    var started = Date.now();
+
+    var minShow = MIN_FIRST;
+    try {
+        if (sessionStorage.getItem("nr-loader-seen")) minShow = MIN_NEXT;
+        sessionStorage.setItem("nr-loader-seen", "1");
+    } catch (e) { /* storage blocked: treat every view as first */ }
     var root = document.documentElement;
 
     var css =
@@ -54,10 +63,15 @@
         }, FADE_MS + 50);
     }
 
+    function finishAfterMin() {
+        var wait = Math.max(0, minShow - (Date.now() - started));
+        setTimeout(finish, wait);
+    }
+
     if (document.readyState === "complete") {
-        finish();
+        finishAfterMin();
     } else {
-        window.addEventListener("load", finish);
+        window.addEventListener("load", finishAfterMin);
         setTimeout(finish, MAX_WAIT);
     }
 
