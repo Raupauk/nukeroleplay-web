@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<script src="../assets/loader.js"></script>
+
+    <title>FAQ | NukeRoleplay</title>
+
+    <meta
+        name="description"
+        content="Frequently asked questions about NukeRoleplay: how to join, which mods you need, what you can do on the server and more."
+    >
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I join?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NukeRoleplay is currently in Beta. An Open Beta will be announced on our Discord, so join it to be notified as soon as the server opens. Once the server is open, you can connect with Minecraft Java Edition using the server IP nukeroleplay.net."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need any mods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You do not need to install any mods. NukeRoleplay uses a server resource pack, which is offered to you when you join the server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Minecraft version do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NukeRoleplay runs on Minecraft Java Edition. For the current version information, check our Discord."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I do on the server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NukeRoleplay is a Minecraft roleplay server set in Oblivion City. You can clock into a job, rent an apartment or buy a house, drive vehicles, run a business, join the police or end up on the wrong side of the law. There is no fixed story, you build your own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make money at the start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most reliable way is a job. You can also earn some quick money by collecting junk around the world and selling it at Junk Shops. Public transport like the metro, bus, tram and train is cheap, so there is no need to rush into buying a vehicle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when I die?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you die, 50% of your pocket money drops at the place where you died. With life insurance you only lose a small part, between 5% and 25% depending on your reputation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the server rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every player is expected to read and follow our server rules. Not knowing the rules is not an excuse for breaking them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a player?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can report rule violations at any time on our moderation Discord, where our staff team will look into it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I join the team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We are always looking for builders, developers, creative minds and community members. Have a look at the open departments on the recruitment page and send in an application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I see what is new?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every update is listed in the changelogs. You can also explore the world page and the live map."
+      }
+    }
+  ]
+}
+    </script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #090a0a;
+            --panel: #151817;
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+
+            --line: rgba(255,255,255,.09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: var(--black);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5vw;
+            background: rgba(9,10,10,.94);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: 1.45rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .logo:hover {
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-back {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--muted);
+        }
+
+        .nav-back:hover {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 6vw 100px;
+        }
+
+        .page-label {
+            color: var(--green-light);
+            font-size: .7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: .95rem;
+            color: var(--text);
+            margin-bottom: 40px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--line);
+            transition: border-color .2s ease;
+        }
+
+        details[open],
+        details:hover {
+            border-left-color: var(--green);
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 18px 22px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            flex-shrink: 0;
+            font-size: 1.4rem;
+            line-height: 1;
+            font-weight: 400;
+            color: var(--green-light);
+            transition: transform .2s ease;
+        }
+
+        details[open] summary::after {
+            content: "\2212";
+        }
+
+        summary:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: -2px;
+        }
+
+        .answer {
+            padding: 0 22px 20px;
+        }
+
+        .answer p {
+            font-size: .93rem;
+            margin-bottom: 10px;
+        }
+
+        .answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .answer strong {
+            color: var(--white);
+        }
+
+        .more {
+            margin-top: 50px;
+            padding: 24px 26px;
+            background: var(--panel);
+            border-left: 4px solid var(--green);
+        }
+
+        .more h2 {
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .more p {
+            font-size: .93rem;
+            margin-bottom: 8px;
+        }
+
+        .more p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            padding: 30px 20px 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            transition: color .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            main {
+                padding: 55px 20px 80px;
+            }
+
+            .nav-back {
+                font-size: .7rem;
+            }
+
+            summary {
+                padding: 16px 18px;
+            }
+
+            .answer {
+                padding: 0 18px 18px;
+            }
+
+            .more {
+                padding: 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<nav>
+    <a href="../" class="logo">Nuke<span>Roleplay</span></a>
+    <a href="../" class="nav-back">← Back to site</a>
+</nav>
+
+<main>
+
+    <div class="page-label">Community</div>
+
+    <h1>FAQ</h1>
+
+    <p class="intro">
+        The most common questions about NukeRoleplay, answered. Can't
+        find what you are looking for? Ask us on Discord.
+    </p>
+
+    <div class="faq-list">
+
+        <details>
+            <summary>How do I join?</summary>
+            <div class="answer">
+                <p>NukeRoleplay is currently in <strong>Beta</strong>. An <strong>Open Beta</strong> will be announced on our <a href="https://discord.gg/zdH3rhXzdu" target="_blank" rel="noopener noreferrer">Discord</a>, so join it to be notified as soon as the server opens.</p>
+                <p>Once the server is open, you can connect with Minecraft Java Edition using the server IP <strong>nukeroleplay.net</strong>. You can also find the IP and the current server status on the <a href="../">home page</a>.</p>
+            </div>
+        </details>
+        <details>
+            <summary>Do I need any mods?</summary>
+            <div class="answer">
+                <p>No. You do <strong>not</strong> need to install any mods. NukeRoleplay uses a server resource pack, which is offered to you when you join the server.</p>
+            </div>
+        </details>
+        <details>
+            <summary>Which Minecraft version do I need?</summary>
+            <div class="answer">
+                <p>NukeRoleplay runs on <strong>Minecraft Java Edition</strong>. For the current version information, check our <a href="https://discord.gg/zdH3rhXzdu" target="_blank" rel="noopener noreferrer">Discord</a>.</p>
+            </div>
+        </details>
+        <details>
+            <summary>What do I do on the server?</summary>
+            <div class="answer">
+                <p>NukeRoleplay is a Minecraft roleplay server set in Oblivion City. You can clock into a job, rent an apartment or buy a house, drive vehicles, run a business, join the police or end up on the wrong side of the law. There is no fixed story, you build your own.</p>
+                <p>The <a href="../documentation/">documentation</a> explains every system in detail.</p>
+            </div>
+        </details>
+        <details>
+            <summary>How do I make money at the start?</summary>
+            <div class="answer">
+                <p>The most reliable way is a job. You can also earn some quick money by collecting junk around the world and selling it at Junk Shops. Public transport like the metro, bus, tram and train is cheap, so there is no need to rush into buying a vehicle.</p>
+                <p>See <a href="../documentation/getting-started/">Getting Started</a> for a full beginner guide.</p>
+            </div>
+        </details>
+        <details>
+            <summary>What happens when I die?</summary>
+            <div class="answer">
+                <p>When you die, 50% of your pocket money drops at the place where you died. With life insurance you only lose a small part, between 5% and 25% depending on your reputation.</p>
+            </div>
+        </details>
+        <details>
+            <summary>What are the server rules?</summary>
+            <div class="answer">
+                <p>Every player is expected to read and follow our <a href="../rules/">server rules</a>. Not knowing the rules is not an excuse for breaking them.</p>
+            </div>
+        </details>
+        <details>
+            <summary>How do I report a player?</summary>
+            <div class="answer">
+                <p>You can report rule violations at any time on our <a href="https://discord.gg/BeFS2ES66u" target="_blank" rel="noopener noreferrer">moderation Discord</a>, where our staff team will look into it.</p>
+            </div>
+        </details>
+        <details>
+            <summary>Can I join the team?</summary>
+            <div class="answer">
+                <p>Yes. We are always looking for builders, developers, creative minds and community members. Have a look at the open departments on the <a href="../recruitment/">recruitment page</a> and send in an application.</p>
+            </div>
+        </details>
+        <details>
+            <summary>Where can I see what is new?</summary>
+            <div class="answer">
+                <p>Every update is listed in the <a href="../changelogs/">changelogs</a>. You can also explore the <a href="../world/">world page</a> and the <a href="http://map.nukeroleplay.net:17240/" target="_blank" rel="noopener noreferrer">live map</a>.</p>
+            </div>
+        </details>
+
+    </div>
+
+    <div class="more">
+        <h2>Still have questions?</h2>
+        <p>
+            Join our Discord and ask the community or the staff team.
+            That is also where the Open Beta will be announced.
+        </p>
+        <p>
+            <a href="https://discord.gg/zdH3rhXzdu" target="_blank" rel="noopener noreferrer">Join the Discord →</a>
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 <strong>Nuke Studios</strong>. All rights reserved.
+    <div class="footer-links">
+        <a href="../imprint/">Imprint</a>
+        <a href="../privacypolicy/">Privacy Policy</a>
+        <a href="../recruitment/">Recruitment</a>
+        <a href="../team/">Team</a>
+        <a href="../rules/">Rules</a>
+        <a href="../faq/">FAQ</a>
+    </div>
+</footer>
+
+</body>
+
+</html>
