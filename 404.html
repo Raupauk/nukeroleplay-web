@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Absolute paths: GitHub Pages serves this file for any missing URL, at any depth -->
+    <link rel="icon" type="image/png" href="/images/logo.png">
+
+    <title>Page Not Found | NukeRoleplay</title>
+
+    <meta name="description" content="This page could not be found.">
+    <meta name="robots" content="noindex">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #090a0a;
+            --panel: #151817;
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+
+            --line: rgba(255,255,255,.09);
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: var(--black);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5vw;
+            background: rgba(9,10,10,.94);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: 1.45rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .logo:hover {
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 6vw 90px;
+        }
+
+        .code {
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(6rem, 22vw, 12rem);
+            line-height: 1;
+            color: var(--green);
+            letter-spacing: .02em;
+        }
+
+        .page-label {
+            color: var(--green-light);
+            font-size: .7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: Impact, "Arial Narrow", sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        p {
+            max-width: 480px;
+            font-size: .95rem;
+            color: var(--text);
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: .78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--white);
+            transition: border-color .2s ease, color .2s ease;
+        }
+
+        .btn:hover {
+            text-decoration: none;
+            border-color: var(--green);
+            color: var(--green-light);
+        }
+
+        .btn.primary {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--black);
+        }
+
+        .btn.primary:hover {
+            background: var(--green-light);
+            border-color: var(--green-light);
+            color: var(--black);
+        }
+
+        footer {
+            padding: 30px 20px 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            transition: color .2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--green-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+    <a class="logo" href="/">Nuke<span>Roleplay</span></a>
+</nav>
+
+<main>
+    <div class="code">404</div>
+    <div class="page-label">Page not found</div>
+    <h1>Lost in Oblivion City</h1>
+    <p>
+        The page you are looking for does not exist, was moved or has
+        been removed. Check the address or head back.
+    </p>
+    <div class="buttons">
+        <a class="btn primary" href="/">Back to Home</a>
+        <a class="btn" href="/documentation/">Documentation</a>
+        <a class="btn" href="/changelogs/">Changelogs</a>
+    </div>
+</main>
+
+<footer>
+    © 2026 <strong>Nuke Studios</strong>. All rights reserved.
+    <div class="footer-links">
+        <a href="/imprint/">Imprint</a>
+        <a href="/privacypolicy/">Privacy Policy</a>
+        <a href="/recruitment/">Recruitment</a>
+        <a href="/team/">Team</a>
+        <a href="/rules/">Rules</a>
+    </div>
+</footer>
+
+</body>
+
+</html>
