@@ -682,15 +682,43 @@ window.DOCS_SEARCH_INDEX = [
     "path": "business/#overview",
     "category": "Businesses",
     "title": "Run your own.",
-    "text": "Businesses / Overview Run your own. Businesses are a big part of the economy. Players can found their own company , hire employees and manage a shared company account. Smaller operations like chest shops let you sell goods from your own property. Companies Found a company at an office computer and manage employees and money. Chest Shops Sell items from a chest in your house. NPC Shops NPC run shops with a daily stock and prices that depend on your reputation. Banking Keep your money safe and earn interest on it.",
+    "text": "Businesses / Overview Run your own. Businesses are a big part of the economy. Players can found their own company , hire employees and manage a shared company account. Smaller operations like chest shops let you sell goods from your own property. Companies Found a company at an office computer, manage roles, storage and orders. Chest Shops Sell items from a chest in your house. NPC Shops NPC run shops with a daily stock and prices that depend on your reputation. Banking Keep your money safe and earn interest on it.",
     "snippet": "Businesses / Overview Run your own. Businesses are a big part of the economy. Players can found their own company , hire employees and manage a shared company a"
   },
   {
     "path": "business/#companies",
     "category": "Businesses",
     "title": "Found a company.",
-    "text": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. Creating a company costs 25,000€ . The company name must be unique and between 3 and 24 characters long. After you pay, the company is created and you become its owner. Company management Employees Send job offers to other players. You choose their position (for example Cashier) and their daily salary. They can accept or decline the offer. You can change positions and salaries later. Company Account Deposit money from your personal account and withdraw it again. Employees are paid from the company account. Company Icon Click an item in your inventory to use it as the icon of your company. Disbanding The owner can disband the company. The remaining balance is paid out to the owner. Employee notice If you receive a job offer, you can accept or decline it.",
+    "text": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. You also need a linked Discord account , because founding a company is only possible with a linked Discord. Creating a company costs 25,000$ . The company name must be unique and between 3 and 24 characters long. After you pay, the company is created and you become its owner. Company management Employees Send job offers to other players. When you hire someone you give them a role. They can accept or decline the offer. Individual wages can still be adjusted later. Company Account Deposit money from your personal account and withdraw it again. Employees are paid from the company account. Company Computer The owner and employees whose role allows it can use the company computer. Company Icon Click an item in your inventory to use it as the icon of your company. Disbanding The owner can disband the company. The remaining balance is paid out to the owner. The company storage is deleted when a company is disbanded. You get a warning before you confirm.",
     "snippet": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. "
+  },
+  {
+    "path": "business/#insolvency",
+    "category": "Businesses",
+    "title": "When money runs out.",
+    "text": "Businesses / Insolvency When money runs out. A company that cannot pay its employees runs into trouble. The insolvency system has four stages. 1. Debt Wages that cannot be paid become debt. This starts a 3 day grace period . While the company is in debt, withdrawing money and creating new orders are blocked. Debt is paid directly from the company account, and deposits take effect immediately. 2. Rest mode If the debt is still there after the grace period, the company goes into rest mode for 7 days. Salaries and orders are paused and the debt does not grow. 3. Liquidation After rest mode the state starts the liquidation. Stacks from the company storage are auctioned off through iBuy, with at most 5 lots at the same time. The liquidation ends as soon as the debt is paid and three daily wages are covered. 4. Closure If nothing is left to sell and the debt is still not covered, the company is deleted and its owner is blocked for 14 days . Notifications The owner is informed about every stage in chat, in the Messenger app and with a Discord embed.",
+    "snippet": "Businesses / Insolvency When money runs out. A company that cannot pay its employees runs into trouble. The insolvency system has four stages. 1. Debt Wages tha"
+  },
+  {
+    "path": "business/#orders",
+    "category": "Businesses",
+    "title": "Orders with Bulkr.",
+    "text": "Businesses / Order Board Orders with Bulkr. Companies can buy items from players with the Order Board . Players deliver the items with the phone app Bulkr . Creating orders A company creates an order by choosing an item, an amount, a duration and a price per piece. The full amount is reserved from the company account when the order is created. Your phone item itself cannot be ordered. Delivering in Bulkr Deliver Left click an order to deliver everything you have. Right click to choose your own amount. Partial deliveries If you deliver only part of an order, you are paid in proportion to what you delivered. Filters Filter orders by the items in your inventory or by clicking an item. The item filter is reset whenever you open the app. Your own orders Orders of your own company are visible but you cannot deliver to them yourself. Experience Deliveries give XP, limited to 15 per delivery and 100 per day. Company Storage Delivered items go straight into the storage of the company.",
+    "snippet": "Businesses / Order Board Orders with Bulkr. Companies can buy items from players with the Order Board . Players deliver the items with the phone app Bulkr . Cre"
+  },
+  {
+    "path": "business/#storage",
+    "category": "Businesses",
+    "title": "Company storage.",
+    "text": "Businesses / Storage Company storage. Every company has its own storage that shows what the company owns. Items delivered through the order board end up here. Layout Each page has 45 slots. At the bottom you see statistics and can flip between pages. Pages A company can have up to 10 pages. A new page costs 10,000$ multiplied by the current number of pages.",
+    "snippet": "Businesses / Storage Company storage. Every company has its own storage that shows what the company owns. Items delivered through the order board end up here. L"
+  },
+  {
+    "path": "business/#roles",
+    "category": "Businesses",
+    "title": "Roles and wages.",
+    "text": "Businesses / Roles Roles and wages. Roles decide what your employees are allowed to do. Every role has a name, a daily wage and a set of permissions. A company starts with up to 5 roles . You can buy additional role slots for 5,000$ each, up to a maximum of 14 roles . Manage Company Funds Members with this permission can deposit money into and withdraw money from the company account. Access Company Order Board Members with this permission can use the order board of the company. See the Order Board section. Daily Wage Every role has a daily wage that is paid from the company account. You can still adjust the wage of single employees. Hiring Every new employee is assigned a role when they are hired.",
+    "snippet": "Businesses / Roles Roles and wages. Roles decide what your employees are allowed to do. Every role has a name, a daily wage and a set of permissions. A company "
   },
   {
     "path": "business/#chestshops",
@@ -710,8 +738,8 @@ window.DOCS_SEARCH_INDEX = [
     "path": "business/#quick-reference",
     "category": "Businesses",
     "title": "Quick Reference",
-    "text": "Businesses / Reference Quick Reference Company 25,000€, office computer required Name 3 to 24 characters, unique Employees Offer, accept, daily salary Interest 0.5% to 2% per hour, based on reputation",
-    "snippet": "Businesses / Reference Quick Reference Company 25,000€, office computer required Name 3 to 24 characters, unique Employees Offer, accept, daily salary Interest "
+    "text": "Businesses / Reference Quick Reference Company 25,000$, office computer and linked Discord required Name 3 to 24 characters, unique Employees Hired with a role, paid a daily wage Interest 0.5% to 2% per hour, based on reputation",
+    "snippet": "Businesses / Reference Quick Reference Company 25,000$, office computer and linked Discord required Name 3 to 24 characters, unique Employees Hired with a role,"
   },
   {
     "path": "jobs/#fisher",
