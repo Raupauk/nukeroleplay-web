@@ -1,0 +1,2494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<script src="../../assets/loader.js"></script>
+
+    <title>Progression &amp; Reputation | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn how levels, reputation, licenses, degrees, missions and advancements work in NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+            --blue: #527fa5;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                520px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 80px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.22) 38%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                42px;
+
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                1000px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .94rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                75px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           FEATURE IMAGE
+        ========================================================= */
+
+        .feature-image {
+
+            position:
+                relative;
+
+            margin:
+                30px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .feature-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .9;
+
+            transition:
+                transform .5s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .feature-image:hover img {
+
+            transform:
+                scale(1.025);
+
+            opacity:
+                1;
+
+        }
+
+
+        .feature-caption {
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--muted);
+
+            background:
+                #101211;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .sub-title {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            text-transform:
+                uppercase;
+
+            margin:
+                44px 0 14px;
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           RANK SYSTEM
+        ========================================================= */
+
+        .rank-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .rank-card {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            align-items:
+                center;
+
+            padding:
+                20px 22px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .rank-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .rank-number {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                2rem;
+
+            color:
+                var(--green);
+
+            text-align:
+                center;
+
+        }
+
+
+        .rank-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .rank-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .department-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .department-card {
+
+            padding:
+                27px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .department-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .department-code {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .department-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.2rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .department-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PROCESS STEPS
+        ========================================================= */
+
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           WANTED / POLICE IMAGE
+        ========================================================= */
+
+        .wanted-image {
+
+            margin:
+                30px 0;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .wanted-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+        }
+
+
+        .wanted-caption {
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .7rem;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           OCPD LOGO
+        ========================================================= */
+
+        .ocpd-logo {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                35px 20px;
+
+            margin:
+                25px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .ocpd-logo img {
+
+            width:
+                145px;
+
+            max-width:
+                38%;
+
+            height:
+                auto;
+
+            opacity:
+                .92;
+
+        }
+
+
+        /* =========================================================
+           DISCORD LINK
+        ========================================================= */
+
+        .discord-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                10px;
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--white);
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .discord-link:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .discord-link span {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    450px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+
+            .info-grid,
+            .department-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .rank-card {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .ocpd-logo img {
+
+                width:
+                    125px;
+
+                max-width:
+                    45%;
+
+            }
+
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="../assets/docs-sidebar.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Progression &amp; Reputation
+        </div>
+
+
+        <h1>
+            Progression &amp;<br><span>Reputation</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Learn how levels, reputation, licenses, degrees, missions and advancements work in NukeRoleplay.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="docs-shell no-toc">
+
+
+<button class="docs-menu-toggle" type="button">
+    ☰ Menu
+</button>
+
+<aside class="docs-sidebar">
+
+    <div class="docs-search">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input type="text" placeholder="Search documentation…" aria-label="Search documentation">
+
+    </div>
+
+    <div class="docs-nav-label">Documentation</div>
+
+<div class="docs-nav-scroll">
+
+    <ul class="docs-nav">
+
+        <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
+        <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
+        <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
+        <li><a class="docs-nav-link" href="../economy/"><span class="num">03</span> Economy &amp; Money</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">04</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">05</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">06</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">07</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../law/"><span class="num">08</span> Law &amp; Order</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">09</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../government/"><span class="num">10</span> Government (planned)</a></li>
+        <li><a class="docs-nav-link" href="../progression/"><span class="num">11</span> Progression</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">12</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">13</span> Commands</a></li>
+
+    </ul>
+
+    <div class="docs-nav-empty">No results found.</div>
+
+</div>
+
+</aside>
+
+
+<div class="docs-content">
+
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Grow your<br>character.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Your character grows in several ways: levels, reputation, licenses and degrees, and missions. This page shows how they fit together.
+                </p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Level
+                        </h3>
+                        <p>
+                            Gain experience from jobs and activities and collect rewards at milestones.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Reputation
+                        </h3>
+                        <p>
+                            What the city thinks of you. It changes prices, interest and careers.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Licenses
+                        </h3>
+                        <p>
+                            Pay a fee, pass a test and unlock new options.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Missions
+                        </h3>
+                        <p>
+                            Optional tasks and discoveries.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="level"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Level &amp; XP
+                    </div>
+
+                    <h2 class="section-title">
+                        Level<br>up.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Almost every job and many activities give you <strong>experience</strong>: mining, lumberjacking, fishing, farming, deliveries, daily quests and missions, and police work. Gaining enough experience raises your <strong>level</strong>.
+                </p>
+                <p>
+                    At milestone levels you receive a money reward. Open the <strong>Level</strong> app on your <a href="../phone/">phone</a> to see your progress and collect your rewards. There are also rewards for the time you spend on the server.
+                </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="progression-level-app.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · progression-level-app.webp</span>
+                        <strong>The Level app with a milestone reward</strong>
+                    </div>
+
+                    <figcaption>
+                        Collect level rewards in the Level app.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="reputation"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Reputation
+                    </div>
+
+                    <h2 class="section-title">
+                        What they<br>think of you.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Your reputation is a measure of how the city sees you. Good deeds and clean behavior raise it, crime and violence lower it. It is shown as one of five tiers.
+                </p>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Tier</th><th>What changes</th></tr></thead>
+                    <tbody>
+                        <tr><td>Honored</td><td>Highest bank interest, cheapest life insurance, 10% off in shops at the very top</td></tr>
+                        <tr><td>Respected</td><td>Good interest and insurance rates</td></tr>
+                        <tr><td>Neutral</td><td>Normal rates. Required for police and lawyer careers</td></tr>
+                        <tr><td>Shady</td><td>Lower interest, more expensive life insurance</td></tr>
+                        <tr><td>Criminal</td><td>Lowest interest, most expensive life insurance, 10% surcharge in shops and no property purchases at the very bottom</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>
+                    Wanted points also fade faster with a high reputation. Passing a license test gives a small reputation boost. See <a href="../economy/">Economy</a> for the exact numbers on interest and insurance.
+                </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="progression-reputation.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · progression-reputation.webp</span>
+                        <strong>The reputation bossbar or tier display</strong>
+                    </div>
+
+                    <figcaption>
+                        Your reputation tier is shown in the game.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="licenses"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Licenses &amp; degrees
+                    </div>
+
+                    <h2 class="section-title">
+                        Licenses<br>and degrees.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Licenses and degrees cost money, require you to pass a test, and unlock things that are otherwise closed to you. You can see yours in the <strong>Degrees</strong> app.
+                </p>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>License</th><th>Cost</th><th>Unlocks</th></tr></thead>
+                    <tbody>
+                        <tr><td>Driving license</td><td>5,000€</td><td>Spawning and driving vehicles</td></tr>
+                        <tr><td>Gun license</td><td>15,000€</td><td>Buying and carrying firearms</td></tr>
+                        <tr><td>Basic Geology</td><td>5,000€</td><td>Lower mine levels (with a hazmat suit)</td></tr>
+                        <tr><td>Advanced Geology</td><td>20,000€</td><td>Oil pumps</td></tr>
+                        <tr><td>LETC</td><td>50,000€</td><td>Police career, see <a href="../police/">Police</a></td></tr>
+                        <tr><td>Lawyer Certification</td><td>50,000€</td><td>Lawyer career, see <a href="../law/">Law &amp; Order</a></td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>
+                    Some licenses, like the hunting license, are bought and tested at special NPCs. Look around the city to find them.
+                </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="progression-degrees.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · progression-degrees.webp</span>
+                        <strong>The Degrees app listing your licenses</strong>
+                    </div>
+
+                    <figcaption>
+                        All your licenses in one place.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="missions"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Missions
+                    </div>
+
+                    <h2 class="section-title">
+                        Missions<br>and discoveries.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Use <code>/missions</code> to see your active missions. Missions are optional and take you around the city. They are meant to be discovered, so this documentation does not list them.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="advancements"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Advancements
+                    </div>
+
+                    <h2 class="section-title">
+                        Advance-<br>ments.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Advancements track what you have done in the city. They are grouped into eight tabs: General, Jobs, Business, Criminal, Law, Education, Property and City. Open the advancements screen to see which ones you have completed.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Progression / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>Reference
+                    </h2>
+
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Level rewards
+                        </h3>
+                        <p>
+                            Collect them in the Level app
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Degrees
+                        </h3>
+                        <p>
+                            See your licenses in the Degrees app
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Missions
+                        </h3>
+                        <p>
+                            Use /missions
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Reputation tiers
+                        </h3>
+                        <p>
+                            Honored, Respected, Neutral, Shady, Criminal
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Progression
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview" class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a
+                        href="#level"
+                    >
+                        Level &amp; XP
+                    </a>
+
+
+                    <a
+                        href="#reputation"
+                    >
+                        Reputation
+                    </a>
+
+
+                    <a
+                        href="#licenses"
+                    >
+                        Licenses &amp; degrees
+                    </a>
+
+
+                    <a
+                        href="#missions"
+                    >
+                        Missions
+                    </a>
+
+
+                    <a
+                        href="#advancements"
+                    >
+                        Advancements
+                    </a>
+
+
+                    <a
+                        href="#quick-reference"
+                    >
+                        Reference
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>Tip</strong> Pay for licenses only when you need them.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+        <a href="../../faq/">FAQ</a>
+
+    </div>
+
+</footer>
+
+
+<script src="../assets/docs-search-index.js"></script>
+<script src="../assets/docs-sidebar.js"></script>
+
+</body>
+
+</html>

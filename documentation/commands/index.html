@@ -1408,7 +1408,7 @@
 
 
         <h1>
-            <span>Commands</span>
+            Com<span>mands</span>
         </h1>
 
 
@@ -1455,14 +1455,17 @@
         <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
         <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
         <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
-        <li><a class="docs-nav-link" href="../housing/"><span class="num">03</span> Housing</a></li>
-        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">04</span> Vehicles</a></li>
-        <li><a class="docs-nav-link" href="../police/"><span class="num">05</span> Police</a></li>
-        <li><a class="docs-nav-link" href="../business/"><span class="num">06</span> Businesses</a></li>
-        <li><a class="docs-nav-link" href="../government/"><span class="num">07</span> Government</a></li>
-        <li><a class="docs-nav-link" href="../commands/"><span class="num">08</span> Commands</a></li>
-        <li><a class="docs-nav-link" href="../activities/"><span class="num">09</span> Activities</a></li>
-        <li><a class="docs-nav-link" href="../phone/"><span class="num">10</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../economy/"><span class="num">03</span> Economy &amp; Money</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">04</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">05</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">06</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">07</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../law/"><span class="num">08</span> Law &amp; Order</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">09</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../government/"><span class="num">10</span> Government (planned)</a></li>
+        <li><a class="docs-nav-link" href="../progression/"><span class="num">11</span> Progression</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">12</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">13</span> Commands</a></li>
 
     </ul>
 
@@ -1867,7 +1870,7 @@
                         </div>
 
                         <div class="command-code">
-                            <code>/tphome</code>
+                            <code>/tphome &lt;house&gt;</code>
                         </div>
 
                         <h3>
@@ -1876,8 +1879,10 @@
 
                         <p>
                             If you own a property, use this
-                            command to teleport to your home
-                            whenever you want.
+                            command with the name of the house to
+                            teleport there (alias <code>/tph</code>).
+                            It does not work while you are wanted,
+                            in prison or in combat.
                         </p>
 
                     </div>
@@ -2007,27 +2012,6 @@
                         </div>
 
                         <div class="command-code">
-                            <code>/contact</code>
-                        </div>
-
-                        <h3>
-                            Contacts
-                        </h3>
-
-                        <p>
-                            Open your contacts menu to manage the players you know.
-                        </p>
-
-                    </div>
-
-
-                    <div class="command-card">
-
-                        <div class="command-number">
-                            COMMAND · 14
-                        </div>
-
-                        <div class="command-code">
                             <code>/ignore [Playername]</code>
                         </div>
 
@@ -2076,7 +2060,7 @@
                     <div class="command-card">
 
                         <div class="command-number">
-                            COMMAND · 15
+                            COMMAND · 14
                         </div>
 
                         <div class="command-code">
@@ -2089,6 +2073,27 @@
 
                         <p>
                             Send money from your balance to another online player.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 15
+                        </div>
+
+                        <div class="command-code">
+                            <code>/moneycheck &lt;Amount&gt;</code>
+                        </div>
+
+                        <h3>
+                            Money Check
+                        </h3>
+
+                        <p>
+                            Turn money from your balance into a money check item. Right click the check to add the money back to your balance. A check can be handed to other players.
                         </p>
 
                     </div>
@@ -2234,48 +2239,6 @@
                     </div>
 
 
-                    <div class="command-card">
-
-                        <div class="command-number">
-                            COMMAND · 21
-                        </div>
-
-                        <div class="command-code">
-                            <code>/coinflip bet &lt;Amount&gt;</code>
-                        </div>
-
-                        <h3>
-                            Coinflip
-                        </h3>
-
-                        <p>
-                            Place a coinflip bet. Use /coinflip menu to see open bets and /coinflip cancel to take yours back.
-                        </p>
-
-                    </div>
-
-
-                    <div class="command-card">
-
-                        <div class="command-number">
-                            COMMAND · 22
-                        </div>
-
-                        <div class="command-code">
-                            <code>/lottery</code>
-                        </div>
-
-                        <h3>
-                            Lottery
-                        </h3>
-
-                        <p>
-                            Open the lottery menu and buy a ticket.
-                        </p>
-
-                    </div>
-
-
                 </div>
 
             </section>
@@ -2310,19 +2273,40 @@
                     <div class="command-card">
 
                         <div class="command-number">
-                            COMMAND · 23
+                            COMMAND · 21
                         </div>
 
                         <div class="command-code">
-                            <code>/sit</code>
+                            <code>/sign &lt;Text&gt;</code>
                         </div>
 
                         <h3>
-                            Sit Down
+                            Sign an Item
                         </h3>
 
                         <p>
-                            Sit down where you are standing.
+                            Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed.
+                        </p>
+
+                    </div>
+
+
+                    <div class="command-card">
+
+                        <div class="command-number">
+                            COMMAND · 22
+                        </div>
+
+                        <div class="command-code">
+                            <code>/delsign</code>
+                        </div>
+
+                        <h3>
+                            Remove Signature
+                        </h3>
+
+                        <p>
+                            Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.
                         </p>
 
                     </div>
@@ -2361,7 +2345,7 @@
                     <div class="command-card">
 
                         <div class="command-number">
-                            COMMAND · 24
+                            COMMAND · 23
                         </div>
 
                         <div class="command-code">
@@ -2517,11 +2501,11 @@
                     <div class="command-card">
 
                         <div class="command-code">
-                            <code>/tphome</code>
+                            <code>/tphome &lt;house&gt;</code>
                         </div>
 
                         <p>
-                            Teleport to your home
+                            Teleport to one of your houses
                         </p>
 
                     </div>

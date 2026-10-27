@@ -477,3 +477,85 @@
     }
 
 }
+
+
+/* =============================================================
+   IMAGE PLACEHOLDERS
+   Replace the .doc-figure-frame <div> with an <img> once the
+   screenshot exists. The data-image attribute is the suggested
+   file name, the text inside the frame describes what to show.
+============================================================= */
+
+.doc-figure {
+
+    margin: 40px 0;
+    border: 1px solid var(--line, rgba(255,255,255,.09));
+    background: var(--panel, #151817);
+    overflow: hidden;
+
+}
+
+.doc-figure img {
+
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: cover;
+
+}
+
+.doc-figure-frame {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    aspect-ratio: 16 / 6;
+    min-height: 140px;
+    padding: 24px;
+
+    text-align: center;
+
+    border-bottom: 1px dashed rgba(255,255,255,.18);
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.02) 12px,
+            transparent 12px,
+            transparent 24px
+        );
+
+}
+
+.doc-figure-frame span {
+
+    color: var(--green, #91b83f);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+
+}
+
+.doc-figure-frame strong {
+
+    color: var(--white, #f1f0eb);
+    font-weight: 400;
+    font-size: .95rem;
+    line-height: 1.5;
+    max-width: 520px;
+
+}
+
+.doc-figure figcaption {
+
+    padding: 15px 20px;
+    color: var(--muted, #8d918c);
+    font-size: .72rem;
+    line-height: 1.6;
+    letter-spacing: .04em;
+
+}

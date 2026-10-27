@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<script src="../../assets/loader.js"></script>
+
+    <title>Economy &amp; Money | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn how money, banking, interest, dying with cash, life insurance and the markets work in NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+            --blue: #527fa5;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                520px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 80px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.22) 38%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                42px;
+
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                1000px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .94rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                75px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           FEATURE IMAGE
+        ========================================================= */
+
+        .feature-image {
+
+            position:
+                relative;
+
+            margin:
+                30px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .feature-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .9;
+
+            transition:
+                transform .5s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .feature-image:hover img {
+
+            transform:
+                scale(1.025);
+
+            opacity:
+                1;
+
+        }
+
+
+        .feature-caption {
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--muted);
+
+            background:
+                #101211;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .sub-title {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            text-transform:
+                uppercase;
+
+            margin:
+                44px 0 14px;
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           RANK SYSTEM
+        ========================================================= */
+
+        .rank-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .rank-card {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            align-items:
+                center;
+
+            padding:
+                20px 22px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .rank-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .rank-number {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                2rem;
+
+            color:
+                var(--green);
+
+            text-align:
+                center;
+
+        }
+
+
+        .rank-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .rank-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .department-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .department-card {
+
+            padding:
+                27px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .department-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .department-code {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .department-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.2rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .department-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PROCESS STEPS
+        ========================================================= */
+
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           WANTED / POLICE IMAGE
+        ========================================================= */
+
+        .wanted-image {
+
+            margin:
+                30px 0;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .wanted-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+        }
+
+
+        .wanted-caption {
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .7rem;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           OCPD LOGO
+        ========================================================= */
+
+        .ocpd-logo {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                35px 20px;
+
+            margin:
+                25px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .ocpd-logo img {
+
+            width:
+                145px;
+
+            max-width:
+                38%;
+
+            height:
+                auto;
+
+            opacity:
+                .92;
+
+        }
+
+
+        /* =========================================================
+           DISCORD LINK
+        ========================================================= */
+
+        .discord-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                10px;
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--white);
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .discord-link:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .discord-link span {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    450px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+
+            .info-grid,
+            .department-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .rank-card {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .ocpd-logo img {
+
+                width:
+                    125px;
+
+                max-width:
+                    45%;
+
+            }
+
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="../assets/docs-sidebar.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Economy &amp; Money
+        </div>
+
+
+        <h1>
+            Economy &amp;<br><span>Money</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Learn how money, banking, interest, dying with cash, life insurance and the markets work in NukeRoleplay.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="docs-shell no-toc">
+
+
+<button class="docs-menu-toggle" type="button">
+    ☰ Menu
+</button>
+
+<aside class="docs-sidebar">
+
+    <div class="docs-search">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input type="text" placeholder="Search documentation…" aria-label="Search documentation">
+
+    </div>
+
+    <div class="docs-nav-label">Documentation</div>
+
+<div class="docs-nav-scroll">
+
+    <ul class="docs-nav">
+
+        <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
+        <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
+        <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
+        <li><a class="docs-nav-link" href="../economy/"><span class="num">03</span> Economy &amp; Money</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">04</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">05</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">06</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">07</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../law/"><span class="num">08</span> Law &amp; Order</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">09</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../government/"><span class="num">10</span> Government (planned)</a></li>
+        <li><a class="docs-nav-link" href="../progression/"><span class="num">11</span> Progression</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">12</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">13</span> Commands</a></li>
+
+    </ul>
+
+    <div class="docs-nav-empty">No results found.</div>
+
+</div>
+
+</aside>
+
+
+<div class="docs-content">
+
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Money<br>matters.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Almost everything in the city costs money. This page explains the rules behind your wallet, the bank, dying with cash in your pocket and the markets. Prices of individual items are not listed here, because they change over time. Check the shops in the game.
+                </p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Pocket money
+                        </h3>
+                        <p>
+                            Cash you carry. You can lose it.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Bank account
+                        </h3>
+                        <p>
+                            Safe from death and earns a small amount of interest.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Money checks
+                        </h3>
+                        <p>
+                            Cash turned into a paper item you can hand over.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Markets
+                        </h3>
+                        <p>
+                            Stocks and an auction house.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="money"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Your money
+                    </div>
+
+                    <h2 class="section-title">
+                        Cash and<br>bank.
+                    </h2>
+
+                </div>
+
+                <p>
+                    You start with <strong>300€</strong> in pocket money and an empty bank account. Your pocket money is what you carry with you. Your bank balance is stored safely at the bank.
+                </p>
+                <p>
+                    You can turn pocket money into a <strong>money check</strong> with <code>/moneycheck</code>. A money check is an item, so it can be handed over, stored in a chest, or lost like any other item. Use <code>/pay</code> to send money directly to a player who is online.
+                </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="economy-money-check.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · economy-money-check.webp</span>
+                        <strong>A money check item and its tooltip</strong>
+                    </div>
+
+                    <figcaption>
+                        A money check is an item you can hand over.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="bank"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / The bank
+                    </div>
+
+                    <h2 class="section-title">
+                        Bank and<br>interest.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Money in your bank account earns a small amount of interest every hour, even while you are offline. The rate depends on your reputation. Offline players receive interest for at most 48 hours, and interest is only paid on a balance up to 250,000€.
+                </p>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Reputation</th><th>Interest per hour</th></tr></thead>
+                    <tbody>
+                        <tr><td>Honored</td><td>0.04%</td></tr>
+                        <tr><td>Respected</td><td>0.03%</td></tr>
+                        <tr><td>Neutral</td><td>0.02%</td></tr>
+                        <tr><td>Shady</td><td>0.015%</td></tr>
+                        <tr><td>Criminal</td><td>0.01%</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="warning">
+                    <div class="warning-label">
+                        Bonus, not income
+                    </div>
+                    <p>
+                        Interest is a small bonus. A job is still the way to build an income.
+                    </p>
+                </div>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="economy-bank.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · economy-bank.webp</span>
+                        <strong>The bank clerk dialog showing the interest rate</strong>
+                    </div>
+
+                    <figcaption>
+                        The bank pays a small interest on your balance.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="dying"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Dying
+                    </div>
+
+                    <h2 class="section-title">
+                        What you<br>lose.
+                    </h2>
+
+                </div>
+
+                <p>
+                    When you die, <strong>half of your pocket money</strong> drops at the place where you died as a money check. Your <strong>inventory stays with you</strong>. Money in your bank account is never lost.
+                </p>
+                <h3 class="sub-title">Life insurance</h3>
+                <p>
+                    Life insurance reduces what you lose when you die to a small share of your pocket money, between <strong>5%</strong> (Honored) and <strong>25%</strong> (Criminal), depending on your reputation. Signing up costs <strong>1,000€</strong> and <strong>400€</strong> are charged every day. If you cannot pay the daily fee, the insurance is cancelled automatically.
+                </p>
+                <div class="warning">
+                    <div class="warning-label">
+                        Plan ahead
+                    </div>
+                    <p>
+                        Do not carry large amounts of cash around. Put it in the bank first.
+                    </p>
+                </div>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="economy-insurance.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · economy-insurance.webp</span>
+                        <strong>The insurance NPC dialog</strong>
+                    </div>
+
+                    <figcaption>
+                        Sign up for life insurance at the insurance NPC.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="prices"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Prices
+                    </div>
+
+                    <h2 class="section-title">
+                        Prices and<br>reputation.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Most shops have a limited <strong>daily stock</strong>, so popular items can sell out. Your reputation only changes shop prices at the extremes: players with a <strong>very high</strong> reputation pay 10% less, players with a <strong>very low</strong> reputation pay 10% more. Read more about reputation on the <a href="../progression/">Progression</a> page.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="markets"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Markets
+                    </div>
+
+                    <h2 class="section-title">
+                        Stocks and<br>auctions.
+                    </h2>
+
+                </div>
+
+                <p>
+                    <strong>ObliStocks</strong> is a stock market in your Premium <a href="../phone/">phone</a>. Share prices react to what happens in the city and slowly move back towards their normal value. You can only trade a limited amount at a time. Invest only what you can afford to lose.
+                </p>
+                <p>
+                    <strong>iBuy</strong> is an auction house in your phone. Sellers can set a starting bid or an instant buy price, and buyers bid against each other. The state also uses iBuy to sell off storage of bankrupt companies, see <a href="../business/#insolvency">Businesses</a>.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Economy / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>Reference
+                    </h2>
+
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Start money
+                        </h3>
+                        <p>
+                            300€ pocket money
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Death
+                        </h3>
+                        <p>
+                            50% of pocket money drops, inventory stays
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Life insurance
+                        </h3>
+                        <p>
+                            1,000€ once, 400€ per day
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Bank interest
+                        </h3>
+                        <p>
+                            0.01% to 0.04% per hour
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Economy
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview" class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a
+                        href="#money"
+                    >
+                        Your money
+                    </a>
+
+
+                    <a
+                        href="#bank"
+                    >
+                        The bank
+                    </a>
+
+
+                    <a
+                        href="#dying"
+                    >
+                        Dying
+                    </a>
+
+
+                    <a
+                        href="#prices"
+                    >
+                        Prices
+                    </a>
+
+
+                    <a
+                        href="#markets"
+                    >
+                        Markets
+                    </a>
+
+
+                    <a
+                        href="#quick-reference"
+                    >
+                        Reference
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>Tip</strong> Keep most of your money in the bank.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+        <a href="../../faq/">FAQ</a>
+
+    </div>
+
+</footer>
+
+
+<script src="../assets/docs-search-index.js"></script>
+<script src="../assets/docs-sidebar.js"></script>
+
+</body>
+
+</html>

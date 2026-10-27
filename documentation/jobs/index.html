@@ -646,6 +646,56 @@
     }
 
 
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+
+        .sub-title {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            text-transform:
+                uppercase;
+
+            margin:
+                44px 0 14px;
+
+        }
+
+
     /* =========================================================
        INFO CARDS
     ========================================================= */
@@ -1751,8 +1801,8 @@
 
 
     <h1>
-        <span>Jobs</span>
-    </h1>
+            Jo<span>bs</span>
+        </h1>
 
 
     <p class="hero-copy">
@@ -1799,14 +1849,17 @@
         <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
         <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
         <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
-        <li><a class="docs-nav-link" href="../housing/"><span class="num">03</span> Housing</a></li>
-        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">04</span> Vehicles</a></li>
-        <li><a class="docs-nav-link" href="../police/"><span class="num">05</span> Police</a></li>
-        <li><a class="docs-nav-link" href="../business/"><span class="num">06</span> Businesses</a></li>
-        <li><a class="docs-nav-link" href="../government/"><span class="num">07</span> Government</a></li>
-        <li><a class="docs-nav-link" href="../commands/"><span class="num">08</span> Commands</a></li>
-        <li><a class="docs-nav-link" href="../activities/"><span class="num">09</span> Activities</a></li>
-        <li><a class="docs-nav-link" href="../phone/"><span class="num">10</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../economy/"><span class="num">03</span> Economy &amp; Money</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">04</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">05</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">06</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">07</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../law/"><span class="num">08</span> Law &amp; Order</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">09</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../government/"><span class="num">10</span> Government (planned)</a></li>
+        <li><a class="docs-nav-link" href="../progression/"><span class="num">11</span> Progression</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">12</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">13</span> Commands</a></li>
 
     </ul>
 
@@ -2287,6 +2340,30 @@
                 </div>
 
 
+                <div
+                    class="job-card"
+                    data-number="08"
+                >
+
+                    <div class="job-number">
+                        JOB · 08
+                    </div>
+
+                    <h3>
+                        Brewer
+                    </h3>
+
+                    <p>
+                        Brew drinks in a cauldron, let them age in barrels and sell them at the pub. Equipment is sold at Barney's Brewery.
+                    </p>
+
+                    <span class="job-tag">
+                        No Application
+                    </span>
+
+                </div>
+
+
 
 
             </div>
@@ -2303,7 +2380,10 @@
                     <strong>toxic</strong>. Do not assume
                     that going deeper is always safer or
                     more profitable. Prepare yourself
-                    before entering dangerous areas.
+                    before entering dangerous areas: the lower
+                    levels require a <strong>Basic Geology</strong>
+                    degree, a <strong>hazmat suit</strong> and some
+                    experience as a miner.
                 </p>
 
             </div>
@@ -2411,6 +2491,20 @@
                 </div>
 
             </div>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="jobs-mine-entrance.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · jobs-mine-entrance.webp</span>
+                        <strong>A mine entrance with the hazmat warning sign</strong>
+                    </div>
+
+                    <figcaption>
+                        The lower levels of the mines need preparation.
+                    </figcaption>
+
+                </figure>
 
         </section>
 
@@ -2756,6 +2850,20 @@
     Sell everything at the Fisher Shop.
                 </p>
 
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="jobs-fishing-minigame.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · jobs-fishing-minigame.webp</span>
+                        <strong>The fishing minigame bar while a fish bites</strong>
+                    </div>
+
+                    <figcaption>
+                        Keep the bar in the green zone to land the fish.
+                    </figcaption>
+
+                </figure>
+
             </section>
 
 
@@ -2826,7 +2934,7 @@
                         </h3>
 
                         <p>
-                            Fertilizer (150€) and Plant Protection (35€). He also buys your bio waste for 6€ each.
+                            Fertilizer (45€) and Plant Protection (10€). He also buys your bio waste for 6€ each.
                         </p>
 
                     </div>
@@ -2928,6 +3036,20 @@
                     The Market Trader pays the following base prices per crop: wheat 12€, carrots 10€, potatoes 12€, beetroot 14€, pumpkins 60€ and melons 12€.
     A Restaurant Owner also posts <strong>daily orders</strong> that reset every day and pay a reward when you deliver the requested crops.
                 </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="jobs-planter.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · jobs-planter.webp</span>
+                        <strong>A portable planter with a watering can next to it</strong>
+                    </div>
+
+                    <figcaption>
+                        Place a planter, plant a seed bag and take care of it.
+                    </figcaption>
+
+                </figure>
 
             </section>
 
@@ -3062,6 +3184,143 @@
                 <p>
                     Meat and fur come in different qualities. Sell your catch to the Hunter.
                 </p>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="jobs-hunting.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · jobs-hunting.webp</span>
+                        <strong>A hunter tracking an animal with a bow</strong>
+                    </div>
+
+                    <figcaption>
+                        Hunting needs a license.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="brewer"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Job / Brewing
+                    </div>
+
+                    <h2 class="section-title">
+                        Brew it<br>right.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Brewers turn ingredients into drinks. A good brew takes patience, the right ingredients and a steady hand.
+                    You do not need an application, only equipment from <strong>Barney's Brewery</strong>.
+                </p>
+
+                <h3 class="sub-title">Brewing</h3>
+
+                <p>
+                    Fill a <strong>cauldron</strong> with water and place it above a <strong>heat source</strong> such as a campfire or a furnace.
+                    Right click it with ingredients to add them, stir with a wooden spoon and fill a glass bottle once the cauldron shows
+                    <strong>Ready</strong>. Above the cauldron you can see what stage the brew is in: Fermenting, Ready, Overbrewed or Ruined.
+                    Wrong ingredients or a ruined brew leave you with something undrinkable.
+                </p>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Quality
+                        </h3>
+
+                        <p>
+                            Every drink has a quality of up to five stars. The right ingredients, good timing, stirring and the right heat all count.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Aging
+                        </h3>
+
+                        <p>
+                            Some drinks get better in a barrel. Sneak and right click a barrel with a plank to turn it into an aging barrel. Bottles inside age in real time, even while you are offline.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Distilling
+                        </h3>
+
+                        <p>
+                            Strong spirits are distilled in a brewing stand with glowstone dust and blaze powder. Every run makes the drink stronger.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Recipes
+                        </h3>
+
+                        <p>
+                            Learn recipes from the recipe book by clicking a drink you brewed onto it, or by buying recipe scrolls from the Librarian. Experiment to find out what works.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <h3 class="sub-title">Selling</h3>
+
+                <p>
+                    The <strong>Pub</strong> buys the drinks you brewed. The more stars and the better the recipe, the more you get paid.
+                    You can also buy drinks there.
+                </p>
+
+                <div class="warning">
+
+                    <div class="warning-label">
+                        Drinking
+                    </div>
+
+                    <p>
+                        Alcohol makes you tipsy, drunk, wasted and finally unconscious, and you suffer a hangover afterwards.
+                        Badly made or over-distilled spirits can even poison you.
+                    </p>
+
+                </div>
+
+
+                <figure class="doc-figure doc-figure-placeholder" data-image="jobs-brewing-cauldron.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · jobs-brewing-cauldron.webp</span>
+                        <strong>A cauldron above a campfire, and a row of aging barrels</strong>
+                    </div>
+
+                    <figcaption>
+                        Cauldron for brewing, barrels for aging.
+                    </figcaption>
+
+                </figure>
 
             </section>
 
@@ -4028,7 +4287,7 @@
                     </span>
 
                     <strong>
-                        Miner · Lumberjack · Fisher · Farmer · Hunter
+                        Miner · Lumberjack · Fisher · Farmer · Hunter · Brewer
                     </strong>
 
                 </div>
@@ -4188,6 +4447,11 @@
 
                 <a href="#hunter">
                     Hunter
+                </a>
+
+
+                <a href="#brewer">
+                    Brewer
                 </a>
 
 
