@@ -444,7 +444,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "vehicles/#spawning",
     "category": "Vehicles",
     "title": "Spawn and drive.",
-    "text": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . You can only have one vehicle spawned at a time. /delcar Despawn your current vehicle. /lockcar Lock your vehicle so nobody else can use it. /unlockcar Unlock your vehicle again. Fuel A fuel bar is shown while you drive. Keep an eye on it so you do not run dry. Refill at a gas station or with a fuel canister. Gas stations are marked on the live map.",
+    "text": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . You can only have one vehicle spawned at a time. /delcar Despawn your current vehicle. Locking Your car locks and unlocks automatically when you leave it. You can also lock or unlock it by holding Shift and right clicking the car. Passenger menu While driving, press F (the key that swaps main hand and offhand) to open a menu. There you can eject passengers from your vehicle. Fuel A fuel bar is shown while you drive. Keep an eye on it so you do not run dry. Refill at a gas station or with a fuel canister. Gas stations are marked on the live map.",
     "snippet": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . "
   },
   {
@@ -472,8 +472,8 @@ window.DOCS_SEARCH_INDEX = [
     "path": "vehicles/#quick-reference",
     "category": "Vehicles",
     "title": "Quick Reference",
-    "text": "Vehicles / Reference Quick Reference License 5,000€, theory and practical test Insurance 2,500€ once, repair time 20 min → 5 min Commands /delcar, /lockcar, /unlockcar Fares Metro 2€, tram 4€, train 10€ per stop",
-    "snippet": "Vehicles / Reference Quick Reference License 5,000€, theory and practical test Insurance 2,500€ once, repair time 20 min → 5 min Commands /delcar, /lockcar, /un"
+    "text": "Vehicles / Reference Quick Reference License 5,000€, theory and practical test Insurance 2,500€ once, repair time 20 min → 5 min Commands /delcar. Cars lock automatically, Shift + right click to lock or unlock Fares Metro 2€, tram 4€, train 10€ per stop",
+    "snippet": "Vehicles / Reference Quick Reference License 5,000€, theory and practical test Insurance 2,500€ once, repair time 20 min → 5 min Commands /delcar. Cars lock aut"
   },
   {
     "path": "phone/",
@@ -885,56 +885,56 @@ window.DOCS_SEARCH_INDEX = [
     "path": "commands/#vehicles",
     "category": "Commands",
     "title": "Vehicles",
-    "text": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle. COMMAND · 7 /lockcar Lock Vehicle Lock your vehicle to prevent unauthorized access. COMMAND · 8 /unlockcar Unlock Vehicle Unlock your vehicle so it can be accessed again.",
-    "snippet": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle. COMMAND · 7 /lockcar Lock Vehicle Lock your vehicle to "
+    "text": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle.",
+    "snippet": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle."
   },
   {
     "path": "commands/#housing",
     "category": "Commands",
     "title": "Housing",
-    "text": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 9 /tphome <house> Teleport Home If you own a property, use this command with the name of the house to teleport there (alias /tph ). It does not work while you are wanted, in prison or in combat. COMMAND · 10 /house <Housename> trust <Playername> Trust a Player Give another player permissions for one of your properties. COMMAND · 11 /house menu House Menu Open the house management menu where you can manage the permissions you have given to other players. Security · Housing Permissions Only trust players you know and trust. Giving another player access to your property can give them permissions inside your house.",
-    "snippet": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 9 /tphome <house"
+    "text": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 7 /tphome <house> Teleport Home If you own a property, use this command with the name of the house to teleport there (alias /tph ). It does not work while you are wanted, in prison or in combat. COMMAND · 8 /house <Housename> trust <Playername> Trust a Player Give another player permissions for one of your properties. COMMAND · 9 /house menu House Menu Open the house management menu where you can manage the permissions you have given to other players. Security · Housing Permissions Only trust players you know and trust. Giving another player access to your property can give them permissions inside your house.",
+    "snippet": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 7 /tphome <house"
   },
   {
     "path": "commands/#social",
     "category": "Commands",
     "title": "Social",
-    "text": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 12 /r <Message> Reply Reply to the last player who sent you a private message. COMMAND · 13 /ignore [Playername] Ignore Player Open the ignore menu or ignore a specific player so you no longer see their messages.",
-    "snippet": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 12 /r <Message> "
+    "text": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 10 /r <Message> Reply Reply to the last player who sent you a private message. COMMAND · 11 /ignore [Playername] Ignore Player Open the ignore menu or ignore a specific player so you no longer see their messages.",
+    "snippet": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 10 /r <Message> "
   },
   {
     "path": "commands/#money",
     "category": "Commands",
     "title": "Money",
-    "text": "Category / Money Money COMMAND · 14 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 15 /moneycheck <Amount> Money Check Turn money from your balance into a money check item. Right click the check to add the money back to your balance. A check can be handed to other players.",
-    "snippet": "Category / Money Money COMMAND · 14 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 15 /moneycheck <Amo"
+    "text": "Category / Money Money COMMAND · 12 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 13 /moneycheck <Amount> Money Check Turn money from your balance into a money check item. Right click the check to add the money back to your balance. A check can be handed to other players.",
+    "snippet": "Category / Money Money COMMAND · 12 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 13 /moneycheck <Amo"
   },
   {
     "path": "commands/#daily",
     "category": "Commands",
     "title": "Daily & Games",
-    "text": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COMMAND · 16 /quests Daily Quests See your daily quests and your progress. COMMAND · 17 /loginstreak Login Streak Claim your daily login reward once per day. COMMAND · 18 /ms [easy|normal|hard] Minesweeper Start a game of Minesweeper. Without an argument you reopen your running game. COMMAND · 19 /c4 <Playername> Connect 4 Challenge a player to Connect 4. Use /c4 ai [easy|normal|hard] to play against a bot. COMMAND · 20 /ttt <Playername> Tic Tac Toe Challenge a player to Tic Tac Toe. Use /ttt ai [easy|normal|hard] to play against a bot.",
+    "text": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COMMAND · 14 /quests Daily Quests See your daily quests and your progress. COMMAND · 15 /loginstreak Login Streak Claim your daily login reward once per day. COMMAND · 16 /ms [easy|normal|hard] Minesweeper Start a game of Minesweeper. Without an argument you reopen your running game. COMMAND · 17 /c4 <Playername> Connect 4 Challenge a player to Connect 4. Use /c4 ai [easy|normal|hard] to play against a bot. COMMAND · 18 /ttt <Playername> Tic Tac Toe Challenge a player to Tic Tac Toe. Use /ttt ai [easy|normal|hard] to play against a bot.",
     "snippet": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COM"
   },
   {
     "path": "commands/#misc",
     "category": "Commands",
     "title": "Miscellaneous",
-    "text": "Category / Miscellaneous Miscellaneous COMMAND · 21 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 22 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.",
-    "snippet": "Category / Miscellaneous Miscellaneous COMMAND · 21 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and "
+    "text": "Category / Miscellaneous Miscellaneous COMMAND · 19 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 20 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.",
+    "snippet": "Category / Miscellaneous Miscellaneous COMMAND · 19 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and "
   },
   {
     "path": "commands/#privacy",
     "category": "Commands",
     "title": "Privacy",
-    "text": "Category / Privacy Privacy COMMAND · 23 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
-    "snippet": "Category / Privacy Privacy COMMAND · 23 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
+    "text": "Category / Privacy Privacy COMMAND · 21 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
+    "snippet": "Category / Privacy Privacy COMMAND · 21 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
   },
   {
     "path": "commands/#quick-reference",
     "category": "Commands",
     "title": "Quick Reference",
-    "text": "Commands / Reference Quick Reference /team chat Team communication /team allychat Allied team communication /missions Open the missions menu /msg Private messaging /delcar Despawn your vehicle /lockcar Lock your vehicle /unlockcar Unlock your vehicle /tphome <house> Teleport to one of your houses /house <Housename> trust <Playername> Give a player property permissions /house menu Manage property permissions /help Contact online moderators /bmpc Toggle live-map visibility",
+    "text": "Commands / Reference Quick Reference /team chat Team communication /team allychat Allied team communication /missions Open the missions menu /msg Private messaging /delcar Despawn your vehicle /tphome <house> Teleport to one of your houses /house <Housename> trust <Playername> Give a player property permissions /house menu Manage property permissions /help Contact online moderators /bmpc Toggle live-map visibility",
     "snippet": "Commands / Reference Quick Reference /team chat Team communication /team allychat Allied team communication /missions Open the missions menu /msg Private messag"
   },
   {
