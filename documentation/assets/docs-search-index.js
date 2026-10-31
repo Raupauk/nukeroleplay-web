@@ -871,64 +871,64 @@ window.DOCS_SEARCH_INDEX = [
     "path": "commands/#communication",
     "category": "Commands",
     "title": "Communication",
-    "text": "Category / Communication Communication COMMAND · 1 /team chat Team Chat Chat with the other members of your team. Everyone on your team will be able to see your message. COMMAND · 2 /team allychat Team Ally Chat Communicate with all allied teams. This is especially useful for players on the police team who need to communicate with other police teams. COMMAND · 3 /msg <Playername> <Message> Private Message Send a private message to another player. The other player can reply by using the same command. COMMAND · 4 /help <Message> Moderator Help Send a help request to all online moderators when you need assistance as soon as possible. Important · /help Do not abuse the help command. Misusing it may result in a punishment.",
+    "text": "Category / Communication Communication COMMAND · 1 /team chat Team Chat Chat with the other members of your team. Everyone on your team will be able to see your message. COMMAND · 2 /team allychat Team Ally Chat Communicate with all allied teams. This is especially useful for players on the police team who need to communicate with other police teams. COMMAND · 3 /msg <Playername> <Message> Private Message Send a private message to another player. The other player can reply by using the same command. COMMAND · 4 /help <Message> Moderator Help Send a help request to all online moderators when you need assistance as soon as possible. COMMAND · 5 /globalchat Global Chat Toggle whether your messages are sent to the global chat (alias /gchat ). While it is off, your messages only appear as chat bubbles. Use the command again to turn it back on. Important · /help Do not abuse the help command. Misusing it may result in a punishment.",
     "snippet": "Category / Communication Communication COMMAND · 1 /team chat Team Chat Chat with the other members of your team. Everyone on your team will be able to see your"
   },
   {
     "path": "commands/#missions",
     "category": "Commands",
     "title": "Missions",
-    "text": "Category / Missions Missions COMMAND · 5 /missions Mission Menu Open the missions menu to see missions you have completed, missions currently in progress and missions you have not discovered yet.",
-    "snippet": "Category / Missions Missions COMMAND · 5 /missions Mission Menu Open the missions menu to see missions you have completed, missions currently in progress and mi"
+    "text": "Category / Missions Missions COMMAND · 6 /missions Mission Menu Open the missions menu to see missions you have completed, missions currently in progress and missions you have not discovered yet.",
+    "snippet": "Category / Missions Missions COMMAND · 6 /missions Mission Menu Open the missions menu to see missions you have completed, missions currently in progress and mi"
   },
   {
     "path": "commands/#vehicles",
     "category": "Commands",
     "title": "Vehicles",
-    "text": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle.",
-    "snippet": "Category / Vehicles Vehicles COMMAND · 6 /delcar Despawn Vehicle Despawn your currently spawned vehicle."
+    "text": "Category / Vehicles Vehicles COMMAND · 7 /delcar Despawn Vehicle Despawn your currently spawned vehicle.",
+    "snippet": "Category / Vehicles Vehicles COMMAND · 7 /delcar Despawn Vehicle Despawn your currently spawned vehicle."
   },
   {
     "path": "commands/#housing",
     "category": "Commands",
     "title": "Housing",
-    "text": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 7 /tphome <house> Teleport Home If you own a property, use this command with the name of the house to teleport there (alias /tph ). It does not work while you are wanted, in prison or in combat. COMMAND · 8 /house <Housename> trust <Playername> Trust a Player Give another player permissions for one of your properties. COMMAND · 9 /house menu House Menu Open the house management menu where you can manage the permissions you have given to other players. Security · Housing Permissions Only trust players you know and trust. Giving another player access to your property can give them permissions inside your house.",
-    "snippet": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 7 /tphome <house"
+    "text": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 8 /tphome <house> Teleport Home If you own a property, use this command with the name of the house to teleport there (alias /tph ). It does not work while you are wanted, in prison or in combat. COMMAND · 9 /house <Housename> trust <Playername> Trust a Player Give another player permissions for one of your properties. COMMAND · 10 /house menu House Menu Open the house management menu where you can manage the permissions you have given to other players. Security · Housing Permissions Only trust players you know and trust. Giving another player access to your property can give them permissions inside your house.",
+    "snippet": "Category / Housing Housing The housing commands make it easier to access your properties and manage the permissions of other players. COMMAND · 8 /tphome <house"
   },
   {
     "path": "commands/#social",
     "category": "Commands",
     "title": "Social",
-    "text": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 10 /r <Message> Reply Reply to the last player who sent you a private message. COMMAND · 11 /ignore [Playername] Ignore Player Open the ignore menu or ignore a specific player so you no longer see their messages.",
-    "snippet": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 10 /r <Message> "
+    "text": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 11 /r <Message> Reply Reply to the last player who sent you a private message. COMMAND · 12 /ignore [Playername] Ignore Player Open the ignore menu or ignore a specific player so you no longer see their messages.",
+    "snippet": "Category / Social Social Commands for staying in touch with other players and for dealing with people you would rather not hear from. COMMAND · 11 /r <Message> "
   },
   {
     "path": "commands/#money",
     "category": "Commands",
     "title": "Money",
-    "text": "Category / Money Money COMMAND · 12 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 13 /moneycheck <Amount> Money Check Turn money from your balance into a money check item. Right click the check to add the money back to your balance. A check can be handed to other players.",
-    "snippet": "Category / Money Money COMMAND · 12 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 13 /moneycheck <Amo"
+    "text": "Category / Money Money COMMAND · 13 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 14 /moneycheck <Amount> Money Check Turn money from your balance into a money check item. Right click the check to add the money back to your balance. A check can be handed to other players.",
+    "snippet": "Category / Money Money COMMAND · 13 /pay <Playername> <Amount> Pay a Player Send money from your balance to another online player. COMMAND · 14 /moneycheck <Amo"
   },
   {
     "path": "commands/#daily",
     "category": "Commands",
     "title": "Daily & Games",
-    "text": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COMMAND · 14 /quests Daily Quests See your daily quests and your progress. COMMAND · 15 /loginstreak Login Streak Claim your daily login reward once per day. COMMAND · 16 /ms [easy|normal|hard] Minesweeper Start a game of Minesweeper. Without an argument you reopen your running game. COMMAND · 17 /c4 <Playername> Connect 4 Challenge a player to Connect 4. Use /c4 ai [easy|normal|hard] to play against a bot. COMMAND · 18 /ttt <Playername> Tic Tac Toe Challenge a player to Tic Tac Toe. Use /ttt ai [easy|normal|hard] to play against a bot.",
+    "text": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COMMAND · 15 /quests Daily Quests See your daily quests and your progress. COMMAND · 16 /loginstreak Login Streak Claim your daily login reward once per day. COMMAND · 17 /ms [easy|normal|hard] Minesweeper Start a game of Minesweeper. Without an argument you reopen your running game. COMMAND · 18 /c4 <Playername> Connect 4 Challenge a player to Connect 4. Use /c4 ai [easy|normal|hard] to play against a bot. COMMAND · 19 /ttt <Playername> Tic Tac Toe Challenge a player to Tic Tac Toe. Use /ttt ai [easy|normal|hard] to play against a bot.",
     "snippet": "Category / Daily & Games Daily & Games Daily rewards and quick games you can start from anywhere. More details can be found in the Activities documentation. COM"
   },
   {
     "path": "commands/#misc",
     "category": "Commands",
     "title": "Miscellaneous",
-    "text": "Category / Miscellaneous Miscellaneous COMMAND · 19 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 20 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.",
-    "snippet": "Category / Miscellaneous Miscellaneous COMMAND · 19 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and "
+    "text": "Category / Miscellaneous Miscellaneous COMMAND · 20 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 21 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.",
+    "snippet": "Category / Miscellaneous Miscellaneous COMMAND · 20 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and "
   },
   {
     "path": "commands/#privacy",
     "category": "Commands",
     "title": "Privacy",
-    "text": "Category / Privacy Privacy COMMAND · 21 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
-    "snippet": "Category / Privacy Privacy COMMAND · 21 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
+    "text": "Category / Privacy Privacy COMMAND · 22 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
+    "snippet": "Category / Privacy Privacy COMMAND · 22 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
   },
   {
     "path": "commands/#quick-reference",
