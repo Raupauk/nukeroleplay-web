@@ -79,6 +79,82 @@
             stroke-linejoin: round;
         }
  
+        .announce {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 10px 56px 10px 5vw;
+            background: linear-gradient(90deg, var(--green-dark), var(--green));
+            color: var(--black);
+            font-size: .88rem;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(0,0,0,.35);
+        }
+
+        .announce[hidden] { display: none; }
+
+        .announce-dot {
+            flex: none;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--black);
+            animation: announce-pulse 1.8s ease-out infinite;
+        }
+
+        @keyframes announce-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(9,10,10,.55); }
+            100% { box-shadow: 0 0 0 10px rgba(9,10,10,0); }
+        }
+
+        .announce strong { text-transform: uppercase; letter-spacing: .08em; }
+
+        .announce-link {
+            flex: none;
+            padding: 3px 12px;
+            border-radius: 3px;
+            background: var(--black);
+            color: var(--green-light);
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .announce-link:hover { background: var(--white); color: var(--black); }
+
+        .announce-close {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border: 0;
+            background: none;
+            color: var(--black);
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            opacity: .65;
+        }
+
+        .announce-close:hover { opacity: 1; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .announce-dot { animation: none; }
+        }
+
+        @media (max-width: 640px) {
+            .announce { flex-wrap: wrap; gap: 6px 12px; padding: 10px 44px 10px 16px; justify-content: flex-start; }
+            .announce-dot { margin-top: 1px; }
+            .announce-dot + span { flex: 1 1 calc(100% - 25px); }
+            .announce-link { margin-left: 21px; }
+        }
+
         nav {
             height: 72px;
             display: flex;
@@ -686,7 +762,27 @@
  
  
 <body>
- 
+
+<!-- Playtest banner: delete this block (banner + script) once the playtest is over.
+     Bump data-id for a new announcement so it shows again for people who dismissed the old one. -->
+<div class="announce" id="announce" data-id="public-playtest">
+    <span class="announce-dot" aria-hidden="true"></span>
+    <span><strong>Public Playtest is live!</strong> The server is open for everyone right now. Come join us.</span>
+    <a class="announce-link" href="#server">Join now</a>
+    <button class="announce-close" type="button" id="announceClose" aria-label="Dismiss announcement">&times;</button>
+</div>
+<script>
+    (function () {
+        const banner = document.getElementById("announce");
+        const key = "announce-dismissed:" + banner.dataset.id;
+        try { if (localStorage.getItem(key)) banner.hidden = true; } catch (e) {}
+        document.getElementById("announceClose").addEventListener("click", function () {
+            banner.hidden = true;
+            try { localStorage.setItem(key, "1"); } catch (e) {}
+        });
+    })();
+</script>
+
 <nav>
     <div class="logo">Nuke<span>Roleplay</span></div>
     <div class="nav-links">
