@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<script src="../../assets/loader.js"></script>
+
+    <title>Health System | NukeRoleplay Documentation</title>
+
+    <meta
+        name="description"
+        content="Learn how injuries, bleeding, illnesses, going down, the hospital, insurance and first aid work in NukeRoleplay."
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #090a0a;
+            --dark: #101211;
+            --panel: #151817;
+            --panel-light: #1b1e1c;
+
+            --white: #f1f0eb;
+            --text: #d8d8d2;
+            --muted: #8d918c;
+
+            --green: #91b83f;
+            --green-light: #b1d65b;
+            --green-dark: #617e27;
+
+            --red: #b34a43;
+            --blue: #527fa5;
+
+            --line: rgba(255,255,255,.09);
+
+        }
+
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                var(--black);
+
+            color:
+                var(--text);
+
+            min-height:
+                100vh;
+
+            line-height:
+                1.65;
+
+            overflow-x:
+                hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            pointer-events:
+                none;
+
+            opacity:
+                .05;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,.8) 0,
+                    rgba(255,255,255,.8) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+
+            z-index:
+                999;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            height:
+                72px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                0 5vw;
+
+            background:
+                rgba(9,10,10,.94);
+
+            border-bottom:
+                1px solid var(--line);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .logo {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                1.45rem;
+
+            letter-spacing:
+                .5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                30px;
+
+            font-size:
+                .82rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .12em;
+
+            color:
+                var(--muted);
+
+        }
+
+
+        .nav-links a {
+
+            position:
+                relative;
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .nav-links a::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            bottom:
+                -7px;
+
+            width:
+                0;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+            transition:
+                width .2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width:
+                100%;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            position:
+                relative;
+
+            min-height:
+                520px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            padding:
+                0 7vw 80px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(9,10,10,.08) 0%,
+                    rgba(9,10,10,.22) 38%,
+                    rgba(9,10,10,.98) 100%
+                ),
+                url("./hero.webp");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                7vw;
+
+            bottom:
+                42px;
+
+            width:
+                105px;
+
+            height:
+                3px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewX(-35deg);
+
+        }
+
+
+        .hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                1000px;
+
+        }
+
+
+        .hero-kicker {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                18px;
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        .hero-kicker::before {
+
+            content:
+                "";
+
+            width:
+                30px;
+
+            height:
+                1px;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    4.5rem,
+                    11vw,
+                    9rem
+                );
+
+            line-height:
+                .8;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--white);
+
+            text-shadow:
+                4px 5px 0 rgba(0,0,0,.35);
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .hero-copy {
+
+            max-width:
+                700px;
+
+            margin-top:
+                28px;
+
+            margin-left:
+                8vw;
+
+            color:
+                #c0c2bb;
+
+            font-size:
+                .94rem;
+
+        }
+
+
+        /* =========================================================
+           PAGE LAYOUT
+        ========================================================= */
+
+
+        .content-layout {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                minmax(0, 1fr) 270px;
+
+            gap:
+                65px;
+
+            align-items:
+                start;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE
+        ========================================================= */
+
+        .article {
+
+            min-width:
+                0;
+
+        }
+
+
+        .section {
+
+            margin-bottom:
+                75px;
+
+            scroll-margin-top:
+                100px;
+
+        }
+
+
+        .section-heading {
+
+            position:
+                relative;
+
+            margin-bottom:
+                25px;
+
+            padding-left:
+                30px;
+
+        }
+
+
+        .section-heading::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                5px;
+
+            width:
+                4px;
+
+            height:
+                42px;
+
+            background:
+                var(--green);
+
+            transform:
+                skewY(-18deg);
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--green-light);
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .2em;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .section-title {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    4vw,
+                    3.8rem
+                );
+
+            line-height:
+                .9;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                -.01em;
+
+            color:
+                var(--white);
+
+        }
+
+
+        .article p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                .91rem;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .article strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        /* =========================================================
+           FEATURE IMAGE
+        ========================================================= */
+
+        .feature-image {
+
+            position:
+                relative;
+
+            margin:
+                30px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .feature-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+            object-fit:
+                cover;
+
+            opacity:
+                .9;
+
+            transition:
+                transform .5s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .feature-image:hover img {
+
+            transform:
+                scale(1.025);
+
+            opacity:
+                1;
+
+        }
+
+
+        .feature-caption {
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--muted);
+
+            background:
+                #101211;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .68rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================================
+           INFO CARDS
+        ========================================================= */
+
+        .info-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .info-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .info-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                var(--green);
+
+        }
+
+
+        .sub-title {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.4rem;
+
+            text-transform:
+                uppercase;
+
+            margin:
+                44px 0 14px;
+
+        }
+
+
+        .info-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .info-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           RANK SYSTEM
+        ========================================================= */
+
+        .rank-list {
+
+            display:
+                grid;
+
+            gap:
+                12px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .rank-card {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            align-items:
+                center;
+
+            padding:
+                20px 22px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .rank-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateX(4px);
+
+        }
+
+
+        .rank-number {
+
+            font-family:
+                Impact,
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                2rem;
+
+            color:
+                var(--green);
+
+            text-align:
+                center;
+
+        }
+
+
+        .rank-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .rank-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .8rem;
+
+        }
+
+
+        /* =========================================================
+           DEPARTMENTS
+        ========================================================= */
+
+        .department-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .department-card {
+
+            padding:
+                27px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .department-card:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.35);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .department-code {
+
+            color:
+                var(--green);
+
+            font-family:
+                monospace;
+
+            font-size:
+                .65rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            margin-bottom:
+                14px;
+
+        }
+
+
+        .department-card h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1.2rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .department-card p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           PROCESS STEPS
+        ========================================================= */
+
+        .process {
+
+            display:
+                grid;
+
+            gap:
+                1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+            margin-top:
+                28px;
+
+        }
+
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                70px 1fr;
+
+            gap:
+                20px;
+
+            padding:
+                23px;
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .process-number {
+
+            font-family:
+                monospace;
+
+            color:
+                var(--green);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .1em;
+
+        }
+
+
+        .process-step h3 {
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                "Helvetica Neue",
+                sans-serif;
+
+            font-size:
+                1rem;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .process-step p {
+
+            margin:
+                0;
+
+            font-size:
+                .82rem;
+
+        }
+
+
+        /* =========================================================
+           WANTED / POLICE IMAGE
+        ========================================================= */
+
+        .wanted-image {
+
+            margin:
+                30px 0;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                var(--panel);
+
+        }
+
+
+        .wanted-image img {
+
+            width:
+                100%;
+
+            height:
+                auto;
+
+        }
+
+
+        .wanted-caption {
+
+            padding:
+                16px 20px;
+
+            border-top:
+                1px solid var(--line);
+
+            font-size:
+                .7rem;
+
+            color:
+                var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           WARNING
+        ========================================================= */
+
+        .warning {
+
+            position:
+                relative;
+
+            padding:
+                27px 30px 27px 34px;
+
+            margin:
+                30px 0;
+
+            background:
+                rgba(179,74,67,.06);
+
+            border:
+                1px solid rgba(179,74,67,.2);
+
+            border-left:
+                4px solid var(--red);
+
+        }
+
+
+        .warning-label {
+
+            color:
+                #d87971;
+
+            font-family:
+                monospace;
+
+            font-size:
+                .68rem;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                .12em;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .warning p {
+
+            margin:
+                0;
+
+            color:
+                var(--text);
+
+            font-size:
+                .86rem;
+
+        }
+
+
+        /* =========================================================
+           OCPD LOGO
+        ========================================================= */
+
+        .ocpd-logo {
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            padding:
+                35px 20px;
+
+            margin:
+                25px 0 35px;
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .ocpd-logo img {
+
+            width:
+                145px;
+
+            max-width:
+                38%;
+
+            height:
+                auto;
+
+            opacity:
+                .92;
+
+        }
+
+
+        /* =========================================================
+           DISCORD LINK
+        ========================================================= */
+
+        .discord-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            margin-top:
+                10px;
+
+            padding:
+                13px 18px;
+
+            color:
+                var(--white);
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                background .2s ease,
+                border-color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .discord-link:hover {
+
+            background:
+                var(--panel-light);
+
+            border-color:
+                rgba(145,184,63,.4);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .discord-link span {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                105px;
+
+        }
+
+
+        .sidebar-box {
+
+            background:
+                var(--panel);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .sidebar-header {
+
+            padding:
+                20px 22px;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color:
+                var(--white);
+
+            font-family:
+                "Arial Narrow",
+                sans-serif;
+
+            font-size:
+                .85rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        .sidebar-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .sidebar-links a {
+
+            padding:
+                13px 22px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .76rem;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.045);
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                padding-left .2s ease;
+
+        }
+
+
+        .sidebar-links a:hover {
+
+            color:
+                var(--green-light);
+
+            background:
+                rgba(145,184,63,.035);
+
+            padding-left:
+                27px;
+
+        }
+
+
+        .sidebar-links a.active {
+
+            color:
+                var(--green-light);
+
+            border-left:
+                3px solid var(--green);
+
+            padding-left:
+                19px;
+
+        }
+
+
+        .sidebar-note {
+
+            margin-top:
+                18px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid var(--line);
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+        }
+
+
+        .sidebar-note strong {
+
+            display:
+                block;
+
+            color:
+                var(--white);
+
+            margin-bottom:
+                7px;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                .7rem;
+
+            letter-spacing:
+                .08em;
+
+        }
+
+
+        /* =========================================================
+           BACK LINK
+        ========================================================= */
+
+        .back-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            margin-top:
+                15px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            font-weight:
+                700;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            transition:
+                color .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--green-light);
+
+            transform:
+                translateX(-4px);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                35px 20px 45px;
+
+            text-align:
+                center;
+
+            color:
+                var(--muted);
+
+            font-size:
+                .72rem;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .08em;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        footer strong {
+
+            color:
+                var(--white);
+
+        }
+
+
+        .footer-links {
+
+            margin-top:
+                10px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--muted);
+
+            transition:
+                color .2s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--green-light);
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap:
+                    18px;
+
+            }
+
+
+            .content-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar {
+
+                position:
+                    static;
+
+                order:
+                    -1;
+
+            }
+
+
+            .sidebar-links {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .sidebar-links a {
+
+                border-right:
+                    1px solid rgba(255,255,255,.045);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+
+                padding:
+                    0 20px;
+
+            }
+
+
+            .nav-links {
+
+                display:
+                    none;
+
+            }
+
+
+            .hero {
+
+                min-height:
+                    450px;
+
+                padding:
+                    0 25px 65px;
+
+            }
+
+
+            .hero::after {
+
+                left:
+                    25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    4rem;
+
+            }
+
+
+            .hero-copy {
+
+                margin-left:
+                    20px;
+
+                font-size:
+                    .86rem;
+
+            }
+
+
+
+            .info-grid,
+            .department-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sidebar-links {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .rank-card {
+
+                grid-template-columns:
+                    50px 1fr;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .ocpd-logo img {
+
+                width:
+                    125px;
+
+                max-width:
+                    45%;
+
+            }
+
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="../assets/docs-sidebar.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../../changelogs/">
+            Changelogs
+        </a>
+
+        <a href="../">
+            Documentation
+        </a>
+
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Documentation / Health System
+        </div>
+
+
+        <h1>
+            Health<br><span>System</span>
+        </h1>
+
+
+        <p class="hero-copy">
+            Learn how injuries, bleeding, illnesses, going down, the hospital, insurance and first aid work in NukeRoleplay.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="docs-shell no-toc">
+
+
+<button class="docs-menu-toggle" type="button">
+    ☰ Menu
+</button>
+
+<aside class="docs-sidebar">
+
+    <div class="docs-search">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input type="text" placeholder="Search documentation…" aria-label="Search documentation">
+
+    </div>
+
+    <div class="docs-nav-label">Documentation</div>
+
+<div class="docs-nav-scroll">
+
+    <ul class="docs-nav">
+
+        <li><a class="docs-nav-link" href="../"><span class="num">00</span> Overview</a></li>
+        <li><a class="docs-nav-link" href="../getting-started/"><span class="num">01</span> Getting Started</a></li>
+        <li><a class="docs-nav-link" href="../jobs/"><span class="num">02</span> Jobs</a></li>
+        <li><a class="docs-nav-link" href="../economy/"><span class="num">03</span> Economy &amp; Money</a></li>
+        <li><a class="docs-nav-link" href="../housing/"><span class="num">04</span> Housing</a></li>
+        <li><a class="docs-nav-link" href="../business/"><span class="num">05</span> Businesses</a></li>
+        <li><a class="docs-nav-link" href="../vehicles/"><span class="num">06</span> Vehicles</a></li>
+        <li><a class="docs-nav-link" href="../phone/"><span class="num">07</span> Phone</a></li>
+        <li><a class="docs-nav-link" href="../law/"><span class="num">08</span> Law &amp; Order</a></li>
+        <li><a class="docs-nav-link" href="../police/"><span class="num">09</span> Police</a></li>
+        <li><a class="docs-nav-link" href="../government/"><span class="num">10</span> Government (planned)</a></li>
+        <li><a class="docs-nav-link" href="../health/"><span class="num">11</span> Health System</a></li>
+        <li><a class="docs-nav-link" href="../progression/"><span class="num">12</span> Progression</a></li>
+        <li><a class="docs-nav-link" href="../activities/"><span class="num">13</span> Activities</a></li>
+        <li><a class="docs-nav-link" href="../commands/"><span class="num">14</span> Commands</a></li>
+
+    </ul>
+
+    <div class="docs-nav-empty">No results found.</div>
+
+</div>
+
+</aside>
+
+
+<div class="docs-content">
+
+
+
+    <div class="content-layout">
+
+
+        <!-- =====================================================
+             ARTICLE
+        ===================================================== -->
+
+        <article class="article">
+
+            <section
+                class="section"
+                id="overview"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Overview
+                    </div>
+
+                    <h2 class="section-title">
+                        Stay<br>alive.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Fights, bullets, falls and accidents can hurt you. The health system tracks injuries on different parts of your body, bleeding, illnesses and what happens when you go down. This page explains how to treat yourself, how to help others and how the hospital works.
+                </p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Injuries
+                        </h3>
+                        <p>
+                            Six body zones, seven injury types, three grades each.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            First aid
+                        </h3>
+                        <p>
+                            Plasters, bandages and medicine from the pharmacy.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Hospital
+                        </h3>
+                        <p>
+                            Doctors, treatment rooms and emergency calls.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Insurance
+                        </h3>
+                        <p>
+                            Health insurance pays for your treatment.
+                        </p>
+                    </div>
+
+                </div>
+                <p>
+                    Use <code>/health</code> at any time to open your body menu and see your current injuries.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="injuries"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Injuries
+                    </div>
+
+                    <h2 class="section-title">
+                        Hurt<br>and healing.
+                    </h2>
+
+                </div>
+
+                <p>
+                    You can get hurt in six body zones: <strong>head</strong>, <strong>torso</strong>, <strong>left and right arm</strong> and <strong>left and right leg</strong>.
+                </p>
+                <h3 class="sub-title">Injury types</h3>
+                <p>
+                    Bruise, laceration, gunshot wound, sprain, fracture, burn and concussion. Every injury has one of three grades: <strong>minor</strong>, <strong>moderate</strong> or <strong>severe</strong>.
+                </p>
+                <h3 class="sub-title">How you get hurt</h3>
+                <p>
+                    Injuries come from fights, arrows, guns, falls, explosions, fire and lava, and from being run over by vehicles.
+                </p>
+                <h3 class="sub-title">What injuries do</h3>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Body part</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr><td>Legs</td><td>You move slower. Severe leg injuries stop you from sprinting and jumping.</td></tr>
+                        <tr><td>Arms</td><td>Mining and attacks get weaker. Severe arm injuries stop you from using a bow, and you may drop your item.</td></tr>
+                        <tr><td>Torso</td><td>Your maximum health is lower.</td></tr>
+                        <tr><td>Head</td><td>Nausea and darkness.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <h3 class="sub-title">Healing</h3>
+                <p>
+                    Injuries heal on their own, but slowly: from a few minutes up to an hour and a half, depending on the injury. Treatment makes them heal much faster. Treatment at the hospital is the fastest and takes a few minutes at most. First aid items are in between.
+                </p>
+                <figure class="doc-figure">
+
+                    <img
+                        src="./health-body-menu.webp"
+                        alt="The /health body menu showing the injury status of each body part"
+                        loading="lazy"
+                    >
+
+                    <figcaption>
+                        Open your body menu with /health.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="bleeding"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Bleeding
+                    </div>
+
+                    <h2 class="section-title">
+                        Stop the<br>bleeding.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Some injuries make you bleed. Bleeding drains your health over time, but it never kills you by itself. Light bleeding stops on its own after about 90 seconds. Stronger bleeding needs a bandage.
+                </p>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Item</th><th>Stops</th></tr></thead>
+                    <tbody>
+                        <tr><td>Plaster</td><td>Light bleeding</td></tr>
+                        <tr><td>Bandage</td><td>Light and moderate bleeding</td></tr>
+                        <tr><td>Pressure bandage</td><td>Any bleeding</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="down"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Going down
+                    </div>
+
+                    <h2 class="section-title">
+                        Down but<br>not out.
+                    </h2>
+
+                </div>
+
+                <p>
+                    A fatal hit does not kill you instantly. You <strong>go down for 3 minutes</strong>. While you are down you can only crawl very slowly, your screen is dark, and you cannot attack, use items, drop things or run most commands. Nearby players get an alert with your coordinates.
+                </p>
+                <h3 class="sub-title">Reviving a player</h3>
+                <p>
+                    Anyone can revive a downed player.
+                </p>
+                <ul class="doc-list">
+                    <li><strong>CPR:</strong> right click the downed player with an empty hand again and again until the bar is full.</li>
+                    <li><strong>AED:</strong> hold the AED, right click the downed player and stay close for a few seconds.</li>
+                </ul>
+                <p>
+                    Revived players come back with a little health and keep their injuries.
+                </p>
+                <h3 class="sub-title">Giving up</h3>
+                <p>
+                    You can give up by holding <strong>sneak</strong> for 5 seconds. If the timer runs out, you die.
+                </p>
+                <div class="warning">
+                    <div class="warning-label">
+                        Do not log out
+                    </div>
+                    <p>
+                        If you log out while you are down, you die when you log back in.
+                    </p>
+                </div>
+                <figure class="doc-figure doc-figure-placeholder" data-image="health-cpr.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · health-cpr.webp</span>
+                        <strong>A player performing CPR on a downed player</strong>
+                    </div>
+
+                    <figcaption>
+                        Start CPR immediately, every second counts.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="dying"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Dying
+                    </div>
+
+                    <h2 class="section-title">
+                        The hospital<br>wakes you.
+                    </h2>
+
+                </div>
+
+                <p>
+                    After you really die, you wake up in the nearest hospital and all your injuries and illnesses are gone.
+                </p>
+                <p>
+                    What happens to your money depends on your <strong>life insurance</strong>, which is separate from the health insurance. Without it you lose half of your pocket money, with it only a small part. See <a href="../economy/#dying">Economy &amp; Money</a>.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="firstaid"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / First aid
+                    </div>
+
+                    <h2 class="section-title">
+                        Pharmacy<br>and first aid.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Medical items are sold in the <strong>pharmacy</strong>. Right click an item to use it on yourself, or right click another player to treat them. A progress bar fills while you stand still and keep the item in your hand.
+                </p>
+                <div class="warning">
+                    <div class="warning-label">
+                        Limits
+                    </div>
+                    <p>
+                        Head and torso injuries cannot be treated on yourself.
+                    </p>
+                </div>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Item</th><th>Price</th><th>What it does</th></tr></thead>
+                    <tbody>
+                        <tr><td>Plaster</td><td>15€</td><td>Light bleeding</td></tr>
+                        <tr><td>Bandage</td><td>40€</td><td>Light and moderate bleeding</td></tr>
+                        <tr><td>Pressure bandage</td><td>120€</td><td>Any bleeding</td></tr>
+                        <tr><td>Antiseptic</td><td>50€</td><td>Cuts and gunshot wounds</td></tr>
+                        <tr><td>Cooling pack</td><td>60€</td><td>Bruises and burns</td></tr>
+                        <tr><td>Burn ointment</td><td>80€</td><td>Burns</td></tr>
+                        <tr><td>Splint</td><td>90€</td><td>Fractures and sprains</td></tr>
+                        <tr><td>Sling</td><td>70€</td><td>Arm sprains</td></tr>
+                        <tr><td>Paracetamol</td><td>25€</td><td>Painkiller</td></tr>
+                        <tr><td>Ibuprofen</td><td>60€</td><td>Painkiller</td></tr>
+                        <tr><td>Anti-nausea pill</td><td>35€</td><td>Cures illnesses, see Illnesses</td></tr>
+                        <tr><td>Cold medicine</td><td>70€</td><td>Cures illnesses, see Illnesses</td></tr>
+                        <tr><td>Antibiotics</td><td>150€</td><td>Cures illnesses, see Illnesses</td></tr>
+                        <tr><td>Dewormer</td><td>90€</td><td>Cures illnesses, see Illnesses</td></tr>
+                        <tr><td>Medkit</td><td>400€</td><td>Treats many injuries at once</td></tr>
+                        <tr><td>Crutches</td><td>150€</td><td>Halve the slowdown from leg injuries</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>
+                    Painkillers ease the effect of injuries for a few minutes, but they do not help against fractures or gunshot wounds.
+                </p>
+                <figure class="doc-figure">
+
+                    <img
+                        src="./health-pharmacy.webp"
+                        alt="The pharmacy NPC behind the counter"
+                        loading="lazy"
+                    >
+
+                    <figcaption>
+                        Medical items are sold in the pharmacy.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="illnesses"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Illnesses
+                    </div>
+
+                    <h2 class="section-title">
+                        Catch a<br>cold.
+                    </h2>
+
+                </div>
+
+                <p>
+                    You can catch a cold, the flu, food poisoning, a stomach bug, a wound infection or a tapeworm. Sick players get symptoms: messages and effects like slowness, nausea or constant hunger.
+                </p>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Illness</th><th>How you catch it</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cold, sometimes flu</td><td>Standing in the rain for a long time</td></tr>
+                        <tr><td>Food poisoning, tapeworm</td><td>Eating rotten flesh or raw meat</td></tr>
+                        <tr><td>Wound infection</td><td>Untreated cuts and gunshot wounds</td></tr>
+                        <tr><td>Cold, flu, stomach bug</td><td>Staying close to a sick player. They are contagious.</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <h3 class="sub-title">Treatment</h3>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Medicine</th><th>Helps against</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cold medicine</td><td>Shortens colds and the flu</td></tr>
+                        <tr><td>Anti-nausea pill</td><td>Food poisoning and the stomach bug</td></tr>
+                        <tr><td>Antibiotics</td><td>Wound infections</td></tr>
+                        <tr><td>Dewormer</td><td>Tapeworm</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>
+                    After you recover you are immune for a while.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="hospital"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Hospital
+                    </div>
+
+                    <h2 class="section-title">
+                        Going to<br>the hospital.
+                    </h2>
+
+                </div>
+
+                <p>
+                    There are two hospitals: <strong>Master City</strong> and <strong>Campanha</strong>. Treatment is only available while a hospital staff member is online.
+                </p>
+                <h3 class="sub-title">Getting treated</h3>
+                <ul class="doc-list">
+                    <li>Go to the reception NPC and draw a ticket. Choose the reason: injured, ill, check-up, prescription or sick note, or something else.</li>
+                    <li>Wait in the waiting area and stay inside the hospital. If you leave the hospital or wait longer than 15 minutes without being called, your ticket is cancelled.</li>
+                    <li>When a doctor calls you, you get a message. Go to the treatment room and sit down on the doctor's chair.</li>
+                    <li>The doctor can check you with the X-ray machine and the vital signs monitor, and then treats your injuries. Treatment costs money, see below.</li>
+                </ul>
+                <p>
+                    Doctors can also write you a prescription and a sick note.
+                </p>
+                <figure class="doc-figure doc-figure-placeholder" data-image="health-reception.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · health-reception.webp</span>
+                        <strong>The hospital reception with the ticket NPC</strong>
+                    </div>
+
+                    <figcaption>
+                        Draw a ticket at the reception.
+                    </figcaption>
+
+                </figure>
+                <figure class="doc-figure doc-figure-placeholder" data-image="health-treatment-room.webp">
+
+                    <div class="doc-figure-frame">
+                        <span>Image placeholder · health-treatment-room.webp</span>
+                        <strong>The treatment room with the doctor's chair, X-ray machine and vital signs monitor</strong>
+                    </div>
+
+                    <figcaption>
+                        Sit down on the doctor's chair so the doctor can treat you.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="costs"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Costs
+                    </div>
+
+                    <h2 class="section-title">
+                        What<br>it costs.
+                    </h2>
+
+                </div>
+
+                <h3 class="sub-title">Treatment prices</h3>
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Treatment</th><th>Price</th></tr></thead>
+                    <tbody>
+                        <tr><td>Remove bullet</td><td>800€</td></tr>
+                        <tr><td>Set bone and cast</td><td>400€</td></tr>
+                        <tr><td>Suture wound</td><td>250€</td></tr>
+                        <tr><td>Dress burn</td><td>300€</td></tr>
+                        <tr><td>Bind joint</td><td>150€</td></tr>
+                        <tr><td>Treat bruise</td><td>50€</td></tr>
+                        <tr><td>Observe and treat (concussion)</td><td>200€</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <h3 class="sub-title">Health insurance</h3>
+                <p>
+                    The health insurance NPC signs you up for free. It costs <strong>50€ per day</strong>, taken automatically once a day. If you cannot pay for 3 days in a row, the insurance ends. It covers hospital treatment at the doctor's chair and your prescribed medicine.
+                </p>
+                <p>
+                    The health insurance is separate from the life insurance, which only reduces what you lose when you die.
+                </p>
+                <h3 class="sub-title">Paying for treatment</h3>
+                <ul class="doc-list">
+                    <li><strong>With health insurance</strong> you pay nothing.</li>
+                    <li><strong>Without insurance</strong> the money is taken right away.</li>
+                    <li>If you cannot pay, you get an <strong>invoice</strong> in the Messenger app. Click the message to pay it.</li>
+                </ul>
+                <div class="warning">
+                    <div class="warning-label">
+                        Unpaid bills
+                    </div>
+                    <p>
+                        Unpaid bills block hospital treatment after 24 hours, or earlier if your open bills reach 3,000€.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="prescriptions"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Prescriptions
+                    </div>
+
+                    <h2 class="section-title">
+                        Prescriptions<br>and notes.
+                    </h2>
+
+                </div>
+
+                <p>
+                    A doctor (Medic rank or higher) can issue a <strong>prescription</strong> for one medicine. It is valid for 7 days and can be used once. Hand it to the pharmacy NPC by right clicking with the prescription in your hand.
+                </p>
+                <ul class="doc-list">
+                    <li>With health insurance you get the medicine for free.</li>
+                    <li>Without insurance you pay the normal price and keep the prescription.</li>
+                    <li>You can also buy any medicine without a prescription. The prescription is just the cheaper way for insured players.</li>
+                </ul>
+                <h3 class="sub-title">Sick notes</h3>
+                <p>
+                    A sick note is a signed paper that says you are unfit for work for 1, 3, 7 or 14 days. It is only a roleplay document, the server does not enforce anything with it.
+                </p>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="emergency"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Emergency calls
+                    </div>
+
+                    <h2 class="section-title">
+                        Call<br>911.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Open your <a href="../phone/">phone</a>, use the Telephone app, dial <strong>911</strong> and choose <strong>Oblivion City Hospital Service</strong>. Describe your emergency in chat and the medical staff are notified.
+                </p>
+                <p>
+                    If you are downed, an emergency call with your position is created automatically.
+                </p>
+                <div class="warning">
+                    <div class="warning-label">
+                        Tip
+                    </div>
+                    <p>
+                        Call 911 when someone is down and nobody around can revive them.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="tips"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Tips
+                    </div>
+
+                    <h2 class="section-title">
+                        Tips for<br>players.
+                    </h2>
+
+                </div>
+
+                <ul class="doc-list">
+                    <li>Carry a bandage or two and a painkiller. They are cheap.</li>
+                    <li>Do not eat raw or rotten meat if you can avoid it.</li>
+                    <li>Stay out of the rain for long periods, or keep cold medicine with you.</li>
+                    <li>If someone is down, start CPR immediately.</li>
+                    <li>Get the health insurance before you need it. Treatments can be expensive.</li>
+                </ul>
+
+            </section>
+
+
+            <section
+                class="section"
+                id="quick-reference"
+            >
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Health System / Reference
+                    </div>
+
+                    <h2 class="section-title">
+                        Quick<br>Reference
+                    </h2>
+
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            Command
+                        </h3>
+                        <p>
+                            /health opens your body menu
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Down time
+                        </h3>
+                        <p>
+                            3 minutes, hold sneak for 5 seconds to give up
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Health insurance
+                        </h3>
+                        <p>
+                            Free to sign up, 50€ per day
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>
+                            Emergency
+                        </h3>
+                        <p>
+                            Dial 911 in the Telephone app
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <a
+                href="../"
+                class="back-link"
+            >
+                ← Back to Documentation
+            </a>
+
+
+        </article>
+
+
+        <!-- =====================================================
+             SIDEBAR
+        ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-header">
+                    Health System
+                </div>
+
+
+                <div class="sidebar-links">
+
+                    <a
+                        href="#overview" class="active"
+                    >
+                        Overview
+                    </a>
+
+
+                    <a
+                        href="#injuries"
+                    >
+                        Injuries
+                    </a>
+
+
+                    <a
+                        href="#bleeding"
+                    >
+                        Bleeding
+                    </a>
+
+
+                    <a
+                        href="#down"
+                    >
+                        Going down
+                    </a>
+
+
+                    <a
+                        href="#dying"
+                    >
+                        Dying
+                    </a>
+
+
+                    <a
+                        href="#firstaid"
+                    >
+                        First aid
+                    </a>
+
+
+                    <a
+                        href="#illnesses"
+                    >
+                        Illnesses
+                    </a>
+
+
+                    <a
+                        href="#hospital"
+                    >
+                        Hospital
+                    </a>
+
+
+                    <a
+                        href="#costs"
+                    >
+                        Costs
+                    </a>
+
+
+                    <a
+                        href="#prescriptions"
+                    >
+                        Prescriptions
+                    </a>
+
+
+                    <a
+                        href="#emergency"
+                    >
+                        Emergency calls
+                    </a>
+
+
+                    <a
+                        href="#tips"
+                    >
+                        Tips
+                    </a>
+
+
+                    <a
+                        href="#quick-reference"
+                    >
+                        Reference
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-note">
+
+                <strong>Tip</strong> Get the health insurance before you need it.
+
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026 <strong>Nuke Studios</strong>.
+    All rights reserved.
+
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+        <a href="../../faq/">FAQ</a>
+
+    </div>
+
+</footer>
+
+
+<script src="../assets/docs-search-index.js"></script>
+<script src="../assets/docs-sidebar.js"></script>
+
+</body>
+
+</html>

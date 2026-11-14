@@ -10,21 +10,21 @@ window.DOCS_SEARCH_INDEX = [
     "path": "getting-started/#welcome",
     "category": "Getting Started",
     "title": "Welcome to the city.",
-    "text": "Getting Started / 01 Welcome to the city. NukeRoleplay is a large roleplay environment with many interconnected systems. When you first join, it can feel like there is a lot to learn. You do not need to understand everything immediately. Start with the basics, learn how to make money, get familiar with the city and gradually discover the more advanced systems. Earn Money Find a reliable source of income. A regular job is usually the best starting point. Explore Learn where important shops, transport stations and services are located. Follow the Rules Your actions have consequences. Breaking the law can result in police intervention. Take Your Time You do not need an expensive house or vehicle immediately. Build your life step by step.",
+    "text": "Getting Started / 01 Welcome to the city. NukeRoleplay is a large roleplay environment with many interconnected systems. When you first join, it can feel like there is a lot to learn. You do not need to understand everything immediately. Start with the basics, learn how to make money, get familiar with the city and gradually discover the more advanced systems. Earn Money Find a reliable source of income. A regular job is usually the best starting point. Explore Learn where important shops, transport stations and services are located. Follow the Rules Your actions have consequences. Breaking the law can result in police intervention. Take Your Time You do not need an expensive house or vehicle immediately. Build your life step by step. Your first view of the city.",
     "snippet": "Getting Started / 01 Welcome to the city. NukeRoleplay is a large roleplay environment with many interconnected systems. When you first join, it can feel like t"
   },
   {
     "path": "getting-started/#money",
     "category": "Getting Started",
     "title": "Make Money.",
-    "text": "Getting Started / 02 Make Money. Money is one of the most important things to establish when starting out. Almost everything in the city costs money, from transportation and food to vehicles and eventually property. The most reliable way to build an income is to find a job . Jobs provide a more consistent source of money and allow you to build up enough savings for the things you want later. INCOME · 01 Get a Job Find a job that suits you and start working. A consistent job should be your first major source of income. INCOME · 02 Collect Junk You can also make some quick money by picking up junk found around the world and selling it at Junk Shops. Economy · Plan Ahead Do not spend all of your money as soon as you earn it. Keep some savings for unexpected expenses and work towards establishing a stable income first. For more information about the available jobs and how the job system works, see the Jobs documentation.",
+    "text": "Getting Started / 02 Make Money. Money is one of the most important things to establish when starting out. Almost everything in the city costs money, from transportation and food to vehicles and eventually property. The most reliable way to build an income is to find a job . Jobs provide a more consistent source of money and allow you to build up enough savings for the things you want later. INCOME · 01 Get a Job Find a job that suits you and start working. A consistent job should be your first major source of income. INCOME · 02 Collect Junk You can also make some quick money by picking up junk found around the world and selling it at Junk Shops. Economy · Plan Ahead Do not spend all of your money as soon as you earn it. Keep some savings for unexpected expenses and work towards establishing a stable income first. For more information about the available jobs and how the job system works, see the Jobs documentation. Junk Shops buy different junk every day.",
     "snippet": "Getting Started / 02 Make Money. Money is one of the most important things to establish when starting out. Almost everything in the city costs money, from trans"
   },
   {
     "path": "getting-started/#transport",
     "category": "Getting Started",
     "title": "Get Around.",
-    "text": "Getting Started / 03 Get Around. You do not need a car to explore the world. The city has several forms of public transportation that make getting around affordable. TRANSPORT · 01 Metro A cheap way to travel through the city and reach different areas without owning a vehicle. TRANSPORT · 02 Train Useful for travelling longer distances and connecting different parts of the world. TRANSPORT · 03 Bus An inexpensive option for everyday transportation when you do not have your own vehicle. TRANSPORT · 04 Tram Another affordable way to move around populated areas of the city. Public transportation is especially useful during your first few hours in the city. Save your money instead of rushing to buy a vehicle immediately.",
+    "text": "Getting Started / 03 Get Around. You do not need a car to explore the world. The city has several forms of public transportation that make getting around affordable. TRANSPORT · 01 Metro A cheap way to travel through the city and reach different areas without owning a vehicle. TRANSPORT · 02 Train Useful for travelling longer distances and connecting different parts of the world. TRANSPORT · 03 Bus An inexpensive option for everyday transportation when you do not have your own vehicle. TRANSPORT · 04 Tram Another affordable way to move around populated areas of the city. Public transportation is especially useful during your first few hours in the city. Save your money instead of rushing to buy a vehicle immediately. Public transport connects the different parts of the city.",
     "snippet": "Getting Started / 03 Get Around. You do not need a car to explore the world. The city has several forms of public transportation that make getting around afford"
   },
   {
@@ -66,7 +66,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "getting-started/#phone",
     "category": "Getting Started",
     "title": "Your Phone Matters.",
-    "text": "Getting Started / 08 Your Phone Matters. Your phone is one of the most useful tools available to you. It connects you to many systems and services throughout the city. Take some time to explore its applications. Depending on your phone, you may have access to communication, real estate, jobs, transportation, entertainment and other important services. Tip · Explore Your Apps If you are unsure how to access a system, check your phone first. Many important features are available directly through its applications.",
+    "text": "Getting Started / 08 Your Phone Matters. Your phone is one of the most useful tools available to you. It connects you to many systems and services throughout the city. Take some time to explore its applications. Depending on your phone, you may have access to communication, real estate, jobs, transportation, entertainment and other important services. Tip · Explore Your Apps If you are unsure how to access a system, check your phone first. Many important features are available directly through its applications. Start your job from the Job Selector in your phone.",
     "snippet": "Getting Started / 08 Your Phone Matters. Your phone is one of the most useful tools available to you. It connects you to many systems and services throughout th"
   },
   {
@@ -115,7 +115,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "jobs/#miner",
     "category": "Jobs",
     "title": "Beneath the city.",
-    "text": "Job / Mining Beneath the city. Mining is a straightforward way to turn your time into resources and money. Enter the mines, equip the appropriate tool and begin extracting ores and other blocks. The mines are divided into multiple levels. Deeper levels can provide access to different resources, but they also become more dangerous. Multiple Levels Explore different depths of the mines to find different resources. Tools Purchase the appropriate equipment before entering the mines. Sell Your Resources Mined materials can be turned back into money through the appropriate selling or processing systems. Watch the Depth Lower mine levels can contain toxic environments. Know what you are getting into before going deeper.",
+    "text": "Job / Mining Beneath the city. Mining is a straightforward way to turn your time into resources and money. Enter the mines, equip the appropriate tool and begin extracting ores and other blocks. The mines are divided into multiple levels. Deeper levels can provide access to different resources, but they also become more dangerous. Multiple Levels Explore different depths of the mines to find different resources. Tools Purchase the appropriate equipment before entering the mines. Sell Your Resources Mined materials can be turned back into money through the appropriate selling or processing systems. Watch the Depth Lower mine levels can contain toxic environments. Know what you are getting into before going deeper. The lower levels of the mines need preparation.",
     "snippet": "Job / Mining Beneath the city. Mining is a straightforward way to turn your time into resources and money. Enter the mines, equip the appropriate tool and begin"
   },
   {
@@ -136,28 +136,28 @@ window.DOCS_SEARCH_INDEX = [
     "path": "jobs/#fisher",
     "category": "Jobs",
     "title": "Cast your line.",
-    "text": "Job / Fishing Cast your line. Fishing is a relaxed job. With a fishing rod you can fish in open water. The Fisher Shop sells everything you need and buys your catch. Better rods give you more luck. Heads up Fishing rods are not permanent. If you rejoin the game, your rod will be gone, so buy a new one when you come back. Rods Rod Price Basic Fishing Rod 12€ Advanced Fishing Rod 50€ Professional Fishing Rod 130€ Expert Fishing Rod 350€ Hooks and Bait A rod needs a hook before you can fish. A hook lasts for 100 catches, bait is used up once per catch. Click a hook or bait item onto the rod in your inventory to attach it, right click the rod to remove them again. A rod holds a maximum of 32 bait. Item Price Effect Default Hook 8€ A plain hook. Every rod needs one. Sharp Hook 30€ Fish bite more often than junk. Heavy Hook 30€ Higher chance for bigger fish. Tiny Hook 30€ Higher chance for smaller fish. Rusty Hook 15€ Attracts more junk than fish. Shell Bait 3€ each Higher chance for crabs and other shellfish. Fish Bait 2€ each Higher chance for carnivorous fish. Grass Bait 1€ each Higher chance for herbivorous fish. Catching a fish When a fish bites, a bar appears. Scroll your mouse wheel to move the green zone onto the fish and keep it there until the bar is full. Better rods make this easier. If you lose the fish, it gets away. Every fish has its own size in centimetres and you earn XP for each catch. Besides fish you can also pull up junk such as old boots, rusty nails or muddy bottles. Some junk is worth surprisingly much. Sell everything at the Fisher Shop.",
+    "text": "Job / Fishing Cast your line. Fishing is a relaxed job. With a fishing rod you can fish in open water. The Fisher Shop sells everything you need and buys your catch. Better rods give you more luck. Heads up Fishing rods are not permanent. If you rejoin the game, your rod will be gone, so buy a new one when you come back. Rods Rod Price Basic Fishing Rod 12€ Advanced Fishing Rod 50€ Professional Fishing Rod 130€ Expert Fishing Rod 350€ Hooks and Bait A rod needs a hook before you can fish. A hook lasts for 100 catches, bait is used up once per catch. Click a hook or bait item onto the rod in your inventory to attach it, right click the rod to remove them again. A rod holds a maximum of 32 bait. Item Price Effect Default Hook 8€ A plain hook. Every rod needs one. Sharp Hook 30€ Fish bite more often than junk. Heavy Hook 30€ Higher chance for bigger fish. Tiny Hook 30€ Higher chance for smaller fish. Rusty Hook 15€ Attracts more junk than fish. Shell Bait 3€ each Higher chance for crabs and other shellfish. Fish Bait 2€ each Higher chance for carnivorous fish. Grass Bait 1€ each Higher chance for herbivorous fish. Catching a fish When a fish bites, a bar appears. Scroll your mouse wheel to move the green zone onto the fish and keep it there until the bar is full. Better rods make this easier. If you lose the fish, it gets away. Every fish has its own size in centimetres and you earn XP for each catch. Besides fish you can also pull up junk such as old boots, rusty nails or muddy bottles. Some junk is worth surprisingly much. Sell everything at the Fisher Shop. Keep the bar in the green zone to land the fish.",
     "snippet": "Job / Fishing Cast your line. Fishing is a relaxed job. With a fishing rod you can fish in open water. The Fisher Shop sells everything you need and buys your c"
   },
   {
     "path": "jobs/#farmer",
     "category": "Jobs",
     "title": "Grow your own.",
-    "text": "Job / Farming Grow your own. Farmers work with portable planters . Place a planter, plant a seed bag, take care of it and harvest the crop once it is fully grown. You can only use your own planters and crops, and planters cannot be placed directly next to each other. Where to shop The Emerald Villa Market Place has many shops, and you will find most of what a farmer needs around it. Plant Shop Portable Planter (250€), Watering Can (60€), Big Watering Can (140€) and Farmer's Goggles (300€). Seed Vendor Seed bags for wheat (6€), carrots (8€), potatoes (10€), beetroot (7€), pumpkins (12€) and melons (14€). Compost Vendor Fertilizer (45€) and Plant Protection (10€). He also buys your bio waste for 6€ each. Market Trader Buys your harvest. Better quality pays more. Taking care of your plants Light Every crop needs a minimum light level. Place your planter somewhere bright enough. Watering Right click the planter with a watering can. Water lasts for about five minutes. Refill the can by right clicking water. The big can holds more water. Fertilizer Apply fertilizer before planting. The next crop grows faster and has a better chance of higher quality. Pests Pests can appear on growing plants, eat part of the crop and spread to nearby plants. Plant Protection keeps them away for a while. Farmer's Goggles Wear the goggles on your head to see the status of nearby planters, such as growth progress, water and when a crop is ready. Quality Every harvest has a quality: Common, Uncommon, Rare, Epic, Legendary or Mythic. Fertilizer and good care improve your chances. Selling The Market Trader pays the following base prices per crop: wheat 12€, carrots 10€, potatoes 12€, beetroot 14€, pumpkins 60€ and melons 12€. A Restaurant Owner also posts daily orders that reset every day and pay a reward when you deliver the requested crops.",
+    "text": "Job / Farming Grow your own. Farmers work with portable planters . Place a planter, plant a seed bag, take care of it and harvest the crop once it is fully grown. You can only use your own planters and crops, and planters cannot be placed directly next to each other. Where to shop The Emerald Villa Market Place has many shops, and you will find most of what a farmer needs around it. Plant Shop Portable Planter (250€), Watering Can (60€), Big Watering Can (140€) and Farmer's Goggles (300€). Seed Vendor Seed bags for wheat (6€), carrots (8€), potatoes (10€), beetroot (7€), pumpkins (12€) and melons (14€). Compost Vendor Fertilizer (45€) and Plant Protection (10€). He also buys your bio waste for 6€ each. Market Trader Buys your harvest. Better quality pays more. Taking care of your plants Light Every crop needs a minimum light level. Place your planter somewhere bright enough. Watering Right click the planter with a watering can. Water lasts for about five minutes. Refill the can by right clicking water. The big can holds more water. Fertilizer Apply fertilizer before planting. The next crop grows faster and has a better chance of higher quality. Pests Pests can appear on growing plants, eat part of the crop and spread to nearby plants. Plant Protection keeps them away for a while. Farmer's Goggles Wear the goggles on your head to see the status of nearby planters, such as growth progress, water and when a crop is ready. Quality Every harvest has a quality: Common, Uncommon, Rare, Epic, Legendary or Mythic. Fertilizer and good care improve your chances. Selling The Market Trader pays the following base prices per crop: wheat 12€, carrots 10€, potatoes 12€, beetroot 14€, pumpkins 60€ and melons 12€. A Restaurant Owner also posts daily orders that reset every day and pay a reward when you deliver the requested crops. Place a planter, plant a seed bag and take care of it.",
     "snippet": "Job / Farming Grow your own. Farmers work with portable planters . Place a planter, plant a seed bag, take care of it and harvest the crop once it is fully grow"
   },
   {
     "path": "jobs/#hunter",
     "category": "Jobs",
     "title": "Into the wild.",
-    "text": "Job / Hunting Into the wild. Before you can hunt you need to pass the Hunting License test with the Hunter. It has five questions and you need at least four correct answers. Equipment Weapons Hunting Bow (2,500€) and Hunting Crossbow (3,500€). The bow can be upgraded with Power I. Ammo Hunting Arrows (15€ each) and Glow Arrows (50€ each). Gear The Hunter also sells a few extras to make the hunt easier. The hunt Be quiet Animals hear you. Sneaking is the quietest, running is the loudest. Jumping makes noise too. Wounded animals A hit animal flees and leaves a trail of blood for about two minutes. Follow it. Wolves fight back. Shots are loud Other animals nearby are scared by arrows and gunshots. Gathering Stand still while you gather meat and fur from the animal. Moving interrupts you. Meat and fur come in different qualities. Sell your catch to the Hunter.",
+    "text": "Job / Hunting Into the wild. Before you can hunt you need to pass the Hunting License test with the Hunter. It has five questions and you need at least four correct answers. Equipment Weapons Hunting Bow (2,500€) and Hunting Crossbow (3,500€). The bow can be upgraded with Power I. Ammo Hunting Arrows (15€ each) and Glow Arrows (50€ each). Gear The Hunter also sells a few extras to make the hunt easier. The hunt Be quiet Animals hear you. Sneaking is the quietest, running is the loudest. Jumping makes noise too. Wounded animals A hit animal flees and leaves a trail of blood for about two minutes. Follow it. Wolves fight back. Shots are loud Other animals nearby are scared by arrows and gunshots. Gathering Stand still while you gather meat and fur from the animal. Moving interrupts you. Meat and fur come in different qualities. Sell your catch to the Hunter. Hunting needs a license.",
     "snippet": "Job / Hunting Into the wild. Before you can hunt you need to pass the Hunting License test with the Hunter. It has five questions and you need at least four cor"
   },
   {
     "path": "jobs/#brewer",
     "category": "Jobs",
     "title": "Brew it right.",
-    "text": "Job / Brewing Brew it right. Brewers turn ingredients into drinks. A good brew takes patience, the right ingredients and a steady hand. You do not need an application, only equipment from Barney's Brewery . Brewing Fill a cauldron with water and place it above a heat source such as a campfire or a furnace. Right click it with ingredients to add them, stir with a wooden spoon and fill a glass bottle once the cauldron shows Ready . Above the cauldron you can see what stage the brew is in: Fermenting, Ready, Overbrewed or Ruined. Wrong ingredients or a ruined brew leave you with something undrinkable. Quality Every drink has a quality of up to five stars. The right ingredients, good timing, stirring and the right heat all count. Aging Some drinks get better in a barrel. Sneak and right click a barrel with a plank to turn it into an aging barrel. Bottles inside age in real time, even while you are offline. Distilling Strong spirits are distilled in a brewing stand with glowstone dust and blaze powder. Every run makes the drink stronger. Recipes Learn recipes from the recipe book by clicking a drink you brewed onto it, or by buying recipe scrolls from the Librarian. Experiment to find out what works. Selling The Pub buys the drinks you brewed. The more stars and the better the recipe, the more you get paid. You can also buy drinks there. Drinking Alcohol makes you tipsy, drunk, wasted and finally unconscious, and you suffer a hangover afterwards. Badly made or over-distilled spirits can even poison you.",
+    "text": "Job / Brewing Brew it right. Brewers turn ingredients into drinks. A good brew takes patience, the right ingredients and a steady hand. You do not need an application, only equipment from Barney's Brewery . Brewing Fill a cauldron with water and place it above a heat source such as a campfire or a furnace. Right click it with ingredients to add them, stir with a wooden spoon and fill a glass bottle once the cauldron shows Ready . Above the cauldron you can see what stage the brew is in: Fermenting, Ready, Overbrewed or Ruined. Wrong ingredients or a ruined brew leave you with something undrinkable. Quality Every drink has a quality of up to five stars. The right ingredients, good timing, stirring and the right heat all count. Aging Some drinks get better in a barrel. Sneak and right click a barrel with a plank to turn it into an aging barrel. Bottles inside age in real time, even while you are offline. Distilling Strong spirits are distilled in a brewing stand with glowstone dust and blaze powder. Every run makes the drink stronger. Recipes Learn recipes from the recipe book by clicking a drink you brewed onto it, or by buying recipe scrolls from the Librarian. Experiment to find out what works. Selling The Pub buys the drinks you brewed. The more stars and the better the recipe, the more you get paid. You can also buy drinks there. Drinking Alcohol makes you tipsy, drunk, wasted and finally unconscious, and you suffer a hangover afterwards. Badly made or over-distilled spirits can even poison you. Cauldron for brewing, barrels for aging.",
     "snippet": "Job / Brewing Brew it right. Brewers turn ingredients into drinks. A good brew takes patience, the right ingredients and a steady hand. You do not need an appli"
   },
   {
@@ -241,21 +241,21 @@ window.DOCS_SEARCH_INDEX = [
     "path": "economy/#money",
     "category": "Economy & Money",
     "title": "Cash and bank.",
-    "text": "Economy / Your money Cash and bank. You start with 300€ in pocket money and an empty bank account. Your pocket money is what you carry with you. Your bank balance is stored safely at the bank. You can turn pocket money into a money check with /moneycheck . A money check is an item, so it can be handed over, stored in a chest, or lost like any other item. Use /pay to send money directly to a player who is online.",
+    "text": "Economy / Your money Cash and bank. You start with 300€ in pocket money and an empty bank account. Your pocket money is what you carry with you. Your bank balance is stored safely at the bank. You can turn pocket money into a money check with /moneycheck . A money check is an item, so it can be handed over, stored in a chest, or lost like any other item. Use /pay to send money directly to a player who is online. A money check is an item you can hand over.",
     "snippet": "Economy / Your money Cash and bank. You start with 300€ in pocket money and an empty bank account. Your pocket money is what you carry with you. Your bank balan"
   },
   {
     "path": "economy/#bank",
     "category": "Economy & Money",
     "title": "Bank and interest.",
-    "text": "Economy / The bank Bank and interest. Money in your bank account earns a small amount of interest every hour, even while you are offline. The rate depends on your reputation. Offline players receive interest for at most 48 hours, and interest is only paid on a balance up to 250,000€. Reputation Interest per hour Honored 0.04% Respected 0.03% Neutral 0.02% Shady 0.015% Criminal 0.01% Bonus, not income Interest is a small bonus. A job is still the way to build an income.",
+    "text": "Economy / The bank Bank and interest. Money in your bank account earns a small amount of interest every hour, even while you are offline. The rate depends on your reputation. Offline players receive interest for at most 48 hours, and interest is only paid on a balance up to 250,000€. Reputation Interest per hour Honored 0.04% Respected 0.03% Neutral 0.02% Shady 0.015% Criminal 0.01% Bonus, not income Interest is a small bonus. A job is still the way to build an income. The bank pays a small interest on your balance.",
     "snippet": "Economy / The bank Bank and interest. Money in your bank account earns a small amount of interest every hour, even while you are offline. The rate depends on yo"
   },
   {
     "path": "economy/#dying",
     "category": "Economy & Money",
     "title": "What you lose.",
-    "text": "Economy / Dying What you lose. When you die, half of your pocket money drops at the place where you died as a money check. Your inventory stays with you . Money in your bank account is never lost. Life insurance Life insurance reduces what you lose when you die to a small share of your pocket money, between 5% (Honored) and 25% (Criminal), depending on your reputation. Signing up costs 1,000€ and 400€ are charged every day. If you cannot pay the daily fee, the insurance is cancelled automatically. Plan ahead Do not carry large amounts of cash around. Put it in the bank first.",
+    "text": "Economy / Dying What you lose. When you die, half of your pocket money drops at the place where you died as a money check. Your inventory stays with you . Money in your bank account is never lost. A fatal hit does not always kill you right away, see Health System . Life insurance Life insurance reduces what you lose when you die to a small share of your pocket money, between 5% (Honored) and 25% (Criminal), depending on your reputation. Signing up costs 1,000€ and 400€ are charged every day. If you cannot pay the daily fee, the insurance is cancelled automatically. Plan ahead Do not carry large amounts of cash around. Put it in the bank first. Sign up for life insurance at the insurance NPC.",
     "snippet": "Economy / Dying What you lose. When you die, half of your pocket money drops at the place where you died as a money check. Your inventory stays with you . Money"
   },
   {
@@ -304,7 +304,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "housing/#payment",
     "category": "Housing",
     "title": "Buying or Renting",
-    "text": "Step / 02 Buying or Renting Properties use one of two different payment models. Make sure you understand which model a property uses before committing to it. PAYMENT · 01 One Time Payment Pay the full purchase price once and own the property. There are no daily rent payments for this type of property. However, owning more than two One Time Payment properties will activate the property tax system. PAYMENT · 02 Rent Instead of paying the full purchase price, you pay rent every real-life day . You need to keep enough money available to cover your rent. Important · Property Loss If a rented property is removed from your ownership because you can no longer afford the rent, everything built inside the property can be deleted .",
+    "text": "Step / 02 Buying or Renting Properties use one of two different payment models. Make sure you understand which model a property uses before committing to it. PAYMENT · 01 One Time Payment Pay the full purchase price once and own the property. There are no daily rent payments for this type of property. However, owning more than two One Time Payment properties will activate the property tax system. PAYMENT · 02 Rent Instead of paying the full purchase price, you pay rent every real-life day . You need to keep enough money available to cover your rent. Important · Property Loss If a rented property is removed from your ownership because you can no longer afford the rent, everything built inside the property can be deleted . Find properties in the Scotex app.",
     "snippet": "Step / 02 Buying or Renting Properties use one of two different payment models. Make sure you understand which model a property uses before committing to it. PA"
   },
   {
@@ -318,7 +318,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "housing/#permissions",
     "category": "Housing",
     "title": "Trust your people.",
-    "text": "Housing / Permissions Trust your people. Property owners can give other players permissions to access and use their property. Trust a player /house <Housename> trust <Playername> Once a player has been trusted, their permissions can be managed through the property menu. Manage permissions /house menu Security Only give property permissions to players you trust. Make sure you understand what access you are giving before adding someone.",
+    "text": "Housing / Permissions Trust your people. Property owners can give other players permissions to access and use their property. Trust a player /house <Housename> trust <Playername> Once a player has been trusted, their permissions can be managed through the property menu. Manage permissions /house menu Security Only give property permissions to players you trust. Make sure you understand what access you are giving before adding someone. Manage your property with /house.",
     "snippet": "Housing / Permissions Trust your people. Property owners can give other players permissions to access and use their property. Trust a player /house <Housename> "
   },
   {
@@ -360,7 +360,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "business/#companies",
     "category": "Businesses",
     "title": "Found a company.",
-    "text": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. You also need a linked Discord account , because founding a company is only possible with a linked Discord. Creating a company costs 25,000$ . The company name must be unique and between 3 and 24 characters long. After you pay, the company is created and you become its owner. Company management Employees Send job offers to other players. When you hire someone you give them a role. They can accept or decline the offer. Individual wages can still be adjusted later. Company Account Deposit money from your personal account and withdraw it again. Employees are paid from the company account. Company Computer The owner and employees whose role allows it can use the company computer. Company Icon Click an item in your inventory to use it as the icon of your company. Disbanding The owner can disband the company. The remaining balance is paid out to the owner. The company storage is deleted when a company is disbanded. You get a warning before you confirm.",
+    "text": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. You also need a linked Discord account , because founding a company is only possible with a linked Discord. Creating a company costs 25,000$ . The company name must be unique and between 3 and 24 characters long. After you pay, the company is created and you become its owner. Company management Employees Send job offers to other players. When you hire someone you give them a role. They can accept or decline the offer. Individual wages can still be adjusted later. Company Account Deposit money from your personal account and withdraw it again. Employees are paid from the company account. Company Computer The owner and employees whose role allows it can use the company computer. Company Icon Click an item in your inventory to use it as the icon of your company. Disbanding The owner can disband the company. The remaining balance is paid out to the owner. The company storage is deleted when a company is disbanded. You get a warning before you confirm. Found and manage your company at an office computer.",
     "snippet": "Businesses / Companies Found a company. To found a company you need an Office and the company computer inside it. Offices can be bought from Vertex Properties. "
   },
   {
@@ -381,7 +381,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "business/#orders",
     "category": "Businesses",
     "title": "Orders with Bulkr.",
-    "text": "Businesses / Order Board Orders with Bulkr. Companies can buy items from players with the Order Board . Players deliver the items with the phone app Bulkr . Creating orders A company creates an order by choosing an item, an amount, a duration and a price per piece. The full amount is reserved from the company account when the order is created. Your phone item itself cannot be ordered. Delivering in Bulkr Deliver Left click an order to deliver everything you have. Right click to choose your own amount. Partial deliveries If you deliver only part of an order, you are paid in proportion to what you delivered. Filters Filter orders by the items in your inventory or by clicking an item. The item filter is reset whenever you open the app. Your own orders Orders of your own company are visible but you cannot deliver to them yourself. Experience Deliveries give XP, limited to 15 per delivery and 100 per day. Company Storage Delivered items go straight into the storage of the company.",
+    "text": "Businesses / Order Board Orders with Bulkr. Companies can buy items from players with the Order Board . Players deliver the items with the phone app Bulkr . Creating orders A company creates an order by choosing an item, an amount, a duration and a price per piece. The full amount is reserved from the company account when the order is created. Your phone item itself cannot be ordered. Delivering in Bulkr Deliver Left click an order to deliver everything you have. Right click to choose your own amount. Partial deliveries If you deliver only part of an order, you are paid in proportion to what you delivered. Filters Filter orders by the items in your inventory or by clicking an item. The item filter is reset whenever you open the app. Your own orders Orders of your own company are visible but you cannot deliver to them yourself. Experience Deliveries give XP, limited to 15 per delivery and 100 per day. Company Storage Delivered items go straight into the storage of the company. Orders are posted on the order board and handled with Bulkr.",
     "snippet": "Businesses / Order Board Orders with Bulkr. Companies can buy items from players with the Order Board . Players deliver the items with the phone app Bulkr . Cre"
   },
   {
@@ -437,14 +437,14 @@ window.DOCS_SEARCH_INDEX = [
     "path": "vehicles/#dealership",
     "category": "Vehicles",
     "title": "Buy your ride.",
-    "text": "Vehicles / Dealership Buy your ride. The car dealership sorts its cars into collections. Pick a collection, browse the cars and check their top speed, acceleration and number of seats. You can preview a car before you buy it. Some collections are only available for a limited time. Your reputation changes the price: very honored players get a 10% discount, while players with a criminal reputation pay 10% more. See the Reputation section in Getting Started. Remember Cars are expensive. Build up a reliable income before buying one and do not forget that you also need a driving license.",
+    "text": "Vehicles / Dealership Buy your ride. The car dealership sorts its cars into collections. Pick a collection, browse the cars and check their top speed, acceleration and number of seats. You can preview a car before you buy it. Some collections are only available for a limited time. Your reputation changes the price: very honored players get a 10% discount, while players with a criminal reputation pay 10% more. See the Reputation section in Getting Started. Remember Cars are expensive. Build up a reliable income before buying one and do not forget that you also need a driving license. Browse the collections at the dealership.",
     "snippet": "Vehicles / Dealership Buy your ride. The car dealership sorts its cars into collections. Pick a collection, browse the cars and check their top speed, accelerat"
   },
   {
     "path": "vehicles/#spawning",
     "category": "Vehicles",
     "title": "Spawn and drive.",
-    "text": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . You can only have one vehicle spawned at a time. /delcar Despawn your current vehicle. Locking Your car locks and unlocks automatically when you leave it. You can also lock or unlock it by holding Shift and right clicking the car. Passenger menu While driving, press F (the key that swaps main hand and offhand) to open a menu. There you can eject passengers from your vehicle. Fuel A fuel bar is shown while you drive. Keep an eye on it so you do not run dry. Refill at a gas station or with a fuel canister. Gas stations are marked on the live map.",
+    "text": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . You can only have one vehicle spawned at a time. /delcar Despawn your current vehicle. Locking Your car locks and unlocks automatically when you leave it. You can also lock or unlock it by holding Shift and right clicking the car. Passenger menu While driving, press F (the key that swaps main hand and offhand) to open a menu. There you can eject passengers from your vehicle. Fuel A fuel bar is shown while you drive. Keep an eye on it so you do not run dry. Refill at a gas station or with a fuel canister. Gas stations are marked on the live map. Refill at a gas station.",
     "snippet": "Vehicles / Using Your Car Spawn and drive. Owned cars are spawned at car spawners around the city. Open the spawner, search or sort your cars and click Spawn . "
   },
   {
@@ -458,7 +458,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "vehicles/#mechanic",
     "category": "Vehicles",
     "title": "Tune your car.",
-    "text": "Vehicles / Mechanic Tune your car. The mechanic's garage lets you repair and upgrade your car. Drive into the garage with your own car and talk to the mechanic. Only cars can enter, only one car fits at a time and you cannot enter the garage while you are wanted. Engine Raises top speed and acceleration. Brakes Raises your braking strength. Fuel Tank Lowers fuel consumption so a full tank takes you further. Trunk Adds storage rows to your trunk. Chassis Raises the amount of damage your car can take. Tires Choose road tires for more speed on roads, offroad tires for more traction away from the road or ice tires for winter. Only one tire type can be mounted at a time. Style Add a drift effect, a trail effect or a different horn to your car. Repair Repair damage to your car. The cost depends on the price of your car and how damaged it is. Parts come in five upgrade tiers: Uncommon, Rare, Epic, Legendary and Mythic. Each tier is stronger and more expensive than the one before. You can preview a part before you buy it.",
+    "text": "Vehicles / Mechanic Tune your car. The mechanic's garage lets you repair and upgrade your car. Drive into the garage with your own car and talk to the mechanic. Only cars can enter, only one car fits at a time and you cannot enter the garage while you are wanted. Engine Raises top speed and acceleration. Brakes Raises your braking strength. Fuel Tank Lowers fuel consumption so a full tank takes you further. Trunk Adds storage rows to your trunk. Chassis Raises the amount of damage your car can take. Tires Choose road tires for more speed on roads, offroad tires for more traction away from the road or ice tires for winter. Only one tire type can be mounted at a time. Style Add a drift effect, a trail effect or a different horn to your car. Repair Repair damage to your car. The cost depends on the price of your car and how damaged it is. Parts come in five upgrade tiers: Uncommon, Rare, Epic, Legendary and Mythic. Each tier is stronger and more expensive than the one before. You can preview a part before you buy it. Upgrade your vehicle at the mechanic.",
     "snippet": "Vehicles / Mechanic Tune your car. The mechanic's garage lets you repair and upgrade your car. Drive into the garage with your own car and talk to the mechanic."
   },
   {
@@ -500,7 +500,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "phone/#apps",
     "category": "Phone",
     "title": "Your Applications",
-    "text": "Phone / Applications Your Applications Standard phones provide access to a wide selection of applications. Each application connects you to a different part of the NukeRoleplay world. APP · 01 Telephone Call emergency services when you need assistance. APP · 02 Discord Access the server's Discord link directly from your phone. APP · 03 Passport View your own passport information through the phone. APP · 04 Level System View your level and access rewards associated with the level system. APP · 05 Job Selector Choose a job or leave your current job through the Job Selector. APP · 06 Radio Listen to music through the in-game radio system. APP · 07 Scotex Access the real estate system to purchase or rent properties. APP · 08 Degrees View your degrees and licenses you have earned. APP · 09 Cosmetics Equip available cosmetics directly from your phone. APP · 10 ObliStocks Invest in and manage your position in the stock market. APP · 11 Discoveries View places you have already discovered throughout the world. APP · 12 Messenger Check your recent messages and communicate with other players. APP · 13 Auction House Buy and sell items through the in-game auction house. APP · 14 Tweeter Post tweets and reply to tweets from other players.",
+    "text": "Phone / Applications Your Applications Standard phones provide access to a wide selection of applications. Each application connects you to a different part of the NukeRoleplay world. APP · 01 Telephone Call emergency services when you need assistance. APP · 02 Discord Access the server's Discord link directly from your phone. APP · 03 Passport View your own passport information through the phone. APP · 04 Level System View your level and access rewards associated with the level system. APP · 05 Job Selector Choose a job or leave your current job through the Job Selector. APP · 06 Radio Listen to music through the in-game radio system. APP · 07 Scotex Access the real estate system to purchase or rent properties. APP · 08 Degrees View your degrees and licenses you have earned. APP · 09 Cosmetics Equip available cosmetics directly from your phone. APP · 10 ObliStocks Invest in and manage your position in the stock market. APP · 11 Discoveries View places you have already discovered throughout the world. APP · 12 Messenger Check your recent messages and communicate with other players. APP · 13 Auction House Buy and sell items through the in-game auction house. APP · 14 Tweeter Post tweets and reply to tweets from other players. Your phone gives you access to many services.",
     "snippet": "Phone / Applications Your Applications Standard phones provide access to a wide selection of applications. Each application connects you to a different part of "
   },
   {
@@ -535,7 +535,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "phone/#upgrades",
     "category": "Phone",
     "title": "Upgrade Your Phone",
-    "text": "Phone / Upgrades Upgrade Your Phone Not every phone has access to every application. The junk phone , for example, provides a more limited selection of apps. Additional applications can become available by purchasing a better phone. Limited Device If an application is missing from your phone, it may simply be unavailable on your current device rather than being disabled for yourself. Junk Phone Provides a reduced application selection and displays information encouraging players to upgrade. Better Phones Purchasing a better phone can unlock additional applications and services.",
+    "text": "Phone / Upgrades Upgrade Your Phone Not every phone has access to every application. The junk phone , for example, provides a more limited selection of apps. Additional applications can become available by purchasing a better phone. Limited Device If an application is missing from your phone, it may simply be unavailable on your current device rather than being disabled for yourself. Junk Phone Provides a reduced application selection and displays information encouraging players to upgrade. Better Phones Purchasing a better phone can unlock additional applications and services. Upgrade your phone for more apps.",
     "snippet": "Phone / Upgrades Upgrade Your Phone Not every phone has access to every application. The junk phone , for example, provides a more limited selection of apps. Ad"
   },
   {
@@ -563,14 +563,14 @@ window.DOCS_SEARCH_INDEX = [
     "path": "law/#wanted",
     "category": "Law & Order",
     "title": "Wanted stars.",
-    "text": "Law & Order / Wanted Wanted stars. Committing crimes raises your wanted level. Your wanted level is based on crime points: 1 star starts at 5 points, 2 stars at 15, 3 stars at 30, 4 stars at 60 and 5 stars at 150. Stars build up gradually, so a single offense will not send you straight to the top. White stars The police have not spotted you nearby yet. Red stars The police have spotted you nearby. Fading Points fade over time when no police are nearby, faster with a high reputation. Bounty A player who reaches 5 stars gets a bounty between 500€ and 2,500€ placed on their head. NPC police If you are wanted and no real police officers are online, police NPCs will show up and chase you down. Do not count on the city being empty of law enforcement just because the OCPD is offline. At the reception desk of a police station, any player can view the current list of wanted players.",
+    "text": "Law & Order / Wanted Wanted stars. Committing crimes raises your wanted level. Your wanted level is based on crime points: 1 star starts at 5 points, 2 stars at 15, 3 stars at 30, 4 stars at 60 and 5 stars at 150. Stars build up gradually, so a single offense will not send you straight to the top. White stars The police have not spotted you nearby yet. Red stars The police have spotted you nearby. Fading Points fade over time when no police are nearby, faster with a high reputation. Bounty A player who reaches 5 stars gets a bounty between 500€ and 2,500€ placed on their head. NPC police If you are wanted and no real police officers are online, police NPCs will show up and chase you down. Do not count on the city being empty of law enforcement just because the OCPD is offline. At the reception desk of a police station, any player can view the current list of wanted players. White stars: not seen yet. Red stars: spotted.",
     "snippet": "Law & Order / Wanted Wanted stars. Committing crimes raises your wanted level. Your wanted level is based on crime points: 1 star starts at 5 points, 2 stars at"
   },
   {
     "path": "law/#caught",
     "category": "Law & Order",
     "title": "Caught.",
-    "text": "Law & Order / When you are caught Caught. Officers can only cuff players who are wanted . After an arrest, an officer can send you to prison for a set time. Lieutenants and higher can release prisoners early. While you are wanted, in prison or in combat, you cannot use /tphome . Fines Officers can also issue citations. The fine is charged directly to your bank account.",
+    "text": "Law & Order / When you are caught Caught. Officers can only cuff players who are wanted . After an arrest, an officer can send you to prison for a set time. Lieutenants and higher can release prisoners early. While you are wanted, in prison or in combat, you cannot use /tphome . Fines Officers can also issue citations. The fine is charged directly to your bank account. Officers can send you to prison.",
     "snippet": "Law & Order / When you are caught Caught. Officers can only cuff players who are wanted . After an arrest, an officer can send you to prison for a set time. Lie"
   },
   {
@@ -654,7 +654,7 @@ window.DOCS_SEARCH_INDEX = [
     "path": "police/#tools",
     "category": "Police",
     "title": "Tools of the trade.",
-    "text": "Police / Equipment Tools of the trade. Police officers have access to a variety of tools and systems designed to make their work more efficient. These tools allow officers to access relevant information, respond to situations and perform their duties throughout the city. Mobile Data Officers can access relevant police information through specialized police systems while away from a station. Police Equipment Specialized equipment helps officers handle different situations and perform their duties efficiently. Communication Police work depends on effective communication between officers, divisions and leadership. Training Officers can continue practicing and improving their skills at the LETC.",
+    "text": "Police / Equipment Tools of the trade. Police officers have access to a variety of tools and systems designed to make their work more efficient. These tools allow officers to access relevant information, respond to situations and perform their duties throughout the city. Mobile Data Officers can access relevant police information through specialized police systems while away from a station. Police Equipment Specialized equipment helps officers handle different situations and perform their duties efficiently. Communication Police work depends on effective communication between officers, divisions and leadership. Training Officers can continue practicing and improving their skills at the LETC. Officers have a set of tools for their work.",
     "snippet": "Police / Equipment Tools of the trade. Police officers have access to a variety of tools and systems designed to make their work more efficient. These tools all"
   },
   {
@@ -742,6 +742,104 @@ window.DOCS_SEARCH_INDEX = [
     "snippet": "Government / Reference Quick Reference Legislature Parliament · elected by players Executive President · elected by Parliament Key Appointments Chief of Police "
   },
   {
+    "path": "health/",
+    "category": "Health System",
+    "title": "Health System",
+    "text": "Learn how injuries, bleeding, illnesses, going down, the hospital, insurance and first aid work in NukeRoleplay.",
+    "snippet": "Learn how injuries, bleeding, illnesses, going down, the hospital, insurance and first aid work in NukeRoleplay."
+  },
+  {
+    "path": "health/#overview",
+    "category": "Health System",
+    "title": "Stay alive.",
+    "text": "Health System / Overview Stay alive. Fights, bullets, falls and accidents can hurt you. The health system tracks injuries on different parts of your body, bleeding, illnesses and what happens when you go down. This page explains how to treat yourself, how to help others and how the hospital works. Injuries Six body zones, seven injury types, three grades each. First aid Plasters, bandages and medicine from the pharmacy. Hospital Doctors, treatment rooms and emergency calls. Insurance Health insurance pays for your treatment. Use /health at any time to open your body menu and see your current injuries.",
+    "snippet": "Health System / Overview Stay alive. Fights, bullets, falls and accidents can hurt you. The health system tracks injuries on different parts of your body, bleed"
+  },
+  {
+    "path": "health/#injuries",
+    "category": "Health System",
+    "title": "Hurt and healing.",
+    "text": "Health System / Injuries Hurt and healing. You can get hurt in six body zones: head , torso , left and right arm and left and right leg . Injury types Bruise, laceration, gunshot wound, sprain, fracture, burn and concussion. Every injury has one of three grades: minor , moderate or severe . How you get hurt Injuries come from fights, arrows, guns, falls, explosions, fire and lava, and from being run over by vehicles. What injuries do Body part Effect Legs You move slower. Severe leg injuries stop you from sprinting and jumping. Arms Mining and attacks get weaker. Severe arm injuries stop you from using a bow, and you may drop your item. Torso Your maximum health is lower. Head Nausea and darkness. Healing Injuries heal on their own, but slowly: from a few minutes up to an hour and a half, depending on the injury. Treatment makes them heal much faster. Treatment at the hospital is the fastest and takes a few minutes at most. First aid items are in between. Open your body menu with /health.",
+    "snippet": "Health System / Injuries Hurt and healing. You can get hurt in six body zones: head , torso , left and right arm and left and right leg . Injury types Bruise, l"
+  },
+  {
+    "path": "health/#bleeding",
+    "category": "Health System",
+    "title": "Stop the bleeding.",
+    "text": "Health System / Bleeding Stop the bleeding. Some injuries make you bleed. Bleeding drains your health over time, but it never kills you by itself. Light bleeding stops on its own after about 90 seconds. Stronger bleeding needs a bandage. Item Stops Plaster Light bleeding Bandage Light and moderate bleeding Pressure bandage Any bleeding",
+    "snippet": "Health System / Bleeding Stop the bleeding. Some injuries make you bleed. Bleeding drains your health over time, but it never kills you by itself. Light bleedin"
+  },
+  {
+    "path": "health/#down",
+    "category": "Health System",
+    "title": "Down but not out.",
+    "text": "Health System / Going down Down but not out. A fatal hit does not kill you instantly. You go down for 3 minutes . While you are down you can only crawl very slowly, your screen is dark, and you cannot attack, use items, drop things or run most commands. Nearby players get an alert with your coordinates. Reviving a player Anyone can revive a downed player. CPR: right click the downed player with an empty hand again and again until the bar is full. AED: hold the AED, right click the downed player and stay close for a few seconds. Revived players come back with a little health and keep their injuries. Giving up You can give up by holding sneak for 5 seconds. If the timer runs out, you die. Do not log out If you log out while you are down, you die when you log back in.",
+    "snippet": "Health System / Going down Down but not out. A fatal hit does not kill you instantly. You go down for 3 minutes . While you are down you can only crawl very slo"
+  },
+  {
+    "path": "health/#dying",
+    "category": "Health System",
+    "title": "The hospital wakes you.",
+    "text": "Health System / Dying The hospital wakes you. After you really die, you wake up in the nearest hospital and all your injuries and illnesses are gone. What happens to your money depends on your life insurance , which is separate from the health insurance. Without it you lose half of your pocket money, with it only a small part. See Economy & Money .",
+    "snippet": "Health System / Dying The hospital wakes you. After you really die, you wake up in the nearest hospital and all your injuries and illnesses are gone. What happe"
+  },
+  {
+    "path": "health/#firstaid",
+    "category": "Health System",
+    "title": "Pharmacy and first aid.",
+    "text": "Health System / First aid Pharmacy and first aid. Medical items are sold in the pharmacy . Right click an item to use it on yourself, or right click another player to treat them. A progress bar fills while you stand still and keep the item in your hand. Limits Head and torso injuries cannot be treated on yourself. Item Price What it does Plaster 15€ Light bleeding Bandage 40€ Light and moderate bleeding Pressure bandage 120€ Any bleeding Antiseptic 50€ Cuts and gunshot wounds Cooling pack 60€ Bruises and burns Burn ointment 80€ Burns Splint 90€ Fractures and sprains Sling 70€ Arm sprains Paracetamol 25€ Painkiller Ibuprofen 60€ Painkiller Anti-nausea pill 35€ Cures illnesses, see Illnesses Cold medicine 70€ Cures illnesses, see Illnesses Antibiotics 150€ Cures illnesses, see Illnesses Dewormer 90€ Cures illnesses, see Illnesses Medkit 400€ Treats many injuries at once Crutches 150€ Halve the slowdown from leg injuries Painkillers ease the effect of injuries for a few minutes, but they do not help against fractures or gunshot wounds. Medical items are sold in the pharmacy.",
+    "snippet": "Health System / First aid Pharmacy and first aid. Medical items are sold in the pharmacy . Right click an item to use it on yourself, or right click another pla"
+  },
+  {
+    "path": "health/#illnesses",
+    "category": "Health System",
+    "title": "Catch a cold.",
+    "text": "Health System / Illnesses Catch a cold. You can catch a cold, the flu, food poisoning, a stomach bug, a wound infection or a tapeworm. Sick players get symptoms: messages and effects like slowness, nausea or constant hunger. Illness How you catch it Cold, sometimes flu Standing in the rain for a long time Food poisoning, tapeworm Eating rotten flesh or raw meat Wound infection Untreated cuts and gunshot wounds Cold, flu, stomach bug Staying close to a sick player. They are contagious. Treatment Medicine Helps against Cold medicine Shortens colds and the flu Anti-nausea pill Food poisoning and the stomach bug Antibiotics Wound infections Dewormer Tapeworm After you recover you are immune for a while.",
+    "snippet": "Health System / Illnesses Catch a cold. You can catch a cold, the flu, food poisoning, a stomach bug, a wound infection or a tapeworm. Sick players get symptoms"
+  },
+  {
+    "path": "health/#hospital",
+    "category": "Health System",
+    "title": "Going to the hospital.",
+    "text": "Health System / Hospital Going to the hospital. There are two hospitals: Master City and Campanha . Treatment is only available while a hospital staff member is online. Getting treated Go to the reception NPC and draw a ticket. Choose the reason: injured, ill, check-up, prescription or sick note, or something else. Wait in the waiting area and stay inside the hospital. If you leave the hospital or wait longer than 15 minutes without being called, your ticket is cancelled. When a doctor calls you, you get a message. Go to the treatment room and sit down on the doctor's chair. The doctor can check you with the X-ray machine and the vital signs monitor, and then treats your injuries. Treatment costs money, see below. Doctors can also write you a prescription and a sick note.",
+    "snippet": "Health System / Hospital Going to the hospital. There are two hospitals: Master City and Campanha . Treatment is only available while a hospital staff member is"
+  },
+  {
+    "path": "health/#costs",
+    "category": "Health System",
+    "title": "What it costs.",
+    "text": "Health System / Costs What it costs. Treatment prices Treatment Price Remove bullet 800€ Set bone and cast 400€ Suture wound 250€ Dress burn 300€ Bind joint 150€ Treat bruise 50€ Observe and treat (concussion) 200€ Health insurance The health insurance NPC signs you up for free. It costs 50€ per day , taken automatically once a day. If you cannot pay for 3 days in a row, the insurance ends. It covers hospital treatment at the doctor's chair and your prescribed medicine. The health insurance is separate from the life insurance, which only reduces what you lose when you die. Paying for treatment With health insurance you pay nothing. Without insurance the money is taken right away. If you cannot pay, you get an invoice in the Messenger app. Click the message to pay it. Unpaid bills Unpaid bills block hospital treatment after 24 hours, or earlier if your open bills reach 3,000€.",
+    "snippet": "Health System / Costs What it costs. Treatment prices Treatment Price Remove bullet 800€ Set bone and cast 400€ Suture wound 250€ Dress burn 300€ Bind joint 150"
+  },
+  {
+    "path": "health/#prescriptions",
+    "category": "Health System",
+    "title": "Prescriptions and notes.",
+    "text": "Health System / Prescriptions Prescriptions and notes. A doctor (Medic rank or higher) can issue a prescription for one medicine. It is valid for 7 days and can be used once. Hand it to the pharmacy NPC by right clicking with the prescription in your hand. With health insurance you get the medicine for free. Without insurance you pay the normal price and keep the prescription. You can also buy any medicine without a prescription. The prescription is just the cheaper way for insured players. Sick notes A sick note is a signed paper that says you are unfit for work for 1, 3, 7 or 14 days. It is only a roleplay document, the server does not enforce anything with it.",
+    "snippet": "Health System / Prescriptions Prescriptions and notes. A doctor (Medic rank or higher) can issue a prescription for one medicine. It is valid for 7 days and can"
+  },
+  {
+    "path": "health/#emergency",
+    "category": "Health System",
+    "title": "Call 911.",
+    "text": "Health System / Emergency calls Call 911. Open your phone , use the Telephone app, dial 911 and choose Oblivion City Hospital Service . Describe your emergency in chat and the medical staff are notified. If you are downed, an emergency call with your position is created automatically. Tip Call 911 when someone is down and nobody around can revive them.",
+    "snippet": "Health System / Emergency calls Call 911. Open your phone , use the Telephone app, dial 911 and choose Oblivion City Hospital Service . Describe your emergency "
+  },
+  {
+    "path": "health/#tips",
+    "category": "Health System",
+    "title": "Tips for players.",
+    "text": "Health System / Tips Tips for players. Carry a bandage or two and a painkiller. They are cheap. Do not eat raw or rotten meat if you can avoid it. Stay out of the rain for long periods, or keep cold medicine with you. If someone is down, start CPR immediately. Get the health insurance before you need it. Treatments can be expensive.",
+    "snippet": "Health System / Tips Tips for players. Carry a bandage or two and a painkiller. They are cheap. Do not eat raw or rotten meat if you can avoid it. Stay out of t"
+  },
+  {
+    "path": "health/#quick-reference",
+    "category": "Health System",
+    "title": "Quick Reference",
+    "text": "Health System / Reference Quick Reference Command /health opens your body menu Down time 3 minutes, hold sneak for 5 seconds to give up Health insurance Free to sign up, 50€ per day Emergency Dial 911 in the Telephone app",
+    "snippet": "Health System / Reference Quick Reference Command /health opens your body menu Down time 3 minutes, hold sneak for 5 seconds to give up Health insurance Free to"
+  },
+  {
     "path": "progression/",
     "category": "Progression & Reputation",
     "title": "Progression & Reputation",
@@ -759,21 +857,21 @@ window.DOCS_SEARCH_INDEX = [
     "path": "progression/#level",
     "category": "Progression & Reputation",
     "title": "Level up.",
-    "text": "Progression / Level & XP Level up. Almost every job and many activities give you experience : mining, lumberjacking, fishing, farming, deliveries, daily quests and missions, and police work. Gaining enough experience raises your level . At milestone levels you receive a money reward. Open the Level app on your phone to see your progress and collect your rewards. There are also rewards for the time you spend on the server.",
+    "text": "Progression / Level & XP Level up. Almost every job and many activities give you experience : mining, lumberjacking, fishing, farming, deliveries, daily quests and missions, and police work. Gaining enough experience raises your level . At milestone levels you receive a money reward. Open the Level app on your phone to see your progress and collect your rewards. There are also rewards for the time you spend on the server. Collect level rewards in the Level app.",
     "snippet": "Progression / Level & XP Level up. Almost every job and many activities give you experience : mining, lumberjacking, fishing, farming, deliveries, daily quests "
   },
   {
     "path": "progression/#reputation",
     "category": "Progression & Reputation",
     "title": "What they think of you.",
-    "text": "Progression / Reputation What they think of you. Your reputation is a measure of how the city sees you. Good deeds and clean behavior raise it, crime and violence lower it. It is shown as one of five tiers. Tier What changes Honored Highest bank interest, cheapest life insurance, 10% off in shops at the very top Respected Good interest and insurance rates Neutral Normal rates. Required for police and lawyer careers Shady Lower interest, more expensive life insurance Criminal Lowest interest, most expensive life insurance, 10% surcharge in shops and no property purchases at the very bottom Wanted points also fade faster with a high reputation. Passing a license test gives a small reputation boost. See Economy for the exact numbers on interest and insurance.",
+    "text": "Progression / Reputation What they think of you. Your reputation is a measure of how the city sees you. Good deeds and clean behavior raise it, crime and violence lower it. It is shown as one of five tiers. Tier What changes Honored Highest bank interest, cheapest life insurance, 10% off in shops at the very top Respected Good interest and insurance rates Neutral Normal rates. Required for police and lawyer careers Shady Lower interest, more expensive life insurance Criminal Lowest interest, most expensive life insurance, 10% surcharge in shops and no property purchases at the very bottom Wanted points also fade faster with a high reputation. Passing a license test gives a small reputation boost. See Economy for the exact numbers on interest and insurance. Your reputation tier is shown in the game.",
     "snippet": "Progression / Reputation What they think of you. Your reputation is a measure of how the city sees you. Good deeds and clean behavior raise it, crime and violen"
   },
   {
     "path": "progression/#licenses",
     "category": "Progression & Reputation",
     "title": "Licenses and degrees.",
-    "text": "Progression / Licenses & degrees Licenses and degrees. Licenses and degrees cost money, require you to pass a test, and unlock things that are otherwise closed to you. You can see yours in the Degrees app. License Cost Unlocks Driving license 5,000€ Spawning and driving vehicles Gun license 15,000€ Buying and carrying firearms Basic Geology 5,000€ Lower mine levels (with a hazmat suit) Advanced Geology 20,000€ Oil pumps LETC 50,000€ Police career, see Police Lawyer Certification 50,000€ Lawyer career, see Law & Order Some licenses, like the hunting license, are bought and tested at special NPCs. Look around the city to find them.",
+    "text": "Progression / Licenses & degrees Licenses and degrees. Licenses and degrees cost money, require you to pass a test, and unlock things that are otherwise closed to you. You can see yours in the Degrees app. License Cost Unlocks Driving license 5,000€ Spawning and driving vehicles Gun license 15,000€ Buying and carrying firearms Basic Geology 5,000€ Lower mine levels (with a hazmat suit) Advanced Geology 20,000€ Oil pumps LETC 50,000€ Police career, see Police Lawyer Certification 50,000€ Lawyer career, see Law & Order Some licenses, like the hunting license, are bought and tested at special NPCs. Look around the city to find them. All your licenses in one place.",
     "snippet": "Progression / Licenses & degrees Licenses and degrees. Licenses and degrees cost money, require you to pass a test, and unlock things that are otherwise closed "
   },
   {
@@ -920,15 +1018,15 @@ window.DOCS_SEARCH_INDEX = [
     "path": "commands/#misc",
     "category": "Commands",
     "title": "Miscellaneous",
-    "text": "Category / Miscellaneous Miscellaneous COMMAND · 20 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 21 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature.",
+    "text": "Category / Miscellaneous Miscellaneous COMMAND · 20 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and the date are added. An item can only be signed once, and your phone cannot be signed. COMMAND · 21 /delsign Remove Signature Remove your signature from the item in your hand. Only the player who signed an item can remove the signature. COMMAND · 22 /health Health Open your body menu and see your current injuries. More in the Health System documentation.",
     "snippet": "Category / Miscellaneous Miscellaneous COMMAND · 20 /sign <Text> Sign an Item Sign the item in your hand with a short text (up to 64 characters). Your name and "
   },
   {
     "path": "commands/#privacy",
     "category": "Commands",
     "title": "Privacy",
-    "text": "Category / Privacy Privacy COMMAND · 22 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
-    "snippet": "Category / Privacy Privacy COMMAND · 22 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
+    "text": "Category / Privacy Privacy COMMAND · 23 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be useful when you do not want your current position to be visible on the live map.",
+    "snippet": "Category / Privacy Privacy COMMAND · 23 /bmpc Map Marker Toggle whether your player marker appears on the live map on the NukeRoleplay website. This can be usef"
   },
   {
     "path": "commands/#quick-reference",

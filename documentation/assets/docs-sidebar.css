@@ -559,3 +559,30 @@
     letter-spacing: .04em;
 
 }
+
+
+/* =============================================================
+   DOC LISTS
+============================================================= */
+
+.doc-list {
+
+    margin: 18px 0 24px;
+    padding-left: 1.3em;
+
+    color: var(--text, #d8d8d2);
+    line-height: 1.8;
+
+}
+
+.doc-list li {
+
+    margin-bottom: 8px;
+
+}
+
+.doc-list li::marker {
+
+    color: var(--green, #91b83f);
+
+}
