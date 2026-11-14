@@ -686,6 +686,21 @@
         }
 
 
+        .world-card:nth-child(5) {
+            grid-column:
+                1 / -1;
+
+            width:
+                68%;
+
+            margin:
+                20px auto 0;
+
+            transform:
+                rotate(-.6deg);
+        }
+
+
         .world-card:hover {
             transform:
                 rotate(0deg)
@@ -740,6 +755,15 @@
         .world-card:nth-child(4) img {
             height:
                 300px;
+        }
+
+
+        .world-card:nth-child(5) img {
+            height:
+                auto;
+
+            aspect-ratio:
+                1767 / 890;
         }
 
 
@@ -1351,7 +1375,8 @@
             .world-card:nth-child(1),
             .world-card:nth-child(2),
             .world-card:nth-child(3),
-            .world-card:nth-child(4) {
+            .world-card:nth-child(4),
+            .world-card:nth-child(5) {
                 width:
                     100%;
 
@@ -1381,6 +1406,12 @@
             }
 
 
+            .world-card:nth-child(5) {
+                transform:
+                    rotate(-.5deg);
+            }
+
+
             .world-card:nth-child(2):hover {
                 transform:
                     rotate(0deg)
@@ -1395,6 +1426,12 @@
             .world-card:nth-child(4) img {
                 height:
                     260px;
+            }
+
+
+            .world-card:nth-child(5) img {
+                height:
+                    auto;
             }
 
 
@@ -1688,40 +1725,6 @@
 
 
         <!-- =====================================================
-             DRY VALLEY
-        ====================================================== -->
-
-        <article
-            class="world-card"
-            onclick="openWorld('dryvalley')"
-        >
-
-            <img
-                src="../images/world/postcard_dryvalley.webp"
-                alt="Dry Valley"
-            >
-
-
-            <div class="world-card-info">
-
-                <h2>
-                    Dry Valley
-                </h2>
-
-                <p>
-                    Desert frontier
-                </p>
-
-                <div class="world-card-open">
-                    Explore Location →
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- =====================================================
              GRIMWATER
         ====================================================== -->
 
@@ -1812,6 +1815,40 @@
 
                 <p>
                     River city
+                </p>
+
+                <div class="world-card-open">
+                    Explore Location →
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             DRY VALLEY
+        ====================================================== -->
+
+        <article
+            class="world-card"
+            onclick="openWorld('dryvalley')"
+        >
+
+            <img
+                src="../images/world/postcard_dryvalley.webp"
+                alt="Dry Valley"
+            >
+
+
+            <div class="world-card-info">
+
+                <h2>
+                    Dry Valley
+                </h2>
+
+                <p>
+                    Desert frontier
                 </p>
 
                 <div class="world-card-open">
