@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../../images/logo.png">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<script src="../../assets/loader.js"></script>
+
+<title>v0.7.3 | NukeRoleplay</title>
+
+<meta name="description" content="NukeRoleplay update 0.6.5: Vehicles, Farming &amp; Hunting (October 8, 2026). Patch notes covering vehicles, farming, hunting, a fishing minigame, the Arcade and a full economy rebalance.">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --black: #090a0a;
+    --dark: #101211;
+    --panel: #151817;
+    --panel-light: #1b1e1c;
+
+    --white: #f1f0eb;
+    --text: #d8d8d2;
+    --muted: #8d918c;
+
+    --green: #91b83f;
+    --green-light: #b1d65b;
+    --green-dark: #617e27;
+
+    --red: #b34a43;
+
+    --line: rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--black);
+
+    color:
+        var(--text);
+
+    min-height:
+        100vh;
+
+    line-height:
+        1.7;
+
+    overflow-x:
+        hidden;
+}
+
+
+/* subtle scanline texture */
+
+body::before {
+
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    opacity:
+        .035;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.8) 0,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:
+        999;
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+
+    height:
+        72px;
+
+    padding:
+        0 5vw;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(9,10,10,.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.logo {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        1.45rem;
+
+    letter-spacing:
+        .5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.logo span {
+
+    color:
+        var(--green);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    font-size:
+        .82rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+
+    color:
+        var(--muted);
+}
+
+
+.nav-links a {
+
+    position:
+        relative;
+
+    transition:
+        color .2s ease;
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -7px;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .2s ease;
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--white);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    max-width:
+        950px;
+
+    margin:
+        auto;
+
+    padding:
+        85px 25px 120px;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        38px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    transition:
+        .2s ease;
+}
+
+
+.back:hover {
+
+    color:
+        var(--green-light);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position:
+        relative;
+
+    margin-bottom:
+        55px;
+
+    padding-left:
+        32px;
+}
+
+
+.header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        5px;
+
+    width:
+        4px;
+
+    height:
+        110px;
+
+    background:
+        var(--green);
+
+    transform:
+        skewY(-18deg);
+}
+
+
+.version {
+
+    color:
+        var(--green-light);
+
+    font-family:
+        monospace;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .12em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.header h1 {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 6rem);
+
+    line-height:
+        .9;
+
+    letter-spacing:
+        -.02em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        var(--white);
+
+    margin:
+        8px 0 18px;
+}
+
+
+.date {
+
+    color:
+        var(--muted);
+
+    font-size:
+        .78rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+}
+
+
+/* =========================================================
+   DEV BLOG
+========================================================= */
+
+.devblog {
+
+    margin-bottom:
+        55px;
+}
+
+
+.devblog-label {
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+
+    margin-bottom:
+        18px;
+}
+
+
+.devblog p {
+
+    color:
+        var(--text);
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.8;
+
+    max-width:
+        760px;
+
+    margin-bottom:
+        16px;
+}
+
+
+.devblog p:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.devblog strong {
+
+    color:
+        var(--white);
+}
+
+
+.changelog-divider {
+
+    border-top:
+        1px solid var(--line);
+
+    margin:
+        50px 0 45px;
+}
+
+
+.full-changelog-heading {
+
+    font-family:
+        Impact,
+        "Arial Narrow",
+        sans-serif;
+
+    font-size:
+        clamp(1.6rem, 3vw, 2.2rem);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        -.01em;
+
+    color:
+        var(--white);
+
+    margin-bottom:
+        30px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.category {
+
+    position:
+        relative;
+
+    margin-bottom:
+        28px;
+
+    padding:
+        30px 32px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--line);
+
+    box-shadow:
+        12px 12px 0 rgba(0,0,0,.18);
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.category:hover {
+
+    background:
+        var(--panel-light);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* green top accent */
+
+.category::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    background:
+        var(--green);
+
+    transition:
+        width .25s ease;
+}
+
+
+.category:hover::before {
+
+    width:
+        65px;
+}
+
+
+.category h2 {
+
+    margin-bottom:
+        22px;
+
+    font-family:
+        "Arial Narrow",
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size:
+        1.25rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .025em;
+
+    color:
+        var(--green-light);
+}
+
+
+.category ul {
+
+    padding-left:
+        22px;
+
+    color:
+        var(--muted);
+}
+
+
+.category li {
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        .9rem;
+}
+
+
+.category li:last-child {
+
+    margin-bottom:
+        0;
+}
+
+
+.category li::marker {
+
+    color:
+        var(--green);
+}
+
+
+.category li .sub {
+
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .84rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px 45px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        .72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .08em;
+
+    border-top:
+        1px solid var(--line);
+}
+
+
+footer strong {
+
+    color:
+        var(--white);
+}
+
+
+.footer-links {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        18px;
+}
+
+
+.footer-links a {
+
+    color:
+        var(--muted);
+
+    transition:
+        color .2s ease;
+}
+
+
+.footer-links a:hover {
+
+    color:
+        var(--green-light);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding:
+            0 20px;
+    }
+
+
+    .nav-links {
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            65px 20px 85px;
+    }
+
+
+    .header {
+
+        padding-left:
+            25px;
+
+        margin-bottom:
+            40px;
+    }
+
+
+    .header::before {
+
+        height:
+            90px;
+    }
+
+
+    .header h1 {
+
+        font-size:
+            min(3.8rem, 13.5vw);
+    }
+
+
+    .category {
+
+        padding:
+            25px 22px;
+
+        box-shadow:
+            8px 8px 0 rgba(0,0,0,.18);
+    }
+
+
+    .category h2 {
+
+        font-size:
+            1.1rem;
+    }
+
+
+    .category li {
+
+        font-size:
+            .86rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="../../"
+        class="logo"
+    >
+        Nuke<span>Roleplay</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="../../">
+            Home
+        </a>
+
+        <a href="../../world/">
+            World
+        </a>
+
+        <a href="../">
+            Changelogs
+        </a>
+
+        <a href="../../documentation/">Documentation</a>
+        <a
+            href="https://discord.gg/zdH3rhXzdu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     CONTENT
+========================================================= -->
+
+<main class="page">
+
+    <a href="../" class="back">← Back to Changelogs</a>
+
+    <header class="header">
+        <div class="version">VERSION 0.7.3</div>
+        <h1>Health &amp; Underground</h1>
+        <div class="date">November 14, 2026</div>
+    </header>
+
+
+    <!-- =====================================================
+         DEV BLOG
+    ====================================================== -->
+
+    <div class="devblog">
+
+        <div class="devblog-label">📋 Dev Blog — Update 0.7.3</div>
+
+        <p>
+            Update 0.7.3 is here, and the biggest change is that
+            getting hurt now actually matters. The new
+            <strong>health system</strong> is live, alongside a new
+            hospital, a big wave of underground and Mafia content,
+            smarter and more lifelike NPCs, a round of police
+            changes, and a lot of new shops.
+        </p>
+
+        <p>
+            Let's start with the <strong>health system</strong> 🩺.
+            Fights, bullets, falls, explosions, fire and even being
+            run over by a vehicle now injure specific parts of your
+            body: your head, torso, arms and legs. Every injury has a
+            type and a severity, and they come with real effects. Leg
+            injuries slow you down, arm injuries weaken your attacks
+            and your mining, torso injuries lower your maximum
+            health, and head injuries bring nausea and darkness. Some
+            injuries make you bleed, which drains your health over
+            time until it stops on its own or you bandage it.
+            Injuries heal by themselves, but slowly, so you'll want
+            to treat them. Plasters, bandages, splints, painkillers
+            and other medicine are sold at the pharmacy, and you can
+            treat yourself or other players. Use /health at any time
+            to see your current injuries.
+        </p>
+
+        <p>
+            You can also get sick 🤧. Standing in the rain for too
+            long, eating raw meat, leaving a wound untreated or
+            staying close to a sick player can all give you an
+            illness, from a simple cold to food poisoning or a wound
+            infection. Face masks 😷 make it harder to spread
+            diseases, and the right medicine cures you.
+        </p>
+
+        <p>
+            A fatal hit doesn't kill you instantly anymore. Instead,
+            you go down for a few minutes, unable to do much while
+            the people around you decide whether to help. Other
+            players can revive you with CPR or an AED, and if nobody
+            can, someone can call 911 for the medical staff. If you
+            do die, you wake up in the hospital.
+        </p>
+
+        <p>
+            Speaking of which, the new <strong>hospital</strong> 🏥
+            is the place to be when things get serious. Draw a ticket
+            at the reception, wait for a doctor to call you, and let
+            them treat you at the treatment room. Doctors can also
+            write prescriptions and sick notes. Treatment costs
+            money, but <strong>health insurance</strong> pays for it,
+            so get covered before you need it.
+        </p>
+
+        <p>
+            Down in the <strong>underground</strong> 🕶️, there's a
+            lot of new Mafia content, including drug dealers and more
+            drugs to deal with, and it's now easier to get into the
+            business. Ski masks hide your nametag while you wear
+            them. On the law enforcement side 🚓, the police handcuff
+            tool was remade, Lieutenants and above can now arrest
+            players without them needing to be wanted, and the prison
+            shows a bossbar with your remaining time. Committing a
+            crime while working a job can now get you suspended from
+            that job.
+        </p>
+
+        <p>
+            The world around you got more lifelike too 🧍.
+            <strong>NPCs</strong> now react to more of the things
+            happening around them, and they remember you, both the
+            good and the bad. Police NPCs have also gotten a bit
+            smarter, so you're better off not holding a weapon while
+            one is nearby.
+        </p>
+
+        <p>
+            Our <strong>Discord bot</strong> 🤖 learned some new
+            tricks as well: it now sends birthday reminders and has
+            its own coin system, with commands like /fish to earn
+            some coins.
+        </p>
+
+        <p>
+            On the shopping front 🛍️, the <strong>Icy Balls</strong>,
+            <strong>Guci</strong>, <strong>H&amp;N</strong>,
+            <strong>Dennis Cloth</strong> and
+            <strong>Backpack</strong> stores are open for business,
+            and there's a Backpack Mechanic too. Most shops now stay
+            closed at night, so plan your trips. New players are
+            greeted by a starter guide NPC at spawn, and voting now
+            rewards you with a Money Crate 🎁.
+        </p>
+
+        <p>
+            Finally, we adjusted a lot of numbers: mining XP,
+            Delivery job and Daily Quest rewards, and the prices for
+            degrees and licenses. And if you stir a cauldron with
+            your bare hand, be careful: it burns 🔥.
+        </p>
+
+    </div>
+
+
+    <div class="changelog-divider"></div>
+
+    <h2 class="full-changelog-heading">Full Changelog</h2>
+
+
+    <section class="category">
+        <h2>🩺 Health &amp; Hospital</h2>
+        <ul>
+            <li>
+                Added the new Health System.
+                <span class="sub">→ Injuries are now tracked on six body zones (head, torso, arms and legs) with seven injury types and three grades each.</span>
+                <span class="sub">→ Injuries come with effects like slower movement, weaker attacks, bleeding and nausea, and heal faster with treatment.</span>
+                <span class="sub">→ Added bleeding, illnesses (cold, flu, food poisoning, stomach bug, wound infection and tapeworm) and medicine from the pharmacy. Some illnesses are contagious.</span>
+                <span class="sub">→ When you take a fatal hit, you now go down for 3 minutes and can be revived by other players with CPR or an AED.</span>
+                <span class="sub">→ Use /health to open your body menu and see your injuries.</span>
+            </li>
+            <li>Added the new Hospital system with doctors, treatment rooms, prescriptions, sick notes and emergency calls via 911.</li>
+            <li>Added Health Insurance to cover your treatment costs.</li>
+            <li>Added Face Masks that make it harder to spread diseases.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🕶️ Mafia &amp; Underground</h2>
+        <ul>
+            <li>Added a lot of new Mafia content, including Drug Dealers and more.</li>
+            <li>Added more drugs.</li>
+            <li>Made it easier to get into the underground business.</li>
+            <li>Added Ski Masks that hide your nametag while worn.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🚓 Police &amp; Law</h2>
+        <ul>
+            <li>Remade the police handcuff tool.</li>
+            <li>Police Lieutenants and above can now arrest players without them needing to be wanted.</li>
+            <li>Added job suspensions when committing a crime while working a job.</li>
+            <li>Added a prison bossbar showing the remaining time.</li>
+            <li>Police NPCs are now smarter: you should avoid holding a weapon while one is nearby.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🧍 NPCs</h2>
+        <ul>
+            <li>NPCs are now more realistic and react to more of the things happening around them.</li>
+            <li>NPCs now remember you, both the good and the bad.</li>
+            <li>Added a new starter guide NPC at the spawn.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>💰 Economy &amp; Shops</h2>
+        <ul>
+            <li>Added the Icy Balls shop.</li>
+            <li>Added Guci stores across the map.</li>
+            <li>Added the H&amp;N Store.</li>
+            <li>Added the Dennis Cloth Store.</li>
+            <li>Added the Backpack Store and the Backpack Mechanic.</li>
+            <li>Shops now stay closed during the night (except some).</li>
+            <li>Adjusted prices for degrees and licenses.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>⚙️ Jobs &amp; Rewards</h2>
+        <ul>
+            <li>Adjusted the XP gained while mining.</li>
+            <li>Adjusted Delivery job money rewards.</li>
+            <li>Adjusted Daily Quest money rewards.</li>
+            <li>Added a Money Crate reward for voting.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🤖 Discord Bot</h2>
+        <ul>
+            <li>Added birthday reminders.</li>
+            <li>Added a coin system, with commands like /fish to earn coins.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🍺 Brewing</h2>
+        <ul>
+            <li>Stirring a cauldron with your bare hand now burns you.</li>
+        </ul>
+    </section>
+
+    <section class="category">
+        <h2>🐛 Bug Fixes</h2>
+        <ul>
+            <li>Fixed a Portable Planter duplication bug.</li>
+            <li>Fixed the miner saying "You found 0€ while mining".</li>
+        </ul>
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        Nuke Studios
+    </strong>.
+
+    All rights reserved.
+
+    <div class="footer-links">
+
+        <a href="../../imprint/">
+            Imprint
+        </a>
+
+        <a href="../../privacypolicy/">
+            Privacy Policy
+        </a>
+        <a href="../../recruitment/">Recruitment</a>
+        <a href="../../team/">Team</a>
+        <a href="../../rules/">Rules</a>
+        <a href="../../faq/">FAQ</a>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
