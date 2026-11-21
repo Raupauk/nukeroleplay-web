@@ -1865,6 +1865,45 @@
 
         }
 
+            .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+            font-size: 0.95rem;
+        }
+
+        .doc-table th,
+        .doc-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-table th {
+            color: var(--white);
+            font-family: "Arial Narrow", "Helvetica Neue", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+        }
+
+        .doc-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+
+            .doc-table td small {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        .doc-table td:first-child {
+            white-space: nowrap;
+        }
+
     </style>
 
     <link rel="stylesheet" href="../assets/docs-sidebar.css">
@@ -2101,9 +2140,7 @@
                         </h3>
 
                         <p>
-                            Officers can progress through the
-                            department by demonstrating good
-                            work and responsibility.
+                            Officers earn Police XP and rise through the ranks automatically.
                         </p>
 
                     </div>
@@ -2116,9 +2153,7 @@
                         </h3>
 
                         <p>
-                            Officers can become part of specialized
-                            departments such as SWAT, ASU, K-9
-                            Corps and Internal Affairs.
+                            Higher ranks unlock specialized teams such as SWAT, K-9 and the Aviation Support Unit.
                         </p>
 
                     </div>
@@ -2155,7 +2190,7 @@
                 <div class="section-heading">
 
                     <div class="section-label">
-                        Police / Recruitment
+                        Police / Joining
                     </div>
 
                     <h2 class="section-title">
@@ -2165,16 +2200,9 @@
 
                 </div>
 
-
                 <p>
-                    Becoming a police officer is not as simple
-                    as selecting the job. Players must first
-                    demonstrate that they understand the
-                    responsibilities that come with being a
-                    member of law enforcement.
+                    There is no application. Anyone who meets the requirements can become a police officer.
                 </p>
-
-
                 <div class="process">
 
                     <div class="process-step">
@@ -2184,22 +2212,16 @@
                         </div>
 
                         <div>
-
                             <h3>
-                                Visit the LETC
+                                Get the LETC License
                             </h3>
 
                             <p>
-                                Before joining the police,
-                                players must visit the
-                                <strong>Law Enforcement Training Center</strong>
-                                and take the required test.
+                                Take the exam at the <strong>Law Enforcement Training Center</strong>. The license costs <strong>3,000€</strong>.
                             </p>
-
                         </div>
 
                     </div>
-
 
                     <div class="process-step">
 
@@ -2208,23 +2230,16 @@
                         </div>
 
                         <div>
-
                             <h3>
-                                Pass the Test
+                                Check your reputation
                             </h3>
 
                             <p>
-                                The LETC test consists of
-                                multiple-choice questions.
-                                You must pass the test before
-                                continuing with the recruitment
-                                process.
+                                You need a reputation of at least <strong>80</strong>, which is Neutral.
                             </p>
-
                         </div>
 
                     </div>
-
 
                     <div class="process-step">
 
@@ -2233,53 +2248,26 @@
                         </div>
 
                         <div>
-
                             <h3>
-                                Contact the OCPD
+                                Start your shift
                             </h3>
 
                             <p>
-                                After passing the LETC test,
-                                check the OCPD Discord for
-                                information about how to
-                                officially apply and enroll.
+                                Open your phone and choose <strong>Job Selector → Oblivion City Police Department → Shift Officer</strong>. You are enrolled automatically as a <strong>Rookie</strong>.
                             </p>
-
-
-                            <a
-                                class="discord-link"
-                                href="https://discord.gg/Tcm4e6QEqH"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <span>
-                                    →
-                                </span>
-
-                                OCPD Discord
-                            </a>
-
                         </div>
 
                     </div>
 
                 </div>
 
-
                 <div class="warning">
-
                     <div class="warning-label">
-                        Reputation
+                        Locked
                     </div>
-
                     <p>
-                        You cannot become a police officer if your
-                        reputation is too low. Keep a clean record
-                        if you want a career in law enforcement.
-                        The LETC exam also costs <strong>50,000€</strong>,
-                        so save up before you apply.
+                        Without the LETC License the entry is locked. It shows a red ✘ and "Requires: LETC License".
                     </p>
-
                 </div>
 
             </section>
@@ -2343,13 +2331,11 @@
                     <div class="info-card">
 
                         <h3>
-                            Recruitment Test
+                            License Exam
                         </h3>
 
                         <p>
-                            New applicants must complete the
-                            multiple-choice LETC test before
-                            they can proceed with recruitment.
+                            The exam has 6 multiple-choice questions and you can get at most 2 wrong. All questions are about what officers may and may not do, for example consequences of crimes on duty, who may be handcuffed, lethal force, de-escalation and what to do after cuffing.
                         </p>
 
                     </div>
@@ -2395,105 +2381,47 @@
 
                 </div>
 
-
                 <p>
-                    The OCPD has a structured rank system.
-                    Officers can progress through the department
-                    by doing good work, gaining experience and
-                    taking on greater responsibilities.
+                    Ranks up to Commander are earned automatically with <strong>Police XP</strong>. On promotion you get a title and a message, and if you are on duty your new tools are unlocked immediately. Locked teams and actions show a red ✘ and the rank you need.
                 </p>
-
-
-                <div class="rank-list">
-
-
-                    <div class="rank-card">
-
-                        <div class="rank-number">
-                            01
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Shift Officers
-                            </h3>
-
-                            <p>
-                                The frontline officers of the
-                                OCPD. Shift Officers handle
-                                everyday police work, patrols,
-                                calls and enforcement.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="rank-card">
-
-                        <div class="rank-number">
-                            02
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Commanders
-                            </h3>
-
-                            <p>
-                                Commanders are responsible for
-                                leading divisions and overseeing
-                                the officers working within them.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="rank-card">
-
-                        <div class="rank-number">
-                            03
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Chief Ranks
-                            </h3>
-
-                            <p>
-                                The highest ranks in the OCPD.
-                                Chief Ranks oversee the department
-                                as a whole and provide overall
-                                leadership for the police force.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
+                <div class="doc-table-wrap">
+                <table class="doc-table">
+                    <thead><tr><th>Rank</th><th>Unlocks</th></tr></thead>
+                    <tbody>
+                        <tr><td>Rookie<small>0 XP · 250€</small></td><td>Shift Officer team, handcuffs (cuff, search, check degrees), baton, 50 GS pistol</td></tr>
+                        <tr><td>Police Officer<small>100 XP · 350€</small></td><td>Traffic cones, can issue citations</td></tr>
+                        <tr><td>Detective<small>300 XP · 450€</small></td><td>Spike strips, access to SWAT</td></tr>
+                        <tr><td>Constable<small>600 XP · 500€</small></td><td>Can arrest players</td></tr>
+                        <tr><td>Corporal<small>1,000 XP · 550€</small></td><td>.357 Magnum</td></tr>
+                        <tr><td>Sergeant<small>1,600 XP · 700€</small></td><td>Access to K-9</td></tr>
+                        <tr><td>Lieutenant<small>2,400 XP · 850€</small></td><td>May cuff players without a wanted level, battering ram</td></tr>
+                        <tr><td>Captain<small>3,400 XP · 1,000€</small></td><td>Origin-12 shotgun</td></tr>
+                        <tr><td>Deputy Commander<small>4,700 XP · 1,100€</small></td><td>Access to the Aviation Support Unit (ASU)</td></tr>
+                        <tr><td>Commander<small>6,300 XP · 1,250€</small></td><td>M4A1 assault rifle, the highest rank you can earn</td></tr>
+                        <tr><td>Deputy Chief<small>Appointed · 1,450€</small></td><td>Access to the Chief Ranks team</td></tr>
+                        <tr><td>Chief of Police<small>Appointed · 1,700€</small></td><td>Appoints and dismisses Deputy Chiefs</td></tr>
+                    </tbody>
+                </table>
                 </div>
-
-
+                <h3 class="sub-title">Earning XP</h3>
+                <ul class="doc-list">
+                    <li>Arrest: 15 XP plus 10 XP per wanted star of the suspect</li>
+                    <li>Citation: 5 XP</li>
+                    <li>Killing a wanted player: 4 XP per wanted star</li>
+                    <li>You get no XP if the suspect was not wanted.</li>
+                    <li>You only get XP for the same suspect and the same action once per 60 minutes.</li>
+                </ul>
+                <h3 class="sub-title">Deputy Chiefs and Chief</h3>
+                <p>
+                    Ranks above Commander cannot be earned. The <strong>Chief of Police</strong> is set by the government or by admins. The Chief chooses up to <strong>2 Deputy Chiefs</strong>, only from players who are Commander. Deputy Chiefs and the Chief earn no XP.
+                </p>
                 <div class="warning">
-
                     <div class="warning-label">
-                        Career · Responsibility
+                        Personnel
                     </div>
-
                     <p>
-                        Higher ranks come with greater
-                        responsibility. Officers should always
-                        remember that rank is earned through
-                        good work and responsible conduct.
+                        Officers cannot be promoted, demoted, added or removed by other officers, not even by Captains and above. Ranks only change through XP, appointments and admins.
                     </p>
-
                 </div>
 
             </section>
@@ -2521,17 +2449,10 @@
 
                 </div>
 
-
                 <p>
-                    The OCPD is divided into several specialized
-                    departments. Each unit focuses on a different
-                    area of police work and can have its own
-                    members and progression.
+                    SWAT, K-9 and the Aviation Support Unit are teams that you unlock with your police rank. They do not have ranks of their own. Every team keeps its own equipment.
                 </p>
-
-
                 <div class="department-grid">
-
 
                     <div class="department-card">
 
@@ -2544,14 +2465,10 @@
                         </h3>
 
                         <p>
-                            A specialized tactical unit for
-                            situations that require a higher
-                            level of preparation, coordination
-                            and equipment.
+                            A specialized tactical unit for situations that require a higher level of preparation, coordination and equipment. Unlocked at <strong>Detective</strong>.
                         </p>
 
                     </div>
-
 
                     <div class="department-card">
 
@@ -2560,18 +2477,14 @@
                         </div>
 
                         <h3>
-                            ASU
+                            K-9
                         </h3>
 
                         <p>
-                            The <strong>Aviation Support Unit</strong>
-                            provides aerial support for police
-                            operations and situations where
-                            an elevated view is useful.
+                            Police work with trained police dogs and their handlers. Unlocked at <strong>Sergeant</strong>.
                         </p>
 
                     </div>
-
 
                     <div class="department-card">
 
@@ -2580,48 +2493,16 @@
                         </div>
 
                         <h3>
-                            K-9 Corps
+                            ASU
                         </h3>
 
                         <p>
-                            The K-9 Corps specializes in police
-                            work involving trained police dogs
-                            and their handlers.
+                            The Aviation Support Unit provides aerial support for police operations. Unlocked at <strong>Deputy Commander</strong>.
                         </p>
 
                     </div>
-
-
-                    <div class="department-card">
-
-                        <div class="department-code">
-                            UNIT · 04
-                        </div>
-
-                        <h3>
-                            Internal Affairs
-                        </h3>
-
-                        <p>
-                            Internal Affairs focuses on
-                            maintaining accountability and
-                            investigating issues involving
-                            members of the department.
-                        </p>
-
-                    </div>
-
 
                 </div>
-
-
-                <p style="margin-top: 22px;">
-                    Officers can become members of specialized
-                    units and progress through their respective
-                    structures. Commanders are responsible for
-                    leading divisions, while the Chief Ranks
-                    oversee the department at the highest level.
-                </p>
 
             </section>
 
@@ -2650,7 +2531,7 @@
 
                 <p>
                     Police stations provide an important service to everyone in the city. At the reception desk, any player
-                    can view the current list of wanted players. Officers can only cuff players who are wanted.
+                    can view the current list of wanted players. Officers can only cuff players who are wanted. From Lieutenant, officers may also cuff players without a wanted level.
                 </p>
 
                 <p>
@@ -2683,84 +2564,50 @@
 
                 </div>
 
-
                 <p>
-                    Police officers have access to a variety of
-                    tools and systems designed to make their work
-                    more efficient. These tools allow officers
-                    to access relevant information, respond to
-                    situations and perform their duties throughout
-                    the city.
+                    Rank unlocks your equipment, see the table above. Items with the team tool tag, such as your uniform, weapons, handcuffs and ID, cannot be dropped, put into chests or other containers, item frames or armor stands.
                 </p>
-
-
                 <div class="info-grid">
-
+                    <div class="info-card">
+                        <h3>
+                            Handcuffs
+                        </h3>
+                        <p>
+                            Cuff wanted players, search them and check their degrees.
+                        </p>
+                    </div>
 
                     <div class="info-card">
-
                         <h3>
                             Mobile Data
                         </h3>
-
                         <p>
-                            Officers can access relevant police
-                            information through specialized
-                            police systems while away from a
-                            station.
+                            The MFD shows your rank, XP and next rank in Police Career, with the full list of ranks and perks. The Player Database shows the crimes recorded for a suspect.
                         </p>
-
                     </div>
-
 
                     <div class="info-card">
-
                         <h3>
-                            Police Equipment
+                            Citations
                         </h3>
-
                         <p>
-                            Specialized equipment helps officers
-                            handle different situations and
-                            perform their duties efficiently.
+                            From Police Officer. Choose a recorded crime that has a fine. The fine is charged and the crime is removed from the record.
                         </p>
-
                     </div>
-
 
                     <div class="info-card">
-
                         <h3>
-                            Communication
+                            Arrests
                         </h3>
-
                         <p>
-                            Police work depends on effective
-                            communication between officers,
-                            divisions and leadership.
+                            From Constable. One button sends the suspect to prison for the combined sentence of all recorded crimes, at most 30 minutes.
                         </p>
-
                     </div>
-
-
-                    <div class="info-card">
-
-                        <h3>
-                            Training
-                        </h3>
-
-                        <p>
-                            Officers can continue practicing
-                            and improving their skills at the
-                            LETC.
-                        </p>
-
-                    </div>
-
 
                 </div>
-
-
+                <p>
+                    Officers never type reasons, fines or sentences. The system records the crimes it detected and you choose from them. A citation clears the wanted level once no crimes are left, an arrest clears all recorded crimes. If a player is wanted but no specific crime is recorded, Disturbing the Peace is used. Logging out while cuffed counts as Escape from Custody and raises the wanted level.
+                </p>
                 <figure class="doc-figure">
 
                     <img
@@ -2841,6 +2688,15 @@
                     keep Oblivion City safe.
                 </p>
 
+                            <div class="warning">
+                    <div class="warning-label">
+                        Officers cannot commit crimes
+                    </div>
+                    <p>
+                        If you commit a crime while in a police team, you are moved to the Civilian team immediately, lose all team tools and are suspended for 3 minutes per penalty point, at least 30 and at most 180 minutes. All police teams show "Suspended for X" in the Job Selector. Everything that gives a normal player a wanted level counts, and so does shooting, hitting or killing players without a wanted level, civilian NPCs or police NPCs. The Fight Club region is not affected.
+                    </p>
+                </div>
+
             </section>
 
 
@@ -2866,121 +2722,77 @@
 
                 </div>
 
-
                 <div class="info-grid">
-
-
                     <div class="info-card">
-
                         <h3>
                             Department
                         </h3>
-
                         <p>
-                            Oblivion City Police Department
-                            · OCPD
+                            Oblivion City Police Department · OCPD
                         </p>
-
                     </div>
 
-
                     <div class="info-card">
-
                         <h3>
-                            Training
+                            Joining
                         </h3>
-
                         <p>
-                            Law Enforcement Training Center
-                            · LETC
+                            LETC License (3,000€), reputation 80, Job Selector → Shift Officer
                         </p>
-
                     </div>
 
-
                     <div class="info-card">
-
                         <h3>
-                            Rank Structure
+                            Ranks
                         </h3>
-
                         <p>
-                            Shift Officers → Commanders →
-                            Chief Ranks
+                            Rookie → Commander by XP, Deputy Chiefs and Chief are appointed
                         </p>
-
                     </div>
 
-
                     <div class="info-card">
-
                         <h3>
-                            Specialized Units
+                            Teams
                         </h3>
-
                         <p>
-                            SWAT · ASU · K-9 Corps ·
-                            Internal Affairs
+                            SWAT · K-9 · ASU, unlocked by rank
                         </p>
-
                     </div>
 
-
                     <div class="info-card">
-
-                        <h3>
-                            Recruitment
-                        </h3>
-
-                        <p>
-                            Pass the LETC multiple-choice
-                            test before applying to the OCPD.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-card">
-
                         <h3>
                             Wanted List
                         </h3>
-
                         <p>
-                            Available to players at the
-                            reception of police stations.
+                            Available to players at the reception of police stations.
                         </p>
-
                     </div>
 
-
                     <div class="info-card">
-
                         <h3>
                             Wanted Stars
                         </h3>
-
                         <p>
-                            White until police spot you,
-                            then red. Cuffing only works
-                            on wanted players.
+                            White until police spot you, then red.
                         </p>
-
                     </div>
 
+                    <div class="info-card">
+                        <h3>
+                            Citations and arrests
+                        </h3>
+                        <p>
+                            Citations from Police Officer, arrests from Constable
+                        </p>
+                    </div>
 
                     <div class="info-card">
-
                         <h3>
                             Combat Logging
                         </h3>
-
                         <p>
-                            Do not leave the server while
-                            fighting. Some features are locked
-                            during combat.
+                            Do not leave the server while fighting.
                         </p>
-
                     </div>
 
                 </div>
